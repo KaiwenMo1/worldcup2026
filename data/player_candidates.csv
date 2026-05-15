@@ -1,0 +1,145 @@
+team,player,position,scoring_weight,starter,penalty_taker
+France,Kylian Mbappe,FW,100,1,1
+France,Antoine Griezmann,FW,58,1,0
+France,Ousmane Dembele,FW,52,1,0
+Brazil,Vinicius Junior,FW,86,1,0
+Brazil,Rodrygo,FW,74,1,1
+Brazil,Endrick,FW,64,0,0
+Argentina,Lionel Messi,FW,88,1,1
+Argentina,Lautaro Martinez,FW,78,1,0
+Argentina,Julian Alvarez,FW,72,1,0
+England,Harry Kane,FW,96,1,1
+England,Jude Bellingham,MF,70,1,0
+England,Bukayo Saka,FW,66,1,0
+Spain,Lamine Yamal,FW,76,1,0
+Spain,Alvaro Morata,FW,70,1,1
+Spain,Nico Williams,FW,62,1,0
+Portugal,Cristiano Ronaldo,FW,82,1,1
+Portugal,Bruno Fernandes,MF,72,1,0
+Portugal,Rafael Leao,FW,66,1,0
+Netherlands,Cody Gakpo,FW,76,1,0
+Netherlands,Memphis Depay,FW,72,1,1
+Netherlands,Donyell Malen,FW,58,0,0
+Germany,Jamal Musiala,MF,74,1,0
+Germany,Kai Havertz,FW,70,1,1
+Germany,Florian Wirtz,MF,68,1,0
+Belgium,Romelu Lukaku,FW,82,1,1
+Belgium,Kevin De Bruyne,MF,66,1,0
+Belgium,Jeremy Doku,FW,54,1,0
+Croatia,Andrej Kramaric,FW,66,1,1
+Croatia,Luka Modric,MF,52,1,0
+Croatia,Ivan Perisic,FW,48,1,0
+Morocco,Youssef En-Nesyri,FW,70,1,0
+Morocco,Hakim Ziyech,FW,62,1,1
+Morocco,Brahim Diaz,FW,60,1,0
+Colombia,Luis Diaz,FW,74,1,0
+Colombia,James Rodriguez,MF,62,1,1
+Colombia,Jhon Duran,FW,58,0,0
+Uruguay,Darwin Nunez,FW,78,1,0
+Uruguay,Federico Valverde,MF,58,1,0
+Uruguay,Luis Suarez,FW,50,0,1
+Mexico,Santiago Gimenez,FW,72,1,1
+Mexico,Henry Martin,FW,54,0,0
+Mexico,Hirving Lozano,FW,52,1,0
+USA,Christian Pulisic,FW,76,1,1
+USA,Folarin Balogun,FW,66,1,0
+USA,Giovanni Reyna,MF,52,1,0
+Switzerland,Breel Embolo,FW,66,1,0
+Switzerland,Xherdan Shaqiri,MF,54,1,1
+Switzerland,Noah Okafor,FW,52,0,0
+Senegal,Sadio Mane,FW,76,1,1
+Senegal,Nicolas Jackson,FW,62,1,0
+Senegal,Ismaila Sarr,FW,52,1,0
+Japan,Kaoru Mitoma,FW,64,1,0
+Japan,Takefusa Kubo,FW,62,1,1
+Japan,Daizen Maeda,FW,52,1,0
+Turkiye,Hakan Calhanoglu,MF,66,1,1
+Turkiye,Arda Guler,MF,62,1,0
+Turkiye,Kenan Yildiz,FW,56,1,0
+Ecuador,Enner Valencia,FW,70,1,1
+Ecuador,Kendry Paez,MF,54,1,0
+Ecuador,Moises Caicedo,MF,40,1,0
+Austria,Marko Arnautovic,FW,60,1,1
+Austria,Christoph Baumgartner,MF,56,1,0
+Austria,Michael Gregoritsch,FW,54,1,0
+Canada,Jonathan David,FW,72,1,1
+Canada,Alphonso Davies,FW,58,1,0
+Canada,Cyle Larin,FW,54,1,0
+Korea Republic,Son Heung-min,FW,78,1,1
+Korea Republic,Hwang Hee-chan,FW,60,1,0
+Korea Republic,Lee Kang-in,MF,56,1,0
+IR Iran,Mehdi Taremi,FW,72,1,1
+IR Iran,Sardar Azmoun,FW,64,1,0
+IR Iran,Alireza Jahanbakhsh,FW,48,1,0
+Australia,Mitchell Duke,FW,56,1,0
+Australia,Craig Goodwin,FW,52,1,1
+Australia,Mathew Leckie,FW,46,1,0
+Norway,Erling Haaland,FW,96,1,1
+Norway,Martin Odegaard,MF,66,1,0
+Norway,Alexander Sorloth,FW,60,1,0
+Sweden,Alexander Isak,FW,78,1,1
+Sweden,Viktor Gyokeres,FW,76,1,0
+Sweden,Dejan Kulusevski,FW,58,1,0
+Egypt,Mohamed Salah,FW,86,1,1
+Egypt,Mostafa Mohamed,FW,58,1,0
+Egypt,Omar Marmoush,FW,62,1,0
+Algeria,Riyad Mahrez,FW,68,1,1
+Algeria,Said Benrahma,FW,56,1,0
+Algeria,Amine Gouiri,FW,58,1,0
+Cote d'Ivoire,Sebastien Haller,FW,66,1,1
+Cote d'Ivoire,Simon Adingra,FW,56,1,0
+Cote d'Ivoire,Franck Kessie,MF,54,1,0
+Scotland,Scott McTominay,MF,62,1,0
+Scotland,John McGinn,MF,50,1,0
+Scotland,Che Adams,FW,52,1,1
+Paraguay,Miguel Almiron,FW,58,1,0
+Paraguay,Julio Enciso,FW,56,1,1
+Paraguay,Antonio Sanabria,FW,52,1,0
+Czechia,Patrik Schick,FW,70,1,1
+Czechia,Adam Hlozek,FW,52,1,0
+Czechia,Tomas Soucek,MF,50,1,0
+Panama,Cecilio Waterman,FW,54,1,1
+Panama,Jose Fajardo,FW,52,1,0
+Panama,Ismael Diaz,FW,50,1,0
+Tunisia,Youssef Msakni,FW,58,1,1
+Tunisia,Elias Achouri,FW,50,1,0
+Tunisia,Seifeddine Jaziri,FW,48,1,0
+Congo DR,Cedric Bakambu,FW,58,1,1
+Congo DR,Yoane Wissa,FW,56,1,0
+Congo DR,Silas,FW,50,1,0
+Qatar,Akram Afif,FW,66,1,1
+Qatar,Almoez Ali,FW,62,1,0
+Qatar,Hassan Al-Haydos,MF,46,1,0
+Uzbekistan,Eldor Shomurodov,FW,64,1,1
+Uzbekistan,Abbosbek Fayzullaev,MF,52,1,0
+Uzbekistan,Igor Sergeev,FW,48,0,0
+Saudi Arabia,Salem Al-Dawsari,FW,62,1,1
+Saudi Arabia,Firas Al-Buraikan,FW,54,1,0
+Saudi Arabia,Saleh Al-Shehri,FW,50,1,0
+South Africa,Percy Tau,FW,60,1,1
+South Africa,Themba Zwane,MF,50,1,0
+South Africa,Evidence Makgopa,FW,48,1,0
+Iraq,Aymen Hussein,FW,62,1,1
+Iraq,Ali Jasim,FW,50,1,0
+Iraq,Ibrahim Bayesh,MF,46,1,0
+Jordan,Mousa Al-Taamari,FW,62,1,1
+Jordan,Yazan Al-Naimat,FW,58,1,0
+Jordan,Ali Olwan,FW,46,1,0
+Bosnia and Herzegovina,Edin Dzeko,FW,62,1,1
+Bosnia and Herzegovina,Ermedin Demirovic,FW,56,1,0
+Bosnia and Herzegovina,Miralem Pjanic,MF,46,1,0
+Cabo Verde,Ryan Mendes,FW,56,1,1
+Cabo Verde,Bebe,FW,52,1,0
+Cabo Verde,Jovane Cabral,FW,50,1,0
+Ghana,Mohammed Kudus,FW,66,1,0
+Ghana,Jordan Ayew,FW,58,1,1
+Ghana,Inaki Williams,FW,56,1,0
+Curacao,Leandro Bacuna,MF,52,1,1
+Curacao,Juninho Bacuna,MF,48,1,0
+Curacao,Kenji Gorre,FW,46,1,0
+Haiti,Frantzdy Pierrot,FW,58,1,1
+Haiti,Duckens Nazon,FW,56,1,0
+Haiti,Carnejy Antoine,FW,46,1,0
+New Zealand,Chris Wood,FW,68,1,1
+New Zealand,Matthew Garbett,MF,48,1,0
+New Zealand,Elijah Just,FW,46,1,0

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>World Cup 2026 Predictor</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">FIFA World Cup 2026</p>
+        <h1>Predictor</h1>
+      </div>
+      <div class="status-pill" id="modelStatus">Loading model</div>
+    </header>
+
+    <main>
+      <section class="control-band">
+        <div class="controls">
+          <label>
+            Simulations
+            <input id="simCount" type="number" min="1" max="20000" value="50" />
+          </label>
+          <label>
+            Seed
+            <input id="seed" type="number" value="26" />
+          </label>
+          <label class="check">
+            <input id="lockSeed" type="checkbox" />
+            Lock seed
+          </label>
+          <label class="check">
+            <input id="useModel" type="checkbox" checked />
+            Random Forest
+          </label>
+          <label>
+            Weather preview
+            <select id="weather">
+              <option value="normal">Normal</option>
+              <option value="heat">Heat</option>
+              <option value="rain">Rain</option>
+              <option value="cold">Cold</option>
+              <option value="altitude">Altitude</option>
+            </select>
+          </label>
+          <label>
+            Travel load
+            <input id="travel" type="range" min="0" max="100" value="20" />
+          </label>
+          <label>
+            Fatigue load
+            <input id="fatigue" type="range" min="0" max="100" value="20" />
+          </label>
+          <label>
+            Host edge
+            <input id="homeAdvantage" type="range" min="0" max="2" value="1" step="0.1" />
+          </label>
+          <button id="runBtn">Run Simulation</button>
+          <button id="refreshBtn" class="secondary">Refresh Live Data</button>
+        </div>
+      </section>
+
+      <section class="summary-grid">
+        <div class="metric">
+          <span>Champion</span>
+          <strong id="championMetric">-</strong>
+        </div>
+        <div class="metric">
+          <span>Top Scorer</span>
+          <strong id="topScorerMetric">-</strong>
+        </div>
+        <div class="metric">
+          <span>Model</span>
+          <strong id="modelMetric">-</strong>
+        </div>
+        <div class="metric">
+          <span>Live State</span>
+          <strong id="liveMetric">Manual</strong>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Tournament Path</h2>
+          <p id="bracketSub">-</p>
+        </div>
+        <div id="bracket" class="bracket"></div>
+      </section>
+
+      <section class="triple">
+        <div class="section">
+          <div class="section-head">
+            <h2>Champion Odds</h2>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Team</th>
+                  <th>Final</th>
+                  <th>Win</th>
+                </tr>
+              </thead>
+              <tbody id="oddsBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-head">
+            <h2>Top Scorers</h2>
+          </div>
+          <div id="topScorers" class="scorers"></div>
+        </div>
+
+        <div class="section">
+          <div class="section-head">
+            <h2>Match Predictor</h2>
+          </div>
+          <div class="match-controls">
+            <select id="teamA"></select>
+            <select id="teamB"></select>
+            <button id="matchBtn" class="secondary">Predict Match</button>
+          </div>
+          <div id="matchResult" class="match-result"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Groups</h2>
+        </div>
+        <div id="groups" class="groups"></div>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

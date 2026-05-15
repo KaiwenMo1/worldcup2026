@@ -1,0 +1,649 @@
+#!/usr/bin/env python3
+"""Monte Carlo predictor for the 2026 FIFA World Cup."""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import math
+import random
+from collections import Counter, defaultdict
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Any
+
+try:
+    import joblib
+except ModuleNotFoundError:
+    joblib = None
+
+
+ROOT = Path(__file__).resolve().parents[1]
+TEAMS_PATH = ROOT / "data" / "teams.csv"
+GROUPS_PATH = ROOT / "data" / "groups.csv"
+FEATURES_PATH = ROOT / "data" / "team_features.csv"
+ADVANCED_FEATURES_PATH = ROOT / "data" / "team_advanced_features.csv"
+MODEL_PATH = ROOT / "models" / "worldcup_random_forest.joblib"
+
+CONFEDERATION_ADJUSTMENT = {
+    "CONMEBOL": 0.10,
+    "UEFA": 0.08,
+    "CAF": 0.00,
+    "CONCACAF": -0.02,
+    "AFC": -0.05,
+    "OFC": -0.12,
+}
+
+CONFEDERATION_STRENGTH = {
+    "CONMEBOL": 0.10,
+    "UEFA": 0.08,
+    "CAF": 0.00,
+    "CONCACAF": -0.02,
+    "AFC": -0.05,
+    "OFC": -0.12,
+}
+
+DEFAULT_TEAM_STATE = {
+    "elo": 1500.0,
+    "recent_points": 1.15,
+    "recent_goal_diff": 0.0,
+    "recent_goals_for": 1.25,
+    "recent_goals_against": 1.25,
+    "recent_clean_sheet": 0.25,
+}
+
+
+@dataclass(frozen=True)
+class Team:
+    name: str
+    confederation: str
+    rank: int
+    host: bool
+    world_cup_pedigree: int
+    attack: float = 70.0
+    midfield: float = 70.0
+    defense: float = 70.0
+    goalkeeper: float = 70.0
+    bench: float = 70.0
+    recent_form: float = 70.0
+    fitness: float = 88.0
+    chemistry: float = 70.0
+    manager: float = 70.0
+    set_piece_attack: float = 75.0
+    set_piece_defense: float = 75.0
+    penalty_strength: float = 76.0
+    discipline: float = 78.0
+    tactical_flexibility: float = 76.0
+    injury_resilience: float = 84.0
+    pressing_intensity: float = 78.0
+    transition_speed: float = 78.0
+    big_match_composure: float = 78.0
+
+    @property
+    def strength(self) -> float:
+        ranking_score = (90 - self.rank) / 90
+        host_boost = 0.12 if self.host else 0.0
+        pedigree_boost = (self.world_cup_pedigree - 3) * 0.045
+        confed_boost = CONFEDERATION_ADJUSTMENT.get(self.confederation, 0.0)
+        squad_score = (
+            self.attack * 0.22
+            + self.midfield * 0.20
+            + self.defense * 0.18
+            + self.goalkeeper * 0.10
+            + self.bench * 0.10
+            + self.recent_form * 0.08
+            + self.fitness * 0.04
+            + self.chemistry * 0.05
+            + self.manager * 0.03
+            + self.set_piece_attack * 0.03
+            + self.set_piece_defense * 0.03
+            + self.tactical_flexibility * 0.04
+            + self.injury_resilience * 0.03
+            + self.big_match_composure * 0.03
+        )
+        squad_boost = (squad_score - 84) / 100
+        return 1.0 + ranking_score + squad_boost + host_boost + pedigree_boost + confed_boost
+
+    @property
+    def squad_rating(self) -> float:
+        return (
+            self.attack * 0.25
+            + self.midfield * 0.20
+            + self.defense * 0.18
+            + self.goalkeeper * 0.12
+            + self.bench * 0.10
+            + self.recent_form * 0.06
+            + self.fitness * 0.03
+            + self.chemistry * 0.04
+            + self.manager * 0.02
+            + self.set_piece_attack * 0.03
+            + self.set_piece_defense * 0.03
+            + self.tactical_flexibility * 0.03
+            + self.injury_resilience * 0.03
+            + self.big_match_composure * 0.02
+        ) / 1.14
+
+
+@dataclass
+class Standing:
+    team: Team
+    points: int = 0
+    goals_for: int = 0
+    goals_against: int = 0
+    wins: int = 0
+
+    @property
+    def goal_difference(self) -> int:
+        return self.goals_for - self.goals_against
+
+    def sort_key(self) -> tuple[int, int, int, int, int]:
+        return (
+            self.points,
+            self.goal_difference,
+            self.goals_for,
+            self.wins,
+            -self.team.rank,
+        )
+
+
+@dataclass
+class ModelBundle:
+    model: dict[str, Any]
+    path: Path
+    probability_cache: dict[tuple[str, str], dict[str, float]] = field(default_factory=dict)
+    goals_cache: dict[tuple[str, str, bool], tuple[float, float]] = field(default_factory=dict)
+
+
+def load_feature_rows() -> dict[str, dict[str, float]]:
+    features: dict[str, dict[str, float]] = {}
+    for path in (FEATURES_PATH, ADVANCED_FEATURES_PATH):
+        if not path.exists():
+            continue
+        with path.open(newline="", encoding="utf-8") as handle:
+            for row in csv.DictReader(handle):
+                features.setdefault(row["team"], {}).update(
+                    {
+                        key: float(value)
+                        for key, value in row.items()
+                        if key != "team" and value != ""
+                    }
+                )
+    return features
+
+
+def load_teams() -> dict[str, Team]:
+    features = load_feature_rows()
+    with TEAMS_PATH.open(newline="", encoding="utf-8") as handle:
+        rows = csv.DictReader(handle)
+        return {
+            row["team"]: Team(
+                name=row["team"],
+                confederation=row["confederation"],
+                rank=int(row["rank"]),
+                host=row["host"] == "1",
+                world_cup_pedigree=int(row["world_cup_pedigree"]),
+                **features.get(row["team"], {}),
+            )
+            for row in rows
+        }
+
+
+def load_groups(teams: dict[str, Team]) -> dict[str, list[Team]]:
+    groups: dict[str, list[Team]] = defaultdict(list)
+    with GROUPS_PATH.open(newline="", encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
+            groups[row["group"]].append(teams[row["team"]])
+    return dict(sorted(groups.items()))
+
+
+def load_model(path: Path) -> ModelBundle | None:
+    if not path.exists():
+        return None
+    if joblib is None:
+        raise SystemExit(
+            "A model file exists, but joblib is not installed. Run:\n"
+            "  source .venv/bin/activate\n"
+            "  pip install -r requirements.txt"
+        )
+    return ModelBundle(model=joblib.load(path), path=path)
+
+
+def poisson(lam: float) -> int:
+    threshold = math.exp(-lam)
+    product = 1.0
+    count = 0
+    while product > threshold:
+        count += 1
+        product *= random.random()
+    return count - 1
+
+
+def expected_goals(team: Team, opponent: Team, knockout: bool = False) -> float:
+    strength_gap = team.strength - opponent.strength
+    attack_edge = (team.attack - opponent.defense) / 100
+    midfield_edge = (team.midfield - opponent.midfield) / 100
+    keeper_edge = (70 - opponent.goalkeeper) / 100
+    form_edge = (team.recent_form - opponent.recent_form) / 100
+    fitness_edge = (team.fitness - opponent.fitness) / 100
+    chemistry_edge = (team.chemistry - opponent.chemistry) / 100
+    bench_edge = (team.bench - opponent.bench) / 100
+    set_piece_edge = (team.set_piece_attack - opponent.set_piece_defense) / 100
+    transition_edge = (team.transition_speed - opponent.pressing_intensity) / 100
+    discipline_edge = (team.discipline - opponent.discipline) / 100
+    tactical_edge = (team.tactical_flexibility - opponent.tactical_flexibility) / 100
+    injury_edge = (team.injury_resilience - opponent.injury_resilience) / 100
+    pressure_edge = (team.big_match_composure - opponent.big_match_composure) / 100
+    base = 1.22 if not knockout else 1.08
+    expected = (
+        base
+        + (0.58 * strength_gap)
+        + (0.42 * attack_edge)
+        + (0.18 * midfield_edge)
+        + (0.20 * keeper_edge)
+        + (0.14 * form_edge)
+        + (0.10 * fitness_edge)
+        + (0.08 * chemistry_edge)
+        + (0.05 * bench_edge)
+        + (0.16 * set_piece_edge)
+        + (0.11 * transition_edge)
+        + (0.06 * discipline_edge)
+        + ((0.10 if knockout else 0.05) * tactical_edge)
+        + (0.07 * injury_edge)
+        + ((0.08 if knockout else 0.03) * pressure_edge)
+    )
+    return max(0.15, min(3.80, expected))
+
+
+def model_features(team_a: Team, team_b: Team, bundle: ModelBundle, neutral: int = 1) -> dict[str, float]:
+    state = bundle.model.get("team_state", {})
+    a_state = {**DEFAULT_TEAM_STATE, **state.get(team_a.name, {})}
+    b_state = {**DEFAULT_TEAM_STATE, **state.get(team_b.name, {})}
+    return {
+        "rank_diff": float(team_b.rank - team_a.rank),
+        "squad_diff": team_a.squad_rating - team_b.squad_rating,
+        "attack_defense_edge": (team_a.attack - team_b.defense) - (team_b.attack - team_a.defense),
+        "midfield_diff": team_a.midfield - team_b.midfield,
+        "keeper_diff": team_a.goalkeeper - team_b.goalkeeper,
+        "bench_diff": team_a.bench - team_b.bench,
+        "form_feature_diff": team_a.recent_form - team_b.recent_form,
+        "fitness_diff": team_a.fitness - team_b.fitness,
+        "chemistry_diff": team_a.chemistry - team_b.chemistry,
+        "manager_diff": team_a.manager - team_b.manager,
+        "set_piece_edge": (team_a.set_piece_attack - team_b.set_piece_defense)
+        - (team_b.set_piece_attack - team_a.set_piece_defense),
+        "penalty_diff": team_a.penalty_strength - team_b.penalty_strength,
+        "discipline_diff": team_a.discipline - team_b.discipline,
+        "tactical_diff": team_a.tactical_flexibility - team_b.tactical_flexibility,
+        "injury_resilience_diff": team_a.injury_resilience - team_b.injury_resilience,
+        "pressing_diff": team_a.pressing_intensity - team_b.pressing_intensity,
+        "transition_diff": team_a.transition_speed - team_b.transition_speed,
+        "big_match_diff": team_a.big_match_composure - team_b.big_match_composure,
+        "elo_diff": a_state["elo"] - b_state["elo"],
+        "recent_points_diff": a_state["recent_points"] - b_state["recent_points"],
+        "recent_goal_diff": a_state["recent_goal_diff"] - b_state["recent_goal_diff"],
+        "recent_goals_for_diff": a_state["recent_goals_for"] - b_state["recent_goals_for"],
+        "recent_goals_against_diff": a_state["recent_goals_against"] - b_state["recent_goals_against"],
+        "recent_clean_sheet_diff": a_state["recent_clean_sheet"] - b_state["recent_clean_sheet"],
+        "host_edge": 0.0 if neutral else (1.0 if team_a.host else -1.0 if team_b.host else 0.0),
+        "neutral": float(neutral),
+        "same_confederation": float(team_a.confederation == team_b.confederation),
+        "confederation_strength_diff": CONFEDERATION_STRENGTH.get(team_a.confederation, 0.0)
+        - CONFEDERATION_STRENGTH.get(team_b.confederation, 0.0),
+        "tournament_weight": 1.45,
+    }
+
+
+def model_probabilities(team_a: Team, team_b: Team, bundle: ModelBundle) -> dict[str, float]:
+    cache_key = (team_a.name, team_b.name)
+    if cache_key in bundle.probability_cache:
+        return bundle.probability_cache[cache_key]
+
+    columns = bundle.model["feature_columns"]
+    row = model_features(team_a, team_b, bundle)
+    classifier = bundle.model["classifier"]
+    raw = classifier.predict_proba([[row[column] for column in columns]])[0]
+    probabilities = {"team_a_win": 0.0, "draw": 0.0, "team_b_win": 0.0}
+    for label, probability in zip(classifier.classes_, raw):
+        probabilities[label] = float(probability)
+    bundle.probability_cache[cache_key] = probabilities
+    return probabilities
+
+
+def model_expected_goals(team_a: Team, team_b: Team, bundle: ModelBundle, knockout: bool = False) -> tuple[float, float]:
+    cache_key = (team_a.name, team_b.name, knockout)
+    if cache_key in bundle.goals_cache:
+        return bundle.goals_cache[cache_key]
+
+    columns = bundle.model["feature_columns"]
+    row = model_features(team_a, team_b, bundle)
+    values = [[row[column] for column in columns]]
+    rf_a = float(bundle.model["goal_a_model"].predict(values)[0])
+    rf_b = float(bundle.model["goal_b_model"].predict(values)[0])
+    poisson_a = expected_goals(team_a, team_b, knockout)
+    poisson_b = expected_goals(team_b, team_a, knockout)
+    goals = (
+        max(0.15, min(3.80, (0.58 * poisson_a) + (0.42 * rf_a))),
+        max(0.15, min(3.80, (0.58 * poisson_b) + (0.42 * rf_b))),
+    )
+    bundle.goals_cache[cache_key] = goals
+    return goals
+
+
+def sample_outcome(probabilities: dict[str, float]) -> str:
+    draw_line = probabilities["team_a_win"] + probabilities["draw"]
+    value = random.random()
+    if value < probabilities["team_a_win"]:
+        return "team_a_win"
+    if value < draw_line:
+        return "draw"
+    return "team_b_win"
+
+
+def align_score_to_outcome(goals_a: int, goals_b: int, outcome: str) -> tuple[int, int]:
+    if outcome == "team_a_win" and goals_a <= goals_b:
+        return goals_b + 1, goals_b
+    if outcome == "team_b_win" and goals_b <= goals_a:
+        return goals_a, goals_a + 1
+    if outcome == "draw" and goals_a != goals_b:
+        draw_goals = round((goals_a + goals_b) / 2)
+        return draw_goals, draw_goals
+    return goals_a, goals_b
+
+
+def play_match(team_a: Team, team_b: Team, knockout: bool = False, bundle: ModelBundle | None = None) -> tuple[int, int]:
+    if bundle is None:
+        return (
+            poisson(expected_goals(team_a, team_b, knockout)),
+            poisson(expected_goals(team_b, team_a, knockout)),
+        )
+
+    lambda_a = expected_goals(team_a, team_b, knockout)
+    lambda_b = expected_goals(team_b, team_a, knockout)
+    outcome = sample_outcome(model_probabilities(team_a, team_b, bundle))
+    return align_score_to_outcome(poisson(lambda_a), poisson(lambda_b), outcome)
+
+
+def play_group(group_teams: list[Team], bundle: ModelBundle | None = None) -> list[Standing]:
+    table = {team.name: Standing(team) for team in group_teams}
+    for idx, team_a in enumerate(group_teams):
+        for team_b in group_teams[idx + 1 :]:
+            goals_a, goals_b = play_match(team_a, team_b, bundle=bundle)
+            row_a = table[team_a.name]
+            row_b = table[team_b.name]
+            row_a.goals_for += goals_a
+            row_a.goals_against += goals_b
+            row_b.goals_for += goals_b
+            row_b.goals_against += goals_a
+            if goals_a > goals_b:
+                row_a.points += 3
+                row_a.wins += 1
+            elif goals_b > goals_a:
+                row_b.points += 3
+                row_b.wins += 1
+            else:
+                row_a.points += 1
+                row_b.points += 1
+    return sorted(table.values(), key=lambda standing: standing.sort_key(), reverse=True)
+
+
+def select_knockout_teams(group_tables: dict[str, list[Standing]]) -> list[Team]:
+    qualified: list[Standing] = []
+    third_place: list[Standing] = []
+    for table in group_tables.values():
+        qualified.extend(table[:2])
+        third_place.append(table[2])
+
+    best_thirds = sorted(third_place, key=lambda standing: standing.sort_key(), reverse=True)[:8]
+    qualified.extend(best_thirds)
+    return [standing.team for standing in sorted(qualified, key=lambda standing: standing.sort_key(), reverse=True)]
+
+
+def knockout_winner(team_a: Team, team_b: Team, bundle: ModelBundle | None = None) -> Team:
+    goals_a, goals_b = play_match(team_a, team_b, knockout=True, bundle=bundle)
+    if goals_a > goals_b:
+        return team_a
+    if goals_b > goals_a:
+        return team_b
+
+    if bundle is not None:
+        probabilities = model_probabilities(team_a, team_b, bundle)
+        result_probability = probabilities["team_a_win"] + (probabilities["draw"] * 0.5)
+        penalty_edge = ((team_a.penalty_strength + team_a.big_match_composure) - (team_b.penalty_strength + team_b.big_match_composure)) / 100
+        strength_probability = 1 / (1 + math.exp(-((team_a.strength - team_b.strength) * 1.8 + penalty_edge)))
+        probability_a = (0.70 * result_probability) + (0.30 * strength_probability)
+    else:
+        penalty_edge = ((team_a.penalty_strength + team_a.big_match_composure) - (team_b.penalty_strength + team_b.big_match_composure)) / 100
+        probability_a = 1 / (1 + math.exp(-((team_a.strength - team_b.strength) * 1.8 + penalty_edge)))
+    return team_a if random.random() < probability_a else team_b
+
+
+def poisson_probability(lam: float, goals: int) -> float:
+    return (math.exp(-lam) * (lam**goals)) / math.factorial(goals)
+
+
+def scoreline_distribution(
+    team_a: Team,
+    team_b: Team,
+    max_goals: int = 7,
+    knockout: bool = False,
+    bundle: ModelBundle | None = None,
+) -> list[tuple[int, int, float]]:
+    if bundle is None:
+        lambda_a = expected_goals(team_a, team_b, knockout)
+        lambda_b = expected_goals(team_b, team_a, knockout)
+    else:
+        lambda_a, lambda_b = model_expected_goals(team_a, team_b, bundle, knockout)
+    scorelines: list[tuple[int, int, float]] = []
+    for goals_a in range(max_goals + 1):
+        for goals_b in range(max_goals + 1):
+            probability = poisson_probability(lambda_a, goals_a) * poisson_probability(lambda_b, goals_b)
+            scorelines.append((goals_a, goals_b, probability))
+    return sorted(scorelines, key=lambda item: item[2], reverse=True)
+
+
+def match_probabilities(team_a: Team, team_b: Team, max_goals: int = 9, bundle: ModelBundle | None = None) -> dict[str, float]:
+    if bundle is not None:
+        return model_probabilities(team_a, team_b, bundle)
+
+    scorelines = scoreline_distribution(team_a, team_b, max_goals=max_goals)
+    win_a = sum(probability for goals_a, goals_b, probability in scorelines if goals_a > goals_b)
+    draw = sum(probability for goals_a, goals_b, probability in scorelines if goals_a == goals_b)
+    win_b = sum(probability for goals_a, goals_b, probability in scorelines if goals_b > goals_a)
+    total = win_a + draw + win_b
+    return {
+        "team_a_win": win_a / total,
+        "draw": draw / total,
+        "team_b_win": win_b / total,
+    }
+
+
+def play_knockout(seed_order: list[Team], bundle: ModelBundle | None = None) -> dict[str, list[Team] | Team]:
+    current = seed_order[:]
+    stages: dict[str, list[Team] | Team] = {"round_of_32": current[:]}
+    stage_names = ["round_of_16", "quarterfinals", "semifinals", "finalists", "champion"]
+
+    for stage_name in stage_names:
+        winners: list[Team] = []
+        for idx in range(len(current) // 2):
+            winners.append(knockout_winner(current[idx], current[-idx - 1], bundle))
+        if stage_name == "champion":
+            stages[stage_name] = winners[0]
+        else:
+            stages[stage_name] = winners[:]
+        current = winners
+    return stages
+
+
+def simulate_once(groups: dict[str, list[Team]], bundle: ModelBundle | None = None) -> dict[str, object]:
+    group_tables = {group: play_group(teams, bundle) for group, teams in groups.items()}
+    knockout_teams = select_knockout_teams(group_tables)
+    knockout = play_knockout(knockout_teams, bundle)
+    return {"groups": group_tables, "knockout": knockout}
+
+
+def run_simulations(groups: dict[str, list[Team]], sims: int, bundle: ModelBundle | None = None) -> dict[str, Counter]:
+    results = {
+        "advance_group": Counter(),
+        "round_of_16": Counter(),
+        "quarterfinals": Counter(),
+        "semifinals": Counter(),
+        "finalists": Counter(),
+        "champion": Counter(),
+    }
+
+    for _ in range(sims):
+        sim = simulate_once(groups, bundle)
+        knockout = sim["knockout"]
+        for team in knockout["round_of_32"]:
+            results["advance_group"][team.name] += 1
+        for stage in ["round_of_16", "quarterfinals", "semifinals", "finalists"]:
+            for team in knockout[stage]:
+                results[stage][team.name] += 1
+        results["champion"][knockout["champion"].name] += 1
+    return results
+
+
+def percentage(count: int, sims: int) -> float:
+    return 100 * count / sims
+
+
+def print_table(results: dict[str, Counter], teams: dict[str, Team], sims: int, target: str | None) -> None:
+    names = [target] if target else sorted(
+        teams,
+        key=lambda name: (
+            results["champion"][name],
+            results["finalists"][name],
+            results["semifinals"][name],
+            -teams[name].rank,
+        ),
+        reverse=True,
+    )
+    header = f"{'Team':26} {'Rank':>4} {'Squad':>6} {'R32':>7} {'R16':>7} {'QF':>7} {'SF':>7} {'Final':>7} {'Win':>7}"
+    print(header)
+    print("-" * len(header))
+    for name in names:
+        if name not in teams:
+            raise SystemExit(f"Unknown team: {name}")
+        print(
+            f"{name:26} "
+            f"{teams[name].rank:>4} "
+            f"{teams[name].squad_rating:>6.1f} "
+            f"{percentage(results['advance_group'][name], sims):>6.1f}% "
+            f"{percentage(results['round_of_16'][name], sims):>6.1f}% "
+            f"{percentage(results['quarterfinals'][name], sims):>6.1f}% "
+            f"{percentage(results['semifinals'][name], sims):>6.1f}% "
+            f"{percentage(results['finalists'][name], sims):>6.1f}% "
+            f"{percentage(results['champion'][name], sims):>6.1f}%"
+        )
+
+
+def save_csv(results: dict[str, Counter], teams: dict[str, Team], sims: int, output_path: Path) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with output_path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(["team", "rank", "squad_rating", "r32_pct", "r16_pct", "qf_pct", "sf_pct", "final_pct", "win_pct"])
+        for name, team in sorted(teams.items(), key=lambda item: results["champion"][item[0]], reverse=True):
+            writer.writerow(
+                [
+                    name,
+                    team.rank,
+                    round(team.squad_rating, 3),
+                    round(percentage(results["advance_group"][name], sims), 3),
+                    round(percentage(results["round_of_16"][name], sims), 3),
+                    round(percentage(results["quarterfinals"][name], sims), 3),
+                    round(percentage(results["semifinals"][name], sims), 3),
+                    round(percentage(results["finalists"][name], sims), 3),
+                    round(percentage(results["champion"][name], sims), 3),
+                ]
+            )
+
+
+def print_single_simulation(groups: dict[str, list[Team]], bundle: ModelBundle | None = None) -> None:
+    sim = simulate_once(groups, bundle)
+    print("Group results")
+    for group, table in sim["groups"].items():
+        ordered = ", ".join(f"{row.team.name} ({row.points} pts)" for row in table)
+        print(f"Group {group}: {ordered}")
+    print()
+    print(f"Predicted champion: {sim['knockout']['champion'].name}")
+
+
+def print_match_prediction(
+    teams: dict[str, Team],
+    team_a_name: str,
+    team_b_name: str,
+    top_scores: int,
+    bundle: ModelBundle | None = None,
+) -> None:
+    if team_a_name not in teams:
+        raise SystemExit(f"Unknown team: {team_a_name}")
+    if team_b_name not in teams:
+        raise SystemExit(f"Unknown team: {team_b_name}")
+
+    team_a = teams[team_a_name]
+    team_b = teams[team_b_name]
+    if bundle is None:
+        lambda_a = expected_goals(team_a, team_b)
+        lambda_b = expected_goals(team_b, team_a)
+    else:
+        lambda_a, lambda_b = model_expected_goals(team_a, team_b, bundle)
+    probabilities = match_probabilities(team_a, team_b, bundle=bundle)
+    scorelines = scoreline_distribution(team_a, team_b, bundle=bundle)[:top_scores]
+
+    print(f"{team_a.name} vs {team_b.name}")
+    if bundle is not None:
+        print(f"Model: Random Forest ({bundle.path})")
+    print(f"Expected score: {team_a.name} {lambda_a:.2f} - {lambda_b:.2f} {team_b.name}")
+    print(
+        "Result probabilities: "
+        f"{team_a.name} win {probabilities['team_a_win'] * 100:.1f}%, "
+        f"draw {probabilities['draw'] * 100:.1f}%, "
+        f"{team_b.name} win {probabilities['team_b_win'] * 100:.1f}%"
+    )
+    print()
+    print("Most likely scorelines")
+    for goals_a, goals_b, probability in scorelines:
+        print(f"{team_a.name} {goals_a}-{goals_b} {team_b.name}: {probability * 100:.1f}%")
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Predict the 2026 FIFA World Cup with Monte Carlo simulation.")
+    parser.add_argument("--sims", type=int, default=20000, help="Number of tournament simulations.")
+    parser.add_argument("--seed", type=int, default=26, help="Random seed for reproducible results.")
+    parser.add_argument("--team", help="Only print one team's probabilities.")
+    parser.add_argument("--save", type=Path, help="Optional CSV output path.")
+    parser.add_argument("--single", action="store_true", help="Print one simulated tournament instead of probabilities.")
+    parser.add_argument("--match", nargs=2, metavar=("TEAM_A", "TEAM_B"), help="Predict a specific match scoreline.")
+    parser.add_argument("--top-scores", type=int, default=8, help="Number of scorelines to show with --match.")
+    parser.add_argument("--model", type=Path, default=MODEL_PATH, help="Random Forest model path.")
+    parser.add_argument("--no-model", action="store_true", help="Ignore trained Random Forest model and use the Poisson baseline.")
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = parse_args()
+    if args.sims < 1:
+        raise SystemExit("--sims must be at least 1")
+
+    random.seed(args.seed)
+    teams = load_teams()
+    groups = load_groups(teams)
+    bundle = None if args.no_model else load_model(args.model)
+
+    if args.match:
+        print_match_prediction(teams, args.match[0], args.match[1], args.top_scores, bundle)
+        return
+
+    if args.single:
+        print_single_simulation(groups, bundle)
+        return
+
+    results = run_simulations(groups, args.sims, bundle)
+    print_table(results, teams, args.sims, args.team)
+    if args.save:
+        save_csv(results, teams, args.sims, args.save)
+        print(f"\nSaved predictions to {args.save}")
+
+
+if __name__ == "__main__":
+    main()
