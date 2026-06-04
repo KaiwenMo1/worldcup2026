@@ -22,6 +22,12 @@ except ModuleNotFoundError as exc:
         "  pip install -r requirements.txt"
     ) from exc
 
+try:
+    import mlflow
+    import mlflow.sklearn
+except ModuleNotFoundError:
+    mlflow = None
+
 from predict_worldcup import ROOT, Team, load_teams
 
 
@@ -49,6 +55,9 @@ TOURNAMENT_WEIGHT = {
     "CONCACAF Gold Cup": 1.12,
     "Friendly": 0.82,
 }
+
+RECENCY_HALF_LIFE_YEARS = 3.5
+PROBABILITY_SHRINKAGE = 0.08
 
 FEATURE_COLUMNS = [
     "rank_diff",
@@ -177,6 +186,7 @@ def build_training_frame(matches: pd.DataFrame, teams: dict[str, Team]) -> pd.Da
     elo: defaultdict[str, float] = defaultdict(lambda: 1500.0)
     history: defaultdict[str, deque[dict[str, float]]] = defaultdict(lambda: deque(maxlen=10))
     rows: list[dict[str, float | int | str]] = []
+    latest_date = matches["date"].max()
 
     for record in matches.itertuples(index=False):
         team_a = teams.get(record.team_a, fallback_team(record.team_a))
@@ -187,6 +197,9 @@ def build_training_frame(matches: pd.DataFrame, teams: dict[str, Team]) -> pd.Da
         b_recent = recent_snapshot(history[record.team_b])
         neutral = int(str(record.neutral).lower() in {"1", "true", "yes"})
         tournament_weight = TOURNAMENT_WEIGHT.get(record.tournament, 1.0)
+        match_age_years = max(0.0, (latest_date - record.date).days / 365.25)
+        recency_weight = math.pow(0.5, match_age_years / RECENCY_HALF_LIFE_YEARS)
+        sample_weight = tournament_weight * (0.35 + (0.65 * recency_weight))
 
         outcome = "draw"
         if record.team_a_score > record.team_b_score:
@@ -229,6 +242,9 @@ def build_training_frame(matches: pd.DataFrame, teams: dict[str, Team]) -> pd.Da
                 "outcome": outcome,
                 "team_a_goals": int(record.team_a_score),
                 "team_b_goals": int(record.team_b_score),
+                "match_age_years": match_age_years,
+                "recency_weight": recency_weight,
+                "sample_weight": sample_weight,
             }
         )
 
@@ -255,7 +271,7 @@ def build_training_frame(matches: pd.DataFrame, teams: dict[str, Team]) -> pd.Da
     return pd.DataFrame(rows)
 
 
-def train(matches_path: Path, model_path: Path, seed: int) -> None:
+def train(matches_path: Path, model_path: Path, seed: int, track_mlflow: bool = False) -> None:
     teams = load_teams()
     matches = load_matches(matches_path)
     frame = build_training_frame(matches, teams)
@@ -264,65 +280,123 @@ def train(matches_path: Path, model_path: Path, seed: int) -> None:
 
     x = frame[FEATURE_COLUMNS]
     y = frame["outcome"]
+    weights = frame["sample_weight"]
     stratify = y if y.value_counts().min() >= 2 else None
-    x_train, x_test, y_train, y_test = train_test_split(
+    x_train, x_test, y_train, y_test, w_train, w_test = train_test_split(
         x,
         y,
+        weights,
         test_size=0.22,
         random_state=seed,
         stratify=stratify,
     )
 
     classifier = RandomForestClassifier(
-        n_estimators=80,
+        n_estimators=120,
         min_samples_leaf=3,
         max_features="sqrt",
         class_weight="balanced",
         n_jobs=1,
         random_state=seed,
     )
-    classifier.fit(x_train.to_numpy(), y_train)
+    classifier_type = "recency_weighted_random_forest"
+    classifier.fit(x_train.to_numpy(), y_train, sample_weight=w_train.to_numpy())
 
     goal_a_model = RandomForestRegressor(
-        n_estimators=80,
+        n_estimators=120,
         min_samples_leaf=3,
         max_features="sqrt",
         n_jobs=1,
         random_state=seed + 1,
     )
     goal_b_model = RandomForestRegressor(
-        n_estimators=80,
+        n_estimators=120,
         min_samples_leaf=3,
         max_features="sqrt",
         n_jobs=1,
         random_state=seed + 2,
     )
-    goal_a_model.fit(x_train.to_numpy(), frame.loc[x_train.index, "team_a_goals"])
-    goal_b_model.fit(x_train.to_numpy(), frame.loc[x_train.index, "team_b_goals"])
+    goal_a_model.fit(x_train.to_numpy(), frame.loc[x_train.index, "team_a_goals"], sample_weight=w_train.to_numpy())
+    goal_b_model.fit(x_train.to_numpy(), frame.loc[x_train.index, "team_b_goals"], sample_weight=w_train.to_numpy())
 
     x_test_values = x_test.to_numpy()
     probabilities = classifier.predict_proba(x_test_values)
     predicted = classifier.predict(x_test_values)
+    feature_importance = {
+        column: float(importance)
+        for column, importance in zip(FEATURE_COLUMNS, classifier.feature_importances_)
+    }
+    feature_stats = {
+        column: {
+            "mean": float(frame[column].mean()),
+            "std": float(frame[column].std(ddof=0) or 1.0),
+        }
+        for column in FEATURE_COLUMNS
+    }
+    metrics = {
+        "holdout_accuracy": float(accuracy_score(y_test, predicted)),
+        "holdout_log_loss": float(log_loss(y_test, probabilities, labels=classifier.classes_)),
+        "goal_mae_team_a": float(mean_absolute_error(frame.loc[x_test.index, "team_a_goals"], goal_a_model.predict(x_test_values))),
+        "goal_mae_team_b": float(mean_absolute_error(frame.loc[x_test.index, "team_b_goals"], goal_b_model.predict(x_test_values))),
+    }
+    weighted_priors = {
+        label: float(weights[y == label].sum() / weights.sum())
+        for label in classifier.classes_
+    }
     model_path.parent.mkdir(parents=True, exist_ok=True)
     joblib.dump(
-        {
+        model_payload := {
             "classifier": classifier,
+            "classifier_type": classifier_type,
+            "probability_prior": weighted_priors,
+            "probability_shrinkage": PROBABILITY_SHRINKAGE,
             "goal_a_model": goal_a_model,
             "goal_b_model": goal_b_model,
             "feature_columns": FEATURE_COLUMNS,
+            "feature_importance": feature_importance,
+            "feature_stats": feature_stats,
             "classes": list(classifier.classes_),
             "training_rows": len(frame),
+            "trained_through": matches["date"].max().date().isoformat(),
+            "recency_half_life_years": RECENCY_HALF_LIFE_YEARS,
+            "average_sample_weight": float(weights.mean()),
+            "metrics": metrics,
             "team_state": asdict_state(matches, teams),
         },
         model_path,
     )
 
+    if track_mlflow:
+        log_mlflow_run(model_payload, metrics, seed, matches_path, model_path)
+
     print(f"Training rows: {len(frame)}")
-    print(f"Holdout accuracy: {accuracy_score(y_test, predicted):.3f}")
-    print(f"Holdout log loss: {log_loss(y_test, probabilities, labels=classifier.classes_):.3f}")
-    print(f"Goal MAE team A: {mean_absolute_error(frame.loc[x_test.index, 'team_a_goals'], goal_a_model.predict(x_test_values)):.3f}")
-    print(f"Goal MAE team B: {mean_absolute_error(frame.loc[x_test.index, 'team_b_goals'], goal_b_model.predict(x_test_values)):.3f}")
+    print(f"Classifier: {classifier_type}")
+    print(f"Recency half-life: {RECENCY_HALF_LIFE_YEARS:.1f} years")
+    print(f"Probability shrinkage: {PROBABILITY_SHRINKAGE:.2f}")
+    print(f"Holdout accuracy: {metrics['holdout_accuracy']:.3f}")
+    print(f"Holdout log loss: {metrics['holdout_log_loss']:.3f}")
+    print(f"Goal MAE team A: {metrics['goal_mae_team_a']:.3f}")
+    print(f"Goal MAE team B: {metrics['goal_mae_team_b']:.3f}")
     print(f"Saved model to {model_path}")
+
+
+def log_mlflow_run(model_payload: dict[str, object], metrics: dict[str, float], seed: int, matches_path: Path, model_path: Path) -> None:
+    if mlflow is None:
+        print("MLflow requested but not installed. Run: pip install mlflow")
+        return
+    mlflow.set_experiment("worldcup-predictor")
+    with mlflow.start_run(run_name=f"worldcup-rf-seed-{seed}"):
+        mlflow.log_param("seed", seed)
+        mlflow.log_param("classifier_type", model_payload.get("classifier_type"))
+        mlflow.log_param("training_rows", model_payload.get("training_rows"))
+        mlflow.log_param("trained_through", model_payload.get("trained_through"))
+        mlflow.log_param("recency_half_life_years", model_payload.get("recency_half_life_years"))
+        mlflow.log_param("probability_shrinkage", model_payload.get("probability_shrinkage"))
+        for name, value in metrics.items():
+            mlflow.log_metric(name, value)
+        mlflow.log_artifact(str(matches_path), artifact_path="data")
+        mlflow.log_artifact(str(model_path), artifact_path="models")
+        mlflow.sklearn.log_model(model_payload["classifier"], name="classifier")
 
 
 def asdict_state(matches: pd.DataFrame, teams: dict[str, Team]) -> dict[str, dict[str, float]]:
@@ -370,12 +444,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--matches", type=Path, default=MATCHES_PATH, help="Historical matches CSV path.")
     parser.add_argument("--model", type=Path, default=MODEL_PATH, help="Output model path.")
     parser.add_argument("--seed", type=int, default=26, help="Random seed.")
+    parser.add_argument("--mlflow", action="store_true", help="Log model params, metrics, and artifacts to MLflow.")
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
-    train(args.matches, args.model, args.seed)
+    train(args.matches, args.model, args.seed, args.mlflow)
 
 
 if __name__ == "__main__":

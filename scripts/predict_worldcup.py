@@ -52,6 +52,42 @@ DEFAULT_TEAM_STATE = {
     "recent_clean_sheet": 0.25,
 }
 
+FEATURE_LABELS = {
+    "rank_diff": "FIFA ranking edge",
+    "squad_diff": "Squad quality",
+    "attack_defense_edge": "Attack vs defense",
+    "midfield_diff": "Midfield control",
+    "keeper_diff": "Goalkeeper edge",
+    "bench_diff": "Bench depth",
+    "form_feature_diff": "Recent form input",
+    "fitness_diff": "Fitness",
+    "chemistry_diff": "Team chemistry",
+    "manager_diff": "Manager rating",
+    "set_piece_edge": "Set pieces",
+    "penalty_diff": "Penalty strength",
+    "discipline_diff": "Discipline",
+    "tactical_diff": "Tactical flexibility",
+    "injury_resilience_diff": "Injury resilience",
+    "pressing_diff": "Pressing",
+    "transition_diff": "Transition speed",
+    "big_match_diff": "Big-match composure",
+    "elo_diff": "Historical Elo",
+    "recent_points_diff": "Recent points",
+    "recent_goal_diff": "Recent goal difference",
+    "recent_goals_for_diff": "Recent scoring form",
+    "recent_goals_against_diff": "Recent defensive form",
+    "recent_clean_sheet_diff": "Clean-sheet form",
+    "host_edge": "Host advantage",
+    "confederation_strength_diff": "Confederation strength",
+}
+
+FEATURE_DIRECTIONS = {
+    "recent_goals_against_diff": -1.0,
+    "neutral": 0.0,
+    "same_confederation": 0.0,
+    "tournament_weight": 0.0,
+}
+
 
 @dataclass(frozen=True)
 class Team:
@@ -302,9 +338,15 @@ def model_probabilities(team_a: Team, team_b: Team, bundle: ModelBundle) -> dict
     row = model_features(team_a, team_b, bundle)
     classifier = bundle.model["classifier"]
     raw = classifier.predict_proba([[row[column] for column in columns]])[0]
+    priors = bundle.model.get("probability_prior", {})
+    shrinkage = float(bundle.model.get("probability_shrinkage", 0.0))
     probabilities = {"team_a_win": 0.0, "draw": 0.0, "team_b_win": 0.0}
     for label, probability in zip(classifier.classes_, raw):
-        probabilities[label] = float(probability)
+        prior = float(priors.get(label, 1 / max(len(classifier.classes_), 1)))
+        probabilities[label] = ((1 - shrinkage) * float(probability)) + (shrinkage * prior)
+    total = sum(probabilities.values())
+    if total:
+        probabilities = {key: value / total for key, value in probabilities.items()}
     bundle.probability_cache[cache_key] = probabilities
     return probabilities
 
@@ -455,6 +497,92 @@ def match_probabilities(team_a: Team, team_b: Team, max_goals: int = 9, bundle: 
         "draw": draw / total,
         "team_b_win": win_b / total,
     }
+
+
+def model_feature_drivers(team_a: Team, team_b: Team, bundle: ModelBundle | None, top_n: int = 6) -> list[dict[str, Any]]:
+    if bundle is None:
+        return baseline_feature_drivers(team_a, team_b, top_n)
+
+    columns = bundle.model.get("feature_columns", [])
+    importances = bundle.model.get("feature_importance") or {}
+    stats = bundle.model.get("feature_stats") or {}
+    if not columns or not importances:
+        return baseline_feature_drivers(team_a, team_b, top_n)
+
+    row = model_features(team_a, team_b, bundle)
+    raw_drivers = []
+    for column in columns:
+        direction = FEATURE_DIRECTIONS.get(column, 1.0)
+        if direction == 0:
+            continue
+        value = float(row.get(column, 0.0))
+        importance = float(importances.get(column, 0.0))
+        stat = stats.get(column, {})
+        mean = float(stat.get("mean", 0.0))
+        std = max(float(stat.get("std", 1.0)), 0.001)
+        contribution = ((value - mean) / std) * importance * direction
+        if abs(contribution) < 0.0001:
+            continue
+        favored = team_a.name if contribution > 0 else team_b.name
+        raw_drivers.append(
+            {
+                "label": FEATURE_LABELS.get(column, column.replace("_", " ").title()),
+                "feature": column,
+                "favored_team": favored,
+                "raw_value": round(value, 3),
+                "importance": round(importance, 4),
+                "score": contribution,
+            }
+        )
+
+    return normalize_driver_scores(raw_drivers, top_n)
+
+
+def baseline_feature_drivers(team_a: Team, team_b: Team, top_n: int = 6) -> list[dict[str, Any]]:
+    raw_drivers = [
+        ("FIFA ranking edge", team_b.rank - team_a.rank, 0.05),
+        ("Squad quality", team_a.squad_rating - team_b.squad_rating, 0.25),
+        ("Attack vs defense", (team_a.attack - team_b.defense) - (team_b.attack - team_a.defense), 0.18),
+        ("Midfield control", team_a.midfield - team_b.midfield, 0.12),
+        ("Goalkeeper edge", team_a.goalkeeper - team_b.goalkeeper, 0.10),
+        ("Recent form", team_a.recent_form - team_b.recent_form, 0.10),
+        ("Set pieces", (team_a.set_piece_attack - team_b.set_piece_defense) - (team_b.set_piece_attack - team_a.set_piece_defense), 0.08),
+        ("Big-match composure", team_a.big_match_composure - team_b.big_match_composure, 0.07),
+        ("Penalty strength", team_a.penalty_strength - team_b.penalty_strength, 0.05),
+    ]
+    drivers = []
+    for label, value, weight in raw_drivers:
+        if abs(value) < 0.01:
+            continue
+        drivers.append(
+            {
+                "label": label,
+                "feature": label.lower().replace(" ", "_"),
+                "favored_team": team_a.name if value > 0 else team_b.name,
+                "raw_value": round(value, 3),
+                "importance": weight,
+                "score": value * weight,
+            }
+        )
+    return normalize_driver_scores(drivers, top_n)
+
+
+def normalize_driver_scores(drivers: list[dict[str, Any]], top_n: int) -> list[dict[str, Any]]:
+    if not drivers:
+        return []
+    selected = sorted(drivers, key=lambda item: abs(float(item["score"])), reverse=True)[:top_n]
+    max_score = max(abs(float(item["score"])) for item in selected) or 1.0
+    return [
+        {
+            "label": item["label"],
+            "feature": item["feature"],
+            "favored_team": item["favored_team"],
+            "raw_value": item["raw_value"],
+            "importance": item["importance"],
+            "impact": round(100 * abs(float(item["score"])) / max_score, 1),
+        }
+        for item in selected
+    ]
 
 
 def play_knockout(seed_order: list[Team], bundle: ModelBundle | None = None) -> dict[str, list[Team] | Team]:

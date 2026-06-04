@@ -4,60 +4,95 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>World Cup 2026 Predictor</title>
+    <link href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="stylesheet" href="/static/styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <div>
-        <p class="eyebrow">FIFA World Cup 2026</p>
-        <h1>Predictor</h1>
+      <div class="brand-lockup">
+        <div class="brand-mark">26</div>
+        <div>
+          <p class="eyebrow">FIFA World Cup 2026</p>
+          <h1>Forecast Studio</h1>
+        </div>
       </div>
-      <div class="status-pill" id="modelStatus">Loading model</div>
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="#overview">Overview</a>
+        <a href="#intelligence">Intelligence</a>
+        <a href="#tournament">Tournament</a>
+        <a href="#matchLab">Match Lab</a>
+        <a href="#venues">Venues</a>
+      </nav>
+      <div class="topbar-actions">
+        <div class="status-pill" id="modelStatus">Loading model</div>
+      </div>
     </header>
 
+    <div class="signal-strip">
+      <div><span>Model</span><strong id="signalModel">Checking</strong></div>
+      <div><span>Intelligence</span><strong id="signalIntelligence">Indexing</strong></div>
+      <div><span>Live feed</span><strong id="signalLive">Manual</strong></div>
+      <div><span>Host venues</span><strong id="signalVenues">16 mapped</strong></div>
+    </div>
+
     <main>
-      <section class="control-band">
-        <div class="controls">
-          <label>
-            Simulations
-            <input id="simCount" type="number" min="1" max="20000" value="50" />
-          </label>
-          <label>
-            Seed
-            <input id="seed" type="number" value="26" />
-          </label>
-          <label class="check">
-            <input id="lockSeed" type="checkbox" />
-            Lock seed
-          </label>
-          <label class="check">
-            <input id="useModel" type="checkbox" checked />
-            Random Forest
-          </label>
-          <label>
-            Weather preview
-            <select id="weather">
-              <option value="normal">Normal</option>
-              <option value="heat">Heat</option>
-              <option value="rain">Rain</option>
-              <option value="cold">Cold</option>
-              <option value="altitude">Altitude</option>
-            </select>
-          </label>
-          <label>
-            Travel load
-            <input id="travel" type="range" min="0" max="100" value="20" />
-          </label>
-          <label>
-            Fatigue load
-            <input id="fatigue" type="range" min="0" max="100" value="20" />
-          </label>
-          <label>
-            Host edge
-            <input id="homeAdvantage" type="range" min="0" max="2" value="1" step="0.1" />
-          </label>
-          <button id="runBtn">Run Simulation</button>
-          <button id="refreshBtn" class="secondary">Refresh Live Data</button>
+      <section id="overview" class="command-deck">
+        <div class="command-heading">
+          <div>
+            <p class="section-kicker">Simulation control</p>
+            <h2>World Cup Command Center</h2>
+          </div>
+          <div class="command-actions">
+            <button id="runBtn"><i data-lucide="play"></i><span>Run Simulation</span></button>
+            <button id="refreshBtn" class="secondary"><i data-lucide="refresh-cw"></i><span>Refresh Live Data</span></button>
+          </div>
+        </div>
+        <div class="control-band">
+          <div class="controls">
+            <label>
+              Simulations
+              <input id="simCount" type="number" min="1" max="20000" value="50" />
+            </label>
+            <label>
+              Seed
+              <input id="seed" type="number" value="26" />
+            </label>
+            <label class="check">
+              <input id="lockSeed" type="checkbox" />
+              Lock seed
+            </label>
+            <label class="check">
+              <input id="useModel" type="checkbox" checked />
+              Random Forest
+            </label>
+            <label>
+              Weather
+              <select id="weather">
+                <option value="auto">Auto from venue</option>
+                <option value="normal">Normal</option>
+                <option value="heat">Heat</option>
+                <option value="rain">Rain</option>
+                <option value="cold">Cold</option>
+                <option value="altitude">Altitude</option>
+              </select>
+            </label>
+            <label>
+              Venue
+              <select id="venueSelect"></select>
+            </label>
+            <label>
+              Travel
+              <input id="travel" type="range" min="0" max="100" value="20" />
+            </label>
+            <label>
+              Fatigue
+              <input id="fatigue" type="range" min="0" max="100" value="20" />
+            </label>
+            <label>
+              Host edge
+              <input id="homeAdvantage" type="range" min="0" max="2" value="1" step="0.1" />
+            </label>
+          </div>
         </div>
       </section>
 
@@ -80,9 +115,45 @@
         </div>
       </section>
 
-      <section class="section">
+      <section id="intelligence" class="section intelligence-section">
         <div class="section-head">
-          <h2>Tournament Path</h2>
+          <div>
+            <p class="section-kicker">Agentic RAG</p>
+            <h2>Intelligence Desk</h2>
+          </div>
+          <p id="intelligenceStatus">Indexing local evidence</p>
+        </div>
+        <div class="intelligence-shell">
+          <div class="intelligence-query">
+            <div class="prompt-chips">
+              <button class="prompt-chip" data-question="Why does France have an edge over Brazil?">France vs Brazil</button>
+              <button class="prompt-chip" data-question="Which teams are underrated by the model?">Underrated teams</button>
+              <button class="prompt-chip" data-question="How does Mexico City weather affect a match?">Mexico City</button>
+            </div>
+            <label>
+              Ask the analyst
+              <textarea id="intelligenceQuestion" rows="4">Why does France have an edge over Brazil?</textarea>
+            </label>
+            <div class="intelligence-actions">
+              <label class="check">
+                <input id="useLlm" type="checkbox" checked />
+                LLM synthesis
+              </label>
+              <button id="askBtn"><i data-lucide="sparkles"></i><span>Run Analysis</span></button>
+            </div>
+          </div>
+          <div id="intelligenceResult" class="intelligence-result">
+            <div class="empty">Ask a matchup, team, venue, live-state, or model question.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tournament" class="section bracket-section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">One simulated run</p>
+            <h2>Tournament Path</h2>
+          </div>
           <p id="bracketSub">-</p>
         </div>
         <div id="bracket" class="bracket"></div>
@@ -99,7 +170,7 @@
                 <tr>
                   <th>Team</th>
                   <th>Final</th>
-                  <th>Win</th>
+                  <th>Win 95%</th>
                 </tr>
               </thead>
               <tbody id="oddsBody"></tbody>
@@ -114,7 +185,7 @@
           <div id="topScorers" class="scorers"></div>
         </div>
 
-        <div class="section">
+        <div id="matchLab" class="section">
           <div class="section-head">
             <h2>Match Predictor</h2>
           </div>
@@ -127,7 +198,63 @@
         </div>
       </section>
 
-      <section class="section">
+      <section id="market" class="section edge-panel">
+        <div class="section-head">
+          <h2>Market Edge</h2>
+          <p>Expected value screen</p>
+        </div>
+        <div class="match-controls">
+          <label>
+            Bankroll
+            <input id="bankroll" type="number" min="1" max="1000000" value="1000" />
+          </label>
+          <label>
+            Edge sims
+            <input id="edgeSims" type="number" min="1" max="5000" value="100" />
+          </label>
+          <label>
+            Min edge
+            <input id="minEdge" type="number" min="-100" max="100" value="0" step="0.5" />
+          </label>
+          <button id="edgeBtn" class="secondary"><i data-lucide="chart-candlestick"></i><span>Analyze Odds</span></button>
+        </div>
+        <div id="edgeResult" class="edge-result"></div>
+      </section>
+
+      <section id="venues" class="section venue-panel">
+        <div class="section-head">
+          <h2>Venue Weather</h2>
+          <p id="weatherSummary">Auto context</p>
+        </div>
+        <div class="venue-layout">
+          <div id="venueMap" class="venue-map"></div>
+          <div id="venueWeather" class="venue-weather"></div>
+        </div>
+      </section>
+
+      <section id="live" class="section live-panel">
+        <div class="section-head">
+          <h2>Live Updates</h2>
+          <p>Lock results / eliminate teams</p>
+        </div>
+        <div class="live-grid">
+          <div class="match-controls">
+            <select id="liveTeamA"></select>
+            <input id="liveScoreA" type="number" min="0" max="20" value="0" />
+            <span class="versus">vs</span>
+            <input id="liveScoreB" type="number" min="0" max="20" value="0" />
+            <select id="liveTeamB"></select>
+            <button id="lockMatchBtn" class="secondary"><i data-lucide="lock"></i><span>Lock Score</span></button>
+          </div>
+          <div class="match-controls">
+            <select id="eliminateTeam"></select>
+            <button id="eliminateBtn" class="secondary"><i data-lucide="circle-x"></i><span>Mark Eliminated</span></button>
+            <button id="restoreBtn" class="secondary"><i data-lucide="undo-2"></i><span>Restore</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section id="groupsSection" class="section">
         <div class="section-head">
           <h2>Groups</h2>
         </div>
@@ -135,6 +262,9 @@
       </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script src="/static/app.js"></script>
   </body>
 </html>

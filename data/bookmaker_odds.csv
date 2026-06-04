@@ -1,0 +1,10 @@
+market,event,team_a,team_b,selection,american_odds,decimal_odds,bookmaker,start_time,notes
+match_winner,France vs Brazil,France,Brazil,France,+135,,Example Sportsbook,,Example only; replace with live odds
+match_winner,France vs Brazil,France,Brazil,Draw,+230,,Example Sportsbook,,Example only; replace with live odds
+match_winner,France vs Brazil,France,Brazil,Brazil,+210,,Example Sportsbook,,Example only; replace with live odds
+match_winner,Mexico vs South Africa,Mexico,South Africa,Mexico,-145,,Example Sportsbook,,Example only; replace with live odds
+match_winner,Mexico vs South Africa,Mexico,South Africa,Draw,+275,,Example Sportsbook,,Example only; replace with live odds
+match_winner,Mexico vs South Africa,Mexico,South Africa,South Africa,+425,,Example Sportsbook,,Example only; replace with live odds
+match_winner,Argentina vs Spain,Argentina,Spain,Argentina,+165,,Example Sportsbook,,Example only; replace with live odds
+match_winner,Argentina vs Spain,Argentina,Spain,Draw,+225,,Example Sportsbook,,Example only; replace with live odds
+match_winner,Argentina vs Spain,Argentina,Spain,Spain,+155,,Example Sportsbook,,Example only; replace with live odds

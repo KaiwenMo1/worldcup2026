@@ -54,17 +54,33 @@ The app includes:
 - Champion odds table.
 - Full bracket-style tournament path with flags and scores.
 - Match score predictor.
+- Exact-score probability heatmap with score-derived win/draw/loss aggregation.
+- Match confidence, goal-shape insights, and model-driver explanations.
+- Champion odds with simulation confidence ranges.
+- Auto venue weather from Open-Meteo.
+- Venue map powered by MapLibre.
+- ECharts heatmap and EV charts.
+- Agentic RAG Intelligence Desk with local evidence retrieval, tool routing, source citations, and an inspectable agent trace.
+- Optional OpenAI-compatible or local-model synthesis for Intelligence Desk answers.
 - Group viewer.
-- Live-state refresh endpoint.
+- BALLDONTLIE live-state / odds refresh endpoint.
 
 API routes:
 
 ```text
 GET  /api/teams
 GET  /api/groups
+GET  /api/venues
+GET  /api/venue-weather
+GET  /api/intelligence/status
 GET  /api/status
+GET  /api/live-state
 POST /api/simulate
 POST /api/match
+POST /api/intelligence
+POST /api/betting-edges
+POST /api/live-state/match
+POST /api/live-state/elimination
 POST /api/refresh-live-data
 ```
 
@@ -76,10 +92,62 @@ cp .env.example .env
 
 ```text
 BALLDONTLIE_API_KEY=your_api_key_here
-WORLD_CUP_API_BASE_URL=https://fifa.balldontlie.io
+WORLD_CUP_API_BASE_URL=https://api.balldontlie.io/fifa/worldcup/v1
 ```
 
-The live refresh currently stores provider state in `data/live_state.json`. During the tournament, completed matches and eliminated teams can be written there so future simulations lock known scores and prevent eliminated teams from advancing.
+The live refresh stores provider state in `data/live_state.json`. During the tournament, completed matches and eliminated teams can be written there so future simulations lock known scores and prevent eliminated teams from advancing. The website also has manual controls for locking a completed score and marking/restoring eliminated teams.
+
+BALLDONTLIE refresh can also write provider odds to `data/bookmaker_odds.csv` when your API tier exposes odds/futures endpoints.
+
+Open-Meteo weather does not need an API key. Choose `Auto from venue` in the website and select a host venue to apply live temperature/rain/wind/altitude context to match predictions.
+
+## Agentic RAG Intelligence Desk
+
+The Intelligence Desk is a local-first analysis agent. It does not need an LLM key to work.
+
+For each question it:
+
+1. Identifies mentioned teams and venues.
+2. Routes the question to relevant tools such as team profiles, historical head-to-head, the current match model, venue weather, or live state.
+3. Retrieves relevant evidence chunks from the project datasets and documentation using a local TF-IDF bigram index.
+4. Produces an answer with sources and exposes the agent trace in the UI.
+
+Example API request:
+
+```bash
+curl -X POST http://127.0.0.1:8000/api/intelligence \
+  -H "Content-Type: application/json" \
+  -d '{"question":"Why does France have an edge over Brazil?","use_llm":false}'
+```
+
+To optionally use an OpenAI-compatible model only for final answer synthesis, configure:
+
+```text
+WORLD_CUP_AI_BASE_URL=http://127.0.0.1:11434/v1
+WORLD_CUP_AI_MODEL=your-model-name
+WORLD_CUP_AI_API_KEY=
+```
+
+This works with providers exposing an OpenAI-compatible `/chat/completions` endpoint. Retrieval, model forecasts, tool routing, citations, and fallback synthesis continue to work when no model is configured or the model endpoint is unavailable.
+
+Run the deterministic agent routing/retrieval eval:
+
+```bash
+python3 scripts/evaluate_intelligence.py
+python3 scripts/evaluate_intelligence.py --output outputs/intelligence_eval.json
+```
+
+### GitHub Technology Radar
+
+The June 2026 technology review identified these useful projects:
+
+- [Pydantic AI](https://github.com/pydantic/pydantic-ai): the strongest future fit for typed tools, structured agent outputs, evals, and OpenTelemetry because this backend already uses FastAPI/Pydantic.
+- [LangGraph](https://github.com/langchain-ai/langgraph): useful if Intelligence Desk workflows become long-running, stateful, or human-approved.
+- [Qdrant](https://github.com/qdrant/qdrant) or [LanceDB](https://github.com/lancedb/lancedb): good replacements for the local TF-IDF retriever after the knowledge corpus grows to live articles, reports, and player documents.
+- [Pathway](https://github.com/pathwaycom/pathway): useful later for continuously updating RAG from live feeds.
+- [StatsBomb Open Data](https://github.com/statsbomb/open-data): the most useful next football-specific integration for event data, lineups, and xG-derived features.
+
+The current implementation deliberately uses the existing scikit-learn dependency for retrieval. It is transparent, fast for the current corpus, and avoids operating a vector database before the project needs one.
 
 ## Data Sources
 
@@ -131,6 +199,19 @@ Train the starter Random Forest model:
 python3 scripts/train_model.py
 ```
 
+Track a training run with MLflow:
+
+```bash
+python3 scripts/train_model.py --mlflow
+mlflow ui
+```
+
+Tune Random Forest hyperparameters with Optuna:
+
+```bash
+python3 scripts/tune_model.py --trials 30
+```
+
 That creates:
 
 ```bash
@@ -164,6 +245,31 @@ The Random Forest currently uses these high-impact feature groups:
 - Recent attacking and defensive goal rates.
 - Recent clean-sheet rate.
 - Squad context from attack, midfield, defense, goalkeeper, bench, fitness, chemistry, manager, rank, confederation, and host/neutral setting.
+- Recency-weighted training, so newer matches matter more than older matches.
+- Probability shrinkage toward weighted class priors, so small-sample or noisy matchups are less overconfident.
+- Feature-importance metadata, used by the website to show the biggest prediction drivers for a matchup.
+- Optional SHAP explanations when `shap` is installed.
+- Optional MLflow tracking when `--mlflow` is passed.
+- Optional Optuna tuning through `scripts/tune_model.py`.
+
+The simulation output also reports confidence intervals for champion and finalist odds. These are not a claim that the model is perfect; they show Monte Carlo uncertainty from the number of simulations you ran.
+
+## Betting Edge Screen
+
+The website can compare model probabilities against bookmaker prices from:
+
+```text
+data/bookmaker_odds.csv
+```
+
+Supported starter markets:
+
+- `match_winner`: three-way soccer market with team A, draw, team B.
+- `champion`: tournament futures market.
+
+The analyzer converts American or decimal odds into implied probability, removes the bookmaker margin within each event, compares that no-vig market probability to the model probability, then reports expected value and a capped fractional-Kelly paper stake.
+
+This is for analysis, not guaranteed profit. Use it to track whether the model consistently beats closing odds before risking real money.
 
 ## Next Accuracy Upgrades
 
