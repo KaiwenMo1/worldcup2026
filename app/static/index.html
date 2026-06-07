@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>World Cup 2026 Predictor</title>
+    <meta name="description" content="A live World Cup 2026 forecasting and football intelligence studio." />
     <link href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="stylesheet" href="/static/styles.css" />
   </head>
@@ -19,6 +20,8 @@
       <nav class="primary-nav" aria-label="Primary">
         <a href="#overview">Overview</a>
         <a href="#intelligence">Intelligence</a>
+        <a href="#analystBrief">Brief</a>
+        <a href="#modelReport">Model Report</a>
         <a href="#tournament">Tournament</a>
         <a href="#matchLab">Match Lab</a>
         <a href="#venues">Venues</a>
@@ -37,81 +40,100 @@
 
     <main>
       <section id="overview" class="command-deck">
+        <div class="hero-media" aria-hidden="true">
+          <img src="/static/assets/stadium-editorial.png" alt="" />
+        </div>
         <div class="command-heading">
-          <div>
-            <p class="section-kicker">Simulation control</p>
-            <h2>World Cup Command Center</h2>
+          <div class="hero-copy">
+            <p class="section-kicker">World Cup 2026 forecasting studio</p>
+            <h2><span>Read the</span><em>tournament.</em></h2>
+            <p class="hero-deck">One evolving forecast, built from form, players, tactics, travel, weather, markets, and live match evidence.</p>
           </div>
           <div class="command-actions">
             <button id="runBtn"><i data-lucide="play"></i><span>Run Simulation</span></button>
             <button id="refreshBtn" class="secondary"><i data-lucide="refresh-cw"></i><span>Refresh Live Data</span></button>
           </div>
         </div>
-        <div class="control-band">
-          <div class="controls">
-            <label>
-              Simulations
-              <input id="simCount" type="number" min="1" max="20000" value="50" />
-            </label>
-            <label>
-              Seed
-              <input id="seed" type="number" value="26" />
-            </label>
-            <label class="check">
-              <input id="lockSeed" type="checkbox" />
-              Lock seed
-            </label>
-            <label class="check">
-              <input id="useModel" type="checkbox" checked />
-              Random Forest
-            </label>
-            <label>
-              Weather
-              <select id="weather">
-                <option value="auto">Auto from venue</option>
-                <option value="normal">Normal</option>
-                <option value="heat">Heat</option>
-                <option value="rain">Rain</option>
-                <option value="cold">Cold</option>
-                <option value="altitude">Altitude</option>
-              </select>
-            </label>
-            <label>
-              Venue
-              <select id="venueSelect"></select>
-            </label>
-            <label>
-              Travel
-              <input id="travel" type="range" min="0" max="100" value="20" />
-            </label>
-            <label>
-              Fatigue
-              <input id="fatigue" type="range" min="0" max="100" value="20" />
-            </label>
-            <label>
-              Host edge
-              <input id="homeAdvantage" type="range" min="0" max="2" value="1" step="0.1" />
-            </label>
+        <div class="hero-control-cluster">
+          <div class="control-band">
+            <div class="controls">
+              <label>
+                Simulations
+                <input id="simCount" type="number" min="1" max="20000" value="50" />
+              </label>
+              <label>
+                Seed
+                <input id="seed" type="number" value="26" />
+              </label>
+              <label class="check">
+                <input id="lockSeed" type="checkbox" />
+                Lock seed
+              </label>
+              <label class="check">
+                <input id="useModel" type="checkbox" checked />
+                Forecast ensemble
+              </label>
+              <label>
+                Weather
+                <select id="weather">
+                  <option value="auto">Auto from venue</option>
+                  <option value="normal">Normal</option>
+                  <option value="heat">Heat</option>
+                  <option value="rain">Rain</option>
+                  <option value="cold">Cold</option>
+                  <option value="altitude">Altitude</option>
+                </select>
+              </label>
+              <details class="scenario-overrides">
+                <summary>Manual what-if overrides</summary>
+                <div class="override-grid">
+                  <label>
+                    Travel baseline
+                    <input id="travel" type="range" min="0" max="100" value="20" />
+                  </label>
+                  <label>
+                    Fatigue baseline
+                    <input id="fatigue" type="range" min="0" max="100" value="20" />
+                  </label>
+                  <label>
+                    Host edge fallback
+                    <input id="homeAdvantage" type="range" min="0" max="2" value="1" step="0.1" />
+                  </label>
+                </div>
+              </details>
+            </div>
+          </div>
+          <div class="summary-grid">
+            <div class="metric">
+              <span>Champion</span>
+              <strong id="championMetric">-</strong>
+            </div>
+            <div class="metric">
+              <span>Top Scorer</span>
+              <strong id="topScorerMetric">-</strong>
+            </div>
+            <div class="metric">
+              <span>Model</span>
+              <strong id="modelMetric">-</strong>
+            </div>
+            <div class="metric">
+              <span>Live State</span>
+              <strong id="liveMetric">Manual</strong>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="summary-grid">
-        <div class="metric">
-          <span>Champion</span>
-          <strong id="championMetric">-</strong>
+      <section id="modelReport" class="section model-report-section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Historical proof</p>
+            <h2>Model Report</h2>
+          </div>
+          <p id="reportPeriod">Loading chronological backtest</p>
         </div>
-        <div class="metric">
-          <span>Top Scorer</span>
-          <strong id="topScorerMetric">-</strong>
-        </div>
-        <div class="metric">
-          <span>Model</span>
-          <strong id="modelMetric">-</strong>
-        </div>
-        <div class="metric">
-          <span>Live State</span>
-          <strong id="liveMetric">Manual</strong>
+        <div id="modelReportBody" class="model-report-body">
+          <div class="empty">Loading model report</div>
         </div>
       </section>
 
@@ -145,6 +167,44 @@
           <div id="intelligenceResult" class="intelligence-result">
             <div class="empty">Ask a matchup, team, venue, live-state, or model question.</div>
           </div>
+        </div>
+      </section>
+
+      <section id="analystBrief" class="section analyst-section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Multi-agent matchup read</p>
+            <h2>Analyst Brief</h2>
+          </div>
+          <div class="brief-controls">
+            <select id="briefTeamA" aria-label="First team"></select>
+            <select id="briefTeamB" aria-label="Second team"></select>
+            <label class="check">
+              <input id="briefRefreshOdds" type="checkbox" />
+              Pull odds once
+            </label>
+            <button id="analystBriefBtn"><i data-lucide="radar"></i><span>Build Brief</span></button>
+          </div>
+        </div>
+        <div id="analystBriefResult" class="analyst-result">
+          <div class="empty">Build a matchup brief.</div>
+        </div>
+      </section>
+
+      <section id="squads" class="section squad-section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Current tournament rosters</p>
+            <h2>Squad Intelligence</h2>
+          </div>
+          <div class="squad-actions">
+            <span id="lineupStatus">Projection only</span>
+            <select id="squadSelect" aria-label="Select squad"></select>
+            <button id="refreshLineupsBtn" class="secondary"><i data-lucide="refresh-cw"></i><span>Refresh lineups</span></button>
+          </div>
+        </div>
+        <div id="squadPanel" class="squad-panel">
+          <div class="empty">Loading final squad</div>
         </div>
       </section>
 
@@ -192,10 +252,142 @@
           <div class="match-controls">
             <select id="teamA"></select>
             <select id="teamB"></select>
+            <select id="venueSelect" aria-label="Match venue context"></select>
             <button id="matchBtn" class="secondary">Predict Match</button>
           </div>
           <div id="matchResult" class="match-result"></div>
         </div>
+      </section>
+
+      <section id="xgLab" class="section xg-panel research-section">
+        <details class="research-drawer">
+          <summary>
+            <span>Audit tool</span>
+            <strong>Expected Goals Lab</strong>
+            <small id="xgStatus">Training check</small>
+          </summary>
+          <div class="model-lab-grid">
+          <div class="lab-controls">
+            <label>
+              Team
+              <select id="xgTeam"></select>
+            </label>
+            <label>
+              Player
+              <input id="xgPlayer" type="text" value="Kylian Mbappe" />
+            </label>
+            <label>
+              Shot X
+              <input id="shotX" type="range" min="70" max="119" value="108" />
+            </label>
+            <label>
+              Shot Y
+              <input id="shotY" type="range" min="5" max="75" value="40" />
+            </label>
+            <label>
+              Body part
+              <select id="shotBodyPart">
+                <option>Right Foot</option>
+                <option>Left Foot</option>
+                <option>Head</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>
+              Assist type
+              <select id="assistType">
+                <option>Through Ball</option>
+                <option>Cutback</option>
+                <option>Cross</option>
+                <option>Dribble</option>
+                <option>Set Piece</option>
+                <option>Open Play</option>
+              </select>
+            </label>
+            <label>
+              Pressure
+              <select id="defenderPressure">
+                <option>Low</option>
+                <option selected>Medium</option>
+                <option>High</option>
+              </select>
+            </label>
+            <label>
+              Game state
+              <select id="gameState">
+                <option>Leading</option>
+                <option selected>Drawing</option>
+                <option>Trailing</option>
+              </select>
+            </label>
+            <button id="xgBtn" class="secondary"><i data-lucide="crosshair"></i><span>Predict xG</span></button>
+          </div>
+          <div>
+            <div id="xgResult" class="model-result"></div>
+            <div id="xgChart" class="xg-chart"></div>
+          </div>
+          </div>
+          <div id="xgDanger" class="danger-grid"></div>
+        </details>
+      </section>
+
+      <section id="penaltyLab" class="section penalty-panel research-section">
+        <details class="research-drawer">
+          <summary>
+            <span>Audit tool</span>
+            <strong>Shootout Matchup Lab</strong>
+            <small id="penaltyStatus">Training check</small>
+          </summary>
+          <div class="model-lab-grid">
+          <div class="lab-controls">
+            <label>
+              Kicker
+              <select id="penaltyKicker"></select>
+            </label>
+            <label>
+              Goalkeeper
+              <select id="penaltyKeeper"></select>
+            </label>
+            <label>
+              Kicker foot
+              <select id="kickerFoot">
+                <option>Right</option>
+                <option>Left</option>
+              </select>
+            </label>
+            <label>
+              Score state
+              <select id="penaltyScoreState">
+                <option>Leading</option>
+                <option selected>Drawing</option>
+                <option>Trailing</option>
+              </select>
+            </label>
+            <label>
+              Round
+              <select id="penaltyRound">
+                <option>Round of 16</option>
+                <option>Quarterfinal</option>
+                <option>Semifinal</option>
+                <option selected>Final</option>
+              </select>
+            </label>
+            <label>
+              Kick order
+              <input id="kickOrder" type="number" min="1" max="12" value="1" />
+            </label>
+            <label>
+              Pressure
+              <input id="penaltyPressure" type="range" min="0" max="100" value="78" />
+            </label>
+            <button id="penaltyBtn" class="secondary"><i data-lucide="goal"></i><span>Predict Kick</span></button>
+          </div>
+          <div>
+            <div id="penaltyResult" class="model-result"></div>
+            <div id="penaltyChart" class="penalty-chart"></div>
+          </div>
+          </div>
+        </details>
       </section>
 
       <section id="market" class="section edge-panel">
