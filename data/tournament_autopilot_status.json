@@ -1,13 +1,32 @@
 {
-  "updated_at": "2026-06-13T02:24:23.787872+00:00",
+  "updated_at": "2026-06-13T16:07:29.467643+00:00",
   "observed_matches": 4,
   "newly_observed_match_ids": [],
   "lineup_rows": 0,
   "lineup_delta_signals": 0,
-  "arena_runs": [],
+  "arena_runs": [
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12"
+  ],
   "arena_settlements": [],
-  "evaluations": [],
+  "evaluations": [
+    "1",
+    "2",
+    "3",
+    "4"
+  ],
   "warnings": [
-    "No confirmed starters were present in the lineup input"
+    "Provider refresh skipped: BALLDONTLIE_API_KEY is not configured.",
+    "No confirmed starters were present in the lineup input",
+    "Arena settlement skipped for 1: No saved predictions exist for match '1'.",
+    "Arena settlement skipped for 2: No saved predictions exist for match '2'.",
+    "Arena settlement skipped for 3: No saved predictions exist for match '3'.",
+    "Arena settlement skipped for 4: No saved predictions exist for match '4'."
   ]
 }
