@@ -1,0 +1,37 @@
+name: Quality checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip check
+
+      - name: Compile Python sources
+        run: python -m compileall -q app scripts tests
+
+      - name: Run contract tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Run prediction smoke test
+        run: python scripts/predict_worldcup.py --sims 5 --seed 26 --save /tmp/worldcup-smoke.csv

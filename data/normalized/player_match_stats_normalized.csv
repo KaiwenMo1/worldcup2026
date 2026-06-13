@@ -1,0 +1,3 @@
+match_id,player_id,player,team,opponent,date,competition,position,started,minutes,goals,assists,xg,xa,shots,shots_on_target,key_passes,progressive_passes,progressive_carries,duels_won,duels_lost,pressures,tackles,interceptions,aerials_won,aerials_lost,saves,goals_conceded,source,source_confidence,updated_at
+FRA-BRA-TEST,france_kylian_mbappe,Kylian Mbappe,France,Brazil,2026-06-07,Friendly,LW,True,90.0,1.0,1.0,0.92,0.41,5.0,3.0,3.0,7.0,9.0,6.0,1.0,1.0,0.0,11.0,0.0,0.0,0.0,0.0,manual_csv,0.82,2026-06-11T12:00:00Z
+FRA-BRA-TEST,france_mike_maignan,Mike Maignan,France,Brazil,2026-06-07,Friendly,GK,True,90.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,4.0,1.0,manual_csv,0.82,2026-06-11T12:00:00Z

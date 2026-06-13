@@ -1,0 +1,6 @@
+evidence_id,match_id,player_id,player,team,reported_status,detail,expected_return,source,source_confidence,reported_at
+,FRA-BRA-TEST,france_kylian_mbappe,Kylian Mbappe,France,minor doubt,Left training early with a minor ankle concern,,team_report,0.82,2026-06-11T14:00:00+00:00
+,FRA-BRA-TEST,france_kylian_mbappe,Kylian Mbappe,France,fit,Completed the later recovery session,,press_conference,0.68,2026-06-11T19:00:00+00:00
+,,france_aurelien_tchouameni,Aurelien Tchouameni,France,minutes limited,Returning from a recent workload restriction,,manual_scouting,0.74,2026-06-11T16:00:00+00:00
+,,brazil_casemiro,Casemiro,Brazil,suspended,Unavailable due to accumulated cards,2026-06-25,competition_notice,0.95,2026-06-11T12:00:00+00:00
+,,brazil_vinicius_junior,Vinicius Junior,Brazil,full training,Completed full team training,,team_report,0.88,2026-06-11T18:00:00+00:00

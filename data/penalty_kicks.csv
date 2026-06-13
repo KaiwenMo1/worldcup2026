@@ -1,0 +1,33 @@
+kick_id,tournament,season,match,kick_order,team,kicker,kicker_position,kicker_foot,goalkeeper,goalkeeper_team,keeper_foot,shot_placement,keeper_dive,outcome,pressure_score,score_state,knockout_round,source
+bootstrap-1,World Cup,2014,France vs Argentina,1,France,Kylian Mbappe,FW,Right,Emiliano Martinez,Argentina,Right,Left,Right,Goal,55,Leading,Round of 16,starter_sample
+bootstrap-2,World Cup,2014,Argentina vs France,2,Argentina,Lionel Messi,FW,Left,Mike Maignan,France,Right,Right,Left,Goal,62,Drawing,Round of 16,starter_sample
+bootstrap-3,World Cup,2014,England vs Brazil,3,England,Harry Kane,FW,Right,Alisson,Brazil,Right,Left,Right,Goal,69,Trailing,Round of 16,starter_sample
+bootstrap-4,World Cup,2014,Portugal vs Brazil,4,Portugal,Cristiano Ronaldo,FW,Right,Alisson,Brazil,Right,Center,Left,Goal,76,Leading,Round of 16,starter_sample
+bootstrap-5,World Cup,2014,Brazil vs Argentina,5,Brazil,Neymar,FW,Right,Emiliano Martinez,Argentina,Right,Right,Right,Goal,83,Drawing,Round of 16,starter_sample
+bootstrap-6,World Cup,2014,Spain vs France,1,Spain,Pedri,MF,Right,Mike Maignan,France,Right,Left,Left,Goal,90,Trailing,Round of 16,starter_sample
+bootstrap-7,World Cup,2014,Germany vs England,2,Germany,Ilkay Gundogan,MF,Right,Jordan Pickford,England,Left,Right,Right,Saved,97,Leading,Round of 16,starter_sample
+bootstrap-8,World Cup,2014,Netherlands vs Brazil,3,Netherlands,Memphis Depay,FW,Right,Alisson,Brazil,Right,Center,Left,Goal,59,Drawing,Round of 16,starter_sample
+bootstrap-9,Euro,2018,France vs England,1,France,Kylian Mbappe,FW,Right,Jordan Pickford,England,Left,Right,Left,Goal,64,Drawing,Quarterfinal,starter_sample
+bootstrap-10,Euro,2018,Argentina vs England,2,Argentina,Lionel Messi,FW,Left,Jordan Pickford,England,Left,Left,Center,Goal,71,Trailing,Quarterfinal,starter_sample
+bootstrap-11,Euro,2018,England vs Brazil,3,England,Harry Kane,FW,Right,Alisson,Brazil,Right,Center,Right,Goal,78,Leading,Quarterfinal,starter_sample
+bootstrap-12,Euro,2018,Portugal vs Argentina,4,Portugal,Cristiano Ronaldo,FW,Right,Emiliano Martinez,Argentina,Right,Right,Center,Goal,85,Drawing,Quarterfinal,starter_sample
+bootstrap-13,Euro,2018,Brazil vs France,5,Brazil,Neymar,FW,Right,Mike Maignan,France,Right,Left,Left,Goal,92,Trailing,Quarterfinal,starter_sample
+bootstrap-14,Euro,2018,Spain vs England,1,Spain,Pedri,MF,Right,Jordan Pickford,England,Left,Right,Center,Goal,99,Leading,Quarterfinal,starter_sample
+bootstrap-15,Euro,2018,Germany vs Brazil,2,Germany,Ilkay Gundogan,MF,Right,Alisson,Brazil,Right,Center,Right,Goal,61,Drawing,Quarterfinal,starter_sample
+bootstrap-16,Euro,2018,Netherlands vs Argentina,3,Netherlands,Memphis Depay,FW,Right,Emiliano Martinez,Argentina,Right,Left,Center,Goal,68,Trailing,Quarterfinal,starter_sample
+bootstrap-17,Copa America,2022,France vs England,1,France,Kylian Mbappe,FW,Right,Jordan Pickford,England,Left,Left,Left,Goal,73,Trailing,Semifinal,starter_sample
+bootstrap-18,Copa America,2022,Argentina vs Brazil,2,Argentina,Lionel Messi,FW,Left,Alisson,Brazil,Right,Center,Right,Goal,80,Leading,Semifinal,starter_sample
+bootstrap-19,Copa America,2022,England vs Argentina,3,England,Harry Kane,FW,Right,Emiliano Martinez,Argentina,Right,Right,Left,Goal,87,Drawing,Semifinal,starter_sample
+bootstrap-20,Copa America,2022,Portugal vs France,4,Portugal,Cristiano Ronaldo,FW,Right,Mike Maignan,France,Right,Left,Right,Goal,94,Trailing,Semifinal,starter_sample
+bootstrap-21,Copa America,2022,Brazil vs England,5,Brazil,Neymar,FW,Right,Jordan Pickford,England,Left,Right,Left,Goal,56,Leading,Semifinal,starter_sample
+bootstrap-22,Copa America,2022,Spain vs Brazil,1,Spain,Pedri,MF,Right,Alisson,Brazil,Right,Center,Right,Goal,63,Drawing,Semifinal,starter_sample
+bootstrap-23,Copa America,2022,Germany vs Argentina,2,Germany,Ilkay Gundogan,MF,Right,Emiliano Martinez,Argentina,Right,Left,Left,Goal,70,Trailing,Semifinal,starter_sample
+bootstrap-24,Copa America,2022,Netherlands vs France,3,Netherlands,Memphis Depay,FW,Right,Mike Maignan,France,Right,Right,Right,Saved,77,Leading,Semifinal,starter_sample
+bootstrap-25,AFCON,2026,France vs Brazil,1,France,Kylian Mbappe,FW,Right,Alisson,Brazil,Right,Center,Center,Saved,82,Leading,Final,starter_sample
+bootstrap-26,AFCON,2026,Argentina vs France,2,Argentina,Lionel Messi,FW,Left,Mike Maignan,France,Right,Right,Right,Goal,89,Drawing,Final,starter_sample
+bootstrap-27,AFCON,2026,England vs France,3,England,Harry Kane,FW,Right,Mike Maignan,France,Right,Left,Center,Goal,96,Trailing,Final,starter_sample
+bootstrap-28,AFCON,2026,Portugal vs England,4,Portugal,Cristiano Ronaldo,FW,Right,Jordan Pickford,England,Left,Right,Left,Goal,58,Leading,Final,starter_sample
+bootstrap-29,AFCON,2026,Brazil vs Argentina,5,Brazil,Neymar,FW,Right,Emiliano Martinez,Argentina,Right,Center,Center,Goal,65,Drawing,Final,starter_sample
+bootstrap-30,AFCON,2026,Spain vs Argentina,1,Spain,Pedri,MF,Right,Emiliano Martinez,Argentina,Right,Left,Right,Goal,72,Trailing,Final,starter_sample
+bootstrap-31,AFCON,2026,Germany vs France,2,Germany,Ilkay Gundogan,MF,Right,Mike Maignan,France,Right,Right,Center,Goal,79,Leading,Final,starter_sample
+bootstrap-32,AFCON,2026,Netherlands vs England,3,Netherlands,Memphis Depay,FW,Right,Jordan Pickford,England,Left,Left,Left,Goal,86,Drawing,Final,starter_sample

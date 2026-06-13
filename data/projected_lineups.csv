@@ -1,0 +1,23 @@
+match_id,team,formation,player_id,player,position_slot,role,starter_probability,source,data_quality,updated_at
+,France,4-3-3,france_mike_maignan,Mike Maignan,GK,sweeper_keeper,0.90,manual_role_prototype,manual_prototype,2026-06-11
+,France,4-3-3,france_lucas_digne,Lucas Digne,LB,overlapping_fullback,0.64,manual_role_prototype,manual_prototype,2026-06-11
+,France,4-3-3,france_dayot_upamecano,Dayot Upamecano,LCB,recovery_centerback,0.80,manual_role_prototype,manual_prototype,2026-06-11
+,France,4-3-3,france_william_saliba,William Saliba,RCB,ball_playing_defender,0.88,manual_role_prototype,manual_prototype,2026-06-11
+,France,4-3-3,france_jules_kounde,Jules Koundé,RB,defensive_fullback,0.88,manual_role_prototype,manual_prototype,2026-06-11
+,France,4-3-3,france_aurelien_tchouameni,Aurélien Tchouaméni,DM,holding_midfielder,0.88,manual_role_prototype,manual_prototype,2026-06-11
+,France,4-3-3,france_adrien_rabiot,Adrien Rabiot,LCM,box_to_box_midfielder,0.76,manual_role_prototype,manual_prototype,2026-06-11
+,France,4-3-3,france_ngolo_kante,N'Golo Kanté,RCM,ball_winning_midfielder,0.70,manual_role_prototype,manual_prototype,2026-06-11
+,France,4-3-3,france_kylian_mbappe,Kylian Mbappé,LW,direct_transition_winger,0.92,manual_role_prototype,manual_prototype,2026-06-11
+,France,4-3-3,france_marcus_thuram,Marcus Thuram,CF,mobile_striker,0.72,manual_role_prototype,manual_prototype,2026-06-11
+,France,4-3-3,france_ousmane_dembele,Ousmane Dembélé,RW,wide_creator,0.82,manual_role_prototype,manual_prototype,2026-06-11
+,Brazil,4-3-3,brazil_alisson,Alisson,GK,sweeper_keeper,0.90,manual_role_prototype,manual_prototype,2026-06-11
+,Brazil,4-3-3,brazil_alex_sandro,Alex Sandro,LB,balanced_fullback,0.62,manual_role_prototype,manual_prototype,2026-06-11
+,Brazil,4-3-3,brazil_bremer,Bremer,LCB,duel_centerback,0.80,manual_role_prototype,manual_prototype,2026-06-11
+,Brazil,4-3-3,brazil_marquinhos,Marquinhos,RCB,ball_playing_defender,0.88,manual_role_prototype,manual_prototype,2026-06-11
+,Brazil,4-3-3,brazil_wesley,Wesley,RB,overlapping_fullback,0.76,manual_role_prototype,manual_prototype,2026-06-11
+,Brazil,4-3-3,brazil_casemiro,Casemiro,DM,holding_midfielder,0.70,manual_role_prototype,manual_prototype,2026-06-11
+,Brazil,4-3-3,brazil_bruno_guimaraes,Bruno Guimarães,LCM,progressive_midfielder,0.88,manual_role_prototype,manual_prototype,2026-06-11
+,Brazil,4-3-3,brazil_lucas_paqueta,Lucas Paquetá,RCM,central_creator,0.78,manual_role_prototype,manual_prototype,2026-06-11
+,Brazil,4-3-3,brazil_vinicius_junior,Vinícius Júnior,LW,direct_transition_winger,0.94,manual_role_prototype,manual_prototype,2026-06-11
+,Brazil,4-3-3,brazil_igor_thiago,Igor Thiago,CF,penalty_box_striker,0.58,manual_role_prototype,manual_prototype,2026-06-11
+,Brazil,4-3-3,brazil_raphinha,Raphinha,RW,wide_creator,0.86,manual_role_prototype,manual_prototype,2026-06-11

@@ -1,0 +1,6 @@
+evidence_id,match_id,player_id,player,team,reported_status,status,detail,expected_return,availability_probability,expected_minutes,source,source_confidence,reported_at,data_quality
+injury_b93bec134affc27f69dc,FRA-BRA-TEST,france_kylian_mbappe,Kylian Mbappe,France,minor doubt,minor_doubt,Left training early with a minor ankle concern,,0.705,61,team_report,0.82,2026-06-11T14:00:00Z,manual_evidence
+injury_0171daf7fe0a08e38926,FRA-BRA-TEST,france_kylian_mbappe,Kylian Mbappe,France,fit,fit,Completed the later recovery session,,0.84,76,press_conference,0.68,2026-06-11T19:00:00Z,manual_evidence
+injury_a103f3892e75441f5c66,,france_aurelien_tchouameni,Aurelien Tchouameni,France,minutes limited,minutes_limited,Returning from a recent workload restriction,,0.722,45,manual_scouting,0.74,2026-06-11T16:00:00Z,manual_evidence
+injury_ff40ea9ce7b2e2448dbf,,brazil_casemiro,Casemiro,Brazil,suspended,suspended,Unavailable due to accumulated cards,2026-06-25,0.025,2,competition_notice,0.95,2026-06-11T12:00:00Z,manual_evidence
+injury_48135b9c53e006cc30b9,,brazil_vinicius_junior,Vinicius Junior,Brazil,full training,fit,Completed full team training,,0.94,85,team_report,0.88,2026-06-11T18:00:00Z,manual_evidence

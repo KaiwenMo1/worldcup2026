@@ -1,0 +1,193 @@
+{
+  "manager_id": "panama_christiansen",
+  "manager_name": "Thomas Christiansen",
+  "team": "Panama",
+  "skill_name": "Panama observed-history manager tactical skill",
+  "version": "0.2-statsbomb-observed",
+  "status": "manual_prototype",
+  "last_verified": "2024-07-06",
+  "source_refs": [
+    {
+      "source_id": "statsbomb_manager_history_panama_christiansen",
+      "title": "Thomas Christiansen observed manager-match sample",
+      "url": "https://github.com/statsbomb/open-data",
+      "observed_at": "2024-07-06",
+      "note": "Transparent aggregate from 4 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+    }
+  ],
+  "tactical_identity": {
+    "primary_style": "observed_balanced_adaptive",
+    "preferred_formations": [
+      "3-4-3"
+    ],
+    "build_up": "patient_progression_from_observed_matches",
+    "defensive_shape": "observed_mid_block",
+    "pressing": "observed_selective",
+    "transition": "observed_controlled",
+    "set_pieces": "observed_positive_emphasis",
+    "in_possession": [
+      "progress through the strongest available player-role combinations",
+      "observed possession profile score 54.5 and build-up directness score 31.1"
+    ],
+    "out_of_possession": [
+      "use a high press derived from the current team profile",
+      "observed pressing score 45.6 and defensive-line score 46.6"
+    ],
+    "transition_actions": [
+      "attack quickly after regains",
+      "observed transition score 6.2"
+    ],
+    "set_piece_actions": [
+      "use balanced dead-ball routines",
+      "observed set-piece score 47.1"
+    ]
+  },
+  "decision_rules": [
+    {
+      "condition_code": "opponent_high_press",
+      "parameters": {},
+      "recommendation": "create a first-line spare and use the strongest progressive passers before playing direct",
+      "evidence_confidence": 0.32,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_panama_christiansen",
+          "title": "Thomas Christiansen observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-06",
+          "note": "Transparent aggregate from 4 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ],
+      "last_verified": "2024-07-06",
+      "sample_size": 4
+    },
+    {
+      "condition_code": "leading_after_minute",
+      "parameters": {
+        "minute": 70
+      },
+      "recommendation": "reduce avoidable possession risk and protect central transition lanes",
+      "evidence_confidence": 0.28,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_panama_christiansen",
+          "title": "Thomas Christiansen observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-06",
+          "note": "Transparent aggregate from 4 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ],
+      "last_verified": "2024-07-06",
+      "sample_size": 4
+    },
+    {
+      "condition_code": "trailing_after_minute",
+      "parameters": {
+        "minute": 55
+      },
+      "recommendation": "increase attacking occupation and introduce the highest-impact available creator or scorer",
+      "evidence_confidence": 0.28,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_panama_christiansen",
+          "title": "Thomas Christiansen observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-06",
+          "note": "Transparent aggregate from 4 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ],
+      "last_verified": "2024-07-06",
+      "sample_size": 4
+    },
+    {
+      "condition_code": "opponent_high_line",
+      "parameters": {
+        "recovery_defender_score_max": 75
+      },
+      "recommendation": "release the fastest transition runners behind the opponent line",
+      "evidence_confidence": 0.34,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_panama_christiansen",
+          "title": "Thomas Christiansen observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-06",
+          "note": "Transparent aggregate from 4 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ],
+      "last_verified": "2024-07-06",
+      "sample_size": 4
+    },
+    {
+      "condition_code": "knockout_match",
+      "parameters": {},
+      "recommendation": "keep a flexible shape and preserve a credible late-game formation switch",
+      "evidence_confidence": 0.3,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_panama_christiansen",
+          "title": "Thomas Christiansen observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-06",
+          "note": "Transparent aggregate from 4 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ],
+      "last_verified": "2024-07-06",
+      "sample_size": 4
+    }
+  ],
+  "substitution_patterns": [
+    {
+      "match_state": "leading",
+      "likely_sub_type": "defensive stabilizer or fresh transition runner",
+      "minute_window": "65-80",
+      "evidence_confidence": 0.25,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_panama_christiansen",
+          "title": "Thomas Christiansen observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-06",
+          "note": "Transparent aggregate from 4 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ]
+    },
+    {
+      "match_state": "tied",
+      "likely_sub_type": "highest-impact creator or role-specific replacement",
+      "minute_window": "60-75",
+      "evidence_confidence": 0.315,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_panama_christiansen",
+          "title": "Thomas Christiansen observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-06",
+          "note": "Transparent aggregate from 4 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ]
+    },
+    {
+      "match_state": "trailing",
+      "likely_sub_type": "additional scorer or attacking creator",
+      "minute_window": "55-75",
+      "evidence_confidence": 0.302,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_panama_christiansen",
+          "title": "Thomas Christiansen observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-06",
+          "note": "Transparent aggregate from 4 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ]
+    }
+  ],
+  "evidence_notes": [
+    "Observed history contains 4 StatsBomb Open Data matches; evidence confidence 0.133.",
+    "Observed aggregate metrics support the tactical identity, but conditional decision rules remain hypotheses.",
+    "Historical team context may not transfer fully to the current World Cup squad.",
+    "Derived manager-team baseline for AI reasoning coverage.",
+    "This is not observed manager behavior and must remain manual_prototype until recurring manager-match evidence is ingested.",
+    "Player-role and team-profile deductions can explain forecasts but do not independently prove managerial intent."
+  ]
+}

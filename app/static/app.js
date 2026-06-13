@@ -269,13 +269,15 @@ function populateTeams() {
   const options = state.teams
     .map((team) => `<option value="${team.name}">${team.name}</option>`)
     .join("");
-  ["teamA", "teamB", "liveTeamA", "liveTeamB", "eliminateTeam", "briefTeamA", "briefTeamB"].forEach((id) => {
-    el(id).innerHTML = options;
+  ["teamA", "teamB", "liveTeamA", "liveTeamB", "eliminateTeam", "briefTeamA", "briefTeamB", "arenaTeamA", "arenaTeamB"].forEach((id) => {
+    if (el(id)) el(id).innerHTML = options;
   });
   el("teamA").value = "France";
   el("teamB").value = "Brazil";
   el("briefTeamA").value = "France";
   el("briefTeamB").value = "Brazil";
+  if (el("arenaTeamA")) el("arenaTeamA").value = "France";
+  if (el("arenaTeamB")) el("arenaTeamB").value = "Brazil";
   el("liveTeamA").value = "Mexico";
   el("liveTeamB").value = "South Africa";
   el("squadSelect").innerHTML = options;
@@ -1240,9 +1242,569 @@ function renderVenueMap(venues) {
   });
 }
 
+function playerIdFor(team, player) {
+  return `${team}_${player}`
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+}
+
+function centerMessage(message, tone = "") {
+  return `<div class="center-message ${tone}"><i data-lucide="${tone === "error" ? "circle-alert" : "database"}"></i><span>${escapeHtml(message)}</span></div>`;
+}
+
+function centerMetric(label, value, note = "") {
+  return `<div class="center-metric"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong>${note ? `<small>${escapeHtml(note)}</small>` : ""}</div>`;
+}
+
+function initCenterTabs() {
+  document.querySelectorAll("[data-center-tab]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const target = button.dataset.centerTab;
+      document.querySelectorAll("[data-center-tab]").forEach((tab) => {
+        const active = tab.dataset.centerTab === target;
+        tab.classList.toggle("active", active);
+        tab.setAttribute("aria-selected", String(active));
+      });
+      document.querySelectorAll("[data-center-pane]").forEach((pane) => {
+        const active = pane.dataset.centerPane === target;
+        pane.classList.toggle("active", active);
+        pane.hidden = !active;
+      });
+      refreshIcons();
+    });
+  });
+}
+
+function populateCenterTeams() {
+  const options = state.teams.map((team) => `<option value="${escapeHtml(team.name)}">${escapeHtml(team.name)}</option>`).join("");
+  ["formTeam", "injuryTeam", "lineupDeltaTeam", "reviewTeamA", "reviewTeamB"].forEach((id) => {
+    el(id).innerHTML = options;
+  });
+  ["formTeam", "injuryTeam", "lineupDeltaTeam", "reviewTeamA"].forEach((id) => { el(id).value = "France"; });
+  el("reviewTeamB").value = "Brazil";
+}
+
+async function populateFormPlayers(load = true) {
+  const team = el("formTeam").value;
+  const data = await api(`/api/squads?team=${encodeURIComponent(team)}`);
+  const players = [...(data.players || [])].sort((a, b) => Number(b.projected_starter) - Number(a.projected_starter));
+  el("formPlayer").innerHTML = players
+    .map((player) => `<option value="${escapeHtml(playerIdFor(team, player.player))}">${escapeHtml(player.player)} · ${escapeHtml(player.position)}</option>`)
+    .join("");
+  if (team === "France" && [...el("formPlayer").options].some((option) => option.value === "france_kylian_mbappe")) {
+    el("formPlayer").value = "france_kylian_mbappe";
+  }
+  if (load) await loadPlayerForm();
+}
+
+async function loadPlayerForm() {
+  const output = el("playerFormCenter");
+  output.innerHTML = centerMessage("Loading player role vector");
+  try {
+    const data = await api(`/api/player-role-vector/${encodeURIComponent(el("formPlayer").value)}`);
+    if (!data.found) {
+      output.innerHTML = centerMessage(data.fallback_note || "No player form data is available.");
+      return;
+    }
+    const form = data.form;
+    const roles = data.roles || [];
+    const primary = roles[0];
+    output.innerHTML = `
+      <div class="center-scoreboard">
+        ${centerMetric("Player", data.player, data.team)}
+        ${centerMetric("Form", form ? `${num(form.form_score, 0)}/100` : "-", form ? `${form.recent_matches} recent matches` : "No recent sample")}
+        ${centerMetric("Best role", primary ? primary.role_archetype.replaceAll("_", " ") : "-", primary ? `${num(primary.role_fit_score, 1)} fit score` : "No role vector")}
+        ${centerMetric("Confidence", primary ? `${Math.round(primary.confidence * 100)}%` : "-", primary?.data_quality || "No role evidence")}
+      </div>
+      <div class="role-vector-grid">
+        ${roles.map((role) => `
+          <div class="role-vector-row">
+            <div><strong>${escapeHtml(role.role_archetype.replaceAll("_", " "))}</strong><span>${num(role.role_fit_score, 1)} fit · ${escapeHtml(role.data_quality)}</span></div>
+            <div class="role-bar"><span style="width:${Math.min(role.role_fit_score, 100)}%"></span></div>
+            <div class="role-dimensions">
+              <span>Shot <b>${num(role.shooting_score, 0)}</b></span><span>Create <b>${num(role.creation_score, 0)}</b></span>
+              <span>Progress <b>${num(role.progression_score, 0)}</b></span><span>Press <b>${num(role.pressing_score, 0)}</b></span>
+              <span>Defend <b>${num(role.defending_score, 0)}</b></span><span>Transition <b>${num(role.transition_score, 0)}</b></span>
+            </div>
+          </div>
+        `).join("") || centerMessage("No role vectors are available.")}
+      </div>
+    `;
+  } catch (error) {
+    output.innerHTML = centerMessage(error.message, "error");
+  }
+  refreshIcons();
+}
+
+async function loadInjuryBoard() {
+  const output = el("injuryCenter");
+  output.innerHTML = centerMessage("Loading availability signals");
+  try {
+    const data = await api(`/api/injury-status?team=${encodeURIComponent(el("injuryTeam").value)}`);
+    if (!data.available) {
+      output.innerHTML = centerMessage(data.fallback_note || "No injury signals are available.");
+      return;
+    }
+    output.innerHTML = `
+      <div class="center-scoreboard">
+        ${centerMetric("Players tracked", String(data.signals.length), data.team)}
+        ${centerMetric("Manual review", String(data.manual_review_count), "Conflicting reports")}
+        ${centerMetric("Highest risk", `${Math.round(Math.max(...data.signals.map((row) => row.risk_score)) * 100)}%`, "Availability impact")}
+      </div>
+      <div class="center-table-wrap"><table class="center-table"><thead><tr><th>Player</th><th>Status</th><th>Available</th><th>Minutes</th><th>Evidence</th></tr></thead><tbody>
+        ${data.signals.map((row) => `<tr class="${row.needs_manual_review ? "review-row" : ""}"><td><strong>${escapeHtml(row.player)}</strong><span>${escapeHtml(row.reason)}</span></td><td><span class="status-tag ${escapeHtml(row.status)}">${escapeHtml(row.status.replaceAll("_", " "))}</span></td><td>${Math.round(row.availability_probability * 100)}%</td><td>${row.expected_minutes}</td><td>${row.evidence_count}${row.needs_manual_review ? " · review" : ""}</td></tr>`).join("")}
+      </tbody></table></div>
+    `;
+  } catch (error) {
+    output.innerHTML = centerMessage(error.message, "error");
+  }
+  refreshIcons();
+}
+
+async function populateManagerEvidence() {
+  const data = await api("/api/tactics/managers");
+  el("managerEvidenceSelect").innerHTML = (data.managers || [])
+    .map((manager) => `<option value="${escapeHtml(manager.manager_id)}">${escapeHtml(manager.manager_name)} · ${escapeHtml(manager.team)}</option>`)
+    .join("");
+  if ([...el("managerEvidenceSelect").options].some((option) => option.value === "france_deschamps")) {
+    el("managerEvidenceSelect").value = "france_deschamps";
+  }
+  await loadManagerEvidence();
+}
+
+async function loadManagerEvidence() {
+  const output = el("managerEvidenceCenter");
+  output.innerHTML = centerMessage("Loading manager evidence");
+  try {
+    const managerId = el("managerEvidenceSelect").value;
+    const [data, evaluation] = await Promise.all([
+      api(`/api/manager-evidence/${encodeURIComponent(managerId)}`),
+      api(`/api/evaluation/manager/${encodeURIComponent(managerId)}`),
+    ]);
+    if (!data.found) {
+      output.innerHTML = centerMessage(data.fallback_note || "No evidence exists for this manager.");
+      return;
+    }
+    const ready = data.suggested_updates.filter((row) => row.review_status === "ready_for_review").length;
+    output.innerHTML = `
+      <div class="center-scoreboard">
+        ${centerMetric("Manager", data.manager_name, data.team)}
+        ${centerMetric("Evidence", String(data.evidence.length), "Normalized public claims")}
+        ${centerMetric("Review queue", String(data.suggested_updates.length), `${ready} ready for review`)}
+        ${centerMetric("Observed score", evaluation.summary.average_component_score == null ? "-" : `${Math.round(evaluation.summary.average_component_score * 100)}%`, `${evaluation.summary.matches} evaluated matches`)}
+      </div>
+      <div class="evidence-split">
+        <div><div class="center-block-head"><strong>Evidence ledger</strong><span>Claim → proposed value</span></div>
+          ${data.evidence.map((row) => `<div class="evidence-row"><span>${escapeHtml(row.tactical_topic.replaceAll("_", " "))}</span><strong>${escapeHtml(row.proposed_value.replaceAll("_", " "))}</strong><small>${escapeHtml(row.source_title)} · ${Math.round(row.confidence * 100)}%</small></div>`).join("")}
+        </div>
+        <div><div class="center-block-head"><strong>Skill update queue</strong><span>Evidence-backed, never auto-applied</span></div>
+          ${data.suggested_updates.map((row) => `<div class="evidence-row"><span>${escapeHtml(row.review_status.replaceAll("_", " "))}</span><strong>${escapeHtml(row.tactical_topic.replaceAll("_", " "))}</strong><small>${row.evidence_count} evidence · ${escapeHtml(row.reason)}</small></div>`).join("") || centerMessage("No suggested updates.")}
+        </div>
+      </div>
+    `;
+  } catch (error) {
+    output.innerHTML = centerMessage(error.message, "error");
+  }
+  refreshIcons();
+}
+
+async function loadLineupDelta() {
+  const output = el("lineupDeltaCenter");
+  output.innerHTML = centerMessage("Comparing lineup contracts");
+  try {
+    const team = el("lineupDeltaTeam").value;
+    const matchId = el("lineupDeltaMatch").value.trim();
+    const query = new URLSearchParams({ team });
+    if (matchId) query.set("match_id", matchId);
+    const data = await api(`/api/lineup-delta?${query.toString()}`);
+    if (!data.available) {
+      output.innerHTML = `
+        ${centerMessage(data.fallback_note)}
+        <div class="center-scoreboard">
+          ${centerMetric("Projection", data.projected_formation || "-", `${data.projected_starters.length} likely starters`)}
+          ${centerMetric("Confirmed XI", "Pending", matchId || "No match ID")}
+        </div>
+        <div class="lineup-list">${data.projected_starters.map((row) => `<span>${escapeHtml(row.position_slot)}<strong>${escapeHtml(row.player)}</strong><small>${Math.round(Number(row.starter_probability) * 100)}%</small></span>`).join("")}</div>
+      `;
+      refreshIcons();
+      return;
+    }
+    output.innerHTML = `
+      <div class="center-scoreboard">
+        ${centerMetric("Projected", data.projected_formation || "-", `${data.projected_starters.length} starters`)}
+        ${centerMetric("Confirmed", data.confirmed_formation || "-", `${data.confirmed_starters.length} starters`)}
+        ${centerMetric("Unchanged", String(data.unchanged_starters.length), "Projection hits")}
+        ${centerMetric("Surprises", String(data.unexpected_starters.length), "Unexpected starters")}
+      </div>
+      <div class="delta-grid">
+        <div><span>Unexpected starters</span><strong>${data.unexpected_starters.map(escapeHtml).join(", ") || "None"}</strong></div>
+        <div><span>Projected starters missing</span><strong>${data.missing_projected_starters.map(escapeHtml).join(", ") || "None"}</strong></div>
+      </div>
+    `;
+  } catch (error) {
+    output.innerHTML = centerMessage(error.message, "error");
+  }
+  refreshIcons();
+}
+
+function renderMatchReview(data) {
+  const output = el("postMatchReviewCenter");
+  if (!data.found) {
+    output.innerHTML = centerMessage("No stored evaluation exists for this match. Run Evaluate to create one.");
+    refreshIcons();
+    return;
+  }
+  const model = data.model.at(-1);
+  const matchupHits = data.matchups.filter((row) => row.edge_confirmed === true).length;
+  output.innerHTML = `
+    <div class="center-scoreboard">
+      ${centerMetric("Result read", model?.winner_hit ? "Hit" : "Miss", model ? `${model.predicted_outcome} predicted` : "No model evaluation")}
+      ${centerMetric("Exact score", model?.exact_score_hit ? "Hit" : "Miss", model ? `${model.predicted_team_a_score}-${model.predicted_team_b_score} vs ${model.actual_team_a_score}-${model.actual_team_b_score}` : "No model evaluation")}
+      ${centerMetric("Brier score", model ? num(model.brier_score, 3) : "-", "Lower is better")}
+      ${centerMetric("Matchup checks", `${matchupHits}/${data.matchups.length}`, "Event-derived confirmation")}
+    </div>
+    <div class="evidence-split">
+      <div><div class="center-block-head"><strong>Manager hypotheses</strong><span>Observed vs expected</span></div>
+        ${data.managers.map((row) => `<div class="evidence-row"><span>${escapeHtml(row.team)}</span><strong>${row.component_score == null ? "Not evaluable" : `${Math.round(row.component_score * 100)}%`}</strong><small>${escapeHtml(row.explanation)}</small></div>`).join("") || centerMessage("No manager evaluations.")}
+      </div>
+      <div><div class="center-block-head"><strong>Matchup evidence</strong><span>Top transparent checks</span></div>
+        ${data.matchups.slice(0, 6).map((row) => `<div class="evidence-row"><span>${escapeHtml(row.matchup_type.replaceAll("_", " "))}</span><strong>${row.edge_confirmed == null ? "Partial" : row.edge_confirmed ? "Confirmed" : "Rejected"}</strong><small>${escapeHtml(row.evidence_metric)} · ${escapeHtml(row.observed_favored_team || "no edge")}</small></div>`).join("") || centerMessage("No matchup evaluations.")}
+      </div>
+    </div>
+  `;
+  refreshIcons();
+}
+
+async function loadMatchReview() {
+  const output = el("postMatchReviewCenter");
+  output.innerHTML = centerMessage("Loading evaluation");
+  try {
+    renderMatchReview(await api(`/api/evaluation/match/${encodeURIComponent(el("reviewMatchId").value.trim())}`));
+  } catch (error) {
+    output.innerHTML = centerMessage(error.message, "error");
+  }
+}
+
+async function runMatchEvaluation() {
+  const button = el("evaluateMatchBtn");
+  setButtonBusy(button, true, "Evaluate", "Evaluating", "scan-search");
+  try {
+    await api("/api/evaluate-match", {
+      method: "POST",
+      body: JSON.stringify({
+        match_id: el("reviewMatchId").value.trim(),
+        team_a: el("reviewTeamA").value,
+        team_b: el("reviewTeamB").value,
+        team_a_score: Number(el("reviewScoreA").value),
+        team_b_score: Number(el("reviewScoreB").value),
+        use_model: el("useModel").checked,
+      }),
+    });
+    await loadMatchReview();
+  } catch (error) {
+    el("postMatchReviewCenter").innerHTML = centerMessage(error.message, "error");
+  } finally {
+    setButtonBusy(button, false, "Evaluate", "Evaluating", "scan-search");
+  }
+}
+
+async function refreshCenterData(buttonId, endpoint, label, after) {
+  const button = el(buttonId);
+  setButtonBusy(button, true, label, "Refreshing", "refresh-cw");
+  try {
+    const result = await api(endpoint, { method: "POST", body: "{}" });
+    el("futureCenterStatus").textContent = `${result.run?.status || "refreshed"} · ${result.issue_count || 0} quality issues`;
+    await after();
+  } catch (error) {
+    el("futureCenterStatus").textContent = "Refresh failed";
+    alert(error.message);
+  } finally {
+    setButtonBusy(button, false, label, "Refreshing", "refresh-cw");
+  }
+}
+
+async function initializeFutureCenters() {
+  initCenterTabs();
+  populateCenterTeams();
+  el("formTeam").addEventListener("change", () => populateFormPlayers());
+  el("loadPlayerFormBtn").addEventListener("click", loadPlayerForm);
+  el("loadInjuryBtn").addEventListener("click", loadInjuryBoard);
+  el("loadManagerEvidenceBtn").addEventListener("click", loadManagerEvidence);
+  el("loadLineupDeltaBtn").addEventListener("click", loadLineupDelta);
+  el("loadReviewBtn").addEventListener("click", loadMatchReview);
+  el("evaluateMatchBtn").addEventListener("click", runMatchEvaluation);
+  el("refreshPlayerStatsBtn").addEventListener("click", () => refreshCenterData("refreshPlayerStatsBtn", "/api/refresh-player-stats", "Refresh data", loadPlayerForm));
+  el("refreshInjuryBtn").addEventListener("click", () => refreshCenterData("refreshInjuryBtn", "/api/refresh-injury-news", "Refresh data", loadInjuryBoard));
+  el("refreshManagerEvidenceBtn").addEventListener("click", () => refreshCenterData("refreshManagerEvidenceBtn", "/api/refresh-tactical-evidence", "Refresh evidence", loadManagerEvidence));
+  el("refreshLineupDeltaBtn").addEventListener("click", () => refreshCenterData("refreshLineupDeltaBtn", "/api/refresh-lineups", "Refresh lineups", loadLineupDelta));
+  await Promise.allSettled([populateFormPlayers(), loadInjuryBoard(), populateManagerEvidence(), loadLineupDelta(), loadMatchReview()]);
+}
+
+function arenaPercent(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? `${Math.round(number * 100)}%` : "-";
+}
+
+function arenaResultOptions() {
+  const teamA = el("arenaTeamA").value;
+  const teamB = el("arenaTeamB").value;
+  const previous = el("arenaResult").value;
+  el("arenaResult").innerHTML = [teamA, "Draw", teamB]
+    .map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`)
+    .join("");
+  if ([teamA, "Draw", teamB].includes(previous)) el("arenaResult").value = previous;
+}
+
+function arenaList(items, fallback) {
+  if (!items?.length) return `<div class="arena-empty compact"><span>${escapeHtml(fallback)}</span></div>`;
+  return items.map((item) => `<div class="arena-list-row"><i data-lucide="chevron-right"></i><span>${escapeHtml(item)}</span></div>`).join("");
+}
+
+function arenaTarget(target) {
+  if (!target) return { pick: "Unavailable", score: "-", confidence: null, qualification: null };
+  return {
+    pick: target.regular_time_90?.pick || "Unavailable",
+    score: target.regular_time_90?.score || "-",
+    confidence: target.regular_time_90?.confidence,
+    qualification: target.qualification?.pick || null,
+  };
+}
+
+function arenaAgentRow(name, label, pick, score, confidence, reason, tone = "") {
+  return `
+    <article class="arena-agent-row ${tone}">
+      <div class="arena-agent-name"><span>${escapeHtml(label)}</span><strong>${escapeHtml(name)}</strong></div>
+      <div class="arena-agent-call"><strong>${escapeHtml(pick || "Unavailable")}</strong><span>${escapeHtml(score || "-")}</span></div>
+      <p>${escapeHtml(reason || "No supporting explanation is available.")}</p>
+      <b>${confidence == null ? "-" : arenaPercent(confidence)}</b>
+    </article>
+  `;
+}
+
+function arenaRowsFromRun(run) {
+  if (!run) return "";
+  const baseProbabilities = run.base_forecast?.probabilities || {};
+  const baseChoices = [
+    [run.team_a, Number(baseProbabilities.team_a_win || 0)],
+    ["Draw", Number(baseProbabilities.draw || 0)],
+    [run.team_b, Number(baseProbabilities.team_b_win || 0)],
+  ].sort((a, b) => b[1] - a[1]);
+  const baseScore = run.base_forecast?.scorelines?.[0]
+    ? `${run.base_forecast.scorelines[0].team_a_score}-${run.base_forecast.scorelines[0].team_b_score}`
+    : "-";
+  const expert = arenaTarget(run.expert?.prediction_target);
+  const kevin = arenaTarget(run.kevin?.prediction_target);
+  const upset = arenaTarget(run.upset?.prediction_target);
+  const final = arenaTarget(run.final_forecast?.final_prediction);
+  return [
+    arenaAgentRow("Base ML Model", "Probability anchor", baseChoices[0][0], baseScore, baseChoices[0][1] / 100, "Existing ensemble and exact-score distribution.", "base"),
+    arenaAgentRow("Expert Agent", "Tactical read", expert.pick, expert.score, run.expert?.confidence, run.expert?.expected_match_shape, "expert"),
+    arenaAgentRow("Kevin Agent", "Decisive intuition", kevin.pick, kevin.score, run.kevin?.confidence, `${run.kevin?.bold_pick || ""}. ${run.kevin?.core_reason || ""}`, "kevin"),
+    arenaAgentRow("Upset Agent", "Underdog path", upset.pick, upset.score, run.upset?.confidence, run.upset?.upset_path, "upset"),
+    arenaAgentRow("Skeptic Agent", "Audit layer", "No pick", run.skeptic?.overall_risk_level || "-", null, (run.skeptic?.missing_data || []).concat(run.skeptic?.unsupported_assumptions || [])[0] || "No major audit warning.", "skeptic"),
+    arenaAgentRow("Final Forecast", "Aggregated call", final.pick, final.score, run.final_forecast?.final_confidence, run.final_forecast?.top_reasons?.[0], "final"),
+  ].join("");
+}
+
+function arenaRowsFromRecords(records = []) {
+  if (!records.length) return "";
+  return records.map((record) => arenaAgentRow(
+    record.agent_name,
+    record.agent_name === "Final Forecast Agent" ? "Aggregated call" : "Saved forecast",
+    record.regular_time_pick,
+    record.regular_time_score,
+    record.confidence,
+    record.core_reason,
+    record.agent_name === "Final Forecast Agent" ? "final" : "",
+  )).join("");
+}
+
+function renderArenaPublicCard(card) {
+  if (!card?.available || !card.markdown) {
+    el("arenaPublicCard").innerHTML = `<div class="arena-empty compact"><span>No public card published. Run the Arena, then publish the saved version.</span></div>`;
+    return;
+  }
+  const preview = card.markdown
+    .split("\n")
+    .filter((line) => line.trim() && !line.startsWith("---"))
+    .slice(0, 14)
+    .join("\n");
+  el("arenaPublicCard").innerHTML = `<pre>${escapeHtml(preview)}</pre><small>${escapeHtml(card.path || "")}</small>`;
+}
+
+function renderPredictionArena(payload) {
+  const run = payload?.run || null;
+  const match = payload?.match || payload || {};
+  const records = match.records || [];
+  const finalRecord = records.find((record) => record.agent_name === "Final Forecast Agent");
+  const final = run?.final_forecast;
+  const target = final ? arenaTarget(final.final_prediction) : {
+    pick: finalRecord?.regular_time_pick || "No forecast yet",
+    score: finalRecord?.regular_time_score || "-",
+    confidence: finalRecord?.confidence,
+    qualification: finalRecord?.qualification_pick,
+  };
+  const reasons = final?.top_reasons || (finalRecord ? [finalRecord.core_reason] : []);
+  const fragile = final?.fragile_assumptions || finalRecord?.fragile_assumptions || [];
+  const watch = final?.what_to_watch || [];
+  const warnings = [...(run?.fallback_notes || []), ...(match.warnings || [])];
+
+  el("arenaVersion").textContent = match.version ? `Version ${match.version} · ${records[0]?.status || "saved"}` : "No saved version";
+  el("arenaStatus").textContent = warnings[0] || (match.found ? `Latest saved run · version ${match.version}` : "Technical entertainment forecast · ready for a matchup");
+  el("arenaForecast").innerHTML = `
+    <div class="arena-final-call">
+      <div class="arena-final-label"><span>Final 90-minute call</span><small>${escapeHtml(run?.stage || match.stage || el("arenaStage").value)}</small></div>
+      <div class="arena-score-call"><strong>${escapeHtml(target.pick)}</strong><b>${escapeHtml(target.score)}</b></div>
+      <div class="arena-confidence"><span>Confidence</span><strong>${target.confidence == null ? "-" : arenaPercent(final?.final_confidence ?? target.confidence)}</strong><div><i style="width:${Math.min(100, Number(final?.final_confidence ?? target.confidence ?? 0) * 100)}%"></i></div></div>
+      <p>${escapeHtml(reasons[0] || "Run the Arena to generate an audited forecast.")}</p>
+      ${target.qualification ? `<div class="arena-qualification"><span>Qualification</span><strong>${escapeHtml(target.qualification)}</strong></div>` : ""}
+    </div>
+    <div class="arena-forecast-note">
+      <i data-lucide="${warnings.length ? "triangle-alert" : "shield-check"}"></i>
+      <div><strong>${warnings.length ? "Data notes" : "Forecast guardrail"}</strong><span>${escapeHtml(warnings[0] || "Technical entertainment forecast. Every call remains uncertain.")}</span></div>
+    </div>
+  `;
+  el("arenaAgentBattle").innerHTML = arenaRowsFromRun(run) || arenaRowsFromRecords(records) || `<div class="arena-empty compact"><span>No agent outputs are saved for this match.</span></div>`;
+  el("arenaFragile").innerHTML = arenaList(fragile, "No fragile assumptions are available.");
+  el("arenaWatch").innerHTML = arenaList(watch, run ? "No additional watch signals were produced." : "Detailed watch signals are available immediately after a new run.");
+  renderArenaPublicCard(match.public_card);
+  refreshIcons();
+}
+
+function renderArenaLeaderboard(data) {
+  const rows = data?.leaderboard || [];
+  if (!rows.length) {
+    el("arenaLeaderboard").innerHTML = `<div class="arena-empty compact"><span>No completed match evaluations yet.</span></div>`;
+    return;
+  }
+  el("arenaLeaderboard").innerHTML = `
+    <table class="arena-table"><thead><tr><th>Agent</th><th>Matches</th><th>Points</th><th>Result hit</th><th>Exact</th><th>Confidence</th></tr></thead><tbody>
+      ${rows.map((row, index) => `<tr><td><span>${index + 1}</span><strong>${escapeHtml(row.agent_name)}</strong></td><td>${row.matches_predicted}</td><td><b>${row.total_points}</b></td><td>${arenaPercent(row.winner_accuracy)}</td><td>${row.exact_score_hits}</td><td>${arenaPercent(row.average_confidence)}${row.calibration_warning ? `<small>${escapeHtml(row.calibration_warning.replaceAll("_", " "))}</small>` : ""}</td></tr>`).join("")}
+    </tbody></table>
+  `;
+}
+
+function renderArenaCalibration(data) {
+  const performance = data?.agent_performance || [];
+  const warnings = data?.warnings || [];
+  if (!performance.length && !warnings.length) {
+    el("arenaCalibration").innerHTML = `<div class="arena-empty compact"><span>Calibration needs completed match evaluations.</span></div>`;
+    return;
+  }
+  el("arenaCalibration").innerHTML = performance.map((row) => `
+    <div class="arena-calibration-row">
+      <strong>${escapeHtml(row.agent_name)}</strong>
+      <span>${row.warnings?.length ? row.warnings.map((warning) => escapeHtml(warning.replaceAll("_", " "))).join(" · ") : "No current warning"}</span>
+      <b>${arenaPercent(row.winner_accuracy)}</b>
+    </div>
+  `).join("") || arenaList(warnings, "No current warning");
+}
+
+async function loadArenaLeaderboard() {
+  try {
+    renderArenaLeaderboard(await api("/api/prediction-arena/leaderboard"));
+  } catch (error) {
+    el("arenaLeaderboard").innerHTML = `<div class="arena-empty compact error"><span>${escapeHtml(error.message)}</span></div>`;
+  }
+}
+
+async function loadArenaCalibration() {
+  try {
+    renderArenaCalibration(await api("/api/prediction-arena/calibration"));
+  } catch (error) {
+    el("arenaCalibration").innerHTML = `<div class="arena-empty compact error"><span>${escapeHtml(error.message)}</span></div>`;
+  }
+}
+
+async function runPredictionArena() {
+  const button = el("arenaRunBtn");
+  setButtonBusy(button, true, "Run Arena", "Running agents", "sparkles");
+  el("arenaStatus").textContent = "Running model, tactical brief, agents, and skeptic audit";
+  try {
+    const data = await api("/api/prediction-arena/run", {
+      method: "POST",
+      body: JSON.stringify({
+        match_id: el("arenaMatchId").value.trim(),
+        team_a: el("arenaTeamA").value,
+        team_b: el("arenaTeamB").value,
+        stage: el("arenaStage").value,
+      }),
+    });
+    renderPredictionArena(data);
+  } catch (error) {
+    el("arenaStatus").textContent = "Arena run failed";
+    el("arenaForecast").innerHTML = `<div class="arena-empty error"><strong>Prediction Arena could not run.</strong><span>${escapeHtml(error.message)}</span></div>`;
+  } finally {
+    setButtonBusy(button, false, "Run Arena", "Running agents", "sparkles");
+  }
+}
+
+async function loadPredictionArenaMatch() {
+  const matchId = el("arenaMatchId").value.trim();
+  if (!matchId) return;
+  renderPredictionArena(await api(`/api/prediction-arena/match/${encodeURIComponent(matchId)}`));
+}
+
+async function arenaMatchAction(buttonId, endpoint, label, busyLabel) {
+  const button = el(buttonId);
+  setButtonBusy(button, true, label, busyLabel, buttonId === "arenaLockBtn" ? "lock-keyhole" : "send");
+  try {
+    const data = await api(endpoint, {
+      method: "POST",
+      body: JSON.stringify({ match_id: el("arenaMatchId").value.trim() }),
+    });
+    renderPredictionArena(data);
+  } catch (error) {
+    el("arenaStatus").textContent = error.message;
+  } finally {
+    setButtonBusy(button, false, label, busyLabel, buttonId === "arenaLockBtn" ? "lock-keyhole" : "send");
+  }
+}
+
+async function settlePredictionArena() {
+  const button = el("arenaSettleBtn");
+  setButtonBusy(button, true, "Evaluate Result", "Evaluating", "clipboard-check");
+  try {
+    const qualification = el("arenaQualification").value.trim();
+    const data = await api("/api/prediction-arena/settle", {
+      method: "POST",
+      body: JSON.stringify({
+        match_id: el("arenaMatchId").value.trim(),
+        actual_score: `${Number(el("arenaScoreA").value)}-${Number(el("arenaScoreB").value)}`,
+        regular_time_result: el("arenaResult").value,
+        qualification_result: qualification || null,
+      }),
+    });
+    renderPredictionArena(data);
+    renderArenaLeaderboard(data.leaderboard);
+    await loadArenaCalibration();
+  } catch (error) {
+    el("arenaStatus").textContent = error.message;
+  } finally {
+    setButtonBusy(button, false, "Evaluate Result", "Evaluating", "clipboard-check");
+  }
+}
+
+async function initializePredictionArena() {
+  if (!el("arenaRunBtn")) return;
+  arenaResultOptions();
+  el("arenaTeamA").addEventListener("change", arenaResultOptions);
+  el("arenaTeamB").addEventListener("change", arenaResultOptions);
+  el("arenaRunBtn").addEventListener("click", runPredictionArena);
+  el("arenaLockBtn").addEventListener("click", () => arenaMatchAction("arenaLockBtn", "/api/prediction-arena/lock", "Lock", "Locking"));
+  el("arenaPublishBtn").addEventListener("click", () => arenaMatchAction("arenaPublishBtn", "/api/prediction-arena/publish-card", "Publish", "Publishing"));
+  el("arenaSettleBtn").addEventListener("click", settlePredictionArena);
+  el("arenaRefreshBoardBtn").addEventListener("click", () => Promise.allSettled([loadArenaLeaderboard(), loadArenaCalibration()]));
+  await Promise.allSettled([loadPredictionArenaMatch(), loadArenaLeaderboard(), loadArenaCalibration()]);
+}
+
 function initNavigationState() {
   const navLinks = [...document.querySelectorAll(".primary-nav a")];
-  const sections = navLinks
+  const anchorLinks = navLinks.filter((link) => link.getAttribute("href")?.startsWith("#"));
+  const sections = anchorLinks
     .map((link) => document.querySelector(link.getAttribute("href")))
     .filter(Boolean);
   const topbar = document.querySelector(".topbar");
@@ -1272,7 +1834,7 @@ function initNavigationState() {
     window.requestAnimationFrame(updateNavigation);
   };
 
-  navLinks.forEach((link) => {
+  anchorLinks.forEach((link) => {
     link.addEventListener("click", () => setActive(link.getAttribute("href").slice(1)));
   });
   window.addEventListener("scroll", scheduleUpdate, { passive: true });
@@ -1302,6 +1864,7 @@ async function init() {
   el("intelligenceStatus").textContent = `${status.intelligence.retriever} · ${status.intelligence.documents} chunks`;
   el("liveMetric").textContent = status.live_state.source || "manual";
   populateTeams();
+  await Promise.allSettled([initializeFutureCenters(), initializePredictionArena()]);
   populateVenues(state.venues);
   renderGroups(groups.groups);
   renderModelReport(modelReport);

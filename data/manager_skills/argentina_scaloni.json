@@ -1,0 +1,139 @@
+{
+  "manager_id": "argentina_scaloni",
+  "manager_name": "Lionel Scaloni",
+  "team": "Argentina",
+  "skill_name": "Argentina observed-history manager tactical skill",
+  "version": "0.2-statsbomb-observed",
+  "status": "evidence_backed",
+  "last_verified": "2024-07-15",
+  "source_refs": [
+    {
+      "source_id": "statsbomb_manager_history_argentina_scaloni",
+      "title": "Lionel Scaloni observed manager-match sample",
+      "url": "https://github.com/statsbomb/open-data",
+      "observed_at": "2024-07-15",
+      "note": "Transparent aggregate from 12 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+    }
+  ],
+  "tactical_identity": {
+    "primary_style": "observed_balanced_adaptive",
+    "preferred_formations": [
+      "4-4-2"
+    ],
+    "build_up": "patient_progression_from_observed_matches",
+    "defensive_shape": "observed_deeper_block",
+    "pressing": "observed_low",
+    "transition": "observed_controlled",
+    "set_pieces": "observed_positive_emphasis",
+    "in_possession": [
+      "create central combinations before accelerating",
+      "observed possession profile score 56.0 and build-up directness score 25.6"
+    ],
+    "out_of_possession": [
+      "compress central space",
+      "observed pressing score 42.2 and defensive-line score 43.8"
+    ],
+    "transition_actions": [
+      "secure the first pass after regains",
+      "observed transition score 5.7"
+    ],
+    "set_piece_actions": [
+      "mix short routines with direct delivery",
+      "observed set-piece score 100.0"
+    ]
+  },
+  "decision_rules": [
+    {
+      "condition_code": "opponent_high_press",
+      "parameters": {},
+      "recommendation": "use a direct release or third-man combination to bypass the first pressure line",
+      "evidence_confidence": 0.4,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_argentina_scaloni",
+          "title": "Lionel Scaloni observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-15",
+          "note": "Transparent aggregate from 12 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ],
+      "last_verified": "2024-07-15",
+      "sample_size": 12
+    },
+    {
+      "condition_code": "leading_after_minute",
+      "parameters": {
+        "minute": 65
+      },
+      "recommendation": "increase midfield control and reduce unnecessary transition exchanges",
+      "evidence_confidence": 0.4,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_argentina_scaloni",
+          "title": "Lionel Scaloni observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-15",
+          "note": "Transparent aggregate from 12 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ],
+      "last_verified": "2024-07-15",
+      "sample_size": 12
+    },
+    {
+      "condition_code": "knockout_match",
+      "parameters": {},
+      "recommendation": "preserve tactical flexibility and avoid committing both fullbacks simultaneously",
+      "evidence_confidence": 0.4,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_argentina_scaloni",
+          "title": "Lionel Scaloni observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-15",
+          "note": "Transparent aggregate from 12 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ],
+      "last_verified": "2024-07-15",
+      "sample_size": 12
+    }
+  ],
+  "substitution_patterns": [
+    {
+      "match_state": "leading",
+      "likely_sub_type": "control midfielder or defensive wide player",
+      "minute_window": "65-80",
+      "evidence_confidence": 0.4,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_argentina_scaloni",
+          "title": "Lionel Scaloni observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-15",
+          "note": "Transparent aggregate from 12 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ]
+    },
+    {
+      "match_state": "trailing",
+      "likely_sub_type": "direct attacker or additional forward",
+      "minute_window": "55-72",
+      "evidence_confidence": 0.4,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_argentina_scaloni",
+          "title": "Lionel Scaloni observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-15",
+          "note": "Transparent aggregate from 12 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ]
+    }
+  ],
+  "evidence_notes": [
+    "Observed history contains 12 StatsBomb Open Data matches; evidence confidence 0.400.",
+    "Observed aggregate metrics support the tactical identity, but conditional decision rules remain hypotheses.",
+    "Historical team context may not transfer fully to the current World Cup squad.",
+    "Manual prototype for rule-engine development.",
+    "Confidence describes confidence in the tactical hypothesis, not the chance that the tactic succeeds."
+  ]
+}

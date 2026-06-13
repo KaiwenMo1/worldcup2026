@@ -1,0 +1,237 @@
+match_id,date,manager_id,team,opponent,competition,goals_for,goals_against,opponent_strength,formation,ppda,defensive_line_height,build_up_directness,possession_share,transition_attacks,set_piece_xg,first_sub_minute,substitution_count,leading_minutes,trailing_minutes,source
+7533,2018-06-17,algeria_petkovic,Switzerland,Brazil,FIFA World Cup,1,1,86.5,4-2-3-1,12.631,40.758,27.207,0.4132,0,0.2718,69.0,3,0.0,30.4,statsbomb_open_data:7533:Vladimir Petković
+7550,2018-06-22,algeria_petkovic,Switzerland,Serbia,FIFA World Cup,2,1,70.0,4-2-3-1,11.475,41.529,26.056,0.6207,2,0.5555,45.0,3,0.38,47.12,statsbomb_open_data:7550:Vladimir Petković
+7568,2018-06-27,algeria_petkovic,Switzerland,Costa Rica,FIFA World Cup,2,2,70.0,4-2-3-1,10.131,42.468,26.191,0.6229,0,0.5067,59.0,3,28.02,0.0,statsbomb_open_data:7568:Vladimir Petković
+7586,2018-07-03,algeria_petkovic,Switzerland,Sweden,FIFA World Cup,0,1,86.5,4-2-3-1,10.696,43.79,25.788,0.6869,0,0.3931,72.0,2,0.0,24.13,statsbomb_open_data:7586:Vladimir Petković
+3788744,2021-06-12,algeria_petkovic,Switzerland,Wales,UEFA Euro,1,1,70.0,3-4-1-2,14.131,42.69,24.894,0.6402,1,1.2268,65.0,2,24.47,0.0,statsbomb_open_data:3788744:Vladimir Petković
+3788754,2021-06-16,algeria_petkovic,Switzerland,Italy,UEFA Euro,0,3,70.0,3-4-1-2,13.776,46.654,26.845,0.5026,0,0.0797,45.0,5,0.0,64.63,statsbomb_open_data:3788754:Vladimir Petković
+3788765,2021-06-20,algeria_petkovic,Switzerland,Turkey,UEFA Euro,3,1,70.0,3-4-1-2,14.0,43.977,29.815,0.5101,0,0.8978,74.0,5,84.35,0.0,statsbomb_open_data:3788765:Vladimir Petković
+3794691,2021-06-28,algeria_petkovic,Switzerland,France,UEFA Euro,3,3,86.5,3-4-1-2,13.64,41.465,30.621,0.4447,0,5.5752,72.0,6,41.67,31.62,statsbomb_open_data:3794691:Vladimir Petković
+3795108,2021-07-02,algeria_petkovic,Switzerland,Spain,UEFA Euro,1,1,86.5,4-2-3-1,22.06,34.702,40.345,0.2786,0,3.475,22.0,6,22.3,0.0,statsbomb_open_data:3795108:Vladimir Petković
+3857289,2022-11-26,argentina_scaloni,Argentina,Mexico,FIFA World Cup,2,0,86.5,4-4-2,14.38,43.259,22.339,0.5959,0,0.3252,56.0,5,26.47,0.0,statsbomb_open_data:3857289:Lionel Sebastián Scaloni
+3857264,2022-11-30,argentina_scaloni,Argentina,Poland,FIFA World Cup,2,0,70.0,4-3-3,13.33,49.105,20.914,0.7349,1,1.7831,58.0,5,44.12,0.0,statsbomb_open_data:3857264:Lionel Sebastián Scaloni
+3869151,2022-12-03,argentina_scaloni,Argentina,Australia,FIFA World Cup,2,1,86.5,4-3-3,13.594,47.979,21.233,0.6369,1,0.5342,49.0,5,55.42,0.0,statsbomb_open_data:3869151:Lionel Sebastián Scaloni
+3869321,2022-12-09,argentina_scaloni,Argentina,Netherlands,FIFA World Cup,2,2,86.5,3-5-2,15.817,42.01,23.971,0.497,0,5.6669,65.0,6,55.93,0.0,statsbomb_open_data:3869321:Lionel Sebastián Scaloni
+3869519,2022-12-13,argentina_scaloni,Argentina,Croatia,FIFA World Cup,3,0,86.5,4-4-2,15.802,41.342,28.164,0.3986,1,1.3548,61.0,5,56.55,0.0,statsbomb_open_data:3869519:Lionel Sebastián Scaloni
+3869685,2022-12-18,argentina_scaloni,Argentina,France,FIFA World Cup,3,3,86.5,4-3-3,13.504,41.86,27.436,0.5553,2,4.133,63.0,6,58.58,0.0,statsbomb_open_data:3869685:Lionel Sebastián Scaloni
+3939969,2024-06-21,argentina_scaloni,Argentina,Canada,Copa America,2,0,86.5,4-4-2,12.331,47.294,26.924,0.6408,1,1.2225,66.0,5,41.93,0.0,statsbomb_open_data:3939969:Lionel Sebastián Scaloni
+3939977,2024-06-26,argentina_scaloni,Argentina,Chile,Copa America,1,0,70.0,4-4-2,13.068,43.7,23.639,0.5932,2,2.1466,63.0,5,2.8,0.0,statsbomb_open_data:3939977:Lionel Sebastián Scaloni
+3939986,2024-06-30,argentina_scaloni,Argentina,Peru,Copa America,2,0,70.0,4-3-3,11.215,41.565,24.057,0.7083,1,1.2658,64.0,5,43.78,0.0,statsbomb_open_data:3939986:Lionel Sebastián Scaloni
+3942228,2024-07-05,argentina_scaloni,Argentina,Ecuador,Copa America,1,1,86.5,4-4-2,16.67,47.202,25.596,0.5156,0,4.6106,64.0,4,55.33,0.0,statsbomb_open_data:3942228:Lionel Sebastián Scaloni
+3942785,2024-07-10,argentina_scaloni,Argentina,Canada,Copa America,2,0,86.5,4-4-2,13.883,42.841,27.231,0.4841,0,0.9948,63.0,5,68.0,0.0,statsbomb_open_data:3942785:Lionel Sebastián Scaloni
+3943077,2024-07-15,argentina_scaloni,Argentina,Colombia,Copa America,1,0,86.5,4-4-2,18.395,39.83,30.92,0.4498,0,0.6666,65.0,6,0.0,0.0,statsbomb_open_data:3943077:Lionel Sebastián Scaloni
+3930165,2024-06-17,austria_rangnick,Austria,France,UEFA Euro,0,1,86.5,4-2-3-1,11.864,46.998,25.664,0.4712,0,0.277,58.0,5,0.0,0.0,statsbomb_open_data:3930165:Ralf Rangnick
+3938641,2024-06-21,austria_rangnick,Austria,Poland,UEFA Euro,3,1,70.0,4-2-3-1,11.108,47.468,25.35,0.5053,1,1.1813,45.0,5,44.88,0.0,statsbomb_open_data:3938641:Ralf Rangnick
+3930180,2024-06-25,austria_rangnick,Austria,Netherlands,UEFA Euro,3,2,86.5,4-2-3-1,13.112,45.728,30.1,0.4613,1,0.6876,61.0,5,0.0,17.37,statsbomb_open_data:3930180:Ralf Rangnick
+3941022,2024-07-02,austria_rangnick,Austria,Turkey,UEFA Euro,1,2,70.0,4-2-3-1,12.343,52.512,25.591,0.6056,1,1.3349,45.0,4,0.0,89.03,statsbomb_open_data:3941022:Ralf Rangnick
+3879567,2015-10-17,belgium_garcia,AS Roma,Empoli,Serie A,3,1,70.0,4-4-2,11.862,42.341,29.239,0.572,0,0.3497,54.0,3,34.15,0.0,statsbomb_open_data:3879567:Rudi Garcia
+3879583,2015-10-25,belgium_garcia,AS Roma,Fiorentina,Serie A,2,1,70.0,4-3-3,15.816,38.486,47.424,0.28,1,0.5175,36.0,3,84.1,0.0,statsbomb_open_data:3879583:Rudi Garcia
+3879592,2015-10-28,belgium_garcia,AS Roma,Udinese,Serie A,3,1,70.0,4-3-3,12.631,41.678,26.849,0.6303,3,0.4492,64.0,3,86.27,0.0,statsbomb_open_data:3879592:Rudi Garcia
+3879598,2015-10-31,belgium_garcia,AS Roma,Inter Milan,Serie A,0,1,70.0,4-3-3,11.672,44.609,26.273,0.5974,0,0.7592,63.0,3,0.0,59.98,statsbomb_open_data:3879598:Rudi Garcia
+3879610,2015-11-08,belgium_garcia,AS Roma,Lazio,Serie A,2,0,70.0,4-2-3-1,12.196,46.707,38.589,0.4672,1,2.0612,57.0,3,80.65,0.0,statsbomb_open_data:3879610:Rudi Garcia
+3879617,2015-11-21,belgium_garcia,AS Roma,Bologna,Serie A,2,2,70.0,4-3-3,9.375,43.893,47.858,0.523,1,2.2642,62.0,3,14.87,37.73,statsbomb_open_data:3879617:Rudi Garcia
+3879632,2015-11-29,belgium_garcia,AS Roma,Atalanta,Serie A,0,2,70.0,4-3-3,11.501,45.911,33.693,0.5744,0,0.7672,60.0,3,0.0,50.25,statsbomb_open_data:3879632:Rudi Garcia
+3879639,2015-12-05,belgium_garcia,AS Roma,Torino,Serie A,1,1,70.0,4-3-3,13.748,49.709,29.312,0.6022,0,0.4389,25.0,3,7.2,0.0,statsbomb_open_data:3879639:Rudi Garcia
+3879651,2015-12-13,belgium_garcia,AS Roma,Napoli,Serie A,0,0,70.0,4-2-3-1,18.06,36.616,38.57,0.4094,0,0.095,75.0,3,0.0,0.0,statsbomb_open_data:3879651:Rudi Garcia
+3879657,2015-12-20,belgium_garcia,AS Roma,Genoa,Serie A,2,0,70.0,4-3-3,16.168,38.335,31.993,0.5405,0,0.8807,64.0,3,48.17,0.0,statsbomb_open_data:3879657:Rudi Garcia
+3879672,2016-01-06,belgium_garcia,AS Roma,Chievo,Serie A,3,3,70.0,4-3-3,13.644,36.909,27.315,0.4593,0,1.6307,68.0,3,64.97,0.0,statsbomb_open_data:3879672:Rudi Garcia
+3879676,2016-01-09,belgium_garcia,AS Roma,AC Milan,Serie A,1,1,70.0,4-3-3,13.128,36.458,29.566,0.426,0,0.5091,45.0,3,45.38,0.0,statsbomb_open_data:3879676:Rudi Garcia
+2302764,2005-05-25,brazil_ancelotti,AC Milan,Liverpool,Champions League,3,3,70.0,4-1-2-1-2,13.615,42.562,29.704,0.5514,0,5.0005,84.0,3,59.02,0.0,statsbomb_open_data:2302764:Carlo Ancelotti
+3750200,2007-05-23,brazil_ancelotti,AC Milan,Liverpool,Champions League,2,1,70.0,4-3-2-1,13.184,35.422,34.735,0.5463,0,0.3087,78.0,3,45.53,0.0,statsbomb_open_data:3750200:Carlo Ancelotti
+70293,2013-10-26,brazil_ancelotti,Real Madrid,Barcelona,La Liga,1,2,70.0,4-3-3,13.277,39.756,29.18,0.4679,1,0.6771,55.0,3,0.0,71.78,statsbomb_open_data:70293:Carlo Ancelotti
+265857,2014-03-23,brazil_ancelotti,Real Madrid,Barcelona,La Liga,3,4,70.0,4-3-3,13.817,43.207,32.282,0.3055,0,1.1367,65.0,3,28.38,19.73,statsbomb_open_data:265857:Carlo Ancelotti
+18241,2014-05-24,brazil_ancelotti,Real Madrid,Atlético Madrid,Champions League,4,1,70.0,4-3-3,14.198,40.243,32.083,0.646,2,1.5279,58.0,3,0.0,54.57,statsbomb_open_data:18241:Carlo Ancelotti
+267085,2014-10-25,brazil_ancelotti,Real Madrid,Barcelona,La Liga,3,1,70.0,4-4-2,16.947,32.439,32.375,0.4249,1,1.4366,82.0,3,40.03,30.77,statsbomb_open_data:267085:Carlo Ancelotti
+267183,2015-03-22,brazil_ancelotti,Real Madrid,Barcelona,La Liga,1,2,70.0,4-3-3,12.749,44.098,30.92,0.5017,0,0.475,72.0,3,0.0,46.6,statsbomb_open_data:267183:Carlo Ancelotti
+3939969,2024-06-21,canada_marsch,Canada,Argentina,Copa America,0,2,86.5,4-4-2,14.624,42.924,33.396,0.3592,1,0.4473,58.0,4,0.0,41.93,statsbomb_open_data:3939969:Jesse Marsch
+3939978,2024-06-25,canada_marsch,Canada,Peru,Copa America,1,0,70.0,4-2-3-1,10.713,42.258,36.701,0.5207,0,0.4731,45.0,5,16.37,0.0,statsbomb_open_data:3939978:Jesse Marsch
+3939985,2024-06-30,canada_marsch,Canada,Chile,Copa America,0,0,70.0,4-2-3-1,11.495,39.6,30.534,0.5384,0,0.445,64.0,4,0.0,0.0,statsbomb_open_data:3939985:Jesse Marsch
+3942229,2024-07-06,canada_marsch,Canada,Venezuela,Copa America,1,1,70.0,4-2-3-1,13.121,38.123,34.222,0.4466,0,5.3637,61.0,4,51.2,0.0,statsbomb_open_data:3942229:Jesse Marsch
+3942785,2024-07-10,canada_marsch,Canada,Argentina,Copa America,0,2,86.5,4-4-2,14.44,50.444,24.668,0.5159,0,0.3072,54.0,5,0.0,68.0,statsbomb_open_data:3942785:Jesse Marsch
+3943076,2024-07-14,canada_marsch,Canada,Uruguay,Copa America,2,2,86.5,4-2-3-1,11.152,49.185,30.812,0.5157,3,4.3864,61.0,5,10.45,13.53,statsbomb_open_data:3943076:Jesse Marsch
+3939975,2024-06-24,colombia_lorenzo,Colombia,Paraguay,Copa America,2,1,86.5,4-1-2-1-2,9.42,44.63,26.19,0.662,0,0.4566,24.0,5,58.08,0.0,statsbomb_open_data:3939975:Néstor Gabriel Lorenzo
+3939984,2024-06-28,colombia_lorenzo,Colombia,Costa Rica,Copa America,3,0,70.0,4-1-2-1-2,11.548,45.403,28.434,0.6178,2,2.1224,45.0,5,59.83,0.0,statsbomb_open_data:3939984:Néstor Gabriel Lorenzo
+3939991,2024-07-03,colombia_lorenzo,Colombia,Brazil,Copa America,1,1,86.5,4-1-2-1-2,13.775,47.026,25.524,0.5039,0,0.9342,45.0,5,0.0,35.2,statsbomb_open_data:3939991:Néstor Gabriel Lorenzo
+3942416,2024-07-06,colombia_lorenzo,Colombia,Panama,Copa America,5,0,86.5,4-1-2-1-2,13.07,48.607,32.411,0.5115,0,2.1648,64.0,5,82.38,0.0,statsbomb_open_data:3942416:Néstor Gabriel Lorenzo
+3942852,2024-07-11,colombia_lorenzo,Colombia,Uruguay,Copa America,1,0,86.5,4-2-3-1,15.026,42.557,40.869,0.413,0,1.1447,45.0,5,51.3,0.0,statsbomb_open_data:3942852:Néstor Gabriel Lorenzo
+3943077,2024-07-15,colombia_lorenzo,Colombia,Argentina,Copa America,0,1,86.5,4-1-2-1-2,14.129,41.796,27.019,0.5502,0,0.6654,87.0,6,0.0,0.0,statsbomb_open_data:3943077:Néstor Gabriel Lorenzo
+3920395,2024-01-17,congo_dr_desabre,Congo DR,Zambia,African Cup of Nations,1,1,70.0,4-2-3-1,18.512,48.208,27.699,0.5636,3,2.2264,70.0,3,0.0,4.3,statsbomb_open_data:3920395:Sébastien Desabre
+3920405,2024-01-21,congo_dr_desabre,Congo DR,Morocco,African Cup of Nations,1,1,86.5,4-2-3-1,15.291,42.257,32.566,0.4275,0,1.5871,45.0,5,0.0,70.05,statsbomb_open_data:3920405:Sébastien Desabre
+3920418,2024-01-24,congo_dr_desabre,Congo DR,Tanzania,African Cup of Nations,0,0,70.0,4-2-3-1,11.509,47.827,30.61,0.5177,0,0.5773,52.0,4,0.0,0.0,statsbomb_open_data:3920418:Sébastien Desabre
+3922240,2024-01-28,congo_dr_desabre,Congo DR,Egypt,African Cup of Nations,1,1,86.5,4-2-3-1,13.752,42.529,31.283,0.4433,1,8.4597,65.0,5,8.95,0.0,statsbomb_open_data:3922240:Sébastien Desabre
+3922356,2024-02-02,congo_dr_desabre,Congo DR,Guinea,African Cup of Nations,3,1,70.0,4-4-1-1,19.914,41.578,28.669,0.3862,0,1.3143,58.0,4,25.6,6.63,statsbomb_open_data:3922356:Sébastien Desabre
+3922838,2024-02-07,congo_dr_desabre,Congo DR,Côte d'Ivoire,African Cup of Nations,0,1,70.0,4-2-3-1,11.789,41.21,39.314,0.4309,0,0.0993,45.0,5,0.0,25.93,statsbomb_open_data:3922838:Sébastien Desabre
+3923880,2024-02-10,congo_dr_desabre,Congo DR,South Africa,African Cup of Nations,0,0,86.5,4-2-3-1,13.376,44.992,30.424,0.4348,0,6.0173,32.0,5,0.0,0.0,statsbomb_open_data:3923880:Sébastien Desabre
+3922242,2024-01-29,cote_divoire_fae,Côte d'Ivoire,Senegal,African Cup of Nations,1,1,86.5,4-4-1-1,12.13,48.202,26.573,0.5959,0,4.9362,63.0,6,0.0,82.17,statsbomb_open_data:3922242:Emerse Faé
+3922659,2024-02-03,cote_divoire_fae,Côte d'Ivoire,Mali,African Cup of Nations,2,1,70.0,4-1-4-1,14.748,39.645,31.441,0.4321,0,0.8374,45.0,5,0.0,18.52,statsbomb_open_data:3922659:Emerse Faé
+3922838,2024-02-07,cote_divoire_fae,Côte d'Ivoire,Congo DR,African Cup of Nations,1,0,86.5,4-3-3,11.579,40.731,31.546,0.5691,1,0.6258,60.0,5,25.93,0.0,statsbomb_open_data:3922838:Emerse Faé
+3923881,2024-02-11,cote_divoire_fae,Côte d'Ivoire,Nigeria,African Cup of Nations,2,1,70.0,4-3-3,12.142,43.897,26.246,0.6247,0,1.0632,69.0,5,9.77,24.65,statsbomb_open_data:3923881:Emerse Faé
+3788771,2021-06-22,croatia_dalic,Croatia,Scotland,UEFA Euro,3,1,86.5,4-3-3,10.492,41.674,22.645,0.6598,1,0.3025,69.0,4,54.02,0.0,statsbomb_open_data:3788771:Zlatko Dalić
+3794686,2021-06-28,croatia_dalic,Croatia,Spain,UEFA Euro,3,5,86.5,4-3-3,17.948,40.611,32.018,0.3403,1,1.7492,45.0,6,0.0,52.53,statsbomb_open_data:3794686:Zlatko Dalić
+3857277,2022-11-23,croatia_dalic,Croatia,Morocco,FIFA World Cup,0,0,86.5,4-3-3,14.62,43.523,24.437,0.626,0,0.8499,45.0,4,0.0,0.0,statsbomb_open_data:3857277:Zlatko Dalić
+3857281,2022-11-27,croatia_dalic,Croatia,Canada,FIFA World Cup,4,1,86.5,4-3-3,14.456,44.911,28.675,0.4809,0,0.6003,59.0,5,46.47,34.75,statsbomb_open_data:3857281:Zlatko Dalić
+3857296,2022-12-01,croatia_dalic,Croatia,Belgium,FIFA World Cup,0,0,86.5,4-3-3,16.06,43.808,27.637,0.4961,0,0.4889,63.0,3,0.0,0.0,statsbomb_open_data:3857296:Zlatko Dalić
+3869219,2022-12-05,croatia_dalic,Croatia,Japan,FIFA World Cup,1,1,86.5,4-3-3,13.171,43.781,26.546,0.5955,0,3.7925,61.0,6,0.0,12.0,statsbomb_open_data:3869219:Zlatko Dalić
+3869420,2022-12-09,croatia_dalic,Croatia,Brazil,FIFA World Cup,1,1,86.5,4-3-3,19.13,33.849,26.804,0.5028,0,3.5037,71.0,5,0.0,0.0,statsbomb_open_data:3869420:Zlatko Dalić
+3869519,2022-12-13,croatia_dalic,Croatia,Argentina,FIFA World Cup,0,3,86.5,4-3-3,17.295,42.626,22.391,0.6014,0,0.375,45.0,5,0.0,56.55,statsbomb_open_data:3869519:Zlatko Dalić
+3869684,2022-12-17,croatia_dalic,Croatia,Morocco,FIFA World Cup,2,1,86.5,4-2-3-1,18.512,44.971,32.679,0.5067,1,0.297,61.0,4,50.1,0.0,statsbomb_open_data:3869684:Zlatko Dalić
+3930160,2024-06-15,croatia_dalic,Croatia,Spain,UEFA Euro,0,3,86.5,4-3-3,10.956,48.105,23.545,0.5312,0,2.3825,55.0,4,0.0,61.87,statsbomb_open_data:3930160:Zlatko Dalić
+3930167,2024-06-19,croatia_dalic,Croatia,Albania,UEFA Euro,2,2,70.0,4-3-3,11.145,49.283,23.785,0.6652,0,1.0186,45.0,5,0.0,63.07,statsbomb_open_data:3930167:Zlatko Dalić
+3930178,2024-06-24,croatia_dalic,Croatia,Italy,UEFA Euro,1,1,70.0,4-3-3,15.409,46.035,18.883,0.4596,0,0.8279,45.0,5,35.72,0.0,statsbomb_open_data:3930178:Zlatko Dalić
+3754237,2015-08-08,curacao_advocaat,Sunderland,Leicester City,Premier League,2,4,70.0,4-1-4-1,14.281,36.972,35.163,0.5484,0,0.9003,29.0,2,0.0,79.72,statsbomb_open_data:3754237:Dick Advocaat
+3753993,2015-08-15,curacao_advocaat,Sunderland,Norwich City,Premier League,1,3,70.0,4-4-2,11.128,36.945,30.712,0.3798,0,0.3268,45.0,2,0.0,64.42,statsbomb_open_data:3753993:Dick Advocaat
+3754180,2015-08-22,curacao_advocaat,Sunderland,Swansea City,Premier League,1,1,70.0,4-1-4-1,14.0,40.425,39.01,0.3944,0,0.4287,66.0,3,0.0,14.5,statsbomb_open_data:3754180:Dick Advocaat
+3754204,2015-08-29,curacao_advocaat,Sunderland,Aston Villa,Premier League,2,2,70.0,4-3-3,16.343,35.68,35.323,0.3416,1,0.2716,45.0,3,3.05,11.05,statsbomb_open_data:3754204:Dick Advocaat
+3754148,2015-09-13,curacao_advocaat,Sunderland,Tottenham Hotspur,Premier League,0,1,70.0,4-2-3-1,13.572,36.022,43.672,0.4492,3,0.3718,73.0,3,0.0,8.52,statsbomb_open_data:3754148:Dick Advocaat
+3754169,2015-09-19,curacao_advocaat,Sunderland,AFC Bournemouth,Premier League,0,2,70.0,4-2-3-1,13.145,41.558,31.918,0.4717,0,0.4031,45.0,3,0.0,86.5,statsbomb_open_data:3754169:Dick Advocaat
+3754008,2015-09-26,curacao_advocaat,Sunderland,Manchester United,Premier League,0,3,70.0,4-1-4-1,18.403,32.494,32.566,0.323,0,0.2769,45.0,2,0.0,44.37,statsbomb_open_data:3754008:Dick Advocaat
+3754076,2015-10-03,curacao_advocaat,Sunderland,West Ham United,Premier League,2,2,70.0,4-2-3-1,14.627,36.602,34.342,0.448,1,0.7236,83.0,3,49.93,0.0,statsbomb_open_data:3754076:Dick Advocaat
+3890301,2015-09-20,england_tuchel,Borussia Dortmund,Bayer Leverkusen,1. Bundesliga,3,0,70.0,4-2-3-1,9.831,45.555,33.999,0.5584,2,1.5649,62.0,3,71.72,0.0,statsbomb_open_data:3890301:Thomas Tuchel
+3890456,2016-02-21,england_tuchel,Borussia Dortmund,Bayer Leverkusen,1. Bundesliga,1,0,70.0,4-3-3,11.076,39.957,30.717,0.481,1,0.9691,45.0,3,26.08,0.0,statsbomb_open_data:3890456:Thomas Tuchel
+3895074,2023-09-15,england_tuchel,Bayern Munich,Bayer Leverkusen,1. Bundesliga,2,2,70.0,4-2-3-1,14.896,46.909,24.324,0.5025,0,1.898,60.0,5,21.98,0.0,statsbomb_open_data:3895074:Thomas Tuchel
+3895232,2024-02-10,england_tuchel,Bayern Munich,Bayer Leverkusen,1. Bundesliga,0,3,70.0,3-4-2-1,12.515,49.721,22.959,0.6028,0,0.4923,59.0,5,0.0,72.42,statsbomb_open_data:3895232:Thomas Tuchel
+3857266,2022-11-26,france_deschamps,France,Denmark,FIFA World Cup,2,1,70.0,4-2-3-1,19.039,37.053,27.719,0.5087,2,1.2916,61.0,4,11.68,0.0,statsbomb_open_data:3857266:Didier Deschamps
+3857275,2022-11-30,france_deschamps,France,Tunisia,FIFA World Cup,0,1,86.5,4-3-3,13.104,41.15,23.945,0.647,0,0.3135,62.0,5,0.0,32.67,statsbomb_open_data:3857275:Didier Deschamps
+3869152,2022-12-04,france_deschamps,France,Poland,FIFA World Cup,3,1,70.0,4-2-3-1,16.734,42.664,25.114,0.5533,0,0.8184,65.0,4,46.53,0.0,statsbomb_open_data:3869152:Didier Deschamps
+3869354,2022-12-10,france_deschamps,France,England,FIFA World Cup,2,1,86.5,4-2-3-1,19.544,36.454,28.513,0.4156,0,0.2813,78.0,1,49.92,0.0,statsbomb_open_data:3869354:Didier Deschamps
+3869552,2022-12-14,france_deschamps,France,Morocco,FIFA World Cup,2,0,86.5,4-2-3-1,14.654,37.551,29.542,0.394,2,1.5076,64.0,2,85.33,0.0,statsbomb_open_data:3869552:Didier Deschamps
+3869685,2022-12-18,france_deschamps,France,Argentina,FIFA World Cup,3,3,86.5,4-2-3-1,15.572,44.131,28.289,0.4447,1,5.3235,40.0,7,0.0,58.58,statsbomb_open_data:3869685:Didier Deschamps
+3930165,2024-06-17,france_deschamps,France,Austria,UEFA Euro,1,0,86.5,4-2-3-1,15.485,38.417,27.905,0.5288,2,0.3499,70.0,4,0.0,0.0,statsbomb_open_data:3930165:Didier Deschamps
+3930173,2024-06-21,france_deschamps,France,Netherlands,UEFA Euro,0,0,86.5,4-4-1-1,17.292,48.934,20.283,0.639,0,0.6005,74.0,2,0.0,0.0,statsbomb_open_data:3930173:Didier Deschamps
+3938643,2024-06-25,france_deschamps,France,Poland,UEFA Euro,1,1,70.0,4-3-3,14.174,50.819,22.946,0.5678,2,1.234,60.0,5,22.6,0.0,statsbomb_open_data:3938643:Didier Deschamps
+3941019,2024-07-01,france_deschamps,France,Belgium,UEFA Euro,1,0,86.5,4-3-3,17.098,45.148,23.562,0.5689,0,0.7617,61.0,1,0.0,0.0,statsbomb_open_data:3941019:Didier Deschamps
+3942349,2024-07-05,france_deschamps,France,Portugal,UEFA Euro,0,0,86.5,4-1-2-1-2,28.763,41.326,26.382,0.4194,0,4.3799,66.0,4,0.0,0.0,statsbomb_open_data:3942349:Didier Deschamps
+3942752,2024-07-09,france_deschamps,France,Spain,UEFA Euro,1,2,86.5,4-3-3,15.203,42.97,30.119,0.4078,0,0.6107,61.0,4,12.23,65.62,statsbomb_open_data:3942752:Didier Deschamps
+3930158,2024-06-14,germany_nagelsmann,Germany,Scotland,UEFA Euro,5,1,86.5,4-2-3-1,10.068,53.541,20.541,0.7168,2,1.3967,45.0,5,80.08,0.0,statsbomb_open_data:3930158:Julian Nagelsmann
+3930168,2024-06-19,germany_nagelsmann,Germany,Hungary,UEFA Euro,2,0,70.0,4-2-3-1,11.024,48.843,21.663,0.6802,1,0.8369,57.0,5,68.27,0.0,statsbomb_open_data:3930168:Julian Nagelsmann
+3930176,2024-06-23,germany_nagelsmann,Germany,Switzerland,UEFA Euro,1,1,86.5,4-2-3-1,10.878,50.764,22.749,0.6681,1,1.0112,60.0,5,0.0,62.13,statsbomb_open_data:3930176:Julian Nagelsmann
+3940983,2024-06-29,germany_nagelsmann,Germany,Denmark,UEFA Euro,2,0,70.0,4-2-3-1,16.974,42.759,27.409,0.5657,1,1.1982,63.0,5,37.03,0.0,statsbomb_open_data:3940983:Julian Nagelsmann
+3942226,2024-07-05,germany_nagelsmann,Germany,Spain,UEFA Euro,1,2,86.5,4-2-3-1,15.097,41.23,29.688,0.5158,1,0.7849,45.0,6,0.0,37.35,statsbomb_open_data:3942226:Julian Nagelsmann
+7577,2018-06-15,ghana_queiroz,Iran,Morocco,FIFA World Cup,1,0,86.5,4-1-4-1,12.492,39.932,40.222,0.3457,0,0.3371,67.0,3,0.0,0.0,statsbomb_open_data:7577:Carlos Manuel Brito Leal Queiróz
+7543,2018-06-20,ghana_queiroz,Iran,Spain,FIFA World Cup,0,1,86.5,4-1-4-1,15.863,31.841,38.734,0.2446,0,0.0889,68.0,3,0.0,36.43,statsbomb_open_data:7543:Carlos Manuel Brito Leal Queiróz
+7557,2018-06-25,ghana_queiroz,Iran,Portugal,FIFA World Cup,1,1,86.5,4-1-4-1,20.741,40.558,43.325,0.2713,0,1.5398,55.0,3,0.0,45.68,statsbomb_open_data:7557:Carlos Manuel Brito Leal Queiróz
+3857271,2022-11-21,ghana_queiroz,Iran,England,FIFA World Cup,2,6,86.5,3-4-3,24.24,39.325,30.439,0.2332,1,0.9235,19.0,6,0.0,55.85,statsbomb_open_data:3857271:Carlos Manuel Brito Leal Queiróz
+3857273,2022-11-25,ghana_queiroz,Iran,Wales,FIFA World Cup,2,0,70.0,4-4-1-1,15.071,40.848,39.938,0.3485,5,0.4554,67.0,5,0.0,0.0,statsbomb_open_data:3857273:Carlos Manuel Brito Leal Queiróz
+3857278,2022-11-29,ghana_queiroz,Iran,United States,FIFA World Cup,0,1,70.0,4-4-1-1,15.962,38.96,31.359,0.4547,0,0.9208,45.0,5,0.0,52.18,statsbomb_open_data:3857278:Carlos Manuel Brito Leal Queiróz
+3857279,2022-11-22,iraq_arnold,Australia,France,FIFA World Cup,1,4,86.5,4-1-4-1,25.054,36.697,27.07,0.3841,0,0.3233,55.0,5,17.63,58.7,statsbomb_open_data:3857279:Graham James Arnold
+3857288,2022-11-26,iraq_arnold,Australia,Tunisia,FIFA World Cup,1,0,86.5,4-4-2,15.904,41.987,38.165,0.4156,0,0.324,63.0,5,67.17,0.0,statsbomb_open_data:3857288:Graham James Arnold
+3857257,2022-11-30,iraq_arnold,Australia,Denmark,FIFA World Cup,1,0,70.0,4-4-2,24.53,41.068,45.976,0.3194,2,0.1473,45.0,4,30.07,0.0,statsbomb_open_data:3857257:Graham James Arnold
+3869151,2022-12-03,iraq_arnold,Australia,Argentina,FIFA World Cup,1,2,86.5,4-4-2,16.911,46.851,30.351,0.3631,0,0.1786,57.0,5,0.0,55.42,statsbomb_open_data:3869151:Graham James Arnold
+3857284,2022-11-23,japan_moriyasu,Japan,Germany,FIFA World Cup,2,1,86.5,4-2-3-1,18.571,39.929,31.658,0.2534,0,1.0516,45.0,5,7.3,42.18,statsbomb_open_data:3857284:Hajime Moriyasu
+3857295,2022-11-27,japan_moriyasu,Japan,Costa Rica,FIFA World Cup,0,1,70.0,4-4-2,14.939,52.665,24.431,0.5592,0,0.6326,45.0,5,0.0,9.87,statsbomb_open_data:3857295:Hajime Moriyasu
+3857255,2022-12-01,japan_moriyasu,Japan,Spain,FIFA World Cup,2,1,86.5,3-4-3,22.738,39.442,32.332,0.1679,1,0.9231,45.0,5,39.77,36.8,statsbomb_open_data:3857255:Hajime Moriyasu
+3869219,2022-12-05,japan_moriyasu,Japan,Croatia,FIFA World Cup,1,1,86.5,3-4-3,20.09,39.248,28.039,0.4045,1,3.9041,63.0,5,12.0,0.0,statsbomb_open_data:3869219:Hajime Moriyasu
+68313,2004-10-24,mexico_aguirre,Osasuna,Barcelona,La Liga,0,3,70.0,4-2-3-1,19.676,41.813,49.142,0.3702,0,0.2899,52.0,3,0.0,50.07,statsbomb_open_data:68313:Javier Aguirre Onaindía
+68318,2005-10-22,mexico_aguirre,Osasuna,Barcelona,La Liga,0,3,70.0,4-2-3-1,17.776,35.812,52.326,0.3295,0,0.5974,55.0,3,0.0,44.45,statsbomb_open_data:68318:Javier Aguirre Onaindía
+69176,2007-05-20,mexico_aguirre,Atlético Madrid,Barcelona,La Liga,0,6,70.0,4-2-3-1,28.799,41.967,39.565,0.404,0,0.3344,40.0,3,0.0,51.17,statsbomb_open_data:69176:Javier Aguirre Onaindía
+69144,2007-10-07,mexico_aguirre,Atlético Madrid,Barcelona,La Liga,0,3,70.0,4-4-2,19.759,39.114,35.475,0.425,0,0.1624,45.0,3,0.0,74.63,statsbomb_open_data:69144:Javier Aguirre Onaindía
+68365,2008-03-01,mexico_aguirre,Atlético Madrid,Barcelona,La Liga,4,2,70.0,4-4-2,15.631,39.483,43.391,0.3596,0,1.1509,67.0,3,48.63,6.35,statsbomb_open_data:68365:Javier Aguirre Onaindía
+69212,2008-10-04,mexico_aguirre,Atlético Madrid,Barcelona,La Liga,1,6,70.0,4-4-2,17.576,40.043,31.614,0.4247,0,0.1309,21.0,3,0.0,86.98,statsbomb_open_data:69212:Javier Aguirre Onaindía
+69300,2011-03-05,mexico_aguirre,Real Zaragoza,Barcelona,La Liga,0,1,70.0,3-4-1-2,18.973,29.273,42.412,0.1692,1,0.0615,51.0,3,0.0,47.75,statsbomb_open_data:69300:Javier Aguirre Onaindía
+69331,2011-11-19,mexico_aguirre,Real Zaragoza,Barcelona,La Liga,0,4,70.0,4-2-3-1,16.558,31.875,37.963,0.3091,1,0.0793,45.0,3,0.0,72.07,statsbomb_open_data:69331:Javier Aguirre Onaindía
+70283,2013-11-01,mexico_aguirre,Espanyol,Barcelona,La Liga,0,1,70.0,4-3-3,17.743,35.853,44.305,0.2741,0,0.3125,62.0,2,0.0,22.87,statsbomb_open_data:70283:Javier Aguirre Onaindía
+70306,2014-03-29,mexico_aguirre,Espanyol,Barcelona,La Liga,0,1,70.0,4-2-3-1,16.078,42.361,54.759,0.2566,0,0.2934,48.0,3,0.0,13.78,statsbomb_open_data:70306:Javier Aguirre Onaindía
+303715,2019-11-23,mexico_aguirre,Leganés,Barcelona,La Liga,1,2,70.0,3-4-3,15.14,39.293,39.428,0.2202,1,0.2182,60.0,3,40.98,11.15,statsbomb_open_data:303715:Javier Aguirre Onaindía
+303532,2020-06-16,mexico_aguirre,Leganés,Barcelona,La Liga,0,2,70.0,3-5-2,20.607,39.0,30.417,0.246,0,0.3515,45.0,5,0.0,48.58,statsbomb_open_data:303532:Javier Aguirre Onaindía
+3773689,2021-04-25,netherlands_koeman,Barcelona,Villarreal,La Liga,2,1,70.0,3-5-2,11.047,44.309,22.7,0.5388,0,0.518,45.0,4,55.48,1.43,statsbomb_open_data:3773689:Ronald Koeman
+3773586,2021-04-29,netherlands_koeman,Barcelona,Granada,La Liga,1,2,70.0,3-5-2,9.856,48.382,22.231,0.787,0,0.6346,71.0,3,39.83,11.62,statsbomb_open_data:3773586:Ronald Koeman
+3773695,2021-05-02,netherlands_koeman,Barcelona,Valencia,La Liga,3,2,70.0,3-5-2,18.826,48.918,20.65,0.6701,0,1.753,74.0,2,27.87,7.82,statsbomb_open_data:3773695:Ronald Koeman
+3773372,2021-05-08,netherlands_koeman,Barcelona,Atlético Madrid,La Liga,0,0,70.0,3-5-2,12.833,43.494,22.868,0.574,0,0.7531,30.0,4,0.0,0.0,statsbomb_open_data:3773372:Ronald Koeman
+3773387,2021-05-11,netherlands_koeman,Barcelona,Levante UD,La Liga,3,3,70.0,3-5-2,10.48,44.392,22.354,0.5903,1,1.2842,45.0,5,53.5,0.0,statsbomb_open_data:3773387:Ronald Koeman
+3773457,2021-05-16,netherlands_koeman,Barcelona,Celta Vigo,La Liga,1,2,70.0,3-5-2,11.659,55.114,23.163,0.6578,2,0.997,45.0,5,10.13,1.53,statsbomb_open_data:3773457:Ronald Koeman
+3938637,2024-06-16,netherlands_koeman,Netherlands,Poland,UEFA Euro,2,1,70.0,4-2-3-1,11.298,45.883,26.529,0.6676,2,0.571,61.0,5,7.3,12.98,statsbomb_open_data:3938637:Ronald Koeman
+3930173,2024-06-21,netherlands_koeman,Netherlands,France,UEFA Euro,0,0,86.5,4-2-3-1,27.168,33.778,25.965,0.361,0,0.6072,72.0,4,0.0,0.0,statsbomb_open_data:3930173:Ronald Koeman
+3930180,2024-06-25,netherlands_koeman,Netherlands,Austria,UEFA Euro,2,3,86.5,4-3-3,13.376,46.555,32.203,0.5387,1,0.8658,34.0,4,17.37,0.0,statsbomb_open_data:3930180:Ronald Koeman
+3941021,2024-07-02,netherlands_koeman,Netherlands,Romania,UEFA Euro,3,0,70.0,4-2-3-1,14.498,45.691,28.102,0.6504,3,1.659,45.0,5,70.88,0.0,statsbomb_open_data:3941021:Ronald Koeman
+3942382,2024-07-06,netherlands_koeman,Netherlands,Turkey,UEFA Euro,2,1,70.0,4-2-3-1,16.836,45.947,25.461,0.5622,0,0.317,45.0,5,0.0,35.12,statsbomb_open_data:3942382:Ronald Koeman
+3942819,2024-07-10,netherlands_koeman,Netherlands,England,UEFA Euro,1,2,86.5,4-2-3-1,26.431,36.118,26.685,0.4179,1,0.3234,34.0,4,10.88,0.0,statsbomb_open_data:3942819:Ronald Koeman
+3939973,2024-06-24,panama_christiansen,Panama,Uruguay,Copa America,1,3,86.5,3-4-3,13.795,39.973,32.439,0.4841,0,0.4172,64.0,5,0.0,74.98,statsbomb_open_data:3939973:Thomas Christiansen Tarín
+3939981,2024-06-27,panama_christiansen,Panama,United States,Copa America,2,1,70.0,3-4-3,11.763,45.941,26.847,0.7085,1,0.3247,45.0,3,7.13,3.57,statsbomb_open_data:3939981:Thomas Christiansen Tarín
+3939989,2024-07-02,panama_christiansen,Panama,Bolivia,Copa America,3,1,70.0,3-4-3,15.536,51.623,34.478,0.5063,1,0.6098,45.0,5,58.63,0.0,statsbomb_open_data:3939989:Thomas Christiansen Tarín
+3942416,2024-07-06,panama_christiansen,Panama,Colombia,Copa America,0,5,86.5,3-4-3,13.234,47.864,30.657,0.4885,1,0.5143,45.0,5,0.0,82.38,statsbomb_open_data:3942416:Thomas Christiansen Tarín
+3857286,2022-11-20,paraguay_alfaro,Ecuador,Qatar,FIFA World Cup,2,0,86.5,4-4-2,14.656,53.678,24.092,0.5329,0,0.9797,67.0,4,74.18,0.0,statsbomb_open_data:3857286:Gustavo Julio Alfaro
+3857274,2022-11-25,paraguay_alfaro,Ecuador,Netherlands,FIFA World Cup,1,1,86.5,3-4-2-1,12.788,47.733,25.516,0.4934,1,0.5123,73.0,3,0.0,43.68,statsbomb_open_data:3857274:Gustavo Julio Alfaro
+3857267,2022-11-29,paraguay_alfaro,Ecuador,Senegal,FIFA World Cup,1,2,86.5,4-3-3,11.522,39.466,29.103,0.5773,0,0.9591,45.0,4,0.0,43.78,statsbomb_open_data:3857267:Gustavo Julio Alfaro
+3939976,2024-06-25,paraguay_alfaro,Costa Rica,Brazil,Copa America,0,0,86.5,3-5-2,17.844,32.221,31.514,0.2553,0,0.0165,62.0,5,0.0,0.0,statsbomb_open_data:3939976:Gustavo Julio Alfaro
+3939984,2024-06-28,paraguay_alfaro,Costa Rica,Colombia,Copa America,0,3,86.5,3-4-2-1,13.745,44.821,30.177,0.3822,0,0.1653,45.0,5,0.0,59.83,statsbomb_open_data:3939984:Gustavo Julio Alfaro
+3939992,2024-07-03,paraguay_alfaro,Costa Rica,Paraguay,Copa America,2,1,86.5,3-4-3,17.012,35.276,39.413,0.3629,0,0.2721,67.0,5,87.18,0.0,statsbomb_open_data:3939992:Gustavo Julio Alfaro
+3788757,2021-06-17,portugal_martinez,Belgium,Denmark,UEFA Euro,2,1,70.0,3-4-2-1,17.657,36.501,28.678,0.5181,1,0.3221,45.0,4,20.07,52.35,statsbomb_open_data:3788757:Roberto Martínez Montoliú
+3788768,2021-06-21,portugal_martinez,Belgium,Finland,UEFA Euro,2,0,70.0,3-4-2-1,13.687,46.007,23.905,0.6037,2,0.7846,74.0,4,9.32,0.0,statsbomb_open_data:3788768:Roberto Martínez Montoliú
+3794687,2021-06-27,portugal_martinez,Belgium,Portugal,UEFA Euro,1,0,86.5,3-4-2-1,23.11,36.451,29.988,0.4168,0,0.1269,47.0,3,48.48,0.0,statsbomb_open_data:3794687:Roberto Martínez Montoliú
+3795107,2021-07-02,portugal_martinez,Belgium,Italy,UEFA Euro,1,2,70.0,3-4-2-1,23.13,34.902,26.435,0.4535,2,1.0137,68.0,3,0.0,59.6,statsbomb_open_data:3795107:Roberto Martínez Montoliú
+3857268,2022-11-23,portugal_martinez,Belgium,Canada,FIFA World Cup,1,0,86.5,3-4-2-1,20.309,33.416,28.079,0.4959,0,0.3591,45.0,4,46.47,0.0,statsbomb_open_data:3857268:Roberto Martínez Montoliú
+3857283,2022-11-27,portugal_martinez,Belgium,Morocco,FIFA World Cup,0,2,86.5,4-2-3-1,14.445,47.142,24.358,0.6591,0,0.4322,59.0,5,0.0,17.38,statsbomb_open_data:3857283:Roberto Martínez Montoliú
+3857296,2022-12-01,portugal_martinez,Belgium,Croatia,FIFA World Cup,0,0,86.5,4-2-3-1,19.689,40.574,26.499,0.5039,1,0.8814,45.0,5,0.0,0.0,statsbomb_open_data:3857296:Roberto Martínez Montoliú
+3930166,2024-06-18,portugal_martinez,Portugal,Czech Republic,UEFA Euro,2,1,70.0,3-4-1-2,9.336,49.862,22.101,0.7266,0,1.0945,62.0,5,0.0,28.48,statsbomb_open_data:3930166:Roberto Martínez Montoliú
+3930174,2024-06-22,portugal_martinez,Portugal,Turkey,UEFA Euro,3,0,70.0,4-2-3-1,14.502,44.391,24.836,0.5573,0,1.0176,45.0,5,69.03,0.0,statsbomb_open_data:3930174:Roberto Martínez Montoliú
+3938644,2024-06-26,portugal_martinez,Portugal,Georgia,UEFA Euro,0,2,70.0,3-4-2-1,11.194,52.775,23.586,0.6914,0,1.9732,45.0,5,0.0,88.47,statsbomb_open_data:3938644:Roberto Martínez Montoliú
+3941020,2024-07-01,portugal_martinez,Portugal,Slovenia,UEFA Euro,0,0,70.0,4-2-3-1,11.377,45.128,24.188,0.693,0,3.8215,64.0,4,0.0,0.0,statsbomb_open_data:3941020:Roberto Martínez Montoliú
+3942349,2024-07-05,portugal_martinez,Portugal,France,UEFA Euro,0,0,86.5,4-4-1-1,18.971,39.579,22.229,0.5806,0,4.0625,73.0,5,0.0,0.0,statsbomb_open_data:3942349:Roberto Martínez Montoliú
+303473,2019-10-06,qatar_lopetegui,Sevilla,Barcelona,La Liga,0,4,70.0,4-3-3,22.482,44.429,32.864,0.4231,0,1.419,45.0,3,0.0,63.4,statsbomb_open_data:303473:Julen Lopetegui Argote
+303674,2020-06-19,qatar_lopetegui,Sevilla,Barcelona,La Liga,0,0,70.0,4-3-3,18.316,37.587,31.697,0.3625,0,0.0793,45.0,5,0.0,0.0,statsbomb_open_data:303674:Julen Lopetegui Argote
+3773672,2020-10-04,qatar_lopetegui,Sevilla,Barcelona,La Liga,1,1,70.0,4-3-3,16.104,45.777,24.032,0.438,0,0.6073,61.0,5,1.75,0.0,statsbomb_open_data:3773672:Julen Lopetegui Argote
+3773625,2021-02-27,qatar_lopetegui,Sevilla,Barcelona,La Liga,0,2,70.0,4-2-3-1,17.601,43.779,23.399,0.437,0,0.0336,45.0,5,0.0,61.62,statsbomb_open_data:3773625:Julen Lopetegui Argote
+3788748,2021-06-14,scotland_clarke,Scotland,Czech Republic,UEFA Euro,0,2,70.0,3-5-2,9.552,45.459,29.106,0.5811,1,1.053,45.0,5,0.0,48.93,statsbomb_open_data:3788748:Steve Clarke
+3788759,2021-06-18,scotland_clarke,Scotland,England,UEFA Euro,0,0,86.5,3-4-1-2,14.462,39.103,31.402,0.4231,0,0.6484,75.0,2,0.0,0.0,statsbomb_open_data:3788759:Steve Clarke
+3788771,2021-06-22,scotland_clarke,Scotland,Croatia,UEFA Euro,1,3,86.5,3-5-2,15.673,46.026,35.297,0.3402,4,0.7602,32.0,4,0.0,54.02,statsbomb_open_data:3788771:Steve Clarke
+3930158,2024-06-14,scotland_clarke,Scotland,Germany,UEFA Euro,1,5,86.5,3-4-3,22.68,36.348,30.961,0.2832,0,0.0605,45.0,5,0.0,80.08,statsbomb_open_data:3930158:Steve Clarke
+3930169,2024-06-19,scotland_clarke,Scotland,Switzerland,UEFA Euro,1,1,86.5,3-4-1-2,13.146,50.928,28.369,0.4888,0,0.5008,60.0,4,12.93,0.0,statsbomb_open_data:3930169:Steve Clarke
+3930177,2024-06-23,scotland_clarke,Scotland,Hungary,UEFA Euro,0,1,70.0,3-4-2-1,13.595,45.103,27.283,0.5939,0,0.1835,75.0,5,0.0,0.0,statsbomb_open_data:3930177:Steve Clarke
+3920391,2024-01-16,south_africa_broos,South Africa,Mali,African Cup of Nations,0,2,70.0,4-4-2,12.418,45.649,29.581,0.557,0,1.1852,72.0,3,0.0,30.43,statsbomb_open_data:3920391:Hugo Henri Broos
+3920407,2024-01-21,south_africa_broos,South Africa,Namibia,African Cup of Nations,4,0,70.0,4-2-3-1,11.042,43.537,38.156,0.5347,2,1.4073,69.0,5,76.67,0.0,statsbomb_open_data:3920407:Hugo Henri Broos
+3920416,2024-01-24,south_africa_broos,South Africa,Tunisia,African Cup of Nations,0,0,86.5,4-2-3-1,11.69,42.48,35.477,0.4749,0,0.201,45.0,4,0.0,0.0,statsbomb_open_data:3920416:Hugo Henri Broos
+3922243,2024-01-30,south_africa_broos,South Africa,Morocco,African Cup of Nations,2,0,86.5,4-4-2,15.638,32.51,27.618,0.4646,0,0.1844,69.0,3,33.93,0.0,statsbomb_open_data:3922243:Hugo Henri Broos
+3922658,2024-02-03,south_africa_broos,South Africa,Cape Verde Islands,African Cup of Nations,0,0,70.0,4-2-3-1,12.411,40.807,34.553,0.4995,0,4.0117,62.0,6,0.0,0.0,statsbomb_open_data:3922658:Hugo Henri Broos
+3922837,2024-02-07,south_africa_broos,South Africa,Nigeria,African Cup of Nations,1,1,70.0,3-4-3,13.427,36.91,25.68,0.5963,1,4.6834,75.0,3,0.0,22.95,statsbomb_open_data:3922837:Hugo Henri Broos
+3923880,2024-02-10,south_africa_broos,South Africa,Congo DR,African Cup of Nations,0,0,86.5,4-4-1-1,19.159,35.867,27.612,0.5652,1,5.6248,57.0,4,0.0,0.0,statsbomb_open_data:3923880:Hugo Henri Broos
+3930160,2024-06-15,spain_de_la_fuente,Spain,Croatia,UEFA Euro,3,0,86.5,4-2-3-1,13.856,51.244,25.28,0.4688,0,0.7182,58.0,5,61.87,0.0,statsbomb_open_data:3930160:Luis de la Fuente Castillo
+3930172,2024-06-20,spain_de_la_fuente,Spain,Italy,UEFA Euro,1,0,70.0,4-2-3-1,14.0,55.362,23.787,0.5851,0,1.0107,70.0,5,0.0,0.0,statsbomb_open_data:3930172:Luis de la Fuente Castillo
+3930179,2024-06-24,spain_de_la_fuente,Spain,Albania,UEFA Euro,1,0,70.0,4-2-3-1,11.979,48.622,25.83,0.5731,1,0.5049,45.0,5,77.47,0.0,statsbomb_open_data:3930179:Luis de la Fuente Castillo
+3941018,2024-06-30,spain_de_la_fuente,Spain,Georgia,UEFA Euro,4,1,70.0,4-3-3,10.458,61.357,22.145,0.7472,2,0.7683,51.0,5,51.83,0.0,statsbomb_open_data:3941018:Luis de la Fuente Castillo
+3942226,2024-07-05,spain_de_la_fuente,Spain,Germany,UEFA Euro,2,1,86.5,4-3-3,15.088,42.028,30.182,0.4842,2,0.7996,7.0,6,37.35,0.0,statsbomb_open_data:3942226:Luis de la Fuente Castillo
+3942752,2024-07-09,spain_de_la_fuente,Spain,France,UEFA Euro,2,1,86.5,4-2-3-1,13.24,43.94,26.345,0.5922,0,0.1496,57.0,5,65.62,12.23,statsbomb_open_data:3942752:Luis de la Fuente Castillo
+3943043,2024-07-14,spain_de_la_fuente,Spain,England,UEFA Euro,2,1,86.5,4-2-3-1,10.135,47.426,23.255,0.6223,2,1.104,45.0,4,30.05,0.0,statsbomb_open_data:3943043:Luis de la Fuente Castillo
+3857290,2022-11-24,switzerland_yakin,Switzerland,Cameroon,FIFA World Cup,1,0,70.0,4-2-3-1,16.25,41.968,27.223,0.4946,0,1.1678,70.0,5,42.45,0.0,statsbomb_open_data:3857290:Murat Yakin
+3857269,2022-11-28,switzerland_yakin,Switzerland,Brazil,FIFA World Cup,0,1,86.5,4-2-3-1,21.252,34.11,24.271,0.4435,0,0.1969,57.0,5,0.0,7.75,statsbomb_open_data:3857269:Murat Yakin
+3857256,2022-12-02,switzerland_yakin,Switzerland,Serbia,FIFA World Cup,3,2,70.0,4-2-3-1,20.988,40.006,32.325,0.4358,0,2.3318,67.0,4,49.12,9.22,statsbomb_open_data:3857256:Murat Yakin
+3869254,2022-12-06,switzerland_yakin,Switzerland,Portugal,FIFA World Cup,1,6,86.5,3-5-2,19.01,47.287,25.556,0.5254,0,1.1455,45.0,5,0.0,73.28,statsbomb_open_data:3869254:Murat Yakin
+3930159,2024-06-15,switzerland_yakin,Switzerland,Hungary,UEFA Euro,3,1,70.0,3-4-2-1,12.474,46.394,24.757,0.5294,1,0.5805,67.0,5,78.08,0.0,statsbomb_open_data:3930159:Murat Yakin
+3930169,2024-06-19,switzerland_yakin,Switzerland,Scotland,UEFA Euro,1,1,86.5,3-4-1-2,12.226,40.888,27.239,0.5112,1,0.3491,58.0,5,0.0,12.93,statsbomb_open_data:3930169:Murat Yakin
+3930176,2024-06-23,switzerland_yakin,Switzerland,Germany,UEFA Euro,1,1,86.5,3-4-2-1,17.749,43.381,33.213,0.3319,0,0.0464,64.0,3,62.13,0.0,statsbomb_open_data:3930176:Murat Yakin
+3940878,2024-06-29,switzerland_yakin,Switzerland,Italy,UEFA Euro,2,0,70.0,3-4-2-1,17.433,44.428,24.55,0.5293,0,0.2162,70.0,5,53.67,0.0,statsbomb_open_data:3940878:Murat Yakin
+3942227,2024-07-06,switzerland_yakin,Switzerland,England,UEFA Euro,1,1,86.5,3-4-2-1,17.376,43.229,23.882,0.4832,2,4.1304,62.0,6,5.53,0.0,statsbomb_open_data:3942227:Murat Yakin
+3879824,2016-04-17,turkiye_montella,Sampdoria,AC Milan,Serie A,0,1,70.0,3-4-2-1,12.955,45.442,33.514,0.4566,0,0.1975,55.0,3,0.0,19.37,statsbomb_open_data:3879824:Vincenzo Montella
+3879831,2016-04-20,turkiye_montella,Sampdoria,Sassuolo,Serie A,0,0,70.0,3-4-2-1,17.781,33.737,40.771,0.2838,0,0.0899,45.0,3,0.0,0.0,statsbomb_open_data:3879831:Vincenzo Montella
+3879838,2016-04-24,turkiye_montella,Sampdoria,Lazio,Serie A,2,1,70.0,3-5-2,14.399,42.328,36.201,0.4202,0,1.0205,64.0,3,12.68,16.45,statsbomb_open_data:3879838:Vincenzo Montella
+3879852,2016-05-01,turkiye_montella,Sampdoria,Palermo,Serie A,0,2,70.0,3-5-1-1,8.576,41.392,29.363,0.6101,0,0.2621,45.0,3,0.0,71.62,statsbomb_open_data:3879852:Vincenzo Montella
+3879865,2016-05-08,turkiye_montella,Sampdoria,Genoa,Serie A,0,3,70.0,3-5-2,9.995,43.386,32.507,0.5718,0,0.5346,57.0,3,0.0,87.17,statsbomb_open_data:3879865:Vincenzo Montella
+3879870,2016-05-14,turkiye_montella,Sampdoria,Juventus,Serie A,0,5,70.0,3-5-1-1,18.292,34.777,24.913,0.3654,0,0.2068,54.0,3,0.0,85.07,statsbomb_open_data:3879870:Vincenzo Montella
+9860,2018-03-31,turkiye_montella,Sevilla,Barcelona,La Liga,2,2,70.0,4-2-3-1,19.263,39.509,29.627,0.4137,2,0.9499,45.0,3,52.28,0.0,statsbomb_open_data:9860:Vincenzo Montella
+3938639,2024-06-18,turkiye_montella,Turkey,Georgia,UEFA Euro,3,1,70.0,4-2-3-1,19.904,43.531,23.05,0.5598,0,1.2479,78.0,5,31.88,0.0,statsbomb_open_data:3938639:Vincenzo Montella
+3930174,2024-06-22,turkiye_montella,Turkey,Portugal,UEFA Euro,0,3,86.5,4-2-3-1,18.765,45.797,24.253,0.4427,1,0.1227,45.0,5,0.0,69.03,statsbomb_open_data:3930174:Vincenzo Montella
+3930184,2024-06-26,turkiye_montella,Turkey,Czech Republic,UEFA Euro,2,1,70.0,4-2-3-1,12.71,41.822,23.591,0.6397,1,0.5385,45.0,5,14.62,0.0,statsbomb_open_data:3930184:Vincenzo Montella
+3941022,2024-07-02,turkiye_montella,Turkey,Austria,UEFA Euro,2,1,86.5,3-4-3,15.432,32.75,27.705,0.3944,1,0.7169,57.0,4,89.03,0.0,statsbomb_open_data:3941022:Vincenzo Montella
+3942382,2024-07-06,turkiye_montella,Turkey,Netherlands,UEFA Euro,1,2,86.5,3-4-3,16.439,37.517,26.428,0.4378,0,0.9706,76.0,5,35.12,0.0,statsbomb_open_data:3942382:Vincenzo Montella
+69330,2011-11-06,uruguay_bielsa,Athletic Club,Barcelona,La Liga,2,2,70.0,4-2-3-1,14.792,38.193,37.813,0.3615,0,0.0784,84.0,3,3.95,0.0,statsbomb_open_data:69330:Marcelo Alberto Bielsa Caldera
+69323,2012-03-31,uruguay_bielsa,Athletic Club,Barcelona,La Liga,0,2,70.0,4-3-3,13.208,37.245,32.262,0.4281,0,0.3638,45.0,3,0.0,50.65,statsbomb_open_data:69323:Marcelo Alberto Bielsa Caldera
+70263,2012-12-01,uruguay_bielsa,Athletic Club,Barcelona,La Liga,1,5,70.0,4-3-3,17.755,39.725,28.737,0.4192,0,0.4171,45.0,3,0.0,68.15,statsbomb_open_data:70263:Marcelo Alberto Bielsa Caldera
+267502,2013-04-27,uruguay_bielsa,Athletic Club,Barcelona,La Liga,2,2,70.0,4-2-3-1,10.137,43.102,34.572,0.4102,0,1.29,69.0,3,39.68,20.62,statsbomb_open_data:267502:Marcelo Alberto Bielsa Caldera
+3829414,2015-08-08,uruguay_bielsa,Olympique de Marseille,Stade Malherbe Caen,Ligue 1,0,1,70.0,4-2-3-1,8.4,43.586,32.31,0.6942,0,1.0976,45.0,3,0.0,63.63,statsbomb_open_data:3829414:Marcelo Alberto Bielsa Caldera
+3939973,2024-06-24,uruguay_bielsa,Uruguay,Panama,Copa America,3,1,86.5,4-2-3-1,13.355,43.757,32.172,0.5159,1,0.7505,45.0,4,74.98,0.0,statsbomb_open_data:3939973:Marcelo Alberto Bielsa Caldera
+3939982,2024-06-28,uruguay_bielsa,Uruguay,Bolivia,Copa America,5,0,70.0,4-2-3-1,11.094,51.981,28.7,0.5976,0,1.6401,81.0,5,82.68,0.0,statsbomb_open_data:3939982:Marcelo Alberto Bielsa Caldera
+3939990,2024-07-02,uruguay_bielsa,Uruguay,United States,Copa America,1,0,70.0,4-2-3-1,10.906,36.914,31.219,0.4487,0,0.903,26.0,5,24.88,0.0,statsbomb_open_data:3939990:Marcelo Alberto Bielsa Caldera
+3942415,2024-07-07,uruguay_bielsa,Uruguay,Brazil,Copa America,0,0,86.5,4-3-3,10.271,46.708,33.798,0.388,0,4.5024,32.0,5,0.0,0.0,statsbomb_open_data:3942415:Marcelo Alberto Bielsa Caldera
+3942852,2024-07-11,uruguay_bielsa,Uruguay,Colombia,Copa America,0,1,86.5,4-1-4-1,9.504,38.27,32.557,0.587,1,0.3839,34.0,5,0.0,51.3,statsbomb_open_data:3942852:Marcelo Alberto Bielsa Caldera
+3943076,2024-07-14,uruguay_bielsa,Uruguay,Canada,Copa America,2,2,86.5,4-3-3,10.968,37.063,36.306,0.4843,0,3.8853,45.0,5,13.53,10.45,statsbomb_open_data:3943076:Marcelo Alberto Bielsa Caldera
+3802839,2022-02-19,usa_pochettino,Paris Saint-Germain,Nantes,Ligue 1,1,3,70.0,4-3-3,11.249,44.215,22.518,0.7217,0,1.7673,64.0,5,0.0,86.58,statsbomb_open_data:3802839:Mauricio Roberto Pochettino Trossero
+3802709,2022-02-26,usa_pochettino,Paris Saint-Germain,Saint-Étienne,Ligue 1,3,1,70.0,4-3-3,15.888,39.573,26.376,0.618,1,1.3668,45.0,4,43.68,25.95,statsbomb_open_data:3802709:Mauricio Roberto Pochettino Trossero
+3802805,2022-03-05,usa_pochettino,Paris Saint-Germain,OGC Nice,Ligue 1,0,1,70.0,4-3-3,15.467,50.052,24.006,0.5756,2,0.2255,78.0,3,0.0,2.48,statsbomb_open_data:3802805:Mauricio Roberto Pochettino Trossero
+3802904,2022-03-13,usa_pochettino,Paris Saint-Germain,Bordeaux,Ligue 1,3,0,70.0,4-3-3,13.294,46.568,23.074,0.5766,2,1.0538,83.0,3,66.52,0.0,statsbomb_open_data:3802904:Mauricio Roberto Pochettino Trossero
+3802818,2022-04-03,usa_pochettino,Paris Saint-Germain,Lorient,Ligue 1,5,1,70.0,4-3-3,13.673,48.286,24.043,0.6449,1,0.9633,42.0,3,78.2,0.0,statsbomb_open_data:3802818:Mauricio Roberto Pochettino Trossero
+3803000,2022-04-09,usa_pochettino,Paris Saint-Germain,Clermont Foot,Ligue 1,6,1,70.0,4-3-3,13.289,48.655,22.336,0.653,1,1.4097,66.0,5,84.75,0.0,statsbomb_open_data:3803000:Mauricio Roberto Pochettino Trossero
+3802983,2022-04-17,usa_pochettino,Paris Saint-Germain,Olympique de Marseille,Ligue 1,2,1,70.0,4-3-3,14.482,47.458,20.247,0.413,0,0.9682,80.0,3,59.42,0.0,statsbomb_open_data:3802983:Mauricio Roberto Pochettino Trossero
+3802676,2022-04-23,usa_pochettino,Paris Saint-Germain,Lens,Ligue 1,1,1,70.0,3-4-3,13.258,49.851,20.758,0.6473,0,0.7221,75.0,2,19.93,0.0,statsbomb_open_data:3802676:Mauricio Roberto Pochettino Trossero
+3802643,2022-04-29,usa_pochettino,Paris Saint-Germain,Strasbourg,Ligue 1,3,3,70.0,3-4-3,13.5,41.666,22.276,0.569,0,1.5395,80.0,3,26.68,20.52,statsbomb_open_data:3802643:Mauricio Roberto Pochettino Trossero
+3802930,2022-05-08,usa_pochettino,Paris Saint-Germain,Troyes,Ligue 1,2,2,70.0,4-2-3-1,15.558,44.502,21.698,0.6171,1,1.9379,76.0,3,42.53,0.0,statsbomb_open_data:3802930:Mauricio Roberto Pochettino Trossero
+3802665,2022-05-14,usa_pochettino,Paris Saint-Germain,Montpellier,Ligue 1,4,0,70.0,4-3-3,12.15,47.727,23.423,0.6715,0,1.3289,67.0,5,84.83,0.0,statsbomb_open_data:3802665:Mauricio Roberto Pochettino Trossero
+3802948,2022-05-21,usa_pochettino,Paris Saint-Germain,Metz,Ligue 1,5,0,70.0,4-2-3-1,11.504,48.044,24.041,0.7443,3,1.6795,74.0,5,65.82,0.0,statsbomb_open_data:3802948:Mauricio Roberto Pochettino Trossero

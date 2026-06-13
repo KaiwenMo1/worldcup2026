@@ -1,0 +1,105 @@
+match_id,stage,round,group,team_a,team_b,source_a,source_b,date,kickoff_time_local,kickoff_local,kickoff_utc,venue,venue_source
+1,Group,Group,A,Mexico,South Africa,Mexico,South Africa,2026-06-11,13:00,2026-06-11T13:00:00-06:00,2026-06-11T19:00:00+00:00,Mexico City,published-schedule
+2,Group,Group,A,Korea Republic,Czechia,Korea Republic,Czechia,2026-06-11,20:00,2026-06-11T20:00:00-06:00,2026-06-12T02:00:00+00:00,Guadalajara,published-schedule
+3,Group,Group,B,Canada,Bosnia and Herzegovina,Canada,Bosnia and Herzegovina,2026-06-12,15:00,2026-06-12T15:00:00-04:00,2026-06-12T19:00:00+00:00,Toronto,published-schedule
+4,Group,Group,D,USA,Paraguay,USA,Paraguay,2026-06-12,18:00,2026-06-12T18:00:00-07:00,2026-06-13T01:00:00+00:00,Los Angeles,published-schedule
+5,Group,Group,C,Haiti,Scotland,Haiti,Scotland,2026-06-13,21:00,2026-06-13T21:00:00-04:00,2026-06-14T01:00:00+00:00,Boston,published-schedule
+6,Group,Group,D,Australia,Turkiye,Australia,Turkiye,2026-06-13,21:00,2026-06-13T21:00:00-07:00,2026-06-14T04:00:00+00:00,Vancouver,published-schedule
+7,Group,Group,C,Brazil,Morocco,Brazil,Morocco,2026-06-13,18:00,2026-06-13T18:00:00-04:00,2026-06-13T22:00:00+00:00,New York New Jersey,published-schedule
+8,Group,Group,B,Qatar,Switzerland,Qatar,Switzerland,2026-06-13,12:00,2026-06-13T12:00:00-07:00,2026-06-13T19:00:00+00:00,San Francisco Bay Area,published-schedule
+9,Group,Group,E,Cote d'Ivoire,Ecuador,Cote d'Ivoire,Ecuador,2026-06-14,19:00,2026-06-14T19:00:00-04:00,2026-06-14T23:00:00+00:00,Philadelphia,published-schedule
+10,Group,Group,E,Germany,Curacao,Germany,Curacao,2026-06-14,12:00,2026-06-14T12:00:00-05:00,2026-06-14T17:00:00+00:00,Houston,published-schedule
+11,Group,Group,F,Netherlands,Japan,Netherlands,Japan,2026-06-14,15:00,2026-06-14T15:00:00-05:00,2026-06-14T20:00:00+00:00,Dallas,published-schedule
+12,Group,Group,F,Sweden,Tunisia,Sweden,Tunisia,2026-06-14,20:00,2026-06-14T20:00:00-06:00,2026-06-15T02:00:00+00:00,Monterrey,published-schedule
+13,Group,Group,H,Saudi Arabia,Uruguay,Saudi Arabia,Uruguay,2026-06-15,18:00,2026-06-15T18:00:00-04:00,2026-06-15T22:00:00+00:00,Miami,published-schedule
+14,Group,Group,H,Spain,Cabo Verde,Spain,Cabo Verde,2026-06-15,12:00,2026-06-15T12:00:00-04:00,2026-06-15T16:00:00+00:00,Atlanta,published-schedule
+15,Group,Group,G,IR Iran,New Zealand,IR Iran,New Zealand,2026-06-15,18:00,2026-06-15T18:00:00-07:00,2026-06-16T01:00:00+00:00,Los Angeles,published-schedule
+16,Group,Group,G,Belgium,Egypt,Belgium,Egypt,2026-06-15,12:00,2026-06-15T12:00:00-07:00,2026-06-15T19:00:00+00:00,Seattle,published-schedule
+17,Group,Group,I,France,Senegal,France,Senegal,2026-06-16,15:00,2026-06-16T15:00:00-04:00,2026-06-16T19:00:00+00:00,New York New Jersey,published-schedule
+18,Group,Group,I,Iraq,Norway,Iraq,Norway,2026-06-16,18:00,2026-06-16T18:00:00-04:00,2026-06-16T22:00:00+00:00,Boston,published-schedule
+19,Group,Group,J,Argentina,Algeria,Argentina,Algeria,2026-06-16,20:00,2026-06-16T20:00:00-05:00,2026-06-17T01:00:00+00:00,Kansas City,published-schedule
+20,Group,Group,J,Austria,Jordan,Austria,Jordan,2026-06-16,21:00,2026-06-16T21:00:00-07:00,2026-06-17T04:00:00+00:00,San Francisco Bay Area,published-schedule
+21,Group,Group,L,Ghana,Panama,Ghana,Panama,2026-06-17,19:00,2026-06-17T19:00:00-04:00,2026-06-17T23:00:00+00:00,Toronto,published-schedule
+22,Group,Group,L,England,Croatia,England,Croatia,2026-06-17,15:00,2026-06-17T15:00:00-05:00,2026-06-17T20:00:00+00:00,Dallas,published-schedule
+23,Group,Group,K,Portugal,Congo DR,Portugal,Congo DR,2026-06-17,12:00,2026-06-17T12:00:00-05:00,2026-06-17T17:00:00+00:00,Houston,published-schedule
+24,Group,Group,K,Uzbekistan,Colombia,Uzbekistan,Colombia,2026-06-17,20:00,2026-06-17T20:00:00-06:00,2026-06-18T02:00:00+00:00,Mexico City,published-schedule
+25,Group,Group,A,Czechia,South Africa,Czechia,South Africa,2026-06-18,12:00,2026-06-18T12:00:00-04:00,2026-06-18T16:00:00+00:00,Atlanta,published-schedule
+26,Group,Group,B,Switzerland,Bosnia and Herzegovina,Switzerland,Bosnia and Herzegovina,2026-06-18,12:00,2026-06-18T12:00:00-07:00,2026-06-18T19:00:00+00:00,Los Angeles,published-schedule
+27,Group,Group,B,Canada,Qatar,Canada,Qatar,2026-06-18,15:00,2026-06-18T15:00:00-07:00,2026-06-18T22:00:00+00:00,Vancouver,published-schedule
+28,Group,Group,A,Mexico,Korea Republic,Mexico,Korea Republic,2026-06-18,19:00,2026-06-18T19:00:00-06:00,2026-06-19T01:00:00+00:00,Guadalajara,published-schedule
+29,Group,Group,C,Brazil,Haiti,Brazil,Haiti,2026-06-19,21:00,2026-06-19T21:00:00-04:00,2026-06-20T01:00:00+00:00,Philadelphia,published-schedule
+30,Group,Group,C,Scotland,Morocco,Scotland,Morocco,2026-06-19,18:00,2026-06-19T18:00:00-04:00,2026-06-19T22:00:00+00:00,Boston,published-schedule
+31,Group,Group,D,Turkiye,Paraguay,Turkiye,Paraguay,2026-06-19,20:00,2026-06-19T20:00:00-07:00,2026-06-20T03:00:00+00:00,San Francisco Bay Area,published-schedule
+32,Group,Group,D,USA,Australia,USA,Australia,2026-06-19,12:00,2026-06-19T12:00:00-07:00,2026-06-19T19:00:00+00:00,Seattle,published-schedule
+33,Group,Group,E,Germany,Cote d'Ivoire,Germany,Cote d'Ivoire,2026-06-20,16:00,2026-06-20T16:00:00-04:00,2026-06-20T20:00:00+00:00,Toronto,published-schedule
+34,Group,Group,E,Ecuador,Curacao,Ecuador,Curacao,2026-06-20,19:00,2026-06-20T19:00:00-05:00,2026-06-21T00:00:00+00:00,Kansas City,published-schedule
+35,Group,Group,F,Netherlands,Sweden,Netherlands,Sweden,2026-06-20,12:00,2026-06-20T12:00:00-05:00,2026-06-20T17:00:00+00:00,Houston,published-schedule
+36,Group,Group,F,Tunisia,Japan,Tunisia,Japan,2026-06-20,22:00,2026-06-20T22:00:00-06:00,2026-06-21T04:00:00+00:00,Monterrey,published-schedule
+37,Group,Group,H,Uruguay,Cabo Verde,Uruguay,Cabo Verde,2026-06-21,18:00,2026-06-21T18:00:00-04:00,2026-06-21T22:00:00+00:00,Miami,published-schedule
+38,Group,Group,H,Spain,Saudi Arabia,Spain,Saudi Arabia,2026-06-21,12:00,2026-06-21T12:00:00-04:00,2026-06-21T16:00:00+00:00,Atlanta,published-schedule
+39,Group,Group,G,Belgium,IR Iran,Belgium,IR Iran,2026-06-21,12:00,2026-06-21T12:00:00-07:00,2026-06-21T19:00:00+00:00,Los Angeles,published-schedule
+40,Group,Group,G,New Zealand,Egypt,New Zealand,Egypt,2026-06-21,18:00,2026-06-21T18:00:00-07:00,2026-06-22T01:00:00+00:00,Vancouver,published-schedule
+41,Group,Group,I,Norway,Senegal,Norway,Senegal,2026-06-22,20:00,2026-06-22T20:00:00-04:00,2026-06-23T00:00:00+00:00,New York New Jersey,published-schedule
+42,Group,Group,I,France,Iraq,France,Iraq,2026-06-22,17:00,2026-06-22T17:00:00-04:00,2026-06-22T21:00:00+00:00,Philadelphia,published-schedule
+43,Group,Group,J,Argentina,Austria,Argentina,Austria,2026-06-22,12:00,2026-06-22T12:00:00-05:00,2026-06-22T17:00:00+00:00,Dallas,published-schedule
+44,Group,Group,J,Jordan,Algeria,Jordan,Algeria,2026-06-22,20:00,2026-06-22T20:00:00-07:00,2026-06-23T03:00:00+00:00,San Francisco Bay Area,published-schedule
+45,Group,Group,L,England,Ghana,England,Ghana,2026-06-23,16:00,2026-06-23T16:00:00-04:00,2026-06-23T20:00:00+00:00,Boston,published-schedule
+46,Group,Group,L,Panama,Croatia,Panama,Croatia,2026-06-23,19:00,2026-06-23T19:00:00-04:00,2026-06-23T23:00:00+00:00,Toronto,published-schedule
+47,Group,Group,K,Portugal,Uzbekistan,Portugal,Uzbekistan,2026-06-23,12:00,2026-06-23T12:00:00-05:00,2026-06-23T17:00:00+00:00,Houston,published-schedule
+48,Group,Group,K,Colombia,Congo DR,Colombia,Congo DR,2026-06-23,20:00,2026-06-23T20:00:00-06:00,2026-06-24T02:00:00+00:00,Guadalajara,published-schedule
+49,Group,Group,C,Scotland,Brazil,Scotland,Brazil,2026-06-24,18:00,2026-06-24T18:00:00-04:00,2026-06-24T22:00:00+00:00,Miami,published-schedule
+50,Group,Group,C,Morocco,Haiti,Morocco,Haiti,2026-06-24,18:00,2026-06-24T18:00:00-04:00,2026-06-24T22:00:00+00:00,Atlanta,published-schedule
+51,Group,Group,B,Switzerland,Canada,Switzerland,Canada,2026-06-24,12:00,2026-06-24T12:00:00-07:00,2026-06-24T19:00:00+00:00,Vancouver,published-schedule
+52,Group,Group,B,Bosnia and Herzegovina,Qatar,Bosnia and Herzegovina,Qatar,2026-06-24,12:00,2026-06-24T12:00:00-07:00,2026-06-24T19:00:00+00:00,Seattle,published-schedule
+53,Group,Group,A,Czechia,Mexico,Czechia,Mexico,2026-06-24,19:00,2026-06-24T19:00:00-06:00,2026-06-25T01:00:00+00:00,Mexico City,published-schedule
+54,Group,Group,A,South Africa,Korea Republic,South Africa,Korea Republic,2026-06-24,19:00,2026-06-24T19:00:00-06:00,2026-06-25T01:00:00+00:00,Monterrey,published-schedule
+55,Group,Group,E,Curacao,Cote d'Ivoire,Curacao,Cote d'Ivoire,2026-06-25,16:00,2026-06-25T16:00:00-04:00,2026-06-25T20:00:00+00:00,Philadelphia,published-schedule
+56,Group,Group,E,Ecuador,Germany,Ecuador,Germany,2026-06-25,16:00,2026-06-25T16:00:00-04:00,2026-06-25T20:00:00+00:00,New York New Jersey,published-schedule
+57,Group,Group,F,Japan,Sweden,Japan,Sweden,2026-06-25,18:00,2026-06-25T18:00:00-05:00,2026-06-25T23:00:00+00:00,Dallas,published-schedule
+58,Group,Group,F,Tunisia,Netherlands,Tunisia,Netherlands,2026-06-25,18:00,2026-06-25T18:00:00-05:00,2026-06-25T23:00:00+00:00,Kansas City,published-schedule
+59,Group,Group,D,Turkiye,USA,Turkiye,USA,2026-06-25,19:00,2026-06-25T19:00:00-07:00,2026-06-26T02:00:00+00:00,Los Angeles,published-schedule
+60,Group,Group,D,Paraguay,Australia,Paraguay,Australia,2026-06-25,19:00,2026-06-25T19:00:00-07:00,2026-06-26T02:00:00+00:00,San Francisco Bay Area,published-schedule
+61,Group,Group,I,Norway,France,Norway,France,2026-06-26,15:00,2026-06-26T15:00:00-04:00,2026-06-26T19:00:00+00:00,Boston,published-schedule
+62,Group,Group,I,Senegal,Iraq,Senegal,Iraq,2026-06-26,15:00,2026-06-26T15:00:00-04:00,2026-06-26T19:00:00+00:00,Toronto,published-schedule
+63,Group,Group,G,Egypt,IR Iran,Egypt,IR Iran,2026-06-26,20:00,2026-06-26T20:00:00-07:00,2026-06-27T03:00:00+00:00,Seattle,published-schedule
+64,Group,Group,G,New Zealand,Belgium,New Zealand,Belgium,2026-06-26,20:00,2026-06-26T20:00:00-07:00,2026-06-27T03:00:00+00:00,Vancouver,published-schedule
+65,Group,Group,H,Cabo Verde,Saudi Arabia,Cabo Verde,Saudi Arabia,2026-06-26,19:00,2026-06-26T19:00:00-05:00,2026-06-27T00:00:00+00:00,Houston,published-schedule
+66,Group,Group,H,Uruguay,Spain,Uruguay,Spain,2026-06-26,18:00,2026-06-26T18:00:00-06:00,2026-06-27T00:00:00+00:00,Guadalajara,published-schedule
+67,Group,Group,L,Panama,England,Panama,England,2026-06-27,17:00,2026-06-27T17:00:00-04:00,2026-06-27T21:00:00+00:00,New York New Jersey,published-schedule
+68,Group,Group,L,Croatia,Ghana,Croatia,Ghana,2026-06-27,17:00,2026-06-27T17:00:00-04:00,2026-06-27T21:00:00+00:00,Philadelphia,published-schedule
+69,Group,Group,J,Algeria,Austria,Algeria,Austria,2026-06-27,21:00,2026-06-27T21:00:00-05:00,2026-06-28T02:00:00+00:00,Kansas City,published-schedule
+70,Group,Group,J,Jordan,Argentina,Jordan,Argentina,2026-06-27,21:00,2026-06-27T21:00:00-05:00,2026-06-28T02:00:00+00:00,Dallas,published-schedule
+71,Group,Group,K,Colombia,Portugal,Colombia,Portugal,2026-06-27,19:30,2026-06-27T19:30:00-04:00,2026-06-27T23:30:00+00:00,Miami,published-schedule
+72,Group,Group,K,Congo DR,Uzbekistan,Congo DR,Uzbekistan,2026-06-27,19:30,2026-06-27T19:30:00-04:00,2026-06-27T23:30:00+00:00,Atlanta,published-schedule
+73,Round of 32,Round of 32,,,,2A,2B,2026-06-28,12:00,2026-06-28T12:00:00-07:00,2026-06-28T19:00:00+00:00,Los Angeles,published-schedule
+74,Round of 32,Round of 32,,,,1E,3ABCDF,2026-06-29,16:30,2026-06-29T16:30:00-04:00,2026-06-29T20:30:00+00:00,Boston,published-schedule
+75,Round of 32,Round of 32,,,,1F,2C,2026-06-29,19:00,2026-06-29T19:00:00-06:00,2026-06-30T01:00:00+00:00,Monterrey,published-schedule
+76,Round of 32,Round of 32,,,,1C,2F,2026-06-29,12:00,2026-06-29T12:00:00-05:00,2026-06-29T17:00:00+00:00,Houston,published-schedule
+77,Round of 32,Round of 32,,,,1I,3CDFGH,2026-06-30,17:00,2026-06-30T17:00:00-04:00,2026-06-30T21:00:00+00:00,New York New Jersey,published-schedule
+78,Round of 32,Round of 32,,,,2E,2I,2026-06-30,12:00,2026-06-30T12:00:00-05:00,2026-06-30T17:00:00+00:00,Dallas,published-schedule
+79,Round of 32,Round of 32,,,,1A,3CEFHI,2026-06-30,19:00,2026-06-30T19:00:00-06:00,2026-07-01T01:00:00+00:00,Mexico City,published-schedule
+80,Round of 32,Round of 32,,,,1L,3EHIJK,2026-07-01,12:00,2026-07-01T12:00:00-04:00,2026-07-01T16:00:00+00:00,Atlanta,published-schedule
+81,Round of 32,Round of 32,,,,1D,3BEFIJ,2026-07-01,17:00,2026-07-01T17:00:00-07:00,2026-07-02T00:00:00+00:00,San Francisco Bay Area,published-schedule
+82,Round of 32,Round of 32,,,,1G,3AEHIJ,2026-07-01,13:00,2026-07-01T13:00:00-07:00,2026-07-01T20:00:00+00:00,Seattle,published-schedule
+83,Round of 32,Round of 32,,,,2K,2L,2026-07-02,19:00,2026-07-02T19:00:00-04:00,2026-07-02T23:00:00+00:00,Toronto,published-schedule
+84,Round of 32,Round of 32,,,,1H,2J,2026-07-02,12:00,2026-07-02T12:00:00-07:00,2026-07-02T19:00:00+00:00,Los Angeles,published-schedule
+85,Round of 32,Round of 32,,,,1B,3EFGIJ,2026-07-02,20:00,2026-07-02T20:00:00-07:00,2026-07-03T03:00:00+00:00,Vancouver,published-schedule
+86,Round of 32,Round of 32,,,,1J,2H,2026-07-03,18:00,2026-07-03T18:00:00-04:00,2026-07-03T22:00:00+00:00,Miami,published-schedule
+87,Round of 32,Round of 32,,,,1K,3DEIJL,2026-07-03,20:30,2026-07-03T20:30:00-05:00,2026-07-04T01:30:00+00:00,Kansas City,published-schedule
+88,Round of 32,Round of 32,,,,2D,2G,2026-07-03,13:00,2026-07-03T13:00:00-05:00,2026-07-03T18:00:00+00:00,Dallas,published-schedule
+89,Round of 16,Round of 16,,,,W74,W77,2026-07-04,17:00,2026-07-04T17:00:00-04:00,2026-07-04T21:00:00+00:00,Philadelphia,published-schedule
+90,Round of 16,Round of 16,,,,W73,W75,2026-07-04,12:00,2026-07-04T12:00:00-05:00,2026-07-04T17:00:00+00:00,Houston,published-schedule
+91,Round of 16,Round of 16,,,,W76,W78,2026-07-05,16:00,2026-07-05T16:00:00-04:00,2026-07-05T20:00:00+00:00,New York New Jersey,published-schedule
+92,Round of 16,Round of 16,,,,W79,W80,2026-07-05,18:00,2026-07-05T18:00:00-06:00,2026-07-06T00:00:00+00:00,Mexico City,published-schedule
+93,Round of 16,Round of 16,,,,W83,W84,2026-07-06,14:00,2026-07-06T14:00:00-05:00,2026-07-06T19:00:00+00:00,Dallas,published-schedule
+94,Round of 16,Round of 16,,,,W81,W82,2026-07-06,17:00,2026-07-06T17:00:00-07:00,2026-07-07T00:00:00+00:00,Seattle,published-schedule
+95,Round of 16,Round of 16,,,,W86,W88,2026-07-07,12:00,2026-07-07T12:00:00-04:00,2026-07-07T16:00:00+00:00,Atlanta,published-schedule
+96,Round of 16,Round of 16,,,,W85,W87,2026-07-07,13:00,2026-07-07T13:00:00-07:00,2026-07-07T20:00:00+00:00,Vancouver,published-schedule
+97,Quarterfinals,Quarterfinals,,,,W89,W90,2026-07-09,16:00,2026-07-09T16:00:00-04:00,2026-07-09T20:00:00+00:00,Boston,published-schedule
+98,Quarterfinals,Quarterfinals,,,,W93,W94,2026-07-10,12:00,2026-07-10T12:00:00-07:00,2026-07-10T19:00:00+00:00,Los Angeles,published-schedule
+99,Quarterfinals,Quarterfinals,,,,W91,W92,2026-07-11,17:00,2026-07-11T17:00:00-04:00,2026-07-11T21:00:00+00:00,Miami,published-schedule
+100,Quarterfinals,Quarterfinals,,,,W95,W96,2026-07-11,20:00,2026-07-11T20:00:00-05:00,2026-07-12T01:00:00+00:00,Kansas City,published-schedule
+101,Semifinals,Semifinals,,,,W97,W98,2026-07-14,14:00,2026-07-14T14:00:00-05:00,2026-07-14T19:00:00+00:00,Dallas,published-schedule
+102,Semifinals,Semifinals,,,,W99,W100,2026-07-15,15:00,2026-07-15T15:00:00-04:00,2026-07-15T19:00:00+00:00,Atlanta,published-schedule
+103,Bronze Final,Bronze Final,,,,L101,L102,2026-07-18,17:00,2026-07-18T17:00:00-04:00,2026-07-18T21:00:00+00:00,Miami,published-schedule
+104,Final,Final,,,,W101,W102,2026-07-19,15:00,2026-07-19T15:00:00-04:00,2026-07-19T19:00:00+00:00,New York New Jersey,published-schedule

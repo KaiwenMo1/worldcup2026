@@ -1,0 +1,41 @@
+team,x_zone,y_zone,shots,actual_goals,predicted_goals,avg_xg,goal_rate,xg_minus_goals
+Argentina,six-yard / tap-in,central,6,5,3.838,0.64,0.833,-1.162
+Argentina,central box,central,4,0,0.68,0.17,0.0,0.68
+Argentina,edge of box,right channel,1,0,0.022,0.022,0.0,0.022
+Argentina,edge of box,central,1,0,0.019,0.019,0.0,0.019
+Argentina,edge of box,left channel,1,0,0.013,0.013,0.0,0.013
+Brazil,six-yard / tap-in,central,6,5,3.895,0.649,0.833,-1.105
+Brazil,central box,central,4,1,0.674,0.168,0.25,-0.326
+Brazil,edge of box,right channel,1,0,0.022,0.022,0.0,0.022
+Brazil,edge of box,central,1,0,0.019,0.019,0.0,0.019
+Brazil,edge of box,left channel,1,0,0.013,0.013,0.0,0.013
+England,six-yard / tap-in,central,6,3,3.771,0.629,0.5,0.771
+England,central box,central,4,1,0.68,0.17,0.25,-0.32
+England,edge of box,right channel,1,0,0.022,0.022,0.0,0.022
+England,edge of box,central,1,0,0.019,0.019,0.0,0.019
+England,edge of box,left channel,1,0,0.013,0.013,0.0,0.013
+France,six-yard / tap-in,central,6,3,3.177,0.53,0.5,0.177
+France,central box,central,4,1,0.672,0.168,0.25,-0.328
+France,edge of box,right channel,1,0,0.022,0.022,0.0,0.022
+France,edge of box,central,1,0,0.019,0.019,0.0,0.019
+France,edge of box,left channel,1,0,0.013,0.013,0.0,0.013
+Germany,six-yard / tap-in,central,6,5,3.516,0.586,0.833,-1.484
+Germany,central box,central,4,1,0.68,0.17,0.25,-0.32
+Germany,edge of box,right channel,1,0,0.022,0.022,0.0,0.022
+Germany,edge of box,central,1,0,0.019,0.019,0.0,0.019
+Germany,edge of box,left channel,1,0,0.013,0.013,0.0,0.013
+Netherlands,six-yard / tap-in,central,6,5,3.482,0.58,0.833,-1.518
+Netherlands,central box,central,4,0,0.318,0.08,0.0,0.318
+Netherlands,edge of box,right channel,1,0,0.022,0.022,0.0,0.022
+Netherlands,edge of box,central,1,0,0.019,0.019,0.0,0.019
+Netherlands,edge of box,left channel,1,0,0.009,0.009,0.0,0.009
+Portugal,six-yard / tap-in,central,6,3,3.516,0.586,0.5,0.516
+Portugal,central box,central,4,1,0.68,0.17,0.25,-0.32
+Portugal,edge of box,right channel,1,0,0.022,0.022,0.0,0.022
+Portugal,edge of box,central,1,0,0.019,0.019,0.0,0.019
+Portugal,edge of box,left channel,1,0,0.013,0.013,0.0,0.013
+Spain,six-yard / tap-in,central,6,4,3.728,0.621,0.667,-0.272
+Spain,central box,central,4,1,0.68,0.17,0.25,-0.32
+Spain,edge of box,right channel,1,0,0.022,0.022,0.0,0.022
+Spain,edge of box,central,1,0,0.019,0.019,0.0,0.019
+Spain,edge of box,left channel,1,0,0.013,0.013,0.0,0.013

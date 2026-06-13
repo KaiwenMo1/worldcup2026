@@ -1,0 +1,44 @@
+name: Tournament autopilot
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "7,22,37,52 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Refresh observed tournament state
+        env:
+          BALLDONTLIE_API_KEY: ${{ secrets.BALLDONTLIE_API_KEY }}
+          WORLD_CUP_API_BASE_URL: ${{ vars.WORLD_CUP_API_BASE_URL }}
+        run: python scripts/run_tournament_autopilot.py --refresh-provider --run-arena
+      - name: Refresh live event summaries when configured
+        env:
+          WORLD_CUP_EVENT_FEED_URL: ${{ vars.WORLD_CUP_EVENT_FEED_URL }}
+          WORLD_CUP_EVENT_FEED_API_KEY: ${{ secrets.WORLD_CUP_EVENT_FEED_API_KEY }}
+        run: python scripts/sync_live_events.py --optional
+      - name: Refresh observed formations and lineups when configured
+        env:
+          SPORTMONKS_API_TOKEN: ${{ secrets.SPORTMONKS_API_TOKEN }}
+        run: |
+          python scripts/sync_lineups.py --optional --days 10 --max-fixtures 3
+          python scripts/sync_squads.py --from-existing
+          python scripts/ingest_lineups.py --from-confirmed-lineups
+      - name: Commit durable tournament updates
+        run: |
+          git config user.name "worldcup-autopilot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/observed_matches.csv data/live_state.json data/live_team_state.csv data/normalized data/derived data/prediction_arena data/tournament_autopilot_status.json
+          git diff --cached --quiet || git commit -m "data: refresh observed tournament state"
+          git push

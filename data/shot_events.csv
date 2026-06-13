@@ -1,0 +1,105 @@
+event_id,match_id,competition,season,match_date,team,opponent,player,minute,shot_x,shot_y,distance_m,angle_degrees,body_part,assist_type,defender_pressure,game_state,shot_type,is_goal,source
+bootstrap-1,bootstrap-0,starter sample,2026,2026-06-04,France,England,Kylian Mbappe,8,116,40,4.0,90.0,Right Foot,Cutback,Low,Drawing,Open Play,0,starter_sample
+bootstrap-2,bootstrap-0,starter sample,2026,2026-06-04,France,England,Kylian Mbappe,15,112,37,8.544,48.311,Left Foot,Through Ball,Medium,Trailing,Open Play,1,starter_sample
+bootstrap-3,bootstrap-0,starter sample,2026,2026-06-04,France,England,Kylian Mbappe,22,110,44,10.77,38.66,Right Foot,Cross,High,Drawing,Open Play,0,starter_sample
+bootstrap-4,bootstrap-0,starter sample,2026,2026-06-04,France,England,Kylian Mbappe,29,108,40,12.0,36.87,Right Foot,Through Ball,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-5,bootstrap-0,starter sample,2026,2026-06-04,France,England,Kylian Mbappe,36,105,34,16.155,26.095,Head,Cross,High,Leading,Open Play,0,starter_sample
+bootstrap-6,bootstrap-0,starter sample,2026,2026-06-04,France,England,Kylian Mbappe,43,100,50,22.361,18.293,Left Foot,Dribble,Medium,Drawing,Open Play,0,starter_sample
+bootstrap-7,bootstrap-0,starter sample,2026,2026-06-04,France,England,Kylian Mbappe,50,95,40,25.0,18.181,Right Foot,Layoff,Low,Trailing,Open Play,0,starter_sample
+bootstrap-8,bootstrap-0,starter sample,2026,2026-06-04,France,England,Kylian Mbappe,57,118,41,2.236,124.509,Right Foot,Rebound,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-9,bootstrap-0,starter sample,2026,2026-06-04,France,England,Kylian Mbappe,64,108,31,15.0,24.671,Head,Corner,High,Trailing,Set Piece,0,starter_sample
+bootstrap-10,bootstrap-0,starter sample,2026,2026-06-04,France,England,Kylian Mbappe,71,90,25,33.541,12.211,Right Foot,Open Play,Low,Leading,Open Play,0,starter_sample
+bootstrap-11,bootstrap-0,starter sample,2026,2026-06-04,France,England,Kylian Mbappe,78,113,48,10.63,29.999,Left Foot,Through Ball,Medium,Drawing,Open Play,0,starter_sample
+bootstrap-12,bootstrap-0,starter sample,2026,2026-06-04,France,England,Kylian Mbappe,85,104,42,16.125,27.681,Other,Loose Ball,High,Trailing,Open Play,0,starter_sample
+bootstrap-13,bootstrap-0,starter sample,2026,2026-06-04,France,England,Kylian Mbappe,92,111,40,9.0,47.925,Right Foot,Penalty Area Pass,Low,Leading,Open Play,1,starter_sample
+bootstrap-14,bootstrap-1,starter sample,2026,2026-06-04,Brazil,Spain,Vinicius Junior,9,116,40,4.0,90.0,Right Foot,Cutback,Low,Drawing,Open Play,1,starter_sample
+bootstrap-15,bootstrap-1,starter sample,2026,2026-06-04,Brazil,Spain,Vinicius Junior,16,112,37,8.544,48.311,Left Foot,Through Ball,Medium,Trailing,Open Play,1,starter_sample
+bootstrap-16,bootstrap-1,starter sample,2026,2026-06-04,Brazil,Spain,Vinicius Junior,23,110,44,10.77,38.66,Right Foot,Cross,High,Drawing,Open Play,0,starter_sample
+bootstrap-17,bootstrap-1,starter sample,2026,2026-06-04,Brazil,Spain,Vinicius Junior,30,108,40,12.0,36.87,Right Foot,Through Ball,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-18,bootstrap-1,starter sample,2026,2026-06-04,Brazil,Spain,Vinicius Junior,37,105,34,16.155,26.095,Head,Cross,High,Leading,Open Play,0,starter_sample
+bootstrap-19,bootstrap-1,starter sample,2026,2026-06-04,Brazil,Spain,Vinicius Junior,44,100,50,22.361,18.293,Left Foot,Dribble,Medium,Drawing,Open Play,0,starter_sample
+bootstrap-20,bootstrap-1,starter sample,2026,2026-06-04,Brazil,Spain,Vinicius Junior,51,95,40,25.0,18.181,Right Foot,Layoff,Low,Trailing,Open Play,0,starter_sample
+bootstrap-21,bootstrap-1,starter sample,2026,2026-06-04,Brazil,Spain,Vinicius Junior,58,118,41,2.236,124.509,Right Foot,Rebound,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-22,bootstrap-1,starter sample,2026,2026-06-04,Brazil,Spain,Vinicius Junior,65,108,31,15.0,24.671,Head,Corner,High,Trailing,Set Piece,0,starter_sample
+bootstrap-23,bootstrap-1,starter sample,2026,2026-06-04,Brazil,Spain,Vinicius Junior,72,90,25,33.541,12.211,Right Foot,Open Play,Low,Leading,Open Play,0,starter_sample
+bootstrap-24,bootstrap-1,starter sample,2026,2026-06-04,Brazil,Spain,Vinicius Junior,79,113,48,10.63,29.999,Left Foot,Through Ball,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-25,bootstrap-1,starter sample,2026,2026-06-04,Brazil,Spain,Vinicius Junior,86,104,42,16.125,27.681,Other,Loose Ball,High,Trailing,Open Play,0,starter_sample
+bootstrap-26,bootstrap-1,starter sample,2026,2026-06-04,Brazil,Spain,Vinicius Junior,93,111,40,9.0,47.925,Right Foot,Penalty Area Pass,Low,Leading,Open Play,1,starter_sample
+bootstrap-27,bootstrap-2,starter sample,2026,2026-06-04,Argentina,Portugal,Lionel Messi,10,116,40,4.0,90.0,Right Foot,Cutback,Low,Drawing,Open Play,1,starter_sample
+bootstrap-28,bootstrap-2,starter sample,2026,2026-06-04,Argentina,Portugal,Lionel Messi,17,112,37,8.544,48.311,Left Foot,Through Ball,Medium,Trailing,Open Play,1,starter_sample
+bootstrap-29,bootstrap-2,starter sample,2026,2026-06-04,Argentina,Portugal,Lionel Messi,24,110,44,10.77,38.66,Right Foot,Cross,High,Drawing,Open Play,0,starter_sample
+bootstrap-30,bootstrap-2,starter sample,2026,2026-06-04,Argentina,Portugal,Lionel Messi,31,108,40,12.0,36.87,Right Foot,Through Ball,Medium,Drawing,Open Play,0,starter_sample
+bootstrap-31,bootstrap-2,starter sample,2026,2026-06-04,Argentina,Portugal,Lionel Messi,38,105,34,16.155,26.095,Head,Cross,High,Leading,Open Play,0,starter_sample
+bootstrap-32,bootstrap-2,starter sample,2026,2026-06-04,Argentina,Portugal,Lionel Messi,45,100,50,22.361,18.293,Left Foot,Dribble,Medium,Drawing,Open Play,0,starter_sample
+bootstrap-33,bootstrap-2,starter sample,2026,2026-06-04,Argentina,Portugal,Lionel Messi,52,95,40,25.0,18.181,Right Foot,Layoff,Low,Trailing,Open Play,0,starter_sample
+bootstrap-34,bootstrap-2,starter sample,2026,2026-06-04,Argentina,Portugal,Lionel Messi,59,118,41,2.236,124.509,Right Foot,Rebound,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-35,bootstrap-2,starter sample,2026,2026-06-04,Argentina,Portugal,Lionel Messi,66,108,31,15.0,24.671,Head,Corner,High,Trailing,Set Piece,0,starter_sample
+bootstrap-36,bootstrap-2,starter sample,2026,2026-06-04,Argentina,Portugal,Lionel Messi,73,90,25,33.541,12.211,Right Foot,Open Play,Low,Leading,Open Play,0,starter_sample
+bootstrap-37,bootstrap-2,starter sample,2026,2026-06-04,Argentina,Portugal,Lionel Messi,80,113,48,10.63,29.999,Left Foot,Through Ball,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-38,bootstrap-2,starter sample,2026,2026-06-04,Argentina,Portugal,Lionel Messi,87,104,42,16.125,27.681,Other,Loose Ball,High,Trailing,Open Play,0,starter_sample
+bootstrap-39,bootstrap-2,starter sample,2026,2026-06-04,Argentina,Portugal,Lionel Messi,8,111,40,9.0,47.925,Right Foot,Penalty Area Pass,Low,Leading,Open Play,1,starter_sample
+bootstrap-40,bootstrap-3,starter sample,2026,2026-06-04,England,Germany,Harry Kane,11,116,40,4.0,90.0,Right Foot,Cutback,Low,Drawing,Open Play,1,starter_sample
+bootstrap-41,bootstrap-3,starter sample,2026,2026-06-04,England,Germany,Harry Kane,18,112,37,8.544,48.311,Left Foot,Through Ball,Medium,Trailing,Open Play,1,starter_sample
+bootstrap-42,bootstrap-3,starter sample,2026,2026-06-04,England,Germany,Harry Kane,25,110,44,10.77,38.66,Right Foot,Cross,High,Drawing,Open Play,0,starter_sample
+bootstrap-43,bootstrap-3,starter sample,2026,2026-06-04,England,Germany,Harry Kane,32,108,40,12.0,36.87,Right Foot,Through Ball,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-44,bootstrap-3,starter sample,2026,2026-06-04,England,Germany,Harry Kane,39,105,34,16.155,26.095,Head,Cross,High,Leading,Open Play,0,starter_sample
+bootstrap-45,bootstrap-3,starter sample,2026,2026-06-04,England,Germany,Harry Kane,46,100,50,22.361,18.293,Left Foot,Dribble,Medium,Drawing,Open Play,0,starter_sample
+bootstrap-46,bootstrap-3,starter sample,2026,2026-06-04,England,Germany,Harry Kane,53,95,40,25.0,18.181,Right Foot,Layoff,Low,Trailing,Open Play,0,starter_sample
+bootstrap-47,bootstrap-3,starter sample,2026,2026-06-04,England,Germany,Harry Kane,60,118,41,2.236,124.509,Right Foot,Rebound,Medium,Drawing,Open Play,0,starter_sample
+bootstrap-48,bootstrap-3,starter sample,2026,2026-06-04,England,Germany,Harry Kane,67,108,31,15.0,24.671,Head,Corner,High,Trailing,Set Piece,0,starter_sample
+bootstrap-49,bootstrap-3,starter sample,2026,2026-06-04,England,Germany,Harry Kane,74,90,25,33.541,12.211,Right Foot,Open Play,Low,Leading,Open Play,0,starter_sample
+bootstrap-50,bootstrap-3,starter sample,2026,2026-06-04,England,Germany,Harry Kane,81,113,48,10.63,29.999,Left Foot,Through Ball,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-51,bootstrap-3,starter sample,2026,2026-06-04,England,Germany,Harry Kane,88,104,42,16.125,27.681,Other,Loose Ball,High,Trailing,Open Play,0,starter_sample
+bootstrap-52,bootstrap-3,starter sample,2026,2026-06-04,England,Germany,Harry Kane,9,111,40,9.0,47.925,Right Foot,Penalty Area Pass,Low,Leading,Open Play,0,starter_sample
+bootstrap-53,bootstrap-4,starter sample,2026,2026-06-04,Spain,Netherlands,Lamine Yamal,12,116,40,4.0,90.0,Right Foot,Cutback,Low,Drawing,Open Play,1,starter_sample
+bootstrap-54,bootstrap-4,starter sample,2026,2026-06-04,Spain,Netherlands,Lamine Yamal,19,112,37,8.544,48.311,Left Foot,Through Ball,Medium,Trailing,Open Play,0,starter_sample
+bootstrap-55,bootstrap-4,starter sample,2026,2026-06-04,Spain,Netherlands,Lamine Yamal,26,110,44,10.77,38.66,Right Foot,Cross,High,Drawing,Open Play,0,starter_sample
+bootstrap-56,bootstrap-4,starter sample,2026,2026-06-04,Spain,Netherlands,Lamine Yamal,33,108,40,12.0,36.87,Right Foot,Through Ball,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-57,bootstrap-4,starter sample,2026,2026-06-04,Spain,Netherlands,Lamine Yamal,40,105,34,16.155,26.095,Head,Cross,High,Leading,Open Play,0,starter_sample
+bootstrap-58,bootstrap-4,starter sample,2026,2026-06-04,Spain,Netherlands,Lamine Yamal,47,100,50,22.361,18.293,Left Foot,Dribble,Medium,Drawing,Open Play,0,starter_sample
+bootstrap-59,bootstrap-4,starter sample,2026,2026-06-04,Spain,Netherlands,Lamine Yamal,54,95,40,25.0,18.181,Right Foot,Layoff,Low,Trailing,Open Play,0,starter_sample
+bootstrap-60,bootstrap-4,starter sample,2026,2026-06-04,Spain,Netherlands,Lamine Yamal,61,118,41,2.236,124.509,Right Foot,Rebound,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-61,bootstrap-4,starter sample,2026,2026-06-04,Spain,Netherlands,Lamine Yamal,68,108,31,15.0,24.671,Head,Corner,High,Trailing,Set Piece,0,starter_sample
+bootstrap-62,bootstrap-4,starter sample,2026,2026-06-04,Spain,Netherlands,Lamine Yamal,75,90,25,33.541,12.211,Right Foot,Open Play,Low,Leading,Open Play,0,starter_sample
+bootstrap-63,bootstrap-4,starter sample,2026,2026-06-04,Spain,Netherlands,Lamine Yamal,82,113,48,10.63,29.999,Left Foot,Through Ball,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-64,bootstrap-4,starter sample,2026,2026-06-04,Spain,Netherlands,Lamine Yamal,89,104,42,16.125,27.681,Other,Loose Ball,High,Trailing,Open Play,0,starter_sample
+bootstrap-65,bootstrap-4,starter sample,2026,2026-06-04,Spain,Netherlands,Lamine Yamal,10,111,40,9.0,47.925,Right Foot,Penalty Area Pass,Low,Leading,Open Play,1,starter_sample
+bootstrap-66,bootstrap-5,starter sample,2026,2026-06-04,Portugal,France,Cristiano Ronaldo,13,116,40,4.0,90.0,Right Foot,Cutback,Low,Drawing,Open Play,0,starter_sample
+bootstrap-67,bootstrap-5,starter sample,2026,2026-06-04,Portugal,France,Cristiano Ronaldo,20,112,37,8.544,48.311,Left Foot,Through Ball,Medium,Trailing,Open Play,1,starter_sample
+bootstrap-68,bootstrap-5,starter sample,2026,2026-06-04,Portugal,France,Cristiano Ronaldo,27,110,44,10.77,38.66,Right Foot,Cross,High,Drawing,Open Play,0,starter_sample
+bootstrap-69,bootstrap-5,starter sample,2026,2026-06-04,Portugal,France,Cristiano Ronaldo,34,108,40,12.0,36.87,Right Foot,Through Ball,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-70,bootstrap-5,starter sample,2026,2026-06-04,Portugal,France,Cristiano Ronaldo,41,105,34,16.155,26.095,Head,Cross,High,Leading,Open Play,0,starter_sample
+bootstrap-71,bootstrap-5,starter sample,2026,2026-06-04,Portugal,France,Cristiano Ronaldo,48,100,50,22.361,18.293,Left Foot,Dribble,Medium,Drawing,Open Play,0,starter_sample
+bootstrap-72,bootstrap-5,starter sample,2026,2026-06-04,Portugal,France,Cristiano Ronaldo,55,95,40,25.0,18.181,Right Foot,Layoff,Low,Trailing,Open Play,0,starter_sample
+bootstrap-73,bootstrap-5,starter sample,2026,2026-06-04,Portugal,France,Cristiano Ronaldo,62,118,41,2.236,124.509,Right Foot,Rebound,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-74,bootstrap-5,starter sample,2026,2026-06-04,Portugal,France,Cristiano Ronaldo,69,108,31,15.0,24.671,Head,Corner,High,Trailing,Set Piece,0,starter_sample
+bootstrap-75,bootstrap-5,starter sample,2026,2026-06-04,Portugal,France,Cristiano Ronaldo,76,90,25,33.541,12.211,Right Foot,Open Play,Low,Leading,Open Play,0,starter_sample
+bootstrap-76,bootstrap-5,starter sample,2026,2026-06-04,Portugal,France,Cristiano Ronaldo,83,113,48,10.63,29.999,Left Foot,Through Ball,Medium,Drawing,Open Play,0,starter_sample
+bootstrap-77,bootstrap-5,starter sample,2026,2026-06-04,Portugal,France,Cristiano Ronaldo,90,104,42,16.125,27.681,Other,Loose Ball,High,Trailing,Open Play,0,starter_sample
+bootstrap-78,bootstrap-5,starter sample,2026,2026-06-04,Portugal,France,Cristiano Ronaldo,11,111,40,9.0,47.925,Right Foot,Penalty Area Pass,Low,Leading,Open Play,1,starter_sample
+bootstrap-79,bootstrap-6,starter sample,2026,2026-06-04,Germany,Brazil,Florian Wirtz,14,116,40,4.0,90.0,Right Foot,Cutback,Low,Drawing,Open Play,1,starter_sample
+bootstrap-80,bootstrap-6,starter sample,2026,2026-06-04,Germany,Brazil,Florian Wirtz,21,112,37,8.544,48.311,Left Foot,Through Ball,Medium,Trailing,Open Play,1,starter_sample
+bootstrap-81,bootstrap-6,starter sample,2026,2026-06-04,Germany,Brazil,Florian Wirtz,28,110,44,10.77,38.66,Right Foot,Cross,High,Drawing,Open Play,0,starter_sample
+bootstrap-82,bootstrap-6,starter sample,2026,2026-06-04,Germany,Brazil,Florian Wirtz,35,108,40,12.0,36.87,Right Foot,Through Ball,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-83,bootstrap-6,starter sample,2026,2026-06-04,Germany,Brazil,Florian Wirtz,42,105,34,16.155,26.095,Head,Cross,High,Leading,Open Play,0,starter_sample
+bootstrap-84,bootstrap-6,starter sample,2026,2026-06-04,Germany,Brazil,Florian Wirtz,49,100,50,22.361,18.293,Left Foot,Dribble,Medium,Drawing,Open Play,0,starter_sample
+bootstrap-85,bootstrap-6,starter sample,2026,2026-06-04,Germany,Brazil,Florian Wirtz,56,95,40,25.0,18.181,Right Foot,Layoff,Low,Trailing,Open Play,0,starter_sample
+bootstrap-86,bootstrap-6,starter sample,2026,2026-06-04,Germany,Brazil,Florian Wirtz,63,118,41,2.236,124.509,Right Foot,Rebound,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-87,bootstrap-6,starter sample,2026,2026-06-04,Germany,Brazil,Florian Wirtz,70,108,31,15.0,24.671,Head,Corner,High,Trailing,Set Piece,0,starter_sample
+bootstrap-88,bootstrap-6,starter sample,2026,2026-06-04,Germany,Brazil,Florian Wirtz,77,90,25,33.541,12.211,Right Foot,Open Play,Low,Leading,Open Play,0,starter_sample
+bootstrap-89,bootstrap-6,starter sample,2026,2026-06-04,Germany,Brazil,Florian Wirtz,84,113,48,10.63,29.999,Left Foot,Through Ball,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-90,bootstrap-6,starter sample,2026,2026-06-04,Germany,Brazil,Florian Wirtz,91,104,42,16.125,27.681,Other,Loose Ball,High,Trailing,Open Play,0,starter_sample
+bootstrap-91,bootstrap-6,starter sample,2026,2026-06-04,Germany,Brazil,Florian Wirtz,12,111,40,9.0,47.925,Right Foot,Penalty Area Pass,Low,Leading,Open Play,1,starter_sample
+bootstrap-92,bootstrap-7,starter sample,2026,2026-06-04,Netherlands,Argentina,Cody Gakpo,15,116,40,4.0,90.0,Right Foot,Cutback,Low,Drawing,Open Play,1,starter_sample
+bootstrap-93,bootstrap-7,starter sample,2026,2026-06-04,Netherlands,Argentina,Cody Gakpo,22,112,37,8.544,48.311,Left Foot,Through Ball,Medium,Trailing,Open Play,1,starter_sample
+bootstrap-94,bootstrap-7,starter sample,2026,2026-06-04,Netherlands,Argentina,Cody Gakpo,29,110,44,10.77,38.66,Right Foot,Cross,High,Drawing,Open Play,0,starter_sample
+bootstrap-95,bootstrap-7,starter sample,2026,2026-06-04,Netherlands,Argentina,Cody Gakpo,36,108,40,12.0,36.87,Right Foot,Through Ball,Medium,Drawing,Open Play,0,starter_sample
+bootstrap-96,bootstrap-7,starter sample,2026,2026-06-04,Netherlands,Argentina,Cody Gakpo,43,105,34,16.155,26.095,Head,Cross,High,Leading,Open Play,0,starter_sample
+bootstrap-97,bootstrap-7,starter sample,2026,2026-06-04,Netherlands,Argentina,Cody Gakpo,50,100,50,22.361,18.293,Left Foot,Dribble,Medium,Drawing,Open Play,0,starter_sample
+bootstrap-98,bootstrap-7,starter sample,2026,2026-06-04,Netherlands,Argentina,Cody Gakpo,57,95,40,25.0,18.181,Right Foot,Layoff,Low,Trailing,Open Play,0,starter_sample
+bootstrap-99,bootstrap-7,starter sample,2026,2026-06-04,Netherlands,Argentina,Cody Gakpo,64,118,41,2.236,124.509,Right Foot,Rebound,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-100,bootstrap-7,starter sample,2026,2026-06-04,Netherlands,Argentina,Cody Gakpo,71,108,31,15.0,24.671,Head,Corner,High,Trailing,Set Piece,0,starter_sample
+bootstrap-101,bootstrap-7,starter sample,2026,2026-06-04,Netherlands,Argentina,Cody Gakpo,78,90,25,33.541,12.211,Right Foot,Open Play,Low,Leading,Open Play,0,starter_sample
+bootstrap-102,bootstrap-7,starter sample,2026,2026-06-04,Netherlands,Argentina,Cody Gakpo,85,113,48,10.63,29.999,Left Foot,Through Ball,Medium,Drawing,Open Play,1,starter_sample
+bootstrap-103,bootstrap-7,starter sample,2026,2026-06-04,Netherlands,Argentina,Cody Gakpo,92,104,42,16.125,27.681,Other,Loose Ball,High,Trailing,Open Play,0,starter_sample
+bootstrap-104,bootstrap-7,starter sample,2026,2026-06-04,Netherlands,Argentina,Cody Gakpo,13,111,40,9.0,47.925,Right Foot,Penalty Area Pass,Low,Leading,Open Play,1,starter_sample

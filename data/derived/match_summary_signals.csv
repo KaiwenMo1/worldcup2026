@@ -1,0 +1,3 @@
+match_id,match_date,team,opponent,goals,xg,shots,shots_on_target,field_tilt,attacking_third_actions,box_entries,set_piece_xg,counterattack_xg,pressing_actions,high_pressing_actions,pressing_proxy,goalkeeper_saves,xg_faced,goals_conceded,goalkeeper_impact,event_count,source,data_quality,updated_at
+FRA-BRA-TEST,2026-06-11,Brazil,France,1,0.87,3,2,0.385,5,2,0.12,0.0,2,2,50.0,1,1.41,2,-0.59,10,manual_csv,observed_events_with_xg,2026-06-12T04:35:32.017981Z
+FRA-BRA-TEST,2026-06-11,France,Brazil,2,1.41,3,3,0.615,8,4,0.76,0.45,5,3,100.0,1,0.87,1,-0.13,19,manual_csv,observed_events_with_xg,2026-06-12T04:35:32.017981Z

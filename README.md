@@ -1,174 +1,422 @@
-# 2026 World Cup Predictor
-# make website, adapt to other leagues/ sports
-A lightweight, self-contained Python model for simulating the FIFA World Cup 2026 with the expanded 48-team format.
+# World Cup 2026 Forecast Lab
 
-The predictor uses:
+A football analytics application that predicts exact match scores, simulates the expanded 48-team FIFA World Cup, and explains why its forecasts move.
 
-- The confirmed 48-team field.
-- The 12 groups of four teams.
-- A calibrated ensemble of Random Forest, Dixon-Coles, and Elo result probabilities.
-- Leakage-safe historical features built only from information available before each match.
-- Current squad, tactical, venue, weather, travel, and fatigue inputs as forecast-time scenario adjustments.
-- The 2026 qualification rule: top two in every group plus the eight best third-place teams advance to a Round of 32.
-- A coherent exact-score distribution whose scores aggregate to the displayed win/draw/loss probabilities.
+The project combines a calibrated Random Forest + Dixon-Coles + Elo ensemble with Monte Carlo tournament simulation, fixture-aware context, live-state updates, and a local evidence-backed analyst.
 
-## Quick Start
+## Why It Is Interesting
 
-```bash
-python3 scripts/predict_worldcup.py --sims 20000 --seed 26
-```
+- Implements the new 48-team format: 12 groups, eight best third-place teams, and a Round of 32.
+- Predicts a coherent exact-score distribution, then aggregates those scores into win/draw/loss and tournament probabilities.
+- Separates historical training features from forecast-time signals such as lineups, availability, weather, travel, rest, and live results.
+- Exposes the model through a FastAPI backend, interactive sports dashboard, CLI, and local RAG Intelligence Desk.
+- Uses chronological holdouts and automated contract tests instead of relying only on visually plausible predictions.
 
-Useful options:
+## Five-Minute Setup
+
+Prerequisite: Python 3.12.
 
 ```bash
-python3 scripts/predict_worldcup.py --sims 50000 --team "USA"
-python3 scripts/predict_worldcup.py --sims 50000 --save outputs/predictions.csv
-python3 scripts/predict_worldcup.py --single
-python3 scripts/predict_worldcup.py --match "France" "Brazil"
-python3 scripts/predict_worldcup.py --sims 100000 --model models/worldcup_random_forest.joblib
-```
-
-For a more stable run, use more simulations:
-
-```bash
-python3 scripts/predict_worldcup.py --sims 100000 --seed 26 --save outputs/predictions.csv
-```
-
-## Website App
-
-Start the local website:
-
-```bash
+python3 -m venv .venv
 source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+Run a baseline tournament simulation:
+
+```bash
+python scripts/predict_worldcup.py --sims 1000 --seed 26
+```
+
+Start the website:
+
+```bash
 uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-Then open:
+Open `http://127.0.0.1:8000`.
 
-```text
-http://127.0.0.1:8000
+The website and CLI can run without API keys or a trained model. When `models/worldcup_random_forest.joblib` is absent, predictions use the built-in football-strength and Poisson baseline.
+
+## AI Matchroom
+
+The public homepage at `http://127.0.0.1:8000/` is the focused AI Matchroom. The older `/ai` route remains as a compatibility alias.
+
+- Open `http://127.0.0.1:8000/arena` for the dedicated multi-agent Prediction Arena.
+- Open `http://127.0.0.1:8000/model-lab` for the dense machine-learning and model-operations workspace.
+- The older `/dashboard` route remains as a compatibility alias.
+
+The AI Matchroom combines the existing exact-score forecast with:
+
+- same-position player comparisons and projected scorer timing
+- manager-plan hypotheses for both teams
+- availability, expected-minutes, and stamina signals
+- local RAG evidence and optional LLM synthesis
+- a live match board and a reasoned remaining-tournament simulation
+- the complete simulated group and knockout path with exact scores; select any match to inspect its deductions
+
+The reasoning layer explains the existing forecast and does not silently change its expected goals or probabilities. All 48 teams resolve to a manager skill and an explicit curation status. The current public-data pass contains 236 observed manager-match rows for 30 managers: 10 profiles qualify as evidence-backed, 20 remain limited-observed, and 18 are visible research gaps. Historical club or national-team behavior may not fully transfer to the manager's current World Cup squad.
+
+```bash
+curl -s -X POST http://127.0.0.1:8000/api/ai/match \
+  -H "Content-Type: application/json" \
+  -d '{"team_a":"France","team_b":"Brazil","use_model":true,"use_llm":false}'
+
+curl -s -X POST http://127.0.0.1:8000/api/ai/tournament \
+  -H "Content-Type: application/json" \
+  -d '{"sims":250,"seed":26,"use_model":true}'
 ```
 
-The app includes:
+## Tactical API
 
-- Run Simulation button.
-- Forecast ensemble / baseline toggle.
-- Champion odds table.
-- Full bracket-style tournament path with flags and scores.
-- Fixture-aware 104-match schedule layer with match-specific venues, kickoff times, bronze final, and final as match 104.
-- Match score predictor.
-- Integrated forecast stack showing which inputs actively changed the score prediction.
-- Exact-score probability heatmap with score-derived win/draw/loss aggregation.
-- Public chronological Model Report with component comparison and calibration chart.
-- Final-squad explorer with projected XI, formation, caps, clubs, and market-value depth.
-- Normal-time player trait layer with preferred foot, weak-foot usage, tactical role, formation role, shooting, passing, chance creation, progression, dribbling, crossing, pressing, tackling, aerials, discipline, scoring-window, and goalkeeper distribution/dive/sweeper stats.
-- Advanced signal layer that feeds availability, confirmed XI, market probability, tactical matchup, set pieces, post-shot goalkeeper quality, referee tendencies, live Bayesian updates, historical weather effects, and 360/freeze-frame shot context into expected goals.
-- Shot-level xG lab with location, distance, angle, body part, assist type, pressure, and game-state features.
-- Shootout matchup lab with kicker placement preferences, past left/center/right split, goal/save/miss rates, keeper dive tendencies, and score/save/miss probabilities.
-- Match confidence, goal-shape insights, and model-driver explanations.
-- Champion odds with simulation confidence ranges.
-- Automatic match context: venue weather from Open-Meteo when in forecast range, venue climatology fallback, team travel load, rest days, fatigue, and crowd/host support.
-- Venue map powered by MapLibre.
-- ECharts heatmap and EV charts.
-- Agentic RAG Intelligence Desk with local evidence retrieval, tool routing, source citations, and an inspectable agent trace.
-- Analyst Brief panel that combines exact-score forecast, squad context, xG danger zones, weather, penalties, evidence, and market disagreement into one traceable matchup read.
-- Optional OpenAI-compatible or local-model synthesis for Intelligence Desk answers.
-- Group viewer.
-- BALLDONTLIE live-state / odds refresh endpoint.
-- Optional The Odds API one-time bookmaker snapshot for Market Edge and Analyst Brief.
+The tactical endpoints explain the existing forecast without changing its expected goals or probabilities.
 
-API routes:
+```bash
+curl -s http://127.0.0.1:8000/api/tactics/managers
 
-```text
-GET  /api/teams
-GET  /api/groups
-GET  /api/venues
-GET  /api/fixtures
-GET  /api/venue-weather
-GET  /api/advanced-signals
-GET  /api/intelligence/status
-GET  /api/status
-GET  /api/model-report
-GET  /api/xg/status
-GET  /api/xg/danger
-GET  /api/penalties/status
-GET  /api/penalties/options
-GET  /api/squads
-GET  /api/player-match-stats
-GET  /api/lineup-status
-GET  /api/live-state
-POST /api/simulate
-POST /api/match
-POST /api/xg/predict
-POST /api/penalties/matchup
-POST /api/intelligence
-POST /api/analyst-brief
-POST /api/refresh-lineups
-POST /api/refresh-odds-snapshot
-POST /api/betting-edges
-POST /api/live-state/match
-POST /api/live-state/elimination
-POST /api/refresh-live-data
+curl -s http://127.0.0.1:8000/api/tactics/manager/France
+
+curl -s http://127.0.0.1:8000/api/tactics/coverage/France
+
+curl -s -X POST http://127.0.0.1:8000/api/tactics/matchups \
+  -H "Content-Type: application/json" \
+  -d '{"team_a":"France","team_b":"Brazil","top_n":5}'
+
+curl -s -X POST http://127.0.0.1:8000/api/tactics/brief \
+  -H "Content-Type: application/json" \
+  -d '{"team_a":"France","team_b":"Brazil","use_model":true,"top_matchups":5}'
 ```
 
-For live World Cup updates, copy `.env.example` to `.env` and add an API key:
+Matchup edge scores are transparent ranking scores, not calibrated probabilities. Responses include source, data-quality, evidence-confidence meaning, observed-versus-estimated coverage, and explicit fallback notes when tactical data is missing.
+
+## Refresh Tactical Evidence
+
+The tactical subsystem has explicit ingestion and validation steps. They are deliberately separate from prediction so untested context cannot silently change forecast probabilities.
+
+```bash
+# Validate the current 48-team manager registry.
+python scripts/sync_managers.py
+
+# Optional network refresh of manager names, followed by manual source review.
+python scripts/sync_managers.py --refresh
+
+# Distill observed manager-match rows into transparent profiles.
+python scripts/sync_manager_match_history.py \
+  --provider-csv path/to/provider_manager_matches.csv \
+  --provider provider-name
+python scripts/distill_manager_profiles.py
+
+# Or refresh the capped public StatsBomb manager-history sample and curate skills.
+python scripts/sync_statsbomb_manager_history.py --max-matches-per-manager 12
+python scripts/curate_manager_skills_from_history.py --apply
+
+# Build stable squad identities, optionally linking a provider export.
+python scripts/build_player_identity_map.py
+python scripts/build_player_identity_map.py \
+  --provider-csv path/to/provider_players.csv \
+  --provider provider-name
+
+# Normalize observed seasonal player stats and apply them as feature overrides.
+python scripts/sync_observed_player_stats.py \
+  --provider-csv path/to/provider_player_stats.csv \
+  --provider provider-name \
+  --apply
+
+# Enable context only after it improves chronological holdout calibration.
+python scripts/backtest_context_features.py
+```
+
+Current repository coverage is intentionally honest: all 48 teams have a current manager registry entry and manager-skill resolution. StatsBomb Open Data currently covers 30 managers across 236 capped historical match observations; 18 managers still need manager-specific event data and public tactical evidence. Existing player-match rows remain mostly estimated fallbacks rather than provider-observed stats, and the context feature gate therefore remains disabled.
+
+See [docs/TACTICAL_DATA_PIPELINE.md](docs/TACTICAL_DATA_PIPELINE.md) for provider contracts, evidence levels, and activation criteria.
+
+## Ingest Player Statistics
+
+The manual-first ingestion adapter validates mixed season and match rows, writes provider-independent normalized files, and derives transparent player role and recent-form signals.
+
+```bash
+python scripts/ingest_player_stats.py --source manual_csv
+python scripts/rebuild_player_role_vectors.py
+python scripts/test_player_stats_ingestion.py
+```
+
+Use `data/raw/player_stats/manual_player_stats_sample.csv` as the input contract. Invalid rows are skipped and appended to `data/provenance/data_quality_report.csv`; successful and partial runs are recorded in `data/provenance/ingestion_runs.csv`.
+
+Observed season statistics take precedence when building role vectors. Players without observed rows retain lower-confidence role vectors derived from `data/player_profiles.csv`. Role-fit scores are transparent ranking scores, not calibrated probabilities, and this ingestion phase does not retrain or alter the match predictor.
+
+## Ingest Injury And News Evidence
+
+The manual injury/news adapter converts free-form report statuses into a fixed vocabulary, computes confidence-aware availability and expected-minutes estimates, and consolidates multiple sources into reviewable risk signals.
+
+```bash
+python scripts/ingest_injury_news.py --source manual_csv
+python scripts/test_injury_news_ingestion.py
+```
+
+Use `data/raw/injury_news/manual_injury_news_sample.csv` as the input contract. Normalized evidence is written to `data/normalized/injury_news_normalized.csv`, while consolidated signals are written to `data/derived/injury_risk_signals.csv`.
+
+Contradictory meaningful statuses are preserved, marked with `needs_manual_review=true`, and logged to the shared data-quality report. Tactical code can read team and match-specific signals through `get_team_injury_risk_signals()`. This phase does not overwrite `data/player_availability.csv` or change prediction behavior.
+
+## Refine Manager Skills From Tactical Evidence
+
+The tactical-article adapter normalizes manually curated articles, match reports, press conferences, and decision records into a reviewable evidence table. Refinement is dry-run by default.
+
+```bash
+python scripts/ingest_tactical_articles.py --source manual_csv
+python scripts/refine_manager_skills.py
+python scripts/test_manager_refinement.py
+```
+
+Suggested updates are written to `data/derived/manager_skill_updates.csv`. Every suggestion references its supporting `evidence_id` values and is labelled as ready, conflicting, needing more evidence, unsupported, or requiring human review.
+
+No manager-skill JSON is changed by the commands above. After reviewing the queue, eligible updates can be applied explicitly:
+
+```bash
+python scripts/refine_manager_skills.py --manager-id france_deschamps --apply
+```
+
+Only recurring, supported, human-reviewed evidence can be applied. Unreviewed or LLM-generated claims remain review-only. Apply mode adds evidence references and audit notes, validates the complete `ManagerSkill`, and atomically replaces the existing JSON.
+
+## Ingest Post-Match Event Data
+
+The event-data adapter maps provider-specific CSV columns and event labels into one typed event stream, then builds transparent match-team summaries.
+
+```bash
+python scripts/ingest_event_data.py --source manual_csv
+python scripts/test_event_data_ingestion.py
+```
+
+Use `data/raw/event_data/manual_match_events_sample.csv` as the manual input example. The normalized contract supports shots, goals, passes, carries, defensive actions, substitutions, set pieces, penalties, and saves. Coordinates use a `120 x 80` attacking-direction pitch; future provider adapters should map their native coordinates before validation.
+
+Derived summaries in `data/derived/match_summary_signals.csv` include xG, shots, field tilt, box entries, set-piece and counterattack xG, pressing proxies, and goalkeeper impact. Missing optional event details are retained as informational data-quality notices instead of causing the run to fail. These post-match signals are analysis and evaluation inputs only; they do not alter current predictions.
+
+## Live Tournament Autopilot
+
+Completed results are stored permanently in `data/observed_matches.csv`. The autopilot merges verified manual results with an optional provider refresh, republishes `data/live_state.json`, rebuilds `data/live_team_state.csv`, ingests confirmed lineups, settles saved Arena predictions, evaluates completed matches, and refreshes calibration.
+
+```bash
+# Run safely from the verified local result ledger.
+python scripts/run_tournament_autopilot.py
+
+# Also fetch completed scores and publish nearby Arena forecasts.
+python scripts/run_tournament_autopilot.py --refresh-provider --run-arena
+
+# Import confirmed starters and calculate tactical lineup deltas.
+python scripts/ingest_lineups.py --from-confirmed-lineups
+
+# Optional provider-independent live event feed.
+python scripts/sync_live_events.py --optional
+```
+
+The scheduled workflow `.github/workflows/tournament-autopilot.yml` runs the same idempotent cycle during the tournament. Configure repository secrets `BALLDONTLIE_API_KEY`, `SPORTMONKS_API_TOKEN`, and optionally `WORLD_CUP_EVENT_FEED_API_KEY`; configure `WORLD_CUP_EVENT_FEED_URL` as a repository variable. Scores remain durable even when a later provider request fails. Formation and event statistics are only treated as observed when a provider or verified import supplies them.
+
+The four completed opening matches currently recorded are Mexico 2-0 South Africa, Korea Republic 2-1 Czechia, Canada 1-1 Bosnia and Herzegovina, and USA 2-0 Paraguay. These results already feed the simulator through live-state locking and live team-form features.
+
+## Data Provider Setup
+
+Provider pricing and coverage can change. These were checked on June 13, 2026.
+
+| Need | Provider | Free? | Where to get access |
+| --- | --- | --- | --- |
+| World Cup scores, rosters, lineups, stats, and shot maps | BALLDONTLIE | Yes, a basic free tier is listed at 5 requests/minute. Paid per-sport plans are listed for higher limits and fuller data. | [Create an account](https://app.balldontlie.io/) and set `BALLDONTLIE_API_KEY`. |
+| Detailed observed formations and lineups | Sportmonks | Treat as a commercial provider. Trial and plan coverage should be checked before subscribing. | [Sportmonks Football API](https://www.sportmonks.com/football-api/) and set `SPORTMONKS_API_TOKEN`. |
+| Venue weather | Open-Meteo | Yes for non-commercial evaluation and prototyping, without an API key. The open-access tier lists 10,000 calls/day and requires attribution. | [Open-Meteo docs](https://open-meteo.com/en/docs). |
+| Historical event, lineup, and selected 360 data | StatsBomb Open Data | Yes, for selected historical competitions. It is not a live World Cup feed. | [StatsBomb Open Data](https://github.com/statsbomb/open-data). |
+| Basic fixtures and results backup | football-data.org | Yes. Its free tier lists 12 competitions, basic fixtures/results/tables, and 10 calls/minute. Confirm that World Cup coverage is included before relying on it. | [Register for a token](https://www.football-data.org/client/register). |
+| Optional market snapshot | The Odds API | Yes. Its starter tier lists 500 credits/month. | [Get an API key](https://the-odds-api.com/) and set `THE_ODDS_API_KEY`. |
+
+`WORLD_CUP_EVENT_FEED_URL` is a provider-independent adapter, not a specific service. It can accept a JSON event feed using the project's normalized event fields. Rich live shot locations, pressure, carries, and heat-map-quality events are usually commercial data. The system deliberately leaves those fields unavailable instead of inventing them.
+
+## Publish From GitHub
+
+GitHub Pages only hosts static HTML, CSS, and JavaScript, so it cannot run this project's FastAPI forecasts, simulations, live refreshes, or reasoning endpoints. The repository includes `render.yaml` to deploy the complete app from GitHub on Render.
+
+1. Commit and push the repository to GitHub.
+2. Open `https://dashboard.render.com/blueprint/new?repo=https://github.com/KaiwenMo1/worldcup2026`.
+3. Apply the Blueprint.
+4. Add optional provider keys in the Render dashboard when available.
+
+The deployed root route is the public Match Deductions page. Prediction Arena is at `/arena`, and the machine-learning workspace is at `/model-lab`.
+
+The Render build installs the smaller `requirements-web.txt` dependency set and trains the real ensemble from committed historical matches. The large generated model artifact remains outside Git.
+
+Render's filesystem is ephemeral. Durable tournament updates should continue through `.github/workflows/tournament-autopilot.yml`, which commits verified data updates back to GitHub and triggers a fresh deployment.
+
+Recommended public commit contents:
+
+- application source under `app/`, `scripts/`, and `tests/`
+- `.github/workflows/`, `render.yaml`, documentation, and requirements
+- curated and normalized CSV/JSON files required by the public experience
+- the permanent observed-result ledger and live-state outputs
+
+Keep `.env`, `kaggle.json`, `.venv/`, `node_modules/`, `models/*.joblib`, and downloaded `data/raw/` provider dumps out of Git. They are already ignored.
+
+## Optional Multi-Model Arena
+
+The deterministic Expert, Kevin, Upset, Skeptic, and Final Forecast agents always work offline. To add real OpenAI-compatible model opinions, configure `WORLD_CUP_ARENA_MODELS_JSON` with provider metadata and API-key environment-variable names. External opinions are displayed and audited, but they do not silently override the calibrated base forecast.
+
+## Evaluate Completed Matches
+
+The post-match evaluator closes the feedback loop across model forecasts, manager-skill hypotheses, matchup edges, and immutable analyst logs.
+
+```bash
+# Evaluate one match already recorded in data/live_state.json.
+python scripts/evaluate_completed_match.py --match-id 1
+
+# Evaluate a manually supplied completed match.
+python scripts/evaluate_completed_match.py \
+  --match-id FRA-BRA-TEST \
+  --team-a France \
+  --team-b Brazil \
+  --score-a 2 \
+  --score-b 1 \
+  --formation-a 4-2-3-1
+
+# Re-evaluate every completed live-state match idempotently.
+python scripts/evaluate_all_completed_matches.py
+python scripts/test_postmatch_evaluation.py
+```
+
+Model evaluation reports exact-score hit, winner hit, multiclass Brier score, and the favorite's calibration bucket. Manager evaluation compares only available evidence for formation, pressing, transition xG, and substitution timing. Matchup evaluation uses type-specific event evidence, while analyst evaluation joins immutable predictions to optional post-game reviews.
+
+Evaluation rows are idempotently upserted in `data/derived/`. Until pre-kickoff forecast snapshots are stored with live matches, CLI-generated model evaluations are explicitly labelled `current_model_replay_not_historical_snapshot`.
+
+## Manager Skill Distillation
+
+The project includes a Nuwa-inspired offline builder that turns manually curated public evidence into a reviewable manager `SKILL.md` and an app-compatible tactical JSON preview.
+
+```bash
+python scripts/create_manager_skill.py \
+  --manager-id france_deschamps \
+  --manager-name "Didier Deschamps" \
+  --team France \
+  --evidence-dir data/manager_distillation/raw_evidence/france_deschamps
+
+python scripts/validate_manager_skill.py --manager-id france_deschamps
+python scripts/export_manager_skill_json.py --manager-id france_deschamps
+```
+
+The exporter will not replace an existing `data/manager_skills/{manager_id}.json` unless `--apply` is supplied. Free-form Markdown remains research context; only recurring, predictive, distinctive structured claims can become executable tactical rules. See [skills/manager-skill-builder/SKILL.md](skills/manager-skill-builder/SKILL.md).
+
+## Human Analyst Journal API
+
+The journal stores immutable pre-match predictions and separate post-game reviews in local CSV files.
+
+```bash
+curl -s -X POST http://127.0.0.1:8000/api/analyst/log \
+  -H "Content-Type: application/json" \
+  -d '{"analyst":"Kai","match_id":"FRAvBRA","team_a":"France","team_b":"Brazil","predicted_team_a_score":2,"predicted_team_b_score":1,"confidence":0.72,"key_matchup_prediction":"France left wing creates the strongest edge","tactical_prediction":"France attacks transitions behind Brazil fullbacks","kickoff_at":"2026-06-20T20:00:00Z","model_version":"ensemble-2026.06","data_snapshot_id":"snapshot-001"}'
+
+curl -s "http://127.0.0.1:8000/api/analyst/logs?analyst=Kai"
+
+curl -s -X POST http://127.0.0.1:8000/api/analyst/postgame-review \
+  -H "Content-Type: application/json" \
+  -d '{"log_id":"REPLACE_WITH_LOG_ID","actual_team_a_score":2,"actual_team_b_score":1,"key_matchup_correct":true,"tactical_correct":false}'
+
+curl -s http://127.0.0.1:8000/api/analyst/profile/Kai
+```
+
+Prediction logs must be created before kickoff. Reviews reference the original `log_id` and never rewrite the pre-match record. The CSV journal is an MVP intended for a local single-process deployment.
+
+## Train And Evaluate The Ensemble
+
+Train the chronological ensemble:
+
+```bash
+python scripts/train_model.py
+```
+
+Run a larger simulation using the saved model:
+
+```bash
+python scripts/predict_worldcup.py \
+  --sims 10000 \
+  --seed 26 \
+  --model models/worldcup_random_forest.joblib \
+  --save outputs/predictions.csv
+```
+
+Inspect the saved chronological model report:
+
+```bash
+python scripts/backtest_models.py
+python scripts/backtest_models.py --by-year
+```
+
+Useful prediction commands:
+
+```bash
+python scripts/predict_worldcup.py --single
+python scripts/predict_worldcup.py --match "France" "Brazil"
+python scripts/predict_worldcup.py --sims 50000 --team "USA"
+```
+
+## Run Tests
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+The suite protects the tournament data contract, 48-team qualification rule, exact-score probability math, local intelligence helpers, and core API surface. GitHub Actions also compiles the source and runs a small end-to-end prediction smoke test.
+
+## How Predictions Work
+
+```mermaid
+flowchart LR
+    H[Historical results] --> E[RF + Dixon-Coles + Elo ensemble]
+    E --> X[Exact-score distribution]
+    C[Fixture and live context] --> X
+    X --> M[Monte Carlo tournament simulation]
+    M --> W[Champion and stage probabilities]
+    X --> A[Analyst brief and explanations]
+```
+
+The trained model uses only information available before each historical match. Current squad, tactical, weather, travel, lineup, and live-match signals are applied later as forecast-time context.
+
+The saved model currently uses:
+
+- 4,771 training matches.
+- 1,597 calibration matches.
+- 1,584 chronological holdout matches from October 8, 2024 through March 31, 2026.
+- Ensemble holdout accuracy of `59.8%` and log loss of `0.863`.
+
+These metrics describe the current local saved model and can change after retraining.
+
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for component boundaries, data trust levels, validation strategy, and known tradeoffs.
+
+## Product Surface
+
+The dashboard focuses on four connected workflows:
+
+1. **Tournament simulation**: champion odds, confidence ranges, groups, and a full two-sided bracket.
+2. **Match forecast**: expected goals, exact-score heatmap, result probabilities, and model drivers.
+3. **Analyst brief**: squad, tactical, weather, xG, penalty, market, and retrieved evidence summarized into one matchup view.
+4. **Live tournament tracking**: completed results and eliminated teams update future simulations.
+
+Advanced data modules include squad and player traits, shot-level xG, penalty matchup analysis, tactical profiles, set pieces, goalkeeper profiles, referee tendencies, market signals, and fixture-aware weather/travel context. They feed the forecast stack when data is available rather than acting only as separate dashboard widgets.
+
+## Optional Live Data
+
+No API key is required for the baseline app. To enable optional providers:
 
 ```bash
 cp .env.example .env
 ```
 
-```text
-BALLDONTLIE_API_KEY=your_api_key_here
-WORLD_CUP_API_BASE_URL=https://api.balldontlie.io/fifa/worldcup/v1
-THE_ODDS_API_KEY=your_api_key_here
-THE_ODDS_SPORT=soccer_fifa_world_cup
-THE_ODDS_REGIONS=us,uk,eu
-```
+Then configure only the providers you have access to:
 
-The live refresh stores provider state in `data/live_state.json`. During the tournament, completed matches and eliminated teams can be written there so future simulations lock known scores and prevent eliminated teams from advancing. The website also has manual controls for locking a completed score and marking/restoring eliminated teams.
+- `SPORTMONKS_API_TOKEN`: observed lineups and sidelined players.
+- `THE_ODDS_API_KEY`: one-time bookmaker snapshot.
+- `BALLDONTLIE_API_KEY`: live World Cup state when supported by your plan.
+- `WORLD_CUP_AI_*`: optional OpenAI-compatible or local-model synthesis.
 
-Completed-match updates also rebuild `data/live_team_state.csv`, which is the forecast-time Bayesian update table used by later matches.
+StatsBomb Open Data and Open-Meteo do not require API keys.
 
-BALLDONTLIE refresh can also write provider odds to `data/bookmaker_odds.csv` when your API tier exposes odds/futures endpoints.
-
-The Odds API snapshot uses the official `/v4/sports/{sport}/odds/` endpoint with the `h2h` market. It overwrites `data/bookmaker_odds.csv` only when fetched events match the current World Cup team list. You can trigger it from the Analyst Brief checkbox or directly:
+Refresh local advanced context:
 
 ```bash
-curl -X POST http://127.0.0.1:8000/api/refresh-odds-snapshot \
-  -H "Content-Type: application/json" \
-  -d '{}'
-```
-
-Open-Meteo weather does not need an API key. Choose `Auto from venue` in the website. Tournament simulations automatically use each fixture's venue and kickoff; the match lab uses the selected venue. If the kickoff is outside the weather forecast horizon or Open-Meteo is unavailable, the app falls back to venue climatology.
-
-## Fixture-Aware Context
-
-The app now uses `data/fixtures.csv` as the tournament schedule context table. It contains all 104 match ids, team/slot labels, venue-local kickoff timestamps, venues, and a `venue_source` column.
-
-Rebuild it with:
-
-```bash
-python3 scripts/build_fixture_schedule.py
-```
-
-Rows marked `published-schedule` are applied automatically by the simulator. That means tournament simulations do not use one fixed venue: group matches, knockouts, the bronze final, and the final each pull their own venue and kickoff from the fixture table.
-
-During simulation, every fixture automatically applies:
-
-- Venue-specific weather or climatology.
-- Team-specific travel load from the previous match venue.
-- Rest days between matches.
-- Fatigue load from travel, rest, squad depth, and lineup uncertainty.
-- Crowd/host support based on host country, confederation, and broad fan-base priors.
-
-Known live results in `data/live_state.json` still override predictions, so the app can move from pre-tournament forecast to during-tournament tracker.
-
-## Advanced Signal Layer
-
-The match model has a second forecast-time context layer on top of the trained RF + Dixon-Coles + Elo ensemble. Run the full refresh with any provider access you have:
-
-```bash
-python3 scripts/sync_full_advanced_context.py \
+python scripts/sync_full_advanced_context.py \
   --lineups \
   --odds \
   --statsbomb \
@@ -177,367 +425,56 @@ python3 scripts/sync_full_advanced_context.py \
   --optional-providers
 ```
 
-Provider flags are optional:
-
-- `--lineups`: pulls Sportmonks observed lineups, formations, and sidelined players when `SPORTMONKS_API_TOKEN` is configured.
-- `--odds`: pulls a one-time The Odds API snapshot when `THE_ODDS_API_KEY` is configured.
-- `--statsbomb`: pulls StatsBomb Open Data events and builds event-derived tactics, set pieces, freeze-frame, goalkeeper, shots, and xG inputs.
-- `--weather --fetch-weather`: trains weather effects from `data/weather_match_history.csv`, filling hourly weather with Open-Meteo archive data when latitude/longitude and kickoff time are available.
-
-To only rebuild from local files/projections:
-
-```bash
-python3 scripts/build_advanced_context.py
-```
-
-That writes:
-
-- `data/player_availability.csv`: player injury/suspension/minutes-limit style rows. Provider rows can replace the generated projection.
-- `data/confirmed_lineups.csv`: match-specific confirmed XI shape, with projected XI rows as the fallback.
-- `data/market_signals.csv`: no-vig match probabilities and line movement derived from `data/bookmaker_odds.csv`.
-- `data/tactical_profiles.csv`: formation, pressing, build-up, transition, defensive line, and width.
-- `data/set_piece_profiles.csv`: corner/free-kick xG priors, aerial threat, delivery quality, and concede risk.
-- `data/goalkeeper_profiles.csv`: save rate, post-shot xG prevention proxy, claims, and sweeper profile.
-- `data/referee_profiles.csv`: cards, penalties, fouls, VAR rate, and bias priors. Add assigned referee rows when known.
-- `data/weather_effects.csv`: historically inspired weather multipliers for goals, pressing, set pieces, and keeper handling.
-- `data/live_team_state.csv`: live posterior/momentum rows rebuilt from completed results.
-- `data/freeze_frame_signals.csv`: 360/freeze-frame proxy signals for box density, shot lanes, compactness, and keeper positioning.
-
-These are not separate dashboard decorations. `/api/match` uses them inside expected goals before building the exact-score matrix, and `/api/advanced-signals?team_a=Mexico&team_b=South%20Africa` exposes the per-source xG deltas for auditing or RAG analysis.
-
-Provider rows are preserved. The builder only fills missing teams with local projections, so confirmed lineups, injury reports, licensed referee assignments, bookmaker lines, event data, and weather-trained effects will override starter priors without changing the app.
-
-Full-version scripts:
-
-```bash
-python3 scripts/sync_lineups.py --optional
-python3 scripts/sync_odds_snapshot.py --optional
-python3 scripts/sync_statsbomb_advanced.py --competition-id 43 --season-id 106
-python3 scripts/xg_model.py
-python3 scripts/train_weather_effects.py --fetch-open-meteo
-python3 scripts/build_advanced_context.py
-```
-
-For weather training, create `data/weather_match_history.csv` with match date/kickoff, latitude, longitude, total goals, and optional weather variables. The trainer writes `data/weather_effects.csv`; if the sample is too small for a weather class, that class keeps a conservative prior and marks the source accordingly.
-
-## Agentic RAG Intelligence Desk
-
-The Intelligence Desk is a local-first analysis agent. It does not need an LLM key to work.
-
-For each question it:
-
-1. Identifies mentioned teams and venues.
-2. Routes the question to relevant tools such as team profiles, historical head-to-head, the current match model, venue weather, or live state.
-3. Retrieves relevant evidence chunks from the project datasets and documentation using a local TF-IDF bigram index.
-4. Produces an answer with sources and exposes the agent trace in the UI.
-
-Example API request:
-
-```bash
-curl -X POST http://127.0.0.1:8000/api/intelligence \
-  -H "Content-Type: application/json" \
-  -d '{"question":"Why does France have an edge over Brazil?","use_llm":false}'
-```
-
-To optionally use an OpenAI-compatible model only for final answer synthesis, configure:
-
-```text
-WORLD_CUP_AI_BASE_URL=http://127.0.0.1:11434/v1
-WORLD_CUP_AI_MODEL=your-model-name
-WORLD_CUP_AI_API_KEY=
-```
-
-This works with providers exposing an OpenAI-compatible `/chat/completions` endpoint. Retrieval, model forecasts, tool routing, citations, and fallback synthesis continue to work when no model is configured or the model endpoint is unavailable.
-
-Run the deterministic agent routing/retrieval eval:
-
-```bash
-python3 scripts/evaluate_intelligence.py
-python3 scripts/evaluate_intelligence.py --output outputs/intelligence_eval.json
-```
-
-Run the model backtest report:
-
-```bash
-.venv/bin/python scripts/backtest_models.py
-.venv/bin/python scripts/backtest_models.py --by-year
-```
-
-The `--by-year` view uses saved holdout predictions from `scripts/train_model.py` and groups accuracy, log loss, and favorite confidence by year and tournament.
-
-## Analyst Brief
-
-The Analyst Brief is the more opinionated matchup screen. It is not just a chatbot response: the backend calls the exact-score model, squad projection, shot-quality zones, penalty-strength signal, venue weather, bookmaker edge screen, and local evidence retriever, then returns a compact brief plus an agent trace.
-
-Example:
-
-```bash
-curl -X POST http://127.0.0.1:8000/api/analyst-brief \
-  -H "Content-Type: application/json" \
-  -d '{"team_a":"France","team_b":"Brazil","weather":"auto","venue":"New York New Jersey","refresh_odds":false}'
-```
-
-Set `refresh_odds` to `true` only when `THE_ODDS_API_KEY` is configured and you want to spend one odds API call before the brief.
-
-### GitHub Technology Radar
-
-The June 2026 technology review identified these useful projects:
-
-- [Pydantic AI](https://github.com/pydantic/pydantic-ai): the strongest future fit for typed tools, structured agent outputs, evals, and OpenTelemetry because this backend already uses FastAPI/Pydantic.
-- [LangGraph](https://github.com/langchain-ai/langgraph): useful if Intelligence Desk workflows become long-running, stateful, or human-approved.
-- [Qdrant](https://github.com/qdrant/qdrant) or [LanceDB](https://github.com/lancedb/lancedb): good replacements for the local TF-IDF retriever after the knowledge corpus grows to live articles, reports, and player documents.
-- [Pathway](https://github.com/pathwaycom/pathway): useful later for continuously updating RAG from live feeds.
-- [StatsBomb Open Data](https://github.com/statsbomb/open-data): the most useful next football-specific integration for event data, lineups, and xG-derived features.
-
-The current implementation deliberately uses the existing scikit-learn dependency for retrieval. It is transparent, fast for the current corpus, and avoids operating a vector database before the project needs one.
-
-## Data Sources
-
-The qualified teams and competition format were checked against FIFA pages available on May 11, 2026:
-
-- [FIFA qualified teams page](https://www.fifa.com/en/articles/world-cup-2026-who-has-qualified), published March 31, 2026.
-- [FIFA 2026 groups / qualification rules page](https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/groups-how-teams-qualify-tie-breakers), published April 19, 2026.
-- [FIFA match schedule media release](https://vod.fifa.com/organisation/media-releases/updated-world-cup-2026-match-schedule-venues-kick-off-times-104-matches), published December 6, 2025.
-- [FIFA World Cup 2026 match schedule PDF](https://digitalhub.fifa.com/asset/4b5d4417-3343-4732-9cdf-14b6662af407/FWC26-Match-Schedule_English.pdf), schedule version dated April 10, 2026.
-- [WorldCuply 2026 match schedule table](https://worldcuply.com/schedule.html), used as a readable structured cross-check for all 104 venue-local kickoff rows.
-- [FIFA/Coca-Cola Men's World Ranking](https://inside.fifa.com/fifa-world-ranking/men), official update date: April 1, 2026, with the next update listed for June 10, 2026.
-- [ESPN April 2026 ranking list](https://www.espn.com/soccer/story/_/id/46664763/fifa-mens-top-50-world-rankings), used as a readable cross-check for the rank numbers in `data/teams.csv`.
-- [The Odds API v4 documentation](https://the-odds-api.com/liveapi/guides/v4/), used for the optional official odds snapshot adapter.
-- [Kaggle: International football results from 1872 to 2026](https://www.kaggle.com/datasets/martj42/international-football-results-from-1872-to-2017), a useful full training dataset for historical matches.
-- [GitHub mirror: martj42/international_results](https://github.com/martj42/international_results), useful if you prefer downloading `results.csv` directly from GitHub.
-- [StatsBomb Open Data](https://github.com/statsbomb/open-data), used by `scripts/sync_statsbomb_shots.py` for event-level shot locations, body part, play pattern, pressure, and outcomes.
-- [Kaggle penalty kick dataset](https://www.kaggle.com/datasets/rodrigoarede2003/penalty-kick-dataset-20202025/data), a public kick-level starter source with foot, direction, keeper action, score state, and outcome columns.
-
-Ranking numbers in `data/teams.csv` are the April 2026 ranks used as model input. The model is intentionally transparent and easy to edit; update that CSV after the June 10 ranking release to refresh the baseline.
-
-## Model Notes
-
-This is not claiming to know the future. It is a simulation model:
-
-1. Rebuild pre-match Elo, recent form, rest, and experience signals chronologically.
-2. Blend calibrated Random Forest, Dixon-Coles, and Elo probabilities.
-3. Build one exact-score distribution and sample scores directly from it.
-4. Rank groups using points, goal difference, goals scored, then ranking.
-5. Advance 24 top-two teams plus the eight best third-place teams.
-6. Simulate a Round of 32 through the final.
-
-The static tactical estimates remain transparent inputs in `data/team_features.csv` and `data/team_advanced_features.csv`. Current squad value, observed lineup continuity, formation frequency, and provider-reported availability are generated separately so they can update without leaking present-day information into historical training.
-
-The match predictor can estimate scorelines directly:
-
-```bash
-python3 scripts/predict_worldcup.py --match "Argentina" "England" --top-scores 10
-```
-
-The output includes expected score, win/draw/loss probabilities, and the most likely exact scores.
-
-## Forecast Ensemble
-
-Install dependencies in a virtual environment:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-Train the leakage-safe RF + Dixon-Coles + Elo ensemble:
-
-```bash
-python3 scripts/train_model.py
-```
-
-Track a training run with MLflow:
-
-```bash
-python3 scripts/train_model.py --mlflow
-mlflow ui
-```
-
-Tune Random Forest hyperparameters with a chronological holdout:
-
-```bash
-python3 scripts/tune_model.py --trials 30
-```
-
-That creates:
-
-```bash
-models/worldcup_random_forest.joblib
-```
-
-Inspect the saved chronological backtest:
-
-```bash
-python3 scripts/backtest_models.py
-python3 scripts/backtest_models.py --output outputs/model_report.json
-```
-
-Once the model file exists, `predict_worldcup.py` uses the ensemble automatically:
-
-```bash
-python3 scripts/predict_worldcup.py --sims 100000 --seed 26 --save outputs/predictions.csv
-python3 scripts/predict_worldcup.py --match "France" "Brazil"
-```
-
-To force the old baseline:
-
-```bash
-python3 scripts/predict_worldcup.py --no-model --sims 20000
-```
-
-The included `data/historical_matches.csv` is a starter training set. For a better model, download `results.csv` from the Kaggle/GitHub source above and convert it:
-
-```bash
-python3 scripts/convert_results_csv.py path/to/results.csv --since 2018-01-01
-python3 scripts/train_model.py
-```
-
-Historical training currently uses these pre-match feature groups:
-
-- Elo difference from historical match results.
-- Recent points, win/draw rate, scoring, defending, clean sheets, and volatility over the last 10 matches.
-- Rest-day and international-experience differences.
-- Neutral venue and tournament importance.
-- Recency-weighted training, so newer matches matter more than older matches.
-- A chronological 60/20/20 train/calibrate/test backtest instead of a random split.
-- A logistic calibration layer combining Random Forest, Dixon-Coles, and Elo probabilities.
-- Feature-importance metadata, used by the website to show the biggest prediction drivers for a matchup.
-- Optional SHAP explanations when `shap` is installed.
-- Optional MLflow tracking when `--mlflow` is passed.
-- Optional Optuna tuning through `scripts/tune_model.py`.
-
-Current squad ratings and other present-day estimates are deliberately excluded from historical training to prevent leakage. They still influence forecasts through the scenario layer, where they belong.
-
-## Event Models
-
-Train the shot-level xG model:
-
-```bash
-python3 scripts/xg_model.py
-```
-
-That creates:
-
-```text
-data/shot_events.csv
-data/xg_team_zones.csv
-models/xg_shot_model.joblib
-```
-
-The xG trainer uses a gradient-boosted classifier over shot location, computed distance, computed angle, body part, assist type, defender pressure, game state, shot type, and minute. `data/xg_team_zones.csv` compares predicted goals against actual goals by team and shot zone. Those team danger-zone signals now make a conservative forecast-time expected-goals adjustment, while the xG lab remains an expandable audit tool.
-
-To replace the starter sample with real event data from StatsBomb Open Data:
-
-```bash
-python3 scripts/sync_statsbomb_shots.py --competition-id 43 --season-id 106
-python3 scripts/xg_model.py
-```
-
-Train the penalty placement and shootout outcome models:
-
-```bash
-python3 scripts/penalty_model.py
-```
-
-That creates:
-
-```text
-data/penalty_kicks.csv
-models/penalty_shootout_model.joblib
-```
-
-The penalty trainer fits gradient-boosted models for shot placement and kick outcome using kicker foot, position, kick order, pressure, score state, knockout round, past kicker placement tendencies, and keeper dive tendencies. Team penalty strength is used as the knockout fallback after drawn knockout matches. The website also joins penalty-specific tendencies back to each player's normal-time profile, so the expandable kicker-vs-keeper lab can audit preferred foot, tactical role, xG/pass/dribble context, placement split, and keeper save/dive profile.
-
-If you have Kaggle credentials configured in `kaggle.json`, you can pull the public penalty-kick dataset and retrain:
-
-```bash
-python3 scripts/sync_kaggle_penalties.py
-python3 scripts/penalty_model.py
-```
-
-The penalty dataset is not a complete every-major-tournament archive. It is a public kick-level starter source. For production-quality World Cup shootout advice, replace `data/penalty_kicks.csv` with a licensed or manually coded major-tournament panel that includes placement, keeper dive, foot, pressure, and outcome.
-
-## Final Squad Sync
-
-FIFA published all 48 final World Cup squads on June 2, 2026. Refresh the player-level dataset and generated squad features with:
-
-```bash
-python3 scripts/sync_squads.py
-```
-
-To replace inferred lineups with observed recent starting XIs, add a Sportmonks token to `.env` and run:
-
-```text
-SPORTMONKS_API_TOKEN=your_token
-```
-
-```bash
-python3 scripts/sync_lineups.py
-python3 scripts/sync_squads.py --from-existing
-```
-
-This writes:
-
-- `data/worldcup_squads.csv`: current listed players, positions, clubs, caps, international goals, optional market values, and projected-XI status.
-- `data/squad_features.csv`: team-level roster value, projected XI, bench depth, experience, balance, availability, and formation-fit scores used at forecast time.
-- `data/player_match_stats.csv`: normal-time and penalty player characteristics such as preferred foot, weak-foot usage, tactical role, formation role, tactic profile, shooting, xG, xA, key passes, pass completion, progressive passes/carries, dribble success, cross completion, pressure success, tackle success, aerials, cards/fouls/offsides, scoring-window shares, goalkeeper saves, post-shot xG prevention, claims, sweeper actions, long-pass completion, kicker placement preferences, penalty goal/save/miss rates, and keeper dive tendencies.
-- `data/player_match_team_features.csv`: team aggregate scores from the player trait table, used as forecast-time expected-goals adjustments.
-- `data/player_candidates.csv`: scorer simulation candidates generated from the current squads.
-- `data/lineup_observations.csv`: confirmed recent starting XIs and formations from the configured provider.
-- `data/player_availability.csv`: current provider-reported injuries and suspensions.
-
-Final squads are sourced from the structured 2026 squad list, which cites each association announcement. Market values are optionally enriched from current Transfermarkt World Cup/team pages. Because market value is an estimate and not a performance statistic, it is only one part of the forecast-time squad layer.
-
-The refresh preserves the current active list rather than forcing every team to 26 players. During the injury-replacement window, a team may temporarily show fewer than 26; the sync command reports those open roster slots so a later replacement appears on the next refresh.
-
-When observed lineup history is available, the pipeline uses recency-weighted start rates, the most common formation, lineup continuity, and current sidelined players. Without provider coverage, it falls back to a clearly labeled position/value/caps projection. Sportmonks is optional because lineup and injury coverage varies by subscription.
-
-Build or refresh just the normal-time player trait layer:
-
-```bash
-python3 scripts/sync_player_match_stats.py
-```
-
-To use real seasonal stats later, provide a CSV keyed by `team,player` with any matching stat columns. This can include provider fields such as preferred foot, pass completion, pressures, tackle success, dribble success, cross completion, aerial win rate, minutes, availability, penalty placement splits, and keeper penalty dive/save tendencies:
-
-```bash
-python3 scripts/sync_player_match_stats.py --provider-stats data/provider_player_season_stats.csv
-```
-
-The default player stats are not claimed as official seasonal event data. They are transparent starter estimates from current squad profile, projected role, caps, goals, position, market value, availability, and starter status. Replace them with licensed provider data for production analysis.
-
-The `Refresh World Cup squads` GitHub Action runs daily and can also be triggered manually. It refreshes the generated squad, player-trait, and scorer files and commits changes, so a deployed app can pick up late replacements and updated player values.
-
-The simulation output also reports confidence intervals for champion and finalist odds. These are not a claim that the model is perfect; they show Monte Carlo uncertainty from the number of simulations you ran.
-
-## Betting Edge Screen
-
-The website can compare model probabilities against bookmaker prices from:
-
-```text
-data/bookmaker_odds.csv
-```
-
-Supported starter markets:
-
-- `match_winner`: three-way soccer market with team A, draw, team B.
-- `champion`: tournament futures market.
-
-The analyzer converts American or decimal odds into implied probability, removes the bookmaker margin within each event, compares that no-vig market probability to the model probability, then reports expected value and a capped fractional-Kelly paper stake.
-
-To refresh prices from an official feed, set `THE_ODDS_API_KEY` and use `/api/refresh-odds-snapshot` or the `Pull odds once` checkbox in the Analyst Brief panel. This is for educational analysis and paper tracking, not guaranteed profit or betting advice.
-
-## Next Accuracy Upgrades
-
-- Add player club minutes, workload, and recovery estimates.
-- Feed team xG/xGA aggregates from the shot model into the match ensemble.
-- Replace estimated normal-time player traits with real FBref/StatsBomb/Wyscout/Opta-style seasonal feeds.
-- Add player-level club minutes, player market value, and age curve.
-- Use the penalty model inside knockout tiebreakers instead of the current aggregate penalty-strength edge.
-- Add travel distance, venue altitude/climate, and rest days.
-- Add lineup rotation logic for group-stage match three.
-- Compare the current ensemble against XGBoost or LightGBM challengers in the same chronological backtest.
-- Add official bracket mapping when all third-place advancement paths are locked down.
-
-The exact FIFA Round-of-32 bracket depends on third-place combinations. This project uses a deterministic reseeding bracket after the group stage so the expanded format is represented without pretending to have every official third-place path encoded.
+Provider flags are optional. Projected local fallbacks remain in place when a provider is unavailable.
+
+## Repository Guide
+
+| Path | Purpose |
+|---|---|
+| `scripts/train_model.py` | Chronological feature building, ensemble training, calibration, and report generation |
+| `scripts/predict_worldcup.py` | Exact-score prediction and Monte Carlo tournament simulation |
+| `scripts/backtest_models.py` | Inspect the saved chronological model report |
+| `scripts/build_advanced_context.py` | Build forecast-time context from local and provider data |
+| `scripts/sync_managers.py` | Validate or refresh the current 48-team manager registry |
+| `scripts/sync_manager_match_history.py` | Normalize observed manager-match exports with explicit identity checks |
+| `scripts/sync_statsbomb_manager_history.py` | Build capped observed manager-match history from public StatsBomb event data |
+| `scripts/distill_manager_profiles.py` | Turn observed manager-match history into transparent tactical features |
+| `scripts/curate_manager_skills_from_history.py` | Enrich manager skills from observed history and publish the 48-manager curation ledger |
+| `scripts/build_player_identity_map.py` | Maintain stable squad-to-provider player identities |
+| `scripts/sync_observed_player_stats.py` | Normalize provider seasonal stats and apply observed overrides |
+| `scripts/ingest_player_stats.py` | Validate manual season/match stats and write provider-independent normalized files |
+| `scripts/rebuild_player_role_vectors.py` | Derive transparent role-fit vectors and recent-form signals with curated fallbacks |
+| `scripts/ingest_injury_news.py` | Normalize manual injury/news evidence and derive conflict-aware availability-risk signals |
+| `scripts/ingest_tactical_articles.py` | Normalize manually curated tactical articles and match-report evidence |
+| `scripts/refine_manager_skills.py` | Build a dry-run manager-skill review queue and explicitly apply eligible evidence-backed updates |
+| `scripts/ingest_event_data.py` | Map provider-style match events into a normalized stream and transparent post-match summaries |
+| `scripts/evaluate_completed_match.py` | Evaluate one completed match across model, manager, matchup, and analyst layers |
+| `scripts/evaluate_all_completed_matches.py` | Idempotently evaluate every completed match in the live-state feed |
+| `scripts/backtest_context_features.py` | Chronologically gate manager/player context before forecast integration |
+| `app/main.py` | FastAPI routes and forecast orchestration |
+| `app/ai_forecast/` | Evidence-aware match reasoning, player comparisons, and tournament explanations |
+| `app/tactics/` | Transparent manager plans, player matchups, and forecast-read-only tactical briefs |
+| `app/ingestion/` | Shared typed schemas, safe CSV utilities, player-stat adapters, source registry, and append-only provenance logs |
+| `app/evaluation/` | Explainable post-match model, manager, matchup, and analyst feedback loop |
+| `app/manager_distillation/` | Nuwa-inspired evidence loading, claim validation, manager-skill generation, and tactical JSON export |
+| `app/intelligence.py` | Local evidence retrieval, tool routing, and optional LLM synthesis |
+| `app/static/` | Public Match Deductions page, Prediction Arena, and separate Model Lab |
+| `data/` | Tournament, training, context, and live-state inputs |
+| `data/provenance/` | Source registry, ingestion run history, and structured data-quality issues |
+| `tests/` | Automated project contracts |
+| `docs/ARCHITECTURE.md` | System design, data flow, and known tradeoffs |
+| `docs/TACTICAL_DATA_PIPELINE.md` | Tactical evidence ingestion, provenance, coverage, and feature-gate rules |
+| `skills/manager-skill-builder/` | Project-local workflow for creating reviewable evidence-backed manager skills |
+| `PROJECT_SUMMARY.md` | Concise recruiter and resume-oriented project summary |
+
+## Limitations
+
+- Forecasts are probabilities, not facts or guaranteed betting outcomes.
+- Some squad, tactical, player, and availability fields are projected fallbacks until observed provider data is available.
+- Shot-level xG and penalty models currently use smaller datasets than the match-result model.
+- The JSON live-state store is designed for a local single-process app, not concurrent production writers.
+- Models are generated locally and excluded from Git because the main model artifact is large.
+
+## Current Direction
+
+The next engineering priorities are stronger data provenance, provider adapters with reliable schemas, production-safe live-state persistence, and deeper calibration monitoring during the tournament. The goal is to improve this football-specific forecasting system without turning it into a generic dashboard.

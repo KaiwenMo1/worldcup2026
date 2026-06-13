@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: worldcup2026
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-web.txt && python scripts/train_model.py
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/status
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.10
+      - key: MPLCONFIGDIR
+        value: /tmp/worldcup-matplotlib

@@ -1,0 +1,3 @@
+player_id,player,team,recent_matches,recent_minutes,goals_per90,assists_per90,xg_per90,xa_per90,form_score,confidence,source,data_quality,updated_at
+france_kylian_mbappe,Kylian Mbappe,France,1,90.0,1.0,1.0,0.92,0.41,100.0,0.164,normalized_player_match_stats,observed_recent_matches,2026-06-12T04:40:31.497215Z
+france_mike_maignan,Mike Maignan,France,1,90.0,0.0,0.0,0.0,0.0,38.5,0.164,normalized_player_match_stats,observed_recent_matches,2026-06-12T04:40:31.497215Z

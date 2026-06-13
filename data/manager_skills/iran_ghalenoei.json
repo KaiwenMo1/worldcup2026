@@ -1,0 +1,126 @@
+{
+  "manager_id": "iran_ghalenoei",
+  "manager_name": "Amir Ghalenoei",
+  "team": "IR Iran",
+  "skill_name": "IR Iran derived manager-team tactical baseline",
+  "version": "0.1-derived",
+  "status": "manual_prototype",
+  "last_verified": "2026-06-11",
+  "source_refs": [
+    {
+      "source_id": "derived_team_profile_ir_iran",
+      "title": "IR Iran derived tactical and player profile",
+      "url": null,
+      "observed_at": "2026-06-05",
+      "note": "Derived from projected squad and team feature files; not observed manager-match evidence."
+    }
+  ],
+  "tactical_identity": {
+    "primary_style": "balanced_adaptive",
+    "preferred_formations": [
+      "3-4-3"
+    ],
+    "build_up": "progressive_short_build_up",
+    "defensive_shape": "compact_mid_block",
+    "pressing": "selective",
+    "transition": "fast_vertical_attack",
+    "set_pieces": "positive_set_piece_emphasis",
+    "in_possession": [
+      "progress through the strongest available player-role combinations",
+      "use wide overloads"
+    ],
+    "out_of_possession": [
+      "use a selective press derived from the current team profile",
+      "protect central space in a compact block"
+    ],
+    "transition_actions": [
+      "attack quickly after regains",
+      "preserve rest-defense coverage behind attacks"
+    ],
+    "set_piece_actions": [
+      "commit aerial threats to high-value delivery zones",
+      "retain counterattack protection"
+    ]
+  },
+  "decision_rules": [
+    {
+      "condition_code": "opponent_high_press",
+      "parameters": {},
+      "recommendation": "create a first-line spare and use the strongest progressive passers before playing direct",
+      "evidence_confidence": 0.32,
+      "source_refs": [],
+      "last_verified": null,
+      "sample_size": null
+    },
+    {
+      "condition_code": "leading_after_minute",
+      "parameters": {
+        "minute": 70
+      },
+      "recommendation": "reduce avoidable possession risk and protect central transition lanes",
+      "evidence_confidence": 0.28,
+      "source_refs": [],
+      "last_verified": null,
+      "sample_size": null
+    },
+    {
+      "condition_code": "trailing_after_minute",
+      "parameters": {
+        "minute": 55
+      },
+      "recommendation": "increase attacking occupation and introduce the highest-impact available creator or scorer",
+      "evidence_confidence": 0.28,
+      "source_refs": [],
+      "last_verified": null,
+      "sample_size": null
+    },
+    {
+      "condition_code": "opponent_high_line",
+      "parameters": {
+        "recovery_defender_score_max": 75
+      },
+      "recommendation": "release the fastest transition runners behind the opponent line",
+      "evidence_confidence": 0.34,
+      "source_refs": [],
+      "last_verified": null,
+      "sample_size": null
+    },
+    {
+      "condition_code": "knockout_match",
+      "parameters": {},
+      "recommendation": "keep a flexible shape and preserve a credible late-game formation switch",
+      "evidence_confidence": 0.3,
+      "source_refs": [],
+      "last_verified": null,
+      "sample_size": null
+    }
+  ],
+  "substitution_patterns": [
+    {
+      "match_state": "leading",
+      "likely_sub_type": "defensive stabilizer or fresh transition runner",
+      "minute_window": "65-80",
+      "evidence_confidence": 0.25,
+      "source_refs": []
+    },
+    {
+      "match_state": "tied",
+      "likely_sub_type": "highest-impact creator or role-specific replacement",
+      "minute_window": "60-75",
+      "evidence_confidence": 0.318,
+      "source_refs": []
+    },
+    {
+      "match_state": "trailing",
+      "likely_sub_type": "additional scorer or attacking creator",
+      "minute_window": "55-75",
+      "evidence_confidence": 0.298,
+      "source_refs": []
+    }
+  ],
+  "evidence_notes": [
+    "Derived manager-team baseline for AI reasoning coverage.",
+    "This is not observed manager behavior and must remain manual_prototype until recurring manager-match evidence is ingested.",
+    "Player-role and team-profile deductions can explain forecasts but do not independently prove managerial intent."
+  ]
+}

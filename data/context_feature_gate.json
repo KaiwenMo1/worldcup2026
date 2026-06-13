@@ -1,0 +1,14 @@
+{
+  "enabled": false,
+  "coverage": 0.0,
+  "baseline": null,
+  "candidate": null,
+  "improvement": null,
+  "thresholds": {
+    "minimum_coverage": 0.6,
+    "minimum_log_loss_improvement": 0.005,
+    "minimum_brier_improvement": 0.002
+  },
+  "reason": "Insufficient chronological observed-context coverage for a trustworthy comparison.",
+  "evaluated_at": "2026-06-11T18:01:04.614079+00:00"
+}

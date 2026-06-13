@@ -23,6 +23,9 @@ TEAMS_PATH = ROOT / "data" / "teams.csv"
 GROUPS_PATH = ROOT / "data" / "groups.csv"
 FEATURES_PATH = ROOT / "data" / "team_features.csv"
 ADVANCED_FEATURES_PATH = ROOT / "data" / "team_advanced_features.csv"
+SQUAD_FEATURES_PATH = ROOT / "data" / "squad_features.csv"
+PLAYER_MATCH_TEAM_FEATURES_PATH = ROOT / "data" / "player_match_team_features.csv"
+XG_TEAM_ZONES_PATH = ROOT / "data" / "xg_team_zones.csv"
 MODEL_PATH = ROOT / "models" / "worldcup_random_forest.joblib"
 
 CONFEDERATION_ADJUSTMENT = {
@@ -50,7 +53,14 @@ DEFAULT_TEAM_STATE = {
     "recent_goals_for": 1.25,
     "recent_goals_against": 1.25,
     "recent_clean_sheet": 0.25,
+    "recent_win_rate": 0.33,
+    "recent_draw_rate": 0.27,
+    "recent_points_volatility": 1.0,
+    "recent_goal_diff_volatility": 1.0,
+    "experience_log": 0.0,
 }
+
+XG_SIGNAL_CACHE: dict[str, Any] = {"mtime": None, "signals": {}}
 
 FEATURE_LABELS = {
     "rank_diff": "FIFA ranking edge",
@@ -77,6 +87,12 @@ FEATURE_LABELS = {
     "recent_goals_for_diff": "Recent scoring form",
     "recent_goals_against_diff": "Recent defensive form",
     "recent_clean_sheet_diff": "Clean-sheet form",
+    "recent_win_rate_diff": "Recent win rate",
+    "recent_draw_rate_diff": "Recent draw rate",
+    "recent_points_volatility_diff": "Form consistency",
+    "recent_goal_diff_volatility_diff": "Goal-difference consistency",
+    "rest_days_diff": "Rest advantage",
+    "experience_diff": "International experience",
     "host_edge": "Host advantage",
     "confederation_strength_diff": "Confederation strength",
 }
@@ -114,6 +130,30 @@ class Team:
     pressing_intensity: float = 78.0
     transition_speed: float = 78.0
     big_match_composure: float = 78.0
+    roster_value_score: float = 70.0
+    projected_xi_score: float = 70.0
+    bench_value_score: float = 70.0
+    squad_experience: float = 70.0
+    squad_balance: float = 70.0
+    squad_availability: float = 100.0
+    formation_fit: float = 70.0
+    lineup_continuity: float = 70.0
+    lineup_confidence: float = 0.0
+    observed_lineups_count: float = 0.0
+    player_shooting_score: float = 70.0
+    player_chance_creation_score: float = 70.0
+    player_passing_score: float = 70.0
+    player_progression_score: float = 70.0
+    player_pressing_score: float = 70.0
+    player_defensive_activity_score: float = 70.0
+    player_goalkeeping_score: float = 70.0
+    player_keeper_sweeping_score: float = 70.0
+    player_keeper_diving_score: float = 70.0
+    player_set_piece_delivery_score: float = 70.0
+    player_early_goal_score: float = 70.0
+    player_late_goal_score: float = 70.0
+    player_discipline_score: float = 70.0
+    player_minutes_score: float = 70.0
 
     @property
     def strength(self) -> float:
@@ -136,8 +176,22 @@ class Team:
             + self.tactical_flexibility * 0.04
             + self.injury_resilience * 0.03
             + self.big_match_composure * 0.03
+            + self.roster_value_score * 0.06
+            + self.projected_xi_score * 0.08
+            + self.squad_experience * 0.03
+            + self.squad_balance * 0.03
+            + self.squad_availability * 0.03
+            + self.formation_fit * 0.03
+            + self.lineup_continuity * 0.03
+            + self.player_shooting_score * 0.04
+            + self.player_chance_creation_score * 0.04
+            + self.player_passing_score * 0.03
+            + self.player_progression_score * 0.03
+            + self.player_defensive_activity_score * 0.03
+            + self.player_goalkeeping_score * 0.03
+            + self.player_minutes_score * 0.02
         )
-        squad_boost = (squad_score - 84) / 100
+        squad_boost = (squad_score - 100) / 140
         return 1.0 + ranking_score + squad_boost + host_boost + pedigree_boost + confed_boost
 
     @property
@@ -157,7 +211,21 @@ class Team:
             + self.tactical_flexibility * 0.03
             + self.injury_resilience * 0.03
             + self.big_match_composure * 0.02
-        ) / 1.14
+            + self.roster_value_score * 0.05
+            + self.projected_xi_score * 0.07
+            + self.squad_experience * 0.03
+            + self.squad_balance * 0.02
+            + self.squad_availability * 0.02
+            + self.formation_fit * 0.02
+            + self.lineup_continuity * 0.02
+            + self.player_shooting_score * 0.03
+            + self.player_chance_creation_score * 0.03
+            + self.player_passing_score * 0.02
+            + self.player_progression_score * 0.02
+            + self.player_defensive_activity_score * 0.02
+            + self.player_goalkeeping_score * 0.02
+            + self.player_minutes_score * 0.01
+        ) / 1.52
 
 
 @dataclass
@@ -188,11 +256,12 @@ class ModelBundle:
     path: Path
     probability_cache: dict[tuple[str, str], dict[str, float]] = field(default_factory=dict)
     goals_cache: dict[tuple[str, str, bool], tuple[float, float]] = field(default_factory=dict)
+    scoreline_cache: dict[tuple[str, str, int, bool], list[tuple[int, int, float]]] = field(default_factory=dict)
 
 
 def load_feature_rows() -> dict[str, dict[str, float]]:
     features: dict[str, dict[str, float]] = {}
-    for path in (FEATURES_PATH, ADVANCED_FEATURES_PATH):
+    for path in (FEATURES_PATH, ADVANCED_FEATURES_PATH, SQUAD_FEATURES_PATH, PLAYER_MATCH_TEAM_FEATURES_PATH):
         if not path.exists():
             continue
         with path.open(newline="", encoding="utf-8") as handle:
@@ -205,6 +274,68 @@ def load_feature_rows() -> dict[str, dict[str, float]]:
                     }
                 )
     return features
+
+
+def load_xg_team_signals() -> dict[str, dict[str, Any]]:
+    if not XG_TEAM_ZONES_PATH.exists():
+        return {}
+    mtime = XG_TEAM_ZONES_PATH.stat().st_mtime
+    if XG_SIGNAL_CACHE["mtime"] == mtime:
+        return XG_SIGNAL_CACHE["signals"]
+    grouped: dict[str, dict[str, float]] = defaultdict(lambda: {
+        "shots": 0.0,
+        "predicted_goals": 0.0,
+        "actual_goals": 0.0,
+        "high_quality_shots": 0.0,
+        "best_avg_xg": 0.0,
+    })
+    with XG_TEAM_ZONES_PATH.open(newline="", encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
+            team = row.get("team", "")
+            if not team:
+                continue
+            shots = float(row.get("shots") or 0)
+            predicted = float(row.get("predicted_goals") or 0)
+            actual = float(row.get("actual_goals") or 0)
+            avg_xg = float(row.get("avg_xg") or 0)
+            signal = grouped[team]
+            signal["shots"] += shots
+            signal["predicted_goals"] += predicted
+            signal["actual_goals"] += actual
+            signal["best_avg_xg"] = max(signal["best_avg_xg"], avg_xg)
+            if avg_xg >= 0.15:
+                signal["high_quality_shots"] += shots
+
+    output = {}
+    for team, raw in grouped.items():
+        shots = max(raw["shots"], 1.0)
+        avg_xg = raw["predicted_goals"] / shots
+        finishing_delta = (raw["actual_goals"] - raw["predicted_goals"]) / shots
+        high_quality_share = raw["high_quality_shots"] / shots
+        attack_index = ((avg_xg - 0.12) * 1.15) + ((high_quality_share - 0.30) * 0.25) + (finishing_delta * 0.18)
+        output[team] = {
+            "shots": int(raw["shots"]),
+            "predicted_goals": round(raw["predicted_goals"], 3),
+            "actual_goals": int(raw["actual_goals"]),
+            "avg_xg": round(avg_xg, 3),
+            "high_quality_share": round(high_quality_share, 3),
+            "best_avg_xg": round(raw["best_avg_xg"], 3),
+            "finishing_delta": round(raw["actual_goals"] - raw["predicted_goals"], 3),
+            "attack_index": round(attack_index, 4),
+        }
+    XG_SIGNAL_CACHE["mtime"] = mtime
+    XG_SIGNAL_CACHE["signals"] = output
+    return output
+
+
+def xg_forecast_edge(team: str, opponent: str) -> float:
+    signals = load_xg_team_signals()
+    team_signal = signals.get(team)
+    opponent_signal = signals.get(opponent)
+    if not team_signal or not opponent_signal:
+        return 0.0
+    edge = float(team_signal["attack_index"]) - float(opponent_signal["attack_index"])
+    return max(-0.24, min(0.24, edge))
 
 
 def load_teams() -> dict[str, Team]:
@@ -269,6 +400,21 @@ def expected_goals(team: Team, opponent: Team, knockout: bool = False) -> float:
     tactical_edge = (team.tactical_flexibility - opponent.tactical_flexibility) / 100
     injury_edge = (team.injury_resilience - opponent.injury_resilience) / 100
     pressure_edge = (team.big_match_composure - opponent.big_match_composure) / 100
+    roster_edge = (team.roster_value_score - opponent.roster_value_score) / 100
+    xi_edge = (team.projected_xi_score - opponent.projected_xi_score) / 100
+    experience_edge = (team.squad_experience - opponent.squad_experience) / 100
+    balance_edge = (team.squad_balance - opponent.squad_balance) / 100
+    availability_edge = (team.squad_availability - opponent.squad_availability) / 100
+    formation_edge = (team.formation_fit - opponent.formation_fit) / 100
+    continuity_edge = (team.lineup_continuity - opponent.lineup_continuity) / 100
+    player_shooting_edge = (team.player_shooting_score - opponent.player_goalkeeping_score) / 100
+    player_creation_edge = (team.player_chance_creation_score - opponent.player_defensive_activity_score) / 100
+    player_passing_edge = (team.player_passing_score - opponent.player_pressing_score) / 100
+    player_progression_edge = (team.player_progression_score - opponent.player_defensive_activity_score) / 100
+    player_timing_edge = ((team.player_early_goal_score + team.player_late_goal_score) - 140) / 100
+    player_minutes_edge = (team.player_minutes_score - opponent.player_minutes_score) / 100
+    opponent_discipline_vulnerability = (70 - opponent.player_discipline_score) / 100
+    xg_zone_edge = xg_forecast_edge(team.name, opponent.name)
     base = 1.22 if not knockout else 1.08
     expected = (
         base
@@ -286,6 +432,21 @@ def expected_goals(team: Team, opponent: Team, knockout: bool = False) -> float:
         + ((0.10 if knockout else 0.05) * tactical_edge)
         + (0.07 * injury_edge)
         + ((0.08 if knockout else 0.03) * pressure_edge)
+        + (0.12 * roster_edge)
+        + (0.18 * xi_edge)
+        + (0.06 * experience_edge)
+        + (0.05 * balance_edge)
+        + (0.08 * availability_edge)
+        + (0.05 * formation_edge)
+        + (0.05 * continuity_edge)
+        + (0.08 * player_shooting_edge)
+        + (0.08 * player_creation_edge)
+        + (0.04 * player_passing_edge)
+        + (0.05 * player_progression_edge)
+        + (0.03 * player_timing_edge)
+        + (0.03 * player_minutes_edge)
+        + (0.03 * opponent_discipline_vulnerability)
+        + (0.08 * xg_zone_edge)
     )
     return max(0.15, min(3.80, expected))
 
@@ -320,6 +481,12 @@ def model_features(team_a: Team, team_b: Team, bundle: ModelBundle, neutral: int
         "recent_goals_for_diff": a_state["recent_goals_for"] - b_state["recent_goals_for"],
         "recent_goals_against_diff": a_state["recent_goals_against"] - b_state["recent_goals_against"],
         "recent_clean_sheet_diff": a_state["recent_clean_sheet"] - b_state["recent_clean_sheet"],
+        "recent_win_rate_diff": a_state["recent_win_rate"] - b_state["recent_win_rate"],
+        "recent_draw_rate_diff": a_state["recent_draw_rate"] - b_state["recent_draw_rate"],
+        "recent_points_volatility_diff": a_state["recent_points_volatility"] - b_state["recent_points_volatility"],
+        "recent_goal_diff_volatility_diff": a_state["recent_goal_diff_volatility"] - b_state["recent_goal_diff_volatility"],
+        "rest_days_diff": 0.0,
+        "experience_diff": a_state["experience_log"] - b_state["experience_log"],
         "host_edge": 0.0 if neutral else (1.0 if team_a.host else -1.0 if team_b.host else 0.0),
         "neutral": float(neutral),
         "same_confederation": float(team_a.confederation == team_b.confederation),
@@ -327,6 +494,30 @@ def model_features(team_a: Team, team_b: Team, bundle: ModelBundle, neutral: int
         - CONFEDERATION_STRENGTH.get(team_b.confederation, 0.0),
         "tournament_weight": 1.45,
     }
+
+
+def aligned_prediction(model: Any, values: list[list[float]]) -> dict[str, float]:
+    raw = model.predict_proba(values)[0]
+    probabilities = {"team_a_win": 0.0, "draw": 0.0, "team_b_win": 0.0}
+    for label, probability in zip(model.classes_, raw):
+        probabilities[str(label)] = float(probability)
+    return probabilities
+
+
+def dixon_coles_prediction(team_a: Team, team_b: Team, bundle: ModelBundle, max_goals: int = 11) -> tuple[dict[str, float], Any | None]:
+    model = bundle.model.get("dixon_coles_model")
+    if model is None:
+        return {}, None
+    try:
+        grid = model.predict(team_a.name, team_b.name, max_goals=max_goals, neutral_venue=True)
+    except (ValueError, KeyError):
+        return {}, None
+    home, draw, away = grid.home_draw_away
+    return {
+        "team_a_win": float(home),
+        "draw": float(draw),
+        "team_b_win": float(away),
+    }, grid
 
 
 def model_probabilities(team_a: Team, team_b: Team, bundle: ModelBundle) -> dict[str, float]:
@@ -337,11 +528,27 @@ def model_probabilities(team_a: Team, team_b: Team, bundle: ModelBundle) -> dict
     columns = bundle.model["feature_columns"]
     row = model_features(team_a, team_b, bundle)
     classifier = bundle.model["classifier"]
-    raw = classifier.predict_proba([[row[column] for column in columns]])[0]
+    rf = aligned_prediction(classifier, [[row[column] for column in columns]])
+    elo_model = bundle.model.get("elo_model")
+    stacker = bundle.model.get("ensemble_calibrator")
+    if elo_model is not None and stacker is not None:
+        elo_columns = bundle.model.get("elo_feature_columns", ["elo_diff", "neutral", "tournament_weight"])
+        elo = aligned_prediction(elo_model, [[row[column] for column in elo_columns]])
+        dixon_coles, _ = dixon_coles_prediction(team_a, team_b, bundle)
+        if not dixon_coles:
+            dixon_coles = elo
+        order = ["team_a_win", "draw", "team_b_win"]
+        stacked = [[*(rf[label] for label in order), *(dixon_coles[label] for label in order), *(elo[label] for label in order)]]
+        probabilities = aligned_prediction(stacker, stacked)
+        total = sum(probabilities.values())
+        probabilities = {key: value / total for key, value in probabilities.items()}
+        bundle.probability_cache[cache_key] = probabilities
+        return probabilities
+
     priors = bundle.model.get("probability_prior", {})
     shrinkage = float(bundle.model.get("probability_shrinkage", 0.0))
     probabilities = {"team_a_win": 0.0, "draw": 0.0, "team_b_win": 0.0}
-    for label, probability in zip(classifier.classes_, raw):
+    for label, probability in rf.items():
         prior = float(priors.get(label, 1 / max(len(classifier.classes_), 1)))
         probabilities[label] = ((1 - shrinkage) * float(probability)) + (shrinkage * prior)
     total = sum(probabilities.values())
@@ -363,9 +570,13 @@ def model_expected_goals(team_a: Team, team_b: Team, bundle: ModelBundle, knocko
     rf_b = float(bundle.model["goal_b_model"].predict(values)[0])
     poisson_a = expected_goals(team_a, team_b, knockout)
     poisson_b = expected_goals(team_b, team_a, knockout)
+    _, dixon_coles = dixon_coles_prediction(team_a, team_b, bundle)
+    dc_a = float(dixon_coles.home_goal_expectation) if dixon_coles is not None else rf_a
+    dc_b = float(dixon_coles.away_goal_expectation) if dixon_coles is not None else rf_b
+    knockout_factor = 0.96 if knockout else 1.0
     goals = (
-        max(0.15, min(3.80, (0.58 * poisson_a) + (0.42 * rf_a))),
-        max(0.15, min(3.80, (0.58 * poisson_b) + (0.42 * rf_b))),
+        max(0.15, min(3.80, knockout_factor * ((0.50 * dc_a) + (0.30 * rf_a) + (0.20 * poisson_a)))),
+        max(0.15, min(3.80, knockout_factor * ((0.50 * dc_b) + (0.30 * rf_b) + (0.20 * poisson_b)))),
     )
     bundle.goals_cache[cache_key] = goals
     return goals
@@ -399,10 +610,14 @@ def play_match(team_a: Team, team_b: Team, knockout: bool = False, bundle: Model
             poisson(expected_goals(team_b, team_a, knockout)),
         )
 
-    lambda_a = expected_goals(team_a, team_b, knockout)
-    lambda_b = expected_goals(team_b, team_a, knockout)
-    outcome = sample_outcome(model_probabilities(team_a, team_b, bundle))
-    return align_score_to_outcome(poisson(lambda_a), poisson(lambda_b), outcome)
+    scorelines = scoreline_distribution(team_a, team_b, max_goals=10, knockout=knockout, bundle=bundle)
+    value = random.random()
+    cumulative = 0.0
+    for goals_a, goals_b, probability in scorelines:
+        cumulative += probability
+        if value <= cumulative:
+            return goals_a, goals_b
+    return scorelines[-1][0], scorelines[-1][1]
 
 
 def play_group(group_teams: list[Team], bundle: ModelBundle | None = None) -> list[Standing]:
@@ -470,17 +685,46 @@ def scoreline_distribution(
     knockout: bool = False,
     bundle: ModelBundle | None = None,
 ) -> list[tuple[int, int, float]]:
+    cache_key = (team_a.name, team_b.name, max_goals, knockout)
+    if bundle is not None and cache_key in bundle.scoreline_cache:
+        return bundle.scoreline_cache[cache_key]
+
     if bundle is None:
         lambda_a = expected_goals(team_a, team_b, knockout)
         lambda_b = expected_goals(team_b, team_a, knockout)
     else:
         lambda_a, lambda_b = model_expected_goals(team_a, team_b, bundle, knockout)
+    _, dixon_coles = dixon_coles_prediction(team_a, team_b, bundle, max_goals=max_goals + 1) if bundle is not None else ({}, None)
     scorelines: list[tuple[int, int, float]] = []
     for goals_a in range(max_goals + 1):
         for goals_b in range(max_goals + 1):
-            probability = poisson_probability(lambda_a, goals_a) * poisson_probability(lambda_b, goals_b)
+            poisson_probability_value = poisson_probability(lambda_a, goals_a) * poisson_probability(lambda_b, goals_b)
+            if dixon_coles is not None and goals_a < dixon_coles.grid.shape[0] and goals_b < dixon_coles.grid.shape[1]:
+                probability = (0.65 * float(dixon_coles.grid[goals_a, goals_b])) + (0.35 * poisson_probability_value)
+            else:
+                probability = poisson_probability_value
             scorelines.append((goals_a, goals_b, probability))
-    return sorted(scorelines, key=lambda item: item[2], reverse=True)
+    if bundle is not None:
+        target = model_probabilities(team_a, team_b, bundle)
+        base = {
+            "team_a_win": sum(p for a, b, p in scorelines if a > b),
+            "draw": sum(p for a, b, p in scorelines if a == b),
+            "team_b_win": sum(p for a, b, p in scorelines if b > a),
+        }
+        reweighted = []
+        for goals_a, goals_b, probability in scorelines:
+            outcome = "team_a_win" if goals_a > goals_b else "team_b_win" if goals_b > goals_a else "draw"
+            reweighted.append((goals_a, goals_b, probability * target[outcome] / max(base[outcome], 1e-9)))
+        scorelines = reweighted
+    total = sum(item[2] for item in scorelines)
+    result = sorted(
+        [(goals_a, goals_b, probability / total) for goals_a, goals_b, probability in scorelines],
+        key=lambda item: item[2],
+        reverse=True,
+    )
+    if bundle is not None:
+        bundle.scoreline_cache[cache_key] = result
+    return result
 
 
 def match_probabilities(team_a: Team, team_b: Team, max_goals: int = 9, bundle: ModelBundle | None = None) -> dict[str, float]:
@@ -549,6 +793,12 @@ def baseline_feature_drivers(team_a: Team, team_b: Team, top_n: int = 6) -> list
         ("Set pieces", (team_a.set_piece_attack - team_b.set_piece_defense) - (team_b.set_piece_attack - team_a.set_piece_defense), 0.08),
         ("Big-match composure", team_a.big_match_composure - team_b.big_match_composure, 0.07),
         ("Penalty strength", team_a.penalty_strength - team_b.penalty_strength, 0.05),
+        ("Projected XI quality", team_a.projected_xi_score - team_b.projected_xi_score, 0.18),
+        ("26-player roster value", team_a.roster_value_score - team_b.roster_value_score, 0.12),
+        ("Bench value", team_a.bench_value_score - team_b.bench_value_score, 0.07),
+        ("Squad experience", team_a.squad_experience - team_b.squad_experience, 0.06),
+        ("Formation fit", team_a.formation_fit - team_b.formation_fit, 0.05),
+        ("Lineup continuity", team_a.lineup_continuity - team_b.lineup_continuity, 0.05),
     ]
     drivers = []
     for label, value, weight in raw_drivers:
@@ -668,7 +918,7 @@ def print_table(results: dict[str, Counter], teams: dict[str, Team], sims: int, 
 def save_csv(results: dict[str, Counter], teams: dict[str, Team], sims: int, output_path: Path) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with output_path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.writer(handle)
+        writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(["team", "rank", "squad_rating", "r32_pct", "r16_pct", "qf_pct", "sf_pct", "final_pct", "win_pct"])
         for name, team in sorted(teams.items(), key=lambda item: results["champion"][item[0]], reverse=True):
             writer.writerow(
@@ -720,7 +970,7 @@ def print_match_prediction(
 
     print(f"{team_a.name} vs {team_b.name}")
     if bundle is not None:
-        print(f"Model: Random Forest ({bundle.path})")
+        print(f"Model: RF + Dixon-Coles + Elo ensemble ({bundle.path})")
     print(f"Expected score: {team_a.name} {lambda_a:.2f} - {lambda_b:.2f} {team_b.name}")
     print(
         "Result probabilities: "
@@ -743,8 +993,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--single", action="store_true", help="Print one simulated tournament instead of probabilities.")
     parser.add_argument("--match", nargs=2, metavar=("TEAM_A", "TEAM_B"), help="Predict a specific match scoreline.")
     parser.add_argument("--top-scores", type=int, default=8, help="Number of scorelines to show with --match.")
-    parser.add_argument("--model", type=Path, default=MODEL_PATH, help="Random Forest model path.")
-    parser.add_argument("--no-model", action="store_true", help="Ignore trained Random Forest model and use the Poisson baseline.")
+    parser.add_argument("--model", type=Path, default=MODEL_PATH, help="Forecast ensemble model path.")
+    parser.add_argument("--no-model", action="store_true", help="Ignore the trained ensemble and use the Poisson baseline.")
     return parser.parse_args()
 
 

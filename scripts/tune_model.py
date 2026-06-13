@@ -11,7 +11,6 @@ try:
     import optuna
     from sklearn.ensemble import RandomForestClassifier
     from sklearn.metrics import log_loss
-    from sklearn.model_selection import train_test_split
 except ModuleNotFoundError as exc:
     raise SystemExit(
         "Missing tuning dependencies. Run:\n"
@@ -19,29 +18,22 @@ except ModuleNotFoundError as exc:
         "  pip install optuna"
     ) from exc
 
-from predict_worldcup import ROOT, load_teams
-from train_model import FEATURE_COLUMNS, MATCHES_PATH, build_training_frame, load_matches
+from predict_worldcup import ROOT
+from train_model import FEATURE_COLUMNS, MATCHES_PATH, build_training_frame, chronological_partitions, load_matches
 
 
 OUTPUT_PATH = ROOT / "models" / "optuna_best_params.json"
 
 
 def tune(matches_path: Path, output_path: Path, trials: int, seed: int) -> None:
-    teams = load_teams()
     matches = load_matches(matches_path)
-    frame = build_training_frame(matches, teams)
-    x = frame[FEATURE_COLUMNS]
-    y = frame["outcome"]
-    weights = frame["sample_weight"]
-    stratify = y if y.value_counts().min() >= 2 else None
-    x_train, x_test, y_train, y_test, w_train, _ = train_test_split(
-        x,
-        y,
-        weights,
-        test_size=0.22,
-        random_state=seed,
-        stratify=stratify,
-    )
+    frame = build_training_frame(matches)
+    train_frame, _, test_frame = chronological_partitions(frame)
+    x_train = train_frame[FEATURE_COLUMNS]
+    y_train = train_frame["outcome"]
+    w_train = train_frame["sample_weight"]
+    x_test = test_frame[FEATURE_COLUMNS]
+    y_test = test_frame["outcome"]
 
     def objective(trial: optuna.Trial) -> float:
         classifier = RandomForestClassifier(
@@ -69,6 +61,7 @@ def tune(matches_path: Path, output_path: Path, trials: int, seed: int) -> None:
                 "trials": trials,
                 "seed": seed,
                 "training_rows": len(frame),
+                "validation_strategy": "chronological train/test",
             },
             handle,
             indent=2,

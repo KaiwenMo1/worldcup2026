@@ -1,0 +1,5 @@
+match_id,stage,group,kickoff_utc,team_a,team_b,team_a_score,team_b_score,status,provider_match_id,source,source_url,source_confidence,updated_at
+1,Group,A,2026-06-11T19:00:00Z,Mexico,South Africa,2,0,final,,verified_news,https://www.timeslive.co.za/sport/soccer/2026-06-11-mexico-beat-south-africa-2-0-in-world-cup-opener/,0.95,2026-06-12T04:41:58Z
+2,Group,A,2026-06-12T02:00:00Z,Korea Republic,Czechia,2,1,final,,verified_news,https://koreajoongangdaily.joins.com/news/2026-06-12/sports/football/Korea-beat-Czechia-21-in-2026-World-Cup-opener/2675101,0.95,2026-06-12T04:42:34Z
+3,Group,B,2026-06-12T19:00:00Z,Canada,Bosnia and Herzegovina,1,1,final,,verified_news,https://www.theguardian.com/football/live/2026/jun/12/canada-v-bosnia-and-herzegovina-world-cup-2026-live,0.95,2026-06-13T01:00:00Z
+4,Group,D,2026-06-13T01:00:00Z,USA,Paraguay,2,0,final,,verified_news,https://www.thetimes.com/sport/football/world-cup/article/usa-paraguay-live-score-world-cup-2026-latest-news-results-x6b59dx9f,0.95,2026-06-13T04:00:00Z

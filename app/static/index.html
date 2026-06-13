@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>World Cup 2026 Predictor</title>
+    <title>World Cup 2026 Model Lab</title>
     <meta name="description" content="A live World Cup 2026 forecasting and football intelligence studio." />
     <link href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="stylesheet" href="/static/styles.css" />
@@ -14,14 +14,17 @@
         <div class="brand-mark">26</div>
         <div>
           <p class="eyebrow">FIFA World Cup 2026</p>
-          <h1>Forecast Studio</h1>
+          <h1>Model Lab</h1>
         </div>
       </div>
       <nav class="primary-nav" aria-label="Primary">
+        <a href="/">Match Deductions</a>
+        <a href="/arena">Prediction Arena</a>
         <a href="#overview">Overview</a>
         <a href="#intelligence">Intelligence</a>
         <a href="#analystBrief">Brief</a>
         <a href="#modelReport">Model Report</a>
+        <a href="#intelligenceCenters">Centers</a>
         <a href="#tournament">Tournament</a>
         <a href="#matchLab">Match Lab</a>
         <a href="#venues">Venues</a>
@@ -205,6 +208,71 @@
         </div>
         <div id="squadPanel" class="squad-panel">
           <div class="empty">Loading final squad</div>
+        </div>
+      </section>
+
+      <section id="intelligenceCenters" class="section future-centers-section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Evidence pipeline</p>
+            <h2>Intelligence Centers</h2>
+          </div>
+          <p id="futureCenterStatus">Manual-first data · refreshable</p>
+        </div>
+        <div class="center-tabs" role="tablist" aria-label="Intelligence centers">
+          <button class="center-tab active" data-center-tab="player" role="tab" aria-selected="true"><i data-lucide="activity"></i><span>Player form</span></button>
+          <button class="center-tab" data-center-tab="injury" role="tab" aria-selected="false"><i data-lucide="heart-pulse"></i><span>Injury board</span></button>
+          <button class="center-tab" data-center-tab="manager" role="tab" aria-selected="false"><i data-lucide="notebook-tabs"></i><span>Manager evidence</span></button>
+          <button class="center-tab" data-center-tab="lineup" role="tab" aria-selected="false"><i data-lucide="git-compare-arrows"></i><span>Lineup delta</span></button>
+          <button class="center-tab" data-center-tab="review" role="tab" aria-selected="false"><i data-lucide="scan-search"></i><span>Post-match review</span></button>
+        </div>
+        <div class="center-workspace">
+          <div class="center-pane active" data-center-pane="player" role="tabpanel">
+            <div class="center-toolbar">
+              <label>Team<select id="formTeam"></select></label>
+              <label>Player<select id="formPlayer"></select></label>
+              <button id="loadPlayerFormBtn" class="secondary"><i data-lucide="search"></i><span>Load</span></button>
+              <button id="refreshPlayerStatsBtn" class="secondary"><i data-lucide="refresh-cw"></i><span>Refresh data</span></button>
+            </div>
+            <div id="playerFormCenter" class="center-output"><div class="empty">Choose a player to inspect role fit and recent form.</div></div>
+          </div>
+          <div class="center-pane" data-center-pane="injury" role="tabpanel" hidden>
+            <div class="center-toolbar">
+              <label>Team<select id="injuryTeam"></select></label>
+              <button id="loadInjuryBtn" class="secondary"><i data-lucide="search"></i><span>Load</span></button>
+              <button id="refreshInjuryBtn" class="secondary"><i data-lucide="refresh-cw"></i><span>Refresh data</span></button>
+            </div>
+            <div id="injuryCenter" class="center-output"><div class="empty">Load a team to review availability risks.</div></div>
+          </div>
+          <div class="center-pane" data-center-pane="manager" role="tabpanel" hidden>
+            <div class="center-toolbar">
+              <label>Manager<select id="managerEvidenceSelect"></select></label>
+              <button id="loadManagerEvidenceBtn" class="secondary"><i data-lucide="search"></i><span>Load</span></button>
+              <button id="refreshManagerEvidenceBtn" class="secondary"><i data-lucide="refresh-cw"></i><span>Refresh evidence</span></button>
+            </div>
+            <div id="managerEvidenceCenter" class="center-output"><div class="empty">Choose a manager to inspect evidence and reviewable updates.</div></div>
+          </div>
+          <div class="center-pane" data-center-pane="lineup" role="tabpanel" hidden>
+            <div class="center-toolbar">
+              <label>Team<select id="lineupDeltaTeam"></select></label>
+              <label>Match ID<input id="lineupDeltaMatch" type="text" placeholder="Optional" /></label>
+              <button id="loadLineupDeltaBtn" class="secondary"><i data-lucide="git-compare-arrows"></i><span>Compare</span></button>
+              <button id="refreshLineupDeltaBtn" class="secondary"><i data-lucide="refresh-cw"></i><span>Refresh lineups</span></button>
+            </div>
+            <div id="lineupDeltaCenter" class="center-output"><div class="empty">Compare the projection with a confirmed starting XI.</div></div>
+          </div>
+          <div class="center-pane" data-center-pane="review" role="tabpanel" hidden>
+            <div class="center-toolbar review-toolbar">
+              <label>Match ID<input id="reviewMatchId" type="text" value="FRA-BRA-TEST" /></label>
+              <label>Team A<select id="reviewTeamA"></select></label>
+              <label>Score<input id="reviewScoreA" type="number" min="0" max="30" value="2" /></label>
+              <label>Team B<select id="reviewTeamB"></select></label>
+              <label>Score<input id="reviewScoreB" type="number" min="0" max="30" value="1" /></label>
+              <button id="loadReviewBtn" class="secondary"><i data-lucide="search"></i><span>Load</span></button>
+              <button id="evaluateMatchBtn"><i data-lucide="scan-search"></i><span>Evaluate</span></button>
+            </div>
+            <div id="postMatchReviewCenter" class="center-output"><div class="empty">Load an evaluated match or run the transparent feedback loop.</div></div>
+          </div>
         </div>
       </section>
 

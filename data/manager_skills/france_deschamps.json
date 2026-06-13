@@ -1,0 +1,143 @@
+{
+  "manager_id": "france_deschamps",
+  "manager_name": "Didier Deschamps",
+  "team": "France",
+  "skill_name": "France observed-history manager tactical skill",
+  "version": "0.2-statsbomb-observed",
+  "status": "evidence_backed",
+  "last_verified": "2024-07-09",
+  "source_refs": [
+    {
+      "source_id": "statsbomb_manager_history_france_deschamps",
+      "title": "Didier Deschamps observed manager-match sample",
+      "url": "https://github.com/statsbomb/open-data",
+      "observed_at": "2024-07-09",
+      "note": "Transparent aggregate from 12 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+    }
+  ],
+  "tactical_identity": {
+    "primary_style": "observed_balanced_adaptive",
+    "preferred_formations": [
+      "4-2-3-1"
+    ],
+    "build_up": "patient_progression_from_observed_matches",
+    "defensive_shape": "observed_deeper_block",
+    "pressing": "observed_low",
+    "transition": "observed_controlled",
+    "set_pieces": "observed_positive_emphasis",
+    "in_possession": [
+      "create early vertical access to the front line",
+      "observed possession profile score 50.4 and build-up directness score 26.2"
+    ],
+    "out_of_possession": [
+      "protect central zones with a compact block",
+      "observed pressing score 30.2 and defensive-line score 42.7"
+    ],
+    "transition_actions": [
+      "release wide attackers early after regains",
+      "observed transition score 5.6"
+    ],
+    "set_piece_actions": [
+      "target strong aerial matchups",
+      "observed set-piece score 100.0"
+    ]
+  },
+  "decision_rules": [
+    {
+      "condition_code": "opponent_high_line",
+      "parameters": {
+        "recovery_defender_score_max": 70
+      },
+      "recommendation": "prioritize direct runs behind the fullbacks and early vertical passes",
+      "evidence_confidence": 0.4,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_france_deschamps",
+          "title": "Didier Deschamps observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-09",
+          "note": "Transparent aggregate from 12 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ],
+      "last_verified": "2024-07-09",
+      "sample_size": 12
+    },
+    {
+      "condition_code": "leading_after_minute",
+      "parameters": {
+        "minute": 60
+      },
+      "recommendation": "reduce fullback risk, protect central zones, and preserve a transition outlet",
+      "evidence_confidence": 0.4,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_france_deschamps",
+          "title": "Didier Deschamps observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-09",
+          "note": "Transparent aggregate from 12 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ],
+      "last_verified": "2024-07-09",
+      "sample_size": 12
+    },
+    {
+      "condition_code": "opponent_midfield_control",
+      "parameters": {
+        "possession_share_min": 0.58
+      },
+      "recommendation": "accept lower possession, keep compact distances, and attack wide transition channels",
+      "evidence_confidence": 0.4,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_france_deschamps",
+          "title": "Didier Deschamps observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-09",
+          "note": "Transparent aggregate from 12 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ],
+      "last_verified": "2024-07-09",
+      "sample_size": 12
+    }
+  ],
+  "substitution_patterns": [
+    {
+      "match_state": "leading",
+      "likely_sub_type": "defensive midfielder or fresh transition winger",
+      "minute_window": "60-75",
+      "evidence_confidence": 0.4,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_france_deschamps",
+          "title": "Didier Deschamps observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-09",
+          "note": "Transparent aggregate from 12 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ]
+    },
+    {
+      "match_state": "trailing",
+      "likely_sub_type": "additional attacker or creative midfielder",
+      "minute_window": "55-70",
+      "evidence_confidence": 0.4,
+      "source_refs": [
+        {
+          "source_id": "statsbomb_manager_history_france_deschamps",
+          "title": "Didier Deschamps observed manager-match sample",
+          "url": "https://github.com/statsbomb/open-data",
+          "observed_at": "2024-07-09",
+          "note": "Transparent aggregate from 12 observed historical matches. Historical clubs or national teams may differ from the manager's current World Cup squad."
+        }
+      ]
+    }
+  ],
+  "evidence_notes": [
+    "Observed history contains 12 StatsBomb Open Data matches; evidence confidence 0.400.",
+    "Observed aggregate metrics support the tactical identity, but conditional decision rules remain hypotheses.",
+    "Historical team context may not transfer fully to the current World Cup squad.",
+    "Manual prototype for rule-engine development.",
+    "Confidence describes confidence in the tactical hypothesis, not the chance that the tactic succeeds."
+  ]
+}

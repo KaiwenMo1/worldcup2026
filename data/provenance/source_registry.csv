@@ -1,0 +1,8 @@
+source_id,source_name,source_type,reliability_score,requires_api_key,terms_note,enabled,last_checked,notes
+balldontlie_worldcup_api,BALLDONTLIE FIFA World Cup API,api,0.9,True,Provider terms and account limits apply,True,,Optional completed-result and odds refresh
+configured_live_event_feed,Configured live event feed,api,0.85,True,Terms depend on the configured provider,True,,Provider-independent JSON event adapter; never assumed available
+manual_csv,Manually reviewed CSV,manual_csv,0.7,False,Local research input; review licensing before redistribution,True,,Default adapter for staged ingestion phases
+project_repository,Version-controlled project data,project_file,0.75,False,Repository-local data contract,True,,Existing project data with reviewable history
+sportmonks,Sportmonks Football API,api,0.85,True,Provider terms and account limits apply,True,,Optional observed lineup formation and sidelined-player refresh
+statsbomb_open_data,StatsBomb Open Data,public_dataset,0.9,False,StatsBomb Open Data user agreement applies; retain attribution.,True,2026-06-12T12:20:11.652468Z,Observed match metadata and event data used for historical manager tendencies.
+verified_news,Manually verified match-result sources,web,0.95,False,Links are provenance references; publisher terms apply,True,2026-06-13T04:00:00Z,Used only for reviewed final scores when the live API is unavailable

@@ -1,0 +1,347 @@
+{
+  "available": true,
+  "title": "Chronological holdout by tournament year",
+  "test_period": {
+    "rows": 1584,
+    "from": "2024-10-08",
+    "through": "2026-03-31"
+  },
+  "periods": [
+    {
+      "year": 2024,
+      "tournament": "ASEAN Championship",
+      "matches": 24,
+      "accuracy": 0.6667,
+      "log_loss": 0.8037,
+      "avg_favorite_confidence": 0.7285
+    },
+    {
+      "year": 2024,
+      "tournament": "ASEAN Championship qualification",
+      "matches": 2,
+      "accuracy": 0.0,
+      "log_loss": 1.1995,
+      "avg_favorite_confidence": 0.4262
+    },
+    {
+      "year": 2024,
+      "tournament": "African Cup of Nations qualification",
+      "matches": 95,
+      "accuracy": 0.5263,
+      "log_loss": 0.985,
+      "avg_favorite_confidence": 0.5721
+    },
+    {
+      "year": 2024,
+      "tournament": "CONCACAF Nations League",
+      "matches": 69,
+      "accuracy": 0.6957,
+      "log_loss": 0.7861,
+      "avg_favorite_confidence": 0.6651
+    },
+    {
+      "year": 2024,
+      "tournament": "EAFF Championship qualification",
+      "matches": 5,
+      "accuracy": 0.8,
+      "log_loss": 0.6363,
+      "avg_favorite_confidence": 0.5888
+    },
+    {
+      "year": 2024,
+      "tournament": "FIFA World Cup qualification",
+      "matches": 68,
+      "accuracy": 0.5441,
+      "log_loss": 0.9238,
+      "avg_favorite_confidence": 0.615
+    },
+    {
+      "year": 2024,
+      "tournament": "Friendly",
+      "matches": 31,
+      "accuracy": 0.6452,
+      "log_loss": 0.8466,
+      "avg_favorite_confidence": 0.5894
+    },
+    {
+      "year": 2024,
+      "tournament": "Gulf Cup",
+      "matches": 14,
+      "accuracy": 0.2143,
+      "log_loss": 1.2067,
+      "avg_favorite_confidence": 0.5083
+    },
+    {
+      "year": 2024,
+      "tournament": "King's Cup",
+      "matches": 4,
+      "accuracy": 0.75,
+      "log_loss": 0.9821,
+      "avg_favorite_confidence": 0.575
+    },
+    {
+      "year": 2024,
+      "tournament": "MSG Prime Minister's Cup",
+      "matches": 6,
+      "accuracy": 0.3333,
+      "log_loss": 1.0562,
+      "avg_favorite_confidence": 0.5176
+    },
+    {
+      "year": 2024,
+      "tournament": "UEFA Nations League",
+      "matches": 104,
+      "accuracy": 0.5577,
+      "log_loss": 0.9014,
+      "avg_favorite_confidence": 0.5565
+    },
+    {
+      "year": 2025,
+      "tournament": "AFC Asian Cup qualification",
+      "matches": 59,
+      "accuracy": 0.6949,
+      "log_loss": 0.6961,
+      "avg_favorite_confidence": 0.6958
+    },
+    {
+      "year": 2025,
+      "tournament": "ASEAN Championship",
+      "matches": 2,
+      "accuracy": 0.5,
+      "log_loss": 1.1392,
+      "avg_favorite_confidence": 0.4102
+    },
+    {
+      "year": 2025,
+      "tournament": "African Cup of Nations",
+      "matches": 36,
+      "accuracy": 0.6111,
+      "log_loss": 0.8501,
+      "avg_favorite_confidence": 0.5853
+    },
+    {
+      "year": 2025,
+      "tournament": "Al Ain International Cup",
+      "matches": 4,
+      "accuracy": 0.0,
+      "log_loss": 1.2636,
+      "avg_favorite_confidence": 0.5148
+    },
+    {
+      "year": 2025,
+      "tournament": "Arab Cup",
+      "matches": 31,
+      "accuracy": 0.5806,
+      "log_loss": 1.0352,
+      "avg_favorite_confidence": 0.5921
+    },
+    {
+      "year": 2025,
+      "tournament": "Arab Cup qualification",
+      "matches": 7,
+      "accuracy": 0.4286,
+      "log_loss": 1.116,
+      "avg_favorite_confidence": 0.5745
+    },
+    {
+      "year": 2025,
+      "tournament": "CONCACAF Nations League",
+      "matches": 4,
+      "accuracy": 0.25,
+      "log_loss": 1.5336,
+      "avg_favorite_confidence": 0.5834
+    },
+    {
+      "year": 2025,
+      "tournament": "CONCACAF Series",
+      "matches": 19,
+      "accuracy": 0.3684,
+      "log_loss": 1.2234,
+      "avg_favorite_confidence": 0.5819
+    },
+    {
+      "year": 2025,
+      "tournament": "Canadian Shield",
+      "matches": 4,
+      "accuracy": 0.5,
+      "log_loss": 1.1555,
+      "avg_favorite_confidence": 0.4957
+    },
+    {
+      "year": 2025,
+      "tournament": "FIFA World Cup qualification",
+      "matches": 492,
+      "accuracy": 0.6524,
+      "log_loss": 0.7607,
+      "avg_favorite_confidence": 0.6438
+    },
+    {
+      "year": 2025,
+      "tournament": "Friendly",
+      "matches": 220,
+      "accuracy": 0.5773,
+      "log_loss": 0.8974,
+      "avg_favorite_confidence": 0.5792
+    },
+    {
+      "year": 2025,
+      "tournament": "Gold Cup",
+      "matches": 31,
+      "accuracy": 0.6452,
+      "log_loss": 0.7883,
+      "avg_favorite_confidence": 0.6043
+    },
+    {
+      "year": 2025,
+      "tournament": "Gold Cup qualification",
+      "matches": 14,
+      "accuracy": 0.7143,
+      "log_loss": 0.8828,
+      "avg_favorite_confidence": 0.6559
+    },
+    {
+      "year": 2025,
+      "tournament": "Gulf Cup",
+      "matches": 1,
+      "accuracy": 0.0,
+      "log_loss": 1.4215,
+      "avg_favorite_confidence": 0.4132
+    },
+    {
+      "year": 2025,
+      "tournament": "Island Games",
+      "matches": 15,
+      "accuracy": 0.4667,
+      "log_loss": 0.9986,
+      "avg_favorite_confidence": 0.618
+    },
+    {
+      "year": 2025,
+      "tournament": "King's Cup",
+      "matches": 4,
+      "accuracy": 1.0,
+      "log_loss": 0.5836,
+      "avg_favorite_confidence": 0.5839
+    },
+    {
+      "year": 2025,
+      "tournament": "Kirin Cup",
+      "matches": 4,
+      "accuracy": 0.5,
+      "log_loss": 0.862,
+      "avg_favorite_confidence": 0.6421
+    },
+    {
+      "year": 2025,
+      "tournament": "MSG Prime Minister's Cup",
+      "matches": 5,
+      "accuracy": 0.4,
+      "log_loss": 1.1642,
+      "avg_favorite_confidence": 0.5156
+    },
+    {
+      "year": 2025,
+      "tournament": "Mapinduzi Cup",
+      "matches": 7,
+      "accuracy": 0.4286,
+      "log_loss": 1.0246,
+      "avg_favorite_confidence": 0.4667
+    },
+    {
+      "year": 2025,
+      "tournament": "Outrigger Challenge Cup",
+      "matches": 3,
+      "accuracy": 0.0,
+      "log_loss": 1.8147,
+      "avg_favorite_confidence": 0.5768
+    },
+    {
+      "year": 2025,
+      "tournament": "Soccer Ashes",
+      "matches": 2,
+      "accuracy": 1.0,
+      "log_loss": 0.5449,
+      "avg_favorite_confidence": 0.5828
+    },
+    {
+      "year": 2025,
+      "tournament": "South Asian Super Cup",
+      "matches": 1,
+      "accuracy": 0.0,
+      "log_loss": 1.159,
+      "avg_favorite_confidence": 0.3933
+    },
+    {
+      "year": 2025,
+      "tournament": "UEFA Nations League",
+      "matches": 28,
+      "accuracy": 0.5357,
+      "log_loss": 1.0039,
+      "avg_favorite_confidence": 0.4741
+    },
+    {
+      "year": 2025,
+      "tournament": "Unity Cup",
+      "matches": 4,
+      "accuracy": 0.75,
+      "log_loss": 0.8449,
+      "avg_favorite_confidence": 0.4941
+    },
+    {
+      "year": 2026,
+      "tournament": "African Cup of Nations",
+      "matches": 16,
+      "accuracy": 0.625,
+      "log_loss": 0.8032,
+      "avg_favorite_confidence": 0.5424
+    },
+    {
+      "year": 2026,
+      "tournament": "CONCACAF Series",
+      "matches": 16,
+      "accuracy": 0.375,
+      "log_loss": 1.2219,
+      "avg_favorite_confidence": 0.5385
+    },
+    {
+      "year": 2026,
+      "tournament": "FIFA Series",
+      "matches": 33,
+      "accuracy": 0.7576,
+      "log_loss": 0.7341,
+      "avg_favorite_confidence": 0.5815
+    },
+    {
+      "year": 2026,
+      "tournament": "FIFA World Cup qualification",
+      "matches": 16,
+      "accuracy": 0.625,
+      "log_loss": 0.7982,
+      "avg_favorite_confidence": 0.5772
+    },
+    {
+      "year": 2026,
+      "tournament": "Friendly",
+      "matches": 76,
+      "accuracy": 0.5395,
+      "log_loss": 0.9198,
+      "avg_favorite_confidence": 0.5522
+    },
+    {
+      "year": 2026,
+      "tournament": "Morocco, Capital of African Football",
+      "matches": 6,
+      "accuracy": 0.3333,
+      "log_loss": 1.0912,
+      "avg_favorite_confidence": 0.4325
+    },
+    {
+      "year": 2026,
+      "tournament": "Mukuru 4 Nations",
+      "matches": 2,
+      "accuracy": 0.5,
+      "log_loss": 1.1633,
+      "avg_favorite_confidence": 0.4314
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+.arena-page {
+  background: #f3f6fa;
+  color: #0f172a;
+  min-width: 320px;
+}
+
+.arena-topbar {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid #dbe3ec;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  min-height: 68px;
+  padding: 0 28px;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.arena-brand {
+  align-items: center;
+  color: #0f172a;
+  display: flex;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.arena-brand span {
+  align-items: center;
+  background: #0b1324;
+  border-radius: 4px;
+  color: #ffffff;
+  display: flex;
+  font-size: 13px;
+  font-weight: 900;
+  height: 36px;
+  justify-content: center;
+  width: 36px;
+}
+
+.arena-brand strong {
+  font-size: 14px;
+}
+
+.arena-topbar nav {
+  display: flex;
+  gap: 4px;
+}
+
+.arena-topbar nav a {
+  border-bottom: 2px solid transparent;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 750;
+  padding: 24px 10px 20px;
+  text-decoration: none;
+}
+
+.arena-topbar nav a:hover,
+.arena-topbar nav a.active {
+  border-bottom-color: #0071e3;
+  color: #0f172a;
+}
+
+.arena-topbar p {
+  color: #64748b;
+  font-size: 10px;
+  margin: 0;
+}
+
+.arena-page-main {
+  margin: 0 auto;
+  max-width: 1560px;
+  padding: 34px 28px 72px;
+}
+
+.arena-intro {
+  align-items: end;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  margin: 0 auto 28px;
+  max-width: 1480px;
+}
+
+.arena-intro span {
+  color: #0071e3;
+  display: block;
+  font-size: 10px;
+  font-weight: 900;
+  margin-bottom: 7px;
+  text-transform: uppercase;
+}
+
+.arena-intro h1 {
+  font-family: "Avenir Next", "SF Pro Display", Inter, sans-serif;
+  font-size: 52px;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+}
+
+.arena-intro p {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 520px;
+}
+
+.arena-page .prediction-arena-section {
+  margin: 0 auto;
+  max-width: 1480px;
+  width: 100%;
+}
+
+.arena-page .prediction-arena-section > .section-head {
+  align-items: end;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.arena-page .prediction-arena-section > .section-head::before {
+  display: none;
+}
+
+.arena-page .prediction-arena-section > .section-head h2 {
+  font-family: "Avenir Next", "SF Pro Display", Inter, sans-serif;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.05;
+}
+
+.arena-page .prediction-arena-section > .section-head .section-kicker {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .arena-topbar {
+    gap: 8px 14px;
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: 8px 14px 0;
+  }
+
+  .arena-topbar nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    overflow-x: auto;
+  }
+
+  .arena-topbar nav a {
+    flex: 0 0 auto;
+    padding: 8px 8px 7px;
+  }
+
+  .arena-topbar p {
+    display: none;
+  }
+
+  .arena-page-main {
+    padding: 22px 12px 54px;
+  }
+
+  .arena-intro {
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .arena-intro h1 {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 520px) {
+  .arena-brand strong {
+    font-size: 12px;
+  }
+
+  .arena-intro h1 {
+    font-size: 32px;
+  }
+
+  .arena-page .prediction-arena-section > .section-head {
+    align-items: start;
+    display: grid;
+  }
+}

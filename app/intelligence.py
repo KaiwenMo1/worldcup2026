@@ -46,6 +46,16 @@ PROFILE_FIELDS = [
     "pressing_intensity",
     "transition_speed",
     "big_match_composure",
+    "roster_value_score",
+    "projected_xi_score",
+    "bench_value_score",
+    "squad_experience",
+    "squad_balance",
+    "squad_availability",
+    "formation_fit",
+    "lineup_continuity",
+    "lineup_confidence",
+    "observed_lineups_count",
 ]
 
 
@@ -64,7 +74,9 @@ def compact_text(text: str, limit: int = 520) -> str:
     clean = " ".join(text.split())
     if len(clean) <= limit:
         return clean
-    return clean[: limit - 1].rstrip() + "..."
+    if limit <= 3:
+        return "." * max(limit, 0)
+    return clean[: limit - 3].rstrip() + "..."
 
 
 class WorldCupIntelligenceIndex:
@@ -83,18 +95,46 @@ class WorldCupIntelligenceIndex:
         self.signature: tuple[tuple[str, float], ...] | None = None
 
     def source_paths(self) -> list[Path]:
-        return [
+        paths = [
             self.data_dir / "teams.csv",
             self.data_dir / "groups.csv",
             self.data_dir / "team_features.csv",
             self.data_dir / "team_advanced_features.csv",
+            self.data_dir / "squad_features.csv",
+            self.data_dir / "worldcup_squads.csv",
+            self.data_dir / "lineup_observations.csv",
+            self.data_dir / "player_availability.csv",
+            self.data_dir / "confirmed_lineups.csv",
+            self.data_dir / "derived" / "lineup_delta_signals.csv",
+            self.data_dir / "derived" / "player_role_vectors.csv",
+            self.data_dir / "derived" / "postmatch_model_evaluation.csv",
+            self.data_dir / "normalized" / "tactical_evidence_normalized.csv",
+            self.data_dir / "market_signals.csv",
+            self.data_dir / "tactical_profiles.csv",
+            self.data_dir / "set_piece_profiles.csv",
+            self.data_dir / "goalkeeper_profiles.csv",
+            self.data_dir / "referee_profiles.csv",
+            self.data_dir / "weather_effects.csv",
+            self.data_dir / "live_team_state.csv",
+            self.data_dir / "freeze_frame_signals.csv",
+            self.data_dir / "lineup_sync_status.json",
             self.data_dir / "player_candidates.csv",
+            self.data_dir / "player_match_stats.csv",
+            self.data_dir / "derived" / "player_role_vectors.csv",
+            self.data_dir / "derived" / "player_form_signals.csv",
+            self.data_dir / "derived" / "injury_risk_signals.csv",
+            self.data_dir / "derived" / "match_summary_signals.csv",
+            self.data_dir / "shot_events.csv",
+            self.data_dir / "xg_team_zones.csv",
+            self.data_dir / "penalty_kicks.csv",
             self.data_dir / "historical_matches.csv",
             self.data_dir / "venues.csv",
             self.data_dir / "live_state.json",
             self.root / "README.md",
             self.root / "PROJECT_SUMMARY.md",
         ]
+        paths.extend(sorted((self.data_dir / "manager_skills").glob("*.json")))
+        return paths
 
     def current_signature(self) -> tuple[tuple[str, float], ...]:
         return tuple(
@@ -111,10 +151,12 @@ class WorldCupIntelligenceIndex:
         base_rows = {row["team"]: row for row in read_csv(self.data_dir / "teams.csv")}
         feature_rows = {row["team"]: row for row in read_csv(self.data_dir / "team_features.csv")}
         advanced_rows = {row["team"]: row for row in read_csv(self.data_dir / "team_advanced_features.csv")}
+        squad_feature_rows = {row["team"]: row for row in read_csv(self.data_dir / "squad_features.csv")}
         self.groups = {row["team"]: row["group"] for row in read_csv(self.data_dir / "groups.csv")}
         self.venues = {row["venue"]: row for row in read_csv(self.data_dir / "venues.csv")}
         self.players = defaultdict(list)
-        for row in read_csv(self.data_dir / "player_candidates.csv"):
+        player_rows = read_csv(self.data_dir / "worldcup_squads.csv") or read_csv(self.data_dir / "player_candidates.csv")
+        for row in player_rows:
             self.players[row["team"]].append(row)
 
         self.teams = {}
@@ -123,6 +165,7 @@ class WorldCupIntelligenceIndex:
                 **row,
                 **feature_rows.get(team, {}),
                 **advanced_rows.get(team, {}),
+                **squad_feature_rows.get(team, {}),
                 "group": self.groups.get(team),
                 "players": self.players.get(team, []),
             }
@@ -149,7 +192,8 @@ class WorldCupIntelligenceIndex:
             snapshot = self.team_snapshot(team)
             profile = snapshot["profile"]
             recent = snapshot["recent"]
-            players = ", ".join(player["player"] for player in snapshot["players"][:5]) or "No player candidates loaded"
+            projected = [player for player in snapshot["players"] if player.get("projected_starter") == "1"]
+            players = ", ".join(player["player"] for player in projected[:11] or snapshot["players"][:5]) or "No squad loaded"
             field_text = ", ".join(f"{field.replace('_', ' ')} {profile.get(field, '-')}" for field in PROFILE_FIELDS)
             documents.append(
                 {
@@ -164,7 +208,7 @@ class WorldCupIntelligenceIndex:
                         f"World Cup pedigree: {profile.get('world_cup_pedigree', '-')}. "
                         f"Recent record across {recent['matches']} matches: {recent['wins']} wins, "
                         f"{recent['draws']} draws, {recent['losses']} losses, {recent['goals_for']} scored, "
-                        f"{recent['goals_against']} conceded. Candidate scorers: {players}. Inputs: {field_text}."
+                        f"{recent['goals_against']} conceded. Projected XI: {players}. Inputs: {field_text}."
                     ),
                 }
             )
@@ -202,6 +246,152 @@ class WorldCupIntelligenceIndex:
                     ),
                 }
             )
+
+        xg_rows = read_csv(self.data_dir / "xg_team_zones.csv")
+        if xg_rows:
+            top_zones = sorted(xg_rows, key=lambda row: float(row.get("avg_xg") or 0), reverse=True)[:8]
+            documents.append(
+                {
+                    "id": "model:xg_zones",
+                    "kind": "model",
+                    "title": "Shot-level xG dangerous positions",
+                    "source": "data/xg_team_zones.csv",
+                    "tags": ["xg", "shot quality", "dangerous positions"],
+                    "text": "Top xG zones: "
+                    + "; ".join(
+                        f"{row['team']} {row['x_zone']} {row['y_zone']} avg xG {row['avg_xg']} "
+                        f"with {row['predicted_goals']} predicted goals and {row['actual_goals']} actual goals"
+                        for row in top_zones
+                    ),
+                }
+            )
+
+        penalty_rows = read_csv(self.data_dir / "penalty_kicks.csv")
+        if penalty_rows:
+            documents.append(
+                {
+                    "id": "model:penalties",
+                    "kind": "model",
+                    "title": "Penalty shootout kick-level model data",
+                    "source": "data/penalty_kicks.csv",
+                    "tags": ["penalties", "shootout", "keeper dive", "shot placement"],
+                    "text": (
+                        f"Penalty model data contains {len(penalty_rows)} kicks with kicker foot, "
+                        "shot placement, keeper dive, outcome, pressure score, score state, and knockout round. "
+                        "The dashboard predicts placement, score probability, save probability, and keeper dive read."
+                    ),
+                }
+            )
+
+        manager_dir = self.data_dir / "manager_skills"
+        for path in sorted(manager_dir.glob("*.json")):
+            try:
+                skill = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                continue
+            identity = skill.get("tactical_identity") or {}
+            rules = skill.get("decision_rules") or []
+            substitutions = skill.get("substitution_patterns") or []
+            documents.append(
+                {
+                    "id": f"manager:{skill.get('manager_id', path.stem)}",
+                    "kind": "manager",
+                    "title": f"{skill.get('manager_name', path.stem)} tactical skill",
+                    "source": str(path.relative_to(self.root)),
+                    "tags": [skill.get("team", ""), skill.get("manager_name", ""), "manager", "tactics"],
+                    "text": (
+                        f"{skill.get('manager_name')} manages {skill.get('team')}. "
+                        f"Evidence status is {skill.get('status')} and version is {skill.get('version')}. "
+                        f"Primary style: {identity.get('primary_style')}; preferred formations: "
+                        f"{', '.join(identity.get('preferred_formations') or [])}; build up: {identity.get('build_up')}; "
+                        f"defensive shape: {identity.get('defensive_shape')}; pressing: {identity.get('pressing')}; "
+                        f"transition: {identity.get('transition')}; set pieces: {identity.get('set_pieces')}. "
+                        f"Decision rules: {'; '.join(rule.get('recommendation', '') for rule in rules)}. "
+                        f"Substitution hypotheses: {'; '.join(item.get('likely_sub_type', '') + ' ' + item.get('minute_window', '') for item in substitutions)}. "
+                        f"Boundaries: {'; '.join(skill.get('evidence_notes') or [])}"
+                    ),
+                }
+            )
+
+        player_stat_rows = read_csv(self.data_dir / "player_match_stats.csv")
+        players_by_team: dict[str, list[dict[str, str]]] = defaultdict(list)
+        for row in player_stat_rows:
+            players_by_team[row.get("team", "")].append(row)
+        for team, rows in sorted(players_by_team.items()):
+            if not team:
+                continue
+            leaders = sorted(
+                rows,
+                key=lambda row: (
+                    float(row.get("xg_per90") or 0) * 5
+                    + float(row.get("xa_per90") or 0) * 4
+                    + float(row.get("key_passes_per90") or 0)
+                    + float(row.get("progressive_passes_per90") or 0) * 0.2
+                    + float(row.get("tackles_interceptions_per90") or 0) * 0.4
+                ),
+                reverse=True,
+            )[:10]
+            documents.append(
+                {
+                    "id": f"players:{team}",
+                    "kind": "players",
+                    "title": f"{team} player comparison and scoring profile",
+                    "source": "data/player_match_stats.csv",
+                    "tags": [team, "players", "scorers", "stamina", "position comparison"],
+                    "text": (
+                        f"{team} player evidence quality is "
+                        f"{'observed or mixed' if any('estimated' not in row.get('source', '') for row in rows) else 'estimated fallback'}. "
+                        + "; ".join(
+                            f"{row.get('player')} {row.get('detailed_position')}, xG/90 {row.get('xg_per90')}, "
+                            f"xA/90 {row.get('xa_per90')}, pass completion {row.get('pass_completion_pct')}%, "
+                            f"pressure success {row.get('pressure_success_pct')}%, likely scoring window {row.get('likely_scoring_window')}"
+                            for row in leaders
+                        )
+                    ),
+                }
+            )
+
+        injury_rows = read_csv(self.data_dir / "derived" / "injury_risk_signals.csv")
+        injury_by_team: dict[str, list[dict[str, str]]] = defaultdict(list)
+        for row in injury_rows:
+            injury_by_team[row.get("team", "")].append(row)
+        for team, rows in sorted(injury_by_team.items()):
+            if not team:
+                continue
+            documents.append(
+                {
+                    "id": f"injuries:{team}",
+                    "kind": "injury",
+                    "title": f"{team} current availability reports",
+                    "source": "data/derived/injury_risk_signals.csv",
+                    "tags": [team, "injury", "availability", "minutes"],
+                    "text": "; ".join(
+                        f"{row.get('player')} status {row.get('status')}, availability {row.get('availability_probability')}, "
+                        f"expected minutes {row.get('expected_minutes')}, risk {row.get('risk_score')}, "
+                        f"manual review {row.get('needs_manual_review')}"
+                        for row in rows
+                    ),
+                }
+            )
+
+        for path, kind, tags in (
+            (self.data_dir / "derived" / "lineup_delta_signals.csv", "lineup_delta", ["lineup", "formation", "confirmed"]),
+            (self.data_dir / "derived" / "postmatch_model_evaluation.csv", "postmatch_evaluation", ["evaluation", "calibration", "accuracy"]),
+            (self.data_dir / "normalized" / "tactical_evidence_normalized.csv", "manager_evidence", ["manager", "tactics", "evidence"]),
+            (self.data_dir / "derived" / "player_role_vectors.csv", "player_stats", ["player", "form", "role", "comparison"]),
+        ):
+            for index, row in enumerate(read_csv(path)):
+                team = row.get("team", "")
+                documents.append(
+                    {
+                        "id": f"{kind}:{index}:{team or row.get('match_id', '')}",
+                        "kind": kind,
+                        "title": f"{kind.replace('_', ' ').title()} {team or row.get('match_id', '')}".strip(),
+                        "source": str(path.relative_to(self.root)),
+                        "tags": [team, *tags],
+                        "text": "; ".join(f"{key} {value}" for key, value in row.items() if value),
+                    }
+                )
 
         for path in (self.root / "README.md", self.root / "PROJECT_SUMMARY.md"):
             documents.extend(self.markdown_documents(path))
@@ -289,6 +479,16 @@ class WorldCupIntelligenceIndex:
             for phrase in ("underrated", "overrated", "dark horse", "sleeper", "favorite", "favourite", "strongest", "best team")
         ):
             tools.append("team_shortlist")
+        if any(word in lowered for word in ("player", "form", "role", "starter", "scorer", "passing", "shooting")):
+            tools.append("player_stats")
+        if any(word in lowered for word in ("injury", "injured", "availability", "suspended", "fitness")):
+            tools.append("injury_news")
+        if any(word in lowered for word in ("manager", "coach", "tactic", "formation", "pressing")):
+            tools.append("manager_evidence")
+        if any(word in lowered for word in ("lineup", "starting xi", "confirmed xi", "unexpected starter")):
+            tools.append("lineup_delta")
+        if any(word in lowered for word in ("evaluation", "accuracy", "brier", "calibration", "what was wrong")):
+            tools.append("postmatch_evaluation")
         return list(dict.fromkeys(tools))
 
     def retrieve(self, question: str, top_k: int = 6, preferred_tags: list[str] | None = None) -> list[dict[str, Any]]:

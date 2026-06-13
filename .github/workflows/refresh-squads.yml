@@ -1,0 +1,44 @@
+name: Refresh World Cup squads
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 9 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install squad sync dependencies
+        run: pip install pandas requests beautifulsoup4 python-dotenv
+
+      - name: Refresh observed lineups and availability
+        env:
+          SPORTMONKS_API_TOKEN: ${{ secrets.SPORTMONKS_API_TOKEN }}
+        run: python scripts/sync_lineups.py --optional
+
+      - name: Refresh final squads and generated features
+        run: python scripts/sync_squads.py
+
+      - name: Rebuild advanced forecast context
+        run: python scripts/build_advanced_context.py
+
+      - name: Commit squad changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/worldcup_squads.csv data/squad_features.csv data/player_candidates.csv
+          git add data/lineup_observations.csv data/player_availability.csv data/lineup_sync_status.json data/sportmonks_team_ids.json 2>/dev/null || true
+          git add data/confirmed_lineups.csv data/market_signals.csv data/tactical_profiles.csv data/set_piece_profiles.csv data/goalkeeper_profiles.csv data/referee_profiles.csv data/weather_effects.csv data/live_team_state.csv data/freeze_frame_signals.csv 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "data: refresh World Cup squads"
+          git push

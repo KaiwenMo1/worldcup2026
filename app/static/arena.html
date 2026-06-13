@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A transparent multi-agent World Cup prediction arena.">
+    <title>World Cup Prediction Arena</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/arena.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="arena-page">
+    <header class="arena-topbar">
+      <a class="arena-brand" href="/" aria-label="World Cup AI Matchroom">
+        <span>26</span>
+        <strong>Prediction Arena</strong>
+      </a>
+      <nav aria-label="Primary">
+        <a href="/">AI Matchroom</a>
+        <a class="active" href="/arena" aria-current="page">Prediction Arena</a>
+        <a href="/model-lab">Model Lab</a>
+      </nav>
+      <p>Entertainment-only technical forecasts</p>
+    </header>
+
+    <main class="arena-page-main">
+      <section class="arena-intro">
+        <div>
+          <span>Six independent reads</span>
+          <h1>Let the models disagree.</h1>
+        </div>
+        <p>Base probabilities, tactical analysis, intuition, an underdog case, and a skeptic audit combine into one transparent final forecast.</p>
+      </section>
+
+      <section id="predictionArena" class="prediction-arena-section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Structured multi-agent forecast</p>
+            <h2>Prediction Arena</h2>
+          </div>
+          <p id="arenaStatus">Technical entertainment forecast · ready for a matchup</p>
+        </div>
+        <div class="arena-command">
+          <label>
+            Match ID
+            <input id="arenaMatchId" type="text" value="FRA-BRA-ARENA">
+          </label>
+          <label>
+            Team A
+            <select id="arenaTeamA"></select>
+          </label>
+          <span class="arena-versus">vs</span>
+          <label>
+            Team B
+            <select id="arenaTeamB"></select>
+          </label>
+          <label>
+            Stage
+            <select id="arenaStage">
+              <option value="group">Group</option>
+              <option value="knockout">Knockout</option>
+            </select>
+          </label>
+          <button id="arenaRunBtn"><i data-lucide="sparkles"></i><span>Run Arena</span></button>
+          <button id="arenaLockBtn" class="secondary" title="Lock the latest saved version"><i data-lucide="lock-keyhole"></i><span>Lock</span></button>
+          <button id="arenaPublishBtn" class="secondary" title="Publish a public prediction card"><i data-lucide="send"></i><span>Publish</span></button>
+        </div>
+
+        <div id="arenaForecast" class="arena-forecast">
+          <div class="arena-empty">
+            <i data-lucide="bot"></i>
+            <strong>Select a match and run the Arena.</strong>
+            <span>The model and four reasoning agents will debate before the final forecast.</span>
+          </div>
+        </div>
+
+        <div class="arena-workspace">
+          <div class="arena-battle-panel">
+            <div class="arena-panel-head">
+              <div><span>Agent Battle</span><strong>Independent reads, one audited call</strong></div>
+              <small id="arenaVersion">No saved version</small>
+            </div>
+            <div id="arenaAgentBattle" class="arena-agent-battle">
+              <div class="arena-empty compact"><span>Agent outputs will appear after a run.</span></div>
+            </div>
+          </div>
+          <aside class="arena-card-panel">
+            <div class="arena-panel-head">
+              <div><span>Public Prediction Card</span><strong>Publishable match read</strong></div>
+              <i data-lucide="file-text"></i>
+            </div>
+            <div id="arenaPublicCard" class="arena-public-card">
+              <div class="arena-empty compact"><span>No public card published.</span></div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="arena-inspection">
+          <div>
+            <div class="arena-panel-head"><div><span>Fragile Assumptions</span><strong>What can break the call</strong></div><i data-lucide="triangle-alert"></i></div>
+            <div id="arenaFragile" class="arena-list"><div class="arena-empty compact"><span>No assumptions loaded.</span></div></div>
+          </div>
+          <div>
+            <div class="arena-panel-head"><div><span>What To Watch</span><strong>Signals that decide the match</strong></div><i data-lucide="eye"></i></div>
+            <div id="arenaWatch" class="arena-list"><div class="arena-empty compact"><span>No watch signals loaded.</span></div></div>
+          </div>
+        </div>
+
+        <div class="arena-review-grid">
+          <div class="arena-leaderboard-panel">
+            <div class="arena-panel-head">
+              <div><span>Virtual Leaderboard</span><strong>Transparent prediction performance</strong></div>
+              <button id="arenaRefreshBoardBtn" class="icon-button secondary" title="Refresh leaderboard"><i data-lucide="refresh-cw"></i></button>
+            </div>
+            <div id="arenaLeaderboard" class="arena-table-wrap"><div class="arena-empty compact"><span>No completed match evaluations yet.</span></div></div>
+          </div>
+          <div class="arena-calibration-panel">
+            <div class="arena-panel-head"><div><span>Calibration Warnings</span><strong>Where agent behavior drifts</strong></div><i data-lucide="gauge"></i></div>
+            <div id="arenaCalibration" class="arena-calibration"><div class="arena-empty compact"><span>Calibration needs completed match evaluations.</span></div></div>
+          </div>
+        </div>
+
+        <details class="arena-settlement">
+          <summary><i data-lucide="clipboard-check"></i><span>Record completed match for virtual evaluation</span></summary>
+          <div class="arena-settlement-controls">
+            <label>Team A score<input id="arenaScoreA" type="number" min="0" max="30" value="2"></label>
+            <label>Team B score<input id="arenaScoreB" type="number" min="0" max="30" value="1"></label>
+            <label>90-minute result<select id="arenaResult"></select></label>
+            <label>Qualification result<input id="arenaQualification" type="text" placeholder="Optional, e.g. France advance"></label>
+            <button id="arenaSettleBtn" class="secondary"><i data-lucide="clipboard-check"></i><span>Evaluate Result</span></button>
+          </div>
+        </details>
+        <p class="arena-disclaimer">Technical entertainment forecast. Treat every output as uncertain analysis, not a promise.</p>
+      </section>
+    </main>
+
+    <script src="/static/arena.js"></script>
+  </body>
+</html>

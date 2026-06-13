@@ -1,0 +1,5 @@
+match_id,player_id,player,team,status,availability_probability,expected_minutes,risk_score,source_confidence,evidence_count,sources,conflicting_statuses,needs_manual_review,reason,data_quality,updated_at
+,brazil_casemiro,Casemiro,Brazil,suspended,0.025,2,0.926,0.95,1,competition_notice,,False,1 report(s); highest-confidence status is suspended.,consolidated_manual_evidence,2026-06-12T04:35:31.984110Z
+,brazil_vinicius_junior,Vinicius Junior,Brazil,fit,0.94,85,0.053,0.88,1,team_report,,False,1 report(s); highest-confidence status is fit.,consolidated_manual_evidence,2026-06-12T04:35:31.984110Z
+,france_aurelien_tchouameni,Aurelien Tchouameni,France,minutes_limited,0.722,45,0.206,0.74,1,manual_scouting,,False,1 report(s); highest-confidence status is minutes_limited.,consolidated_manual_evidence,2026-06-12T04:35:31.984110Z
+FRA-BRA-TEST,france_kylian_mbappe,Kylian Mbappe,France,minor_doubt,0.766,68,0.175,0.75,2,press_conference|team_report,fit|minor_doubt,True,"2 report(s); highest-confidence status is minor_doubt. Conflicting statuses require review: fit, minor_doubt.",conflicting_manual_evidence,2026-06-12T04:35:31.984110Z
