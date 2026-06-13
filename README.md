@@ -256,6 +256,32 @@ Keep `.env`, `kaggle.json`, `.venv/`, `node_modules/`, `models/*.joblib`, and do
 
 The deterministic Expert, Kevin, Upset, Skeptic, and Final Forecast agents always work offline. To add real OpenAI-compatible model opinions, configure `WORLD_CUP_ARENA_MODELS_JSON` with provider metadata and API-key environment-variable names. External opinions are displayed and audited, but they do not silently override the calibrated base forecast.
 
+For Groq, add this to `.env`:
+
+```bash
+GROQ_API_KEY=your_key_here
+WORLD_CUP_ARENA_MODELS_JSON=[{"provider_name":"Groq GPT-OSS","model":"openai/gpt-oss-120b","base_url":"https://api.groq.com/openai/v1","api_key_env":"GROQ_API_KEY"},{"provider_name":"Groq Llama","model":"llama-3.3-70b-versatile","base_url":"https://api.groq.com/openai/v1","api_key_env":"GROQ_API_KEY"},{"provider_name":"Groq Qwen","model":"qwen/qwen3-32b","base_url":"https://api.groq.com/openai/v1","api_key_env":"GROQ_API_KEY"}]
+```
+
+Then start the web app and open `http://127.0.0.1:8000/arena`:
+
+```bash
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+```
+
+Or run one Arena match from the CLI:
+
+```bash
+python scripts/run_prediction_arena.py \
+  --match-id FRA-BRA-DEMO \
+  --team-a France \
+  --team-b Brazil \
+  --stage knockout \
+  --publish-card
+```
+
+The Arena runs configured external models independently alongside the deterministic football agents. Add more provider objects to `WORLD_CUP_ARENA_MODELS_JSON` to compare more models during the same run.
+
 ## Evaluate Completed Matches
 
 The post-match evaluator closes the feedback loop across model forecasts, manager-skill hypotheses, matchup edges, and immutable analyst logs.

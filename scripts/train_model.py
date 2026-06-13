@@ -14,6 +14,7 @@ try:
     import numpy as np
     import pandas as pd
     import penaltyblog as pb
+    from penaltyblog.models.loss import dixon_coles_loss_function
     from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
     from sklearn.linear_model import LogisticRegression
     from sklearn.metrics import accuracy_score, log_loss, mean_absolute_error
@@ -281,16 +282,58 @@ def fit_elo_model(frame: pd.DataFrame, seed: int) -> LogisticRegression:
     return model
 
 
+def _writable_c_array(values: Any, dtype: Any) -> np.ndarray:
+    """Return owned writable C-contiguous memory for penaltyblog's compiled loss functions."""
+    array = np.array(values, dtype=dtype, order="C", copy=True)
+    array.setflags(write=True)
+    return array
+
+
+class WritableDixonColesGoalModel(pb.models.DixonColesGoalModel):
+    """Dixon-Coles model hardened for pandas/numpy read-only array behavior."""
+
+    def _loss_function(self, params: np.ndarray) -> float:
+        params = _writable_c_array(params, np.double)
+
+        attack = _writable_c_array(params[: self.n_teams], np.double)
+        defence = _writable_c_array(params[self.n_teams : 2 * self.n_teams], np.double)
+        hfa = float(params[-2])
+        rho = float(params[-1])
+
+        loss = dixon_coles_loss_function(
+            _writable_c_array(self.goals_home, np.int_),
+            _writable_c_array(self.goals_away, np.int_),
+            _writable_c_array(self.weights, np.double),
+            _writable_c_array(self.home_idx, np.int_),
+            _writable_c_array(self.away_idx, np.int_),
+            _writable_c_array(self.neutral_venue, np.int_),
+            attack,
+            defence,
+            hfa,
+            rho,
+        )
+
+        if np.isnan(loss) or np.isinf(loss):
+            return 1e10
+
+        return float(loss)
+
+
 def fit_dixon_coles(frame: pd.DataFrame) -> Any:
-    model = pb.models.DixonColesGoalModel(
-        frame["team_a_goals"],
-        frame["team_b_goals"],
-        frame["team_a"],
-        frame["team_b"],
-        weights=frame["sample_weight"],
-        neutral_venue=frame["neutral"].astype(bool),
+    model = WritableDixonColesGoalModel(
+        _writable_c_array(frame["team_a_goals"], np.int_),
+        _writable_c_array(frame["team_b_goals"], np.int_),
+        _writable_c_array(frame["team_a"], str),
+        _writable_c_array(frame["team_b"], str),
+        weights=_writable_c_array(frame["sample_weight"], np.double),
+        neutral_venue=_writable_c_array(frame["neutral"], np.int_),
     )
-    model.fit()
+
+    model._params = _writable_c_array(model._params, np.double)
+
+    # Disable penaltyblog's gradient path; the custom loss function above is the important part.
+    model.fit(use_gradient=False)
+
     return model
 
 

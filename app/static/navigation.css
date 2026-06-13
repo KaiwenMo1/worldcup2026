@@ -1,0 +1,351 @@
+.app-shell-header {
+  position: sticky;
+  z-index: 40;
+  top: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  min-height: 68px;
+  align-items: center;
+  gap: 24px;
+  padding: 8px 24px;
+  border-bottom: 1px solid #dce3ec;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: none;
+  backdrop-filter: blur(18px);
+}
+
+.shell-brand {
+  display: inline-flex;
+  min-width: max-content;
+  align-items: center;
+  gap: 10px;
+  color: #101828;
+  text-decoration: none;
+}
+
+.shell-brand-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 6px;
+  background: #101828;
+  color: #f8fafc;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.shell-brand-copy strong,
+.shell-brand-copy small {
+  display: block;
+}
+
+.shell-brand-copy strong {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.shell-brand-copy small {
+  margin-top: 1px;
+  color: #667085;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.shell-navigation,
+.shell-utilities,
+.product-nav,
+.product-nav-link,
+.shell-external,
+.lab-section-menu summary {
+  display: flex;
+  align-items: center;
+}
+
+.shell-navigation {
+  min-width: 0;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.app-shell-header .product-nav {
+  min-width: 0;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid #dce3ec;
+  border-radius: 8px;
+  background: #f3f6fa;
+}
+
+.app-shell-header .product-nav-link {
+  min-height: 34px;
+  gap: 6px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 5px;
+  color: #667085;
+  font-size: 11px;
+  font-weight: 750;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.app-shell-header .product-nav-link:hover {
+  color: #175cd3;
+}
+
+.app-shell-header .product-nav-link.active {
+  background: #ffffff;
+  color: #101828;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.08);
+}
+
+.app-shell-header .product-nav-link:active,
+.shell-external:active,
+.lab-section-menu summary:active {
+  transform: translateY(1px);
+}
+
+.app-shell-header .product-nav-link svg,
+.shell-external svg,
+.lab-section-menu summary svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 1.8;
+}
+
+.shell-utilities {
+  min-width: 0;
+  gap: 10px;
+  padding-left: 14px;
+  border-left: 1px solid #dce3ec;
+}
+
+.shell-utilities .live-status,
+.shell-utilities .status-pill {
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.shell-external {
+  width: 34px;
+  height: 34px;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #667085;
+  text-decoration: none;
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.shell-external:hover {
+  border-color: #c8d8f1;
+  background: #eff6ff;
+  color: #175cd3;
+}
+
+.lab-section-menu {
+  position: relative;
+}
+
+.lab-section-menu summary {
+  min-height: 34px;
+  gap: 6px;
+  padding: 0 9px;
+  border: 1px solid #dce3ec;
+  border-radius: 6px;
+  color: #475467;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 750;
+  list-style: none;
+  transition: border-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.lab-section-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.lab-section-menu summary:hover,
+.lab-section-menu[open] summary {
+  border-color: #9bbcf4;
+  color: #175cd3;
+}
+
+.lab-section-menu summary svg:last-child {
+  width: 11px;
+  height: 11px;
+  transition: transform 150ms ease;
+}
+
+.lab-section-menu[open] summary svg:last-child {
+  transform: rotate(180deg);
+}
+
+.lab-section-links.primary-nav {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  display: grid;
+  width: 250px;
+  max-height: min(460px, calc(100dvh - 100px));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3px;
+  overflow: auto;
+  padding: 7px;
+  border: 1px solid #dce3ec;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 18px 50px rgba(16, 24, 40, 0.14);
+}
+
+.lab-section-links.primary-nav a {
+  min-height: 34px;
+  padding: 9px;
+  border: 0;
+  border-radius: 5px;
+  color: #475467;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.lab-section-links.primary-nav a:hover,
+.lab-section-links.primary-nav a.active {
+  border: 0;
+  background: #eff6ff;
+  color: #175cd3;
+}
+
+.model-lab-page:not(.research-tools-visible) .signal-strip,
+.model-lab-page:not(.research-tools-visible) .research-secondary,
+.model-lab-page:not(.research-tools-visible) .advanced-control,
+.model-lab-page:not(.research-tools-visible) .summary-grid .metric:nth-child(n + 3) {
+  display: none;
+}
+
+.model-lab-page:not(.research-tools-visible) .summary-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.model-lab-page:not(.research-tools-visible) .command-deck {
+  margin-bottom: 28px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-shell-header .product-nav-link,
+  .shell-external,
+  .lab-section-menu summary,
+  .lab-section-menu summary svg:last-child {
+    transition: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .deductions-page .app-shell-header {
+    border-bottom-color: #273348;
+    background: rgba(13, 20, 32, 0.96);
+  }
+
+  .deductions-page .shell-brand {
+    color: #eef3fb;
+  }
+
+  .deductions-page .shell-brand-mark {
+    background: #eef3fb;
+    color: #0d1420;
+  }
+
+  .deductions-page .shell-brand-copy small,
+  .deductions-page .product-nav-link,
+  .deductions-page .shell-external {
+    color: #a8b3c5;
+  }
+
+  .deductions-page .product-nav {
+    border-color: #273348;
+    background: #131d2b;
+  }
+
+  .deductions-page .product-nav-link.active {
+    background: #1b293c;
+    color: #eef3fb;
+  }
+
+  .deductions-page .shell-utilities {
+    border-left-color: #273348;
+  }
+}
+
+@media (max-width: 900px) {
+  .app-shell-header {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 8px 12px;
+    padding: 8px 12px 0;
+  }
+
+  .shell-navigation {
+    display: contents;
+  }
+
+  .app-shell-header .product-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 1px;
+    border-bottom: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .app-shell-header .product-nav-link {
+    justify-content: center;
+  }
+
+  .shell-utilities {
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: flex-end;
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .shell-utilities .live-status {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .shell-brand-copy small,
+  .shell-utilities .status-pill {
+    display: none;
+  }
+
+  .app-shell-header .product-nav-link {
+    min-width: 0;
+    padding: 0 7px;
+    font-size: 10px;
+  }
+
+  .lab-section-menu summary span {
+    display: none;
+  }
+
+  .lab-section-menu summary svg:last-child {
+    display: none;
+  }
+
+  .lab-section-links.primary-nav {
+    position: fixed;
+    top: 102px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+  }
+}

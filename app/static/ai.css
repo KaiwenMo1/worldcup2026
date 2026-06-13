@@ -407,6 +407,18 @@ h3 {
   -webkit-line-clamp: 3;
 }
 
+.deduction-preview {
+  display: -webkit-box;
+  max-width: 680px;
+  margin: 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
 .open-read {
   display: inline-flex;
   align-items: center;
@@ -772,6 +784,10 @@ h3 {
   .deduction-points p {
     -webkit-line-clamp: 2;
   }
+
+  .deduction-preview {
+    -webkit-line-clamp: 3;
+  }
 }
 
 @media (max-width: 680px) {
@@ -849,6 +865,11 @@ h3 {
   }
 
   .deduction-points p {
+    -webkit-line-clamp: 3;
+  }
+
+  .deduction-preview {
+    font-size: 11px;
     -webkit-line-clamp: 3;
   }
 

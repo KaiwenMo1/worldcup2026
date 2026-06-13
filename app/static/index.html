@@ -3,34 +3,48 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>World Cup 2026 Model Lab</title>
+    <title>World Cup 2026 Research Lab</title>
     <meta name="description" content="A live World Cup 2026 forecasting and football intelligence studio." />
     <link href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" rel="stylesheet" />
     <link rel="stylesheet" href="/static/styles.css" />
+    <link rel="stylesheet" href="/static/navigation.css" />
   </head>
-  <body>
-    <header class="topbar">
-      <div class="brand-lockup">
-        <div class="brand-mark">26</div>
-        <div>
-          <p class="eyebrow">FIFA World Cup 2026</p>
-          <h1>Model Lab</h1>
+  <body class="model-lab-page">
+    <header class="topbar app-shell-header">
+      <a class="shell-brand" href="/" aria-label="World Cup 2026 predictions">
+        <span class="shell-brand-mark">26</span>
+        <span class="shell-brand-copy">
+          <strong>World Cup 2026</strong>
+          <small>Football intelligence</small>
+        </span>
+      </a>
+      <div class="shell-navigation">
+        <nav class="product-nav" aria-label="Product areas">
+          <a class="product-nav-link" href="/" title="Browse upcoming predictions"><i data-lucide="calendar-range"></i><span>Predictions</span></a>
+          <a class="product-nav-link" href="/arena" title="Analyze one match"><i data-lucide="scan-search"></i><span>Match Analysis</span></a>
+          <a class="product-nav-link active" href="/model-lab" aria-current="page" title="Run simulations and inspect the model"><i data-lucide="flask-conical"></i><span>Research Lab</span></a>
+        </nav>
+        <div class="shell-utilities">
+          <div class="status-pill" id="modelStatus">Loading model</div>
+          <details class="lab-section-menu">
+            <summary><i data-lucide="list-filter"></i><span>Sections</span><i data-lucide="chevron-down"></i></summary>
+            <nav class="primary-nav lab-section-links" aria-label="Research Lab sections">
+              <a href="#overview">Simulation</a>
+              <a href="#modelReport">Model report</a>
+              <a href="#intelligence">Intelligence</a>
+              <a href="#analystBrief">Brief</a>
+              <a href="#squads">Squads</a>
+              <a href="#intelligenceCenters">Data centers</a>
+              <a href="#tournament">Tournament</a>
+              <a href="#matchLab">Match lab</a>
+              <a href="#venues">Venues</a>
+              <a href="#live">Live state</a>
+            </nav>
+          </details>
+          <a class="shell-external" href="https://github.com/KaiwenMo1/worldcup2026" target="_blank" rel="noreferrer" title="Open GitHub repository" aria-label="Open GitHub repository">
+            <i data-lucide="github"></i>
+          </a>
         </div>
-      </div>
-      <nav class="primary-nav" aria-label="Primary">
-        <a href="/">Match Deductions</a>
-        <a href="/arena">Prediction Arena</a>
-        <a href="#overview">Overview</a>
-        <a href="#intelligence">Intelligence</a>
-        <a href="#analystBrief">Brief</a>
-        <a href="#modelReport">Model Report</a>
-        <a href="#intelligenceCenters">Centers</a>
-        <a href="#tournament">Tournament</a>
-        <a href="#matchLab">Match Lab</a>
-        <a href="#venues">Venues</a>
-      </nav>
-      <div class="topbar-actions">
-        <div class="status-pill" id="modelStatus">Loading model</div>
       </div>
     </header>
 
@@ -48,13 +62,14 @@
         </div>
         <div class="command-heading">
           <div class="hero-copy">
-            <p class="section-kicker">World Cup 2026 forecasting studio</p>
-            <h2><span>Read the</span><em>tournament.</em></h2>
-            <p class="hero-deck">One evolving forecast, built from form, players, tactics, travel, weather, markets, and live match evidence.</p>
+            <p class="section-kicker">Advanced workspace</p>
+            <h2><span>Run the</span><em>tournament.</em></h2>
+            <p class="hero-deck">Simulate the field. Open deeper tools only when needed.</p>
           </div>
           <div class="command-actions">
             <button id="runBtn"><i data-lucide="play"></i><span>Run Simulation</span></button>
-            <button id="refreshBtn" class="secondary"><i data-lucide="refresh-cw"></i><span>Refresh Live Data</span></button>
+            <button id="refreshBtn" class="secondary advanced-control"><i data-lucide="refresh-cw"></i><span>Refresh Live Data</span></button>
+            <button id="researchToolsBtn" class="secondary"><i data-lucide="sliders-horizontal"></i><span>Show Research Tools</span></button>
           </div>
         </div>
         <div class="hero-control-cluster">
@@ -64,19 +79,19 @@
                 Simulations
                 <input id="simCount" type="number" min="1" max="20000" value="50" />
               </label>
-              <label>
+              <label class="advanced-control">
                 Seed
                 <input id="seed" type="number" value="26" />
               </label>
-              <label class="check">
+              <label class="check advanced-control">
                 <input id="lockSeed" type="checkbox" />
                 Lock seed
               </label>
-              <label class="check">
+              <label class="check advanced-control">
                 <input id="useModel" type="checkbox" checked />
                 Forecast ensemble
               </label>
-              <label>
+              <label class="advanced-control">
                 Weather
                 <select id="weather">
                   <option value="auto">Auto from venue</option>
@@ -87,7 +102,7 @@
                   <option value="altitude">Altitude</option>
                 </select>
               </label>
-              <details class="scenario-overrides">
+              <details class="scenario-overrides advanced-control">
                 <summary>Manual what-if overrides</summary>
                 <div class="override-grid">
                   <label>
@@ -127,7 +142,7 @@
         </div>
       </section>
 
-      <section id="modelReport" class="section model-report-section">
+      <section id="modelReport" class="section model-report-section research-secondary">
         <div class="section-head">
           <div>
             <p class="section-kicker">Historical proof</p>
@@ -140,7 +155,7 @@
         </div>
       </section>
 
-      <section id="intelligence" class="section intelligence-section">
+      <section id="intelligence" class="section intelligence-section research-secondary">
         <div class="section-head">
           <div>
             <p class="section-kicker">Agentic RAG</p>
@@ -173,7 +188,7 @@
         </div>
       </section>
 
-      <section id="analystBrief" class="section analyst-section">
+      <section id="analystBrief" class="section analyst-section research-secondary">
         <div class="section-head">
           <div>
             <p class="section-kicker">Multi-agent matchup read</p>
@@ -194,7 +209,7 @@
         </div>
       </section>
 
-      <section id="squads" class="section squad-section">
+      <section id="squads" class="section squad-section research-secondary">
         <div class="section-head">
           <div>
             <p class="section-kicker">Current tournament rosters</p>
@@ -211,7 +226,7 @@
         </div>
       </section>
 
-      <section id="intelligenceCenters" class="section future-centers-section">
+      <section id="intelligenceCenters" class="section future-centers-section research-secondary">
         <div class="section-head">
           <div>
             <p class="section-kicker">Evidence pipeline</p>
@@ -327,7 +342,7 @@
         </div>
       </section>
 
-      <section id="xgLab" class="section xg-panel research-section">
+      <section id="xgLab" class="section xg-panel research-section research-secondary">
         <details class="research-drawer">
           <summary>
             <span>Audit tool</span>
@@ -399,7 +414,7 @@
         </details>
       </section>
 
-      <section id="penaltyLab" class="section penalty-panel research-section">
+      <section id="penaltyLab" class="section penalty-panel research-section research-secondary">
         <details class="research-drawer">
           <summary>
             <span>Audit tool</span>
@@ -458,7 +473,7 @@
         </details>
       </section>
 
-      <section id="market" class="section edge-panel">
+      <section id="market" class="section edge-panel research-secondary">
         <div class="section-head">
           <h2>Market Edge</h2>
           <p>Expected value screen</p>
@@ -481,7 +496,7 @@
         <div id="edgeResult" class="edge-result"></div>
       </section>
 
-      <section id="venues" class="section venue-panel">
+      <section id="venues" class="section venue-panel research-secondary">
         <div class="section-head">
           <h2>Venue Weather</h2>
           <p id="weatherSummary">Auto context</p>
@@ -492,7 +507,7 @@
         </div>
       </section>
 
-      <section id="live" class="section live-panel">
+      <section id="live" class="section live-panel research-secondary">
         <div class="section-head">
           <h2>Live Updates</h2>
           <p>Lock results / eliminate teams</p>
@@ -514,7 +529,7 @@
         </div>
       </section>
 
-      <section id="groupsSection" class="section">
+      <section id="groupsSection" class="section research-secondary">
         <div class="section-head">
           <h2>Groups</h2>
         </div>

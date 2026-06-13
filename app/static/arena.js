@@ -44,6 +44,11 @@ function resultOptions() {
   if ([teamA, "Draw", teamB].includes(previous)) el("arenaResult").value = previous;
 }
 
+function syncMatchId() {
+  const slug = (value) => String(value || "").trim().toUpperCase().replaceAll(/[^A-Z0-9]+/g, "-").replaceAll(/^-|-$/g, "");
+  el("arenaMatchId").value = `${slug(el("arenaTeamA").value)}-${slug(el("arenaTeamB").value)}-ANALYSIS`;
+}
+
 function listHtml(items, fallback) {
   if (!items?.length) return `<div class="arena-empty compact"><span>${escapeHtml(fallback)}</span></div>`;
   return items.map((item) => `<div class="arena-list-row"><i data-lucide="chevron-right"></i><span>${escapeHtml(item)}</span></div>`).join("");
@@ -118,7 +123,7 @@ function rowsFromRecords(records = []) {
 
 function renderPublicCard(card) {
   if (!card?.available || !card.markdown) {
-    el("arenaPublicCard").innerHTML = `<div class="arena-empty compact"><span>No public card published. Run the Arena, then publish the saved version.</span></div>`;
+    el("arenaPublicCard").innerHTML = `<div class="arena-empty compact"><span>No public card published. Analyze the match, then publish the saved version.</span></div>`;
     return;
   }
   const preview = card.markdown
@@ -148,13 +153,13 @@ function renderArena(payload) {
   const confidence = final?.final_confidence ?? target.confidence;
 
   el("arenaVersion").textContent = match.version ? `Version ${match.version} · ${records[0]?.status || "saved"}` : "No saved version";
-  el("arenaStatus").textContent = warnings[0] || (match.found ? `Latest saved run · version ${match.version}` : "Technical entertainment forecast · ready for a matchup");
+  el("arenaStatus").textContent = warnings[0] || (match.found ? `Saved run, version ${match.version}` : "Ready for a matchup");
   el("arenaForecast").innerHTML = `
     <div class="arena-final-call">
       <div class="arena-final-label"><span>Final 90-minute call</span><small>${escapeHtml(run?.stage || match.stage || el("arenaStage").value)}</small></div>
       <div class="arena-score-call"><strong>${escapeHtml(target.pick)}</strong><b>${escapeHtml(target.score)}</b></div>
       <div class="arena-confidence"><span>Confidence</span><strong>${confidence == null ? "-" : percent(confidence)}</strong><div><i style="width:${Math.min(100, Number(confidence || 0) * 100)}%"></i></div></div>
-      <p>${escapeHtml(reasons[0] || "Run the Arena to generate an audited forecast.")}</p>
+      <p>${escapeHtml(reasons[0] || "Analyze the match to generate an audited forecast.")}</p>
       ${target.qualification ? `<div class="arena-qualification"><span>Qualification</span><strong>${escapeHtml(target.qualification)}</strong></div>` : ""}
     </div>
     <div class="arena-forecast-note">
@@ -212,8 +217,8 @@ async function loadMatch() {
 
 async function runArena() {
   const button = el("arenaRunBtn");
-  setButtonBusy(button, true, "Run Arena", "Running agents", "sparkles");
-  el("arenaStatus").textContent = "Running model, tactical brief, agents, and skeptic audit";
+  setButtonBusy(button, true, "Analyze Match", "Analyzing", "sparkles");
+  el("arenaStatus").textContent = "Building match analysis";
   try {
     renderArena(await api("/api/prediction-arena/run", {
       method: "POST",
@@ -225,10 +230,10 @@ async function runArena() {
       }),
     }));
   } catch (error) {
-    el("arenaStatus").textContent = "Arena run failed";
-    el("arenaForecast").innerHTML = `<div class="arena-empty error"><strong>Prediction Arena could not run.</strong><span>${escapeHtml(error.message)}</span></div>`;
+    el("arenaStatus").textContent = "Match analysis failed";
+    el("arenaForecast").innerHTML = `<div class="arena-empty error"><strong>Match analysis could not run.</strong><span>${escapeHtml(error.message)}</span></div>`;
   } finally {
-    setButtonBusy(button, false, "Run Arena", "Running agents", "sparkles");
+    setButtonBusy(button, false, "Analyze Match", "Analyzing", "sparkles");
   }
 }
 
@@ -279,8 +284,9 @@ async function init() {
   el("arenaTeamA").value = teams.teams.some((team) => team.name === "France") ? "France" : teams.teams[0]?.name;
   el("arenaTeamB").value = teams.teams.some((team) => team.name === "Brazil") ? "Brazil" : teams.teams[1]?.name;
   resultOptions();
-  el("arenaTeamA").addEventListener("change", resultOptions);
-  el("arenaTeamB").addEventListener("change", resultOptions);
+  syncMatchId();
+  el("arenaTeamA").addEventListener("change", () => { resultOptions(); syncMatchId(); });
+  el("arenaTeamB").addEventListener("change", () => { resultOptions(); syncMatchId(); });
   el("arenaMatchId").addEventListener("change", () => loadMatch().catch((error) => { el("arenaStatus").textContent = error.message; }));
   el("arenaRunBtn").addEventListener("click", runArena);
   el("arenaLockBtn").addEventListener("click", () => matchAction("arenaLockBtn", "/api/prediction-arena/lock", "Lock", "Locking", "lock-keyhole"));
@@ -293,7 +299,7 @@ async function init() {
 
 init().catch((error) => {
   el("arenaStatus").textContent = error.message;
-  el("arenaForecast").innerHTML = `<div class="arena-empty error"><strong>Prediction Arena could not initialize.</strong><span>${escapeHtml(error.message)}</span></div>`;
+  el("arenaForecast").innerHTML = `<div class="arena-empty error"><strong>Match analysis could not initialize.</strong><span>${escapeHtml(error.message)}</span></div>`;
 });
 
 refreshIcons();

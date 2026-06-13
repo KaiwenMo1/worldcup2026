@@ -1653,7 +1653,7 @@ function renderPredictionArena(payload) {
   const warnings = [...(run?.fallback_notes || []), ...(match.warnings || [])];
 
   el("arenaVersion").textContent = match.version ? `Version ${match.version} · ${records[0]?.status || "saved"}` : "No saved version";
-  el("arenaStatus").textContent = warnings[0] || (match.found ? `Latest saved run · version ${match.version}` : "Technical entertainment forecast · ready for a matchup");
+  el("arenaStatus").textContent = warnings[0] || (match.found ? `Saved run, version ${match.version}` : "Ready for a matchup");
   el("arenaForecast").innerHTML = `
     <div class="arena-final-call">
       <div class="arena-final-label"><span>Final 90-minute call</span><small>${escapeHtml(run?.stage || match.stage || el("arenaStage").value)}</small></div>
@@ -1807,7 +1807,6 @@ function initNavigationState() {
   const sections = anchorLinks
     .map((link) => document.querySelector(link.getAttribute("href")))
     .filter(Boolean);
-  const topbar = document.querySelector(".topbar");
 
   const setActive = (sectionId) => {
     navLinks.forEach((link) => {
@@ -1818,31 +1817,49 @@ function initNavigationState() {
     });
   };
 
-  let scheduled = false;
-  const updateNavigation = () => {
-    scheduled = false;
-    topbar?.classList.toggle("scrolled", window.scrollY > 8);
-    const current = sections.reduce(
-      (active, section) => (section.getBoundingClientRect().top <= 170 ? section : active),
-      sections[0],
-    );
-    if (current) setActive(current.id);
-  };
-  const scheduleUpdate = () => {
-    if (scheduled) return;
-    scheduled = true;
-    window.requestAnimationFrame(updateNavigation);
-  };
-
   anchorLinks.forEach((link) => {
-    link.addEventListener("click", () => setActive(link.getAttribute("href").slice(1)));
+    link.addEventListener("click", () => {
+      if (document.querySelector(link.getAttribute("href"))?.classList.contains("research-secondary")) {
+        setResearchToolsVisibility(true);
+      }
+      setActive(link.getAttribute("href").slice(1));
+      document.querySelector(".lab-section-menu")?.removeAttribute("open");
+    });
   });
-  window.addEventListener("scroll", scheduleUpdate, { passive: true });
-  updateNavigation();
+
+  if (!sections.length) return;
+  setActive(sections[0].id);
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActive(visible.target.id);
+    },
+    { rootMargin: "-140px 0px -65% 0px", threshold: [0, 0.1, 0.4] },
+  );
+  sections.forEach((section) => observer.observe(section));
+}
+
+function setResearchToolsVisibility(visible) {
+  const button = el("researchToolsBtn");
+  if (!button) return;
+  document.body.classList.toggle("research-tools-visible", visible);
+  button.innerHTML = visible
+    ? '<i data-lucide="panel-top-close"></i><span>Hide Research Tools</span>'
+    : '<i data-lucide="sliders-horizontal"></i><span>Show Research Tools</span>';
+  refreshIcons();
+}
+
+function initResearchTools() {
+  const button = el("researchToolsBtn");
+  if (!button) return;
+  button.addEventListener("click", () => setResearchToolsVisibility(!document.body.classList.contains("research-tools-visible")));
 }
 
 async function init() {
   initNavigationState();
+  initResearchTools();
   const [status, teams, groups, venues, modelReport, lineupStatus, xgStatus, penaltyStatus, penaltyOptions] = await Promise.all([
     api("/api/status"),
     api("/api/teams"),

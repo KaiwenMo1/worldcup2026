@@ -80,7 +80,7 @@
   display: grid;
   gap: 28px;
   grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-  margin: 0 auto 28px;
+  margin: 0 auto 20px;
   max-width: 1480px;
 }
 
@@ -95,7 +95,7 @@
 
 .arena-intro h1 {
   font-family: "Avenir Next", "SF Pro Display", Inter, sans-serif;
-  font-size: 52px;
+  font-size: 44px;
   letter-spacing: 0;
   line-height: 1;
   margin: 0;
@@ -107,6 +107,76 @@
   line-height: 1.6;
   margin: 0;
   max-width: 520px;
+}
+
+.arena-context-bar {
+  margin: 0 0 12px;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.arena-page .arena-command {
+  grid-template-columns: minmax(180px, 1fr) auto minmax(180px, 1fr) minmax(130px, 0.65fr) auto;
+}
+
+.arena-primary-workspace {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.arena-secondary {
+  border-bottom: 1px solid #dbe3ec;
+}
+
+.arena-secondary > summary {
+  align-items: center;
+  display: flex;
+  min-height: 52px;
+  gap: 9px;
+  padding: 12px 18px;
+  color: #475569;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 800;
+  list-style: none;
+}
+
+.arena-secondary > summary::-webkit-details-marker {
+  display: none;
+}
+
+.arena-secondary > summary svg {
+  width: 15px;
+  height: 15px;
+}
+
+.arena-secondary > summary svg:last-child {
+  margin-left: auto;
+  transition: transform 150ms ease;
+}
+
+.arena-secondary[open] > summary svg:last-child {
+  transform: rotate(180deg);
+}
+
+.arena-secondary-actions {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid #dbe3ec;
+  background: #f8fafc;
+}
+
+.arena-secondary .arena-public-card {
+  min-height: 160px;
+}
+
+.arena-page .arena-agent-row p {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .arena-page .prediction-arena-section {
@@ -172,6 +242,10 @@
   .arena-intro h1 {
     font-size: 38px;
   }
+
+  .arena-page .arena-command {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 520px) {
@@ -186,5 +260,14 @@
   .arena-page .prediction-arena-section > .section-head {
     align-items: start;
     display: grid;
+  }
+
+  .arena-page .arena-command {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .arena-secondary-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
   }
 }

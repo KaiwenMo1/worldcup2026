@@ -1,7 +1,7 @@
 const state = {
   stories: new Map(),
   offset: 0,
-  limit: 6,
+  limit: 4,
   totalUpcoming: 0,
   loading: false,
 };
@@ -72,21 +72,8 @@ function storyHtml(story) {
             <span>${escapeHtml(story.stage)}${story.group ? ` / Group ${escapeHtml(story.group)}` : ""}</span>
             <h2>${escapeHtml(story.headline)}</h2>
           </div>
-          <div class="deduction-points">
-            <div>
-              <strong>Likely script</strong>
-              <p>${escapeHtml(deduction.likely_script)}</p>
-            </div>
-            <div>
-              <strong>Manager move</strong>
-              <p>${escapeHtml(deduction.manager_move)}</p>
-            </div>
-            <div>
-              <strong>Player to watch</strong>
-              <p>${escapeHtml(deduction.player_watch)}</p>
-            </div>
-          </div>
-          <span class="open-read">Read full deduction <i data-lucide="arrow-up-right"></i></span>
+          <p class="deduction-preview">${escapeHtml(deduction.why_this_score || deduction.likely_script)}</p>
+          <span class="open-read">Open analysis <i data-lucide="arrow-up-right"></i></span>
         </div>
       </button>
     </article>
@@ -94,7 +81,7 @@ function storyHtml(story) {
 }
 
 function errorHtml(error) {
-  return `<div class="error-state"><strong>Could not load match deductions.</strong><span>${escapeHtml(error.message)}</span></div>`;
+  return `<div class="error-state"><strong>Could not load predictions.</strong><span>${escapeHtml(error.message)}</span></div>`;
 }
 
 function renderStories(stories, append = false) {
@@ -182,7 +169,7 @@ async function loadStories({ reset = false } = {}) {
     renderStories(payload.stories || [], !reset && state.offset > 0);
     state.offset = payload.next_offset ?? state.offset + (payload.stories || []).length;
     button.hidden = !payload.has_more;
-    el("coverageLine").textContent = `${state.totalUpcoming} upcoming fixtures / ${state.offset} deductions ready / probabilities remain unchanged by the explanation layer`;
+    el("coverageLine").textContent = `${state.offset} of ${state.totalUpcoming} predictions ready`;
   } catch (error) {
     el("matchStories").innerHTML = errorHtml(error);
     button.hidden = true;
@@ -196,7 +183,7 @@ async function loadStatus() {
   const status = await api("/api/ai/status");
   const curation = status.manager_curation || {};
   el("liveStatus").textContent = `${status.live.completed_count} results recorded`;
-  el("coverageLine").textContent = `${curation.observed_managers || 0} observed manager profiles / player and tactical deductions loading`;
+  el("coverageLine").textContent = `${curation.observed_managers || 0} manager profiles ready`;
 }
 
 el("matchStories").addEventListener("click", (event) => {

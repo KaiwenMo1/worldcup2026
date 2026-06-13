@@ -100,22 +100,53 @@ class ApiContractTests(unittest.TestCase):
 
         self.assertIn('link.getAttribute("href")?.startsWith("#")', javascript)
         self.assertIn("const anchorLinks =", javascript)
+        self.assertIn("new IntersectionObserver(", javascript)
+        self.assertNotIn('window.addEventListener("scroll"', javascript)
         self.assertNotIn(
             'const sections = navLinks\n    .map((link) => document.querySelector(link.getAttribute("href")))',
             javascript,
         )
+
+    def test_specialist_pages_share_clear_product_navigation(self) -> None:
+        pages = {
+            "app/static/ai.html": "/",
+            "app/static/arena.html": "/arena",
+            "app/static/index.html": "/model-lab",
+        }
+
+        for path, active_href in pages.items():
+            html = Path(path).read_text(encoding="utf-8")
+            self.assertIn('class="product-nav"', html)
+            self.assertIn('href="/"', html)
+            self.assertIn('href="/arena"', html)
+            self.assertIn('href="/model-lab"', html)
+            self.assertIn(f'class="product-nav-link active" href="{active_href}"', html)
+            self.assertIn('target="_blank" rel="noreferrer"', html)
+            self.assertIn(">Predictions</span>", html)
+            self.assertIn(">Match Analysis</span>", html)
+            self.assertIn(">Research Lab</span>", html)
+
+        dashboard = Path("app/static/index.html").read_text(encoding="utf-8")
+        self.assertIn('class="lab-section-menu"', dashboard)
+        self.assertIn('id="researchToolsBtn"', dashboard)
+        self.assertIn("research-secondary", dashboard)
 
     def test_ai_matchroom_leads_with_individual_match_stories(self) -> None:
         html = Path("app/static/ai.html").read_text(encoding="utf-8")
         javascript = Path("app/static/ai.js").read_text(encoding="utf-8")
 
         self.assertIn('id="matchStories"', html)
-        self.assertIn("What happens next, and why.", html)
-        self.assertIn("No data dump.", html)
+        self.assertIn("Upcoming predictions.", html)
+        self.assertIn("Scores first. Reasoning on click.", html)
+        self.assertIn("Upcoming matches", html)
+        self.assertEqual(html.count("<!doctype html>"), 1)
+        self.assertEqual(html.count("</html>"), 1)
         self.assertIn("/api/ai/match-stories", javascript)
         self.assertIn("data-story-match", javascript)
-        self.assertIn("Likely script", javascript)
+        self.assertIn("Likely match script", javascript)
         self.assertIn("Player to watch", javascript)
+        self.assertIn("deduction-preview", javascript)
+        self.assertNotIn('class="deduction-points"', javascript)
         self.assertNotIn('id="matchForm"', html)
         self.assertNotIn('id="tournamentForm"', html)
 

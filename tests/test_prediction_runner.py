@@ -3,6 +3,7 @@ from __future__ import annotations
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from app.prediction_arena.prediction_runner import run_prediction_arena
 from app.prediction_arena.public_card_renderer import (
@@ -149,16 +150,20 @@ class PredictionRunnerTests(unittest.TestCase):
             def unavailable(*args):
                 raise RuntimeError("not available")
 
-            result = run_prediction_arena(
-                "M003",
-                "France",
-                "Brazil",
-                "group",
-                forecast_provider=unavailable,
-                tactical_brief_provider=unavailable,
-                pre_match_path=root / "pre_match.csv",
-                model_path=root / "models.csv",
-            )
+            with patch(
+                "app.prediction_arena.prediction_runner.run_configured_model_arena",
+                return_value=([], []),
+            ):
+                result = run_prediction_arena(
+                    "M003",
+                    "France",
+                    "Brazil",
+                    "group",
+                    forecast_provider=unavailable,
+                    tactical_brief_provider=unavailable,
+                    pre_match_path=root / "pre_match.csv",
+                    model_path=root / "models.csv",
+                )
 
             self.assertIsNone(result.base_forecast)
             self.assertIsNone(result.tactical_brief)

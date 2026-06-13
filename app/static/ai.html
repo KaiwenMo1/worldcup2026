@@ -3,45 +3,52 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Concise, evidence-aware deductions for every upcoming World Cup 2026 match.">
-    <title>World Cup 2026 Match Deductions</title>
+    <meta name="description" content="Concise, evidence-aware predictions for every upcoming World Cup 2026 match.">
+    <title>World Cup 2026 Predictions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/ai.css">
+    <link rel="stylesheet" href="/static/navigation.css">
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
-  <body>
-    <header class="topbar">
-      <a class="brand" href="/" aria-label="World Cup match deductions">
-        <span class="brand-mark">26</span>
-        <span>
-          <strong>World Cup Deductions</strong>
-          <small>Prediction with football reasoning</small>
+  <body class="deductions-page">
+    <header class="topbar app-shell-header">
+      <a class="shell-brand" href="/" aria-label="World Cup 2026 predictions">
+        <span class="shell-brand-mark">26</span>
+        <span class="shell-brand-copy">
+          <strong>World Cup 2026</strong>
+          <small>Football intelligence</small>
         </span>
       </a>
-      <nav class="top-actions" aria-label="Primary">
-        <span class="live-status" id="liveStatus">Loading tournament state</span>
-        <a class="nav-link" href="/arena"><i data-lucide="bot"></i><span>Prediction Arena</span></a>
-        <a class="nav-link" href="/model-lab">
-          <i data-lucide="chart-no-axes-combined"></i><span>Model Lab</span>
-        </a>
-      </nav>
+      <div class="shell-navigation">
+        <nav class="product-nav" aria-label="Product areas">
+          <a class="product-nav-link active" href="/" aria-current="page" title="Browse upcoming predictions"><i data-lucide="calendar-range"></i><span>Predictions</span></a>
+          <a class="product-nav-link" href="/arena" title="Analyze one match"><i data-lucide="scan-search"></i><span>Match Analysis</span></a>
+          <a class="product-nav-link" href="/model-lab" title="Run simulations and inspect the model"><i data-lucide="flask-conical"></i><span>Research Lab</span></a>
+        </nav>
+        <div class="shell-utilities">
+          <span class="live-status" id="liveStatus">Loading live state</span>
+          <a class="shell-external" href="https://github.com/KaiwenMo1/worldcup2026" target="_blank" rel="noreferrer" title="Open GitHub repository" aria-label="Open GitHub repository">
+            <i data-lucide="github"></i>
+          </a>
+        </div>
+      </div>
     </header>
 
     <main>
       <section class="intro">
-        <span class="eyebrow">Upcoming World Cup matches</span>
-        <h1>What happens next, and why.</h1>
-        <p>Each score call is distilled from manager style, formation, player matchups, availability, and the underlying model.</p>
-        <div class="coverage-line" id="coverageLine">Preparing manager and player deductions.</div>
+        <span class="eyebrow">World Cup 2026</span>
+        <h1>Upcoming predictions.</h1>
+        <p>Scores first. Reasoning on click.</p>
+        <div class="coverage-line" id="coverageLine">Preparing predictions.</div>
       </section>
 
       <section class="match-feed-shell" aria-labelledby="feedTitle">
         <header class="feed-header">
           <div>
-            <h2 id="feedTitle">Match-by-match deductions</h2>
-            <p>No data dump. Just the likely script, decisive clash, player to watch, and what could change the call.</p>
+            <h2 id="feedTitle">Upcoming matches</h2>
+            <p>Open a match for the full analysis.</p>
           </div>
           <button class="icon-button" id="refreshLive" title="Refresh tournament data" aria-label="Refresh tournament data">
             <i data-lucide="refresh-cw"></i>
@@ -56,7 +63,7 @@
 
         <div class="load-more-row">
           <button class="load-more-button" id="loadMore" type="button" hidden>
-            <span>More upcoming matches</span>
+            <span>More matches</span>
             <i data-lucide="arrow-down"></i>
           </button>
         </div>
@@ -64,11 +71,8 @@
     </main>
 
     <footer class="footer">
-      <span>Predictions are technical and entertainment analysis, not certainty.</span>
-      <nav aria-label="Secondary">
-        <a href="/arena">Compare agents</a>
-        <a href="/model-lab">Model Lab</a>
-      </nav>
+      <span>Technical forecast, not certainty.</span>
+      <a href="https://github.com/KaiwenMo1/worldcup2026" target="_blank" rel="noreferrer">Method and source</a>
     </footer>
 
     <div class="match-detail-shell" id="matchDetailShell" hidden>
@@ -76,7 +80,7 @@
       <aside class="match-detail-panel" role="dialog" aria-modal="true" aria-labelledby="matchDetailTitle">
         <header class="match-detail-header">
           <div>
-            <span>Full match deduction</span>
+            <span>Full deduction</span>
             <h2 id="matchDetailTitle">Match deduction</h2>
           </div>
           <button class="icon-button" id="closeMatchDetail" type="button" title="Close match deduction" aria-label="Close match deduction">
