@@ -8,11 +8,17 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: refresh-squads-main
+  cancel-in-progress: false
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -41,4 +47,17 @@ jobs:
           git add data/lineup_observations.csv data/player_availability.csv data/lineup_sync_status.json data/sportmonks_team_ids.json 2>/dev/null || true
           git add data/confirmed_lineups.csv data/market_signals.csv data/tactical_profiles.csv data/set_piece_profiles.csv data/goalkeeper_profiles.csv data/referee_profiles.csv data/weather_effects.csv data/live_team_state.csv data/freeze_frame_signals.csv 2>/dev/null || true
           git diff --cached --quiet || git commit -m "data: refresh World Cup squads"
-          git push
+          if git diff --quiet HEAD origin/main; then
+            echo "No squad updates to push."
+            exit 0
+          fi
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push was rejected, rebasing onto latest origin/main before retry ${attempt}."
+            git fetch origin main
+            git rebase origin/main
+          done
+          echo "Unable to push squad updates after rebasing."
+          exit 1

@@ -8,11 +8,17 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: tournament-autopilot-main
+  cancel-in-progress: false
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -32,4 +38,17 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add data/observed_matches.csv data/live_state.json data/live_team_state.csv data/normalized data/derived data/prediction_arena data/agentic_update data/tournament_autopilot_status.json
           git diff --cached --quiet || git commit -m "data: refresh observed tournament state"
-          git push
+          if git diff --quiet HEAD origin/main; then
+            echo "No durable tournament updates to push."
+            exit 0
+          fi
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push was rejected, rebasing onto latest origin/main before retry ${attempt}."
+            git fetch origin main
+            git rebase origin/main
+          done
+          echo "Unable to push tournament updates after rebasing."
+          exit 1
