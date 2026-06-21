@@ -1,0 +1,2497 @@
+task_id,manager_id,manager_name,team,channel,priority,requires_login,target_category,query,agent_prompt,output_path_hint,evidence_policy
+agent_reach_czechia_koubek_web_tactical_reports,czechia_koubek,Miroslav Koubek,Czechia,web_tactical_reports,1,False,tactical_reports,Miroslav Koubek Czechia tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Miroslav Koubek (Czechia) for the World Cup project.
+Channel: web_tactical_reports. Query: Miroslav Koubek Czechia tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/czechia_koubek/.
+Each Markdown file must start with these metadata lines:
+manager_id: czechia_koubek
+manager_name: Miroslav Koubek
+team: Czechia
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/czechia_koubek/,Core recurring tactical evidence from public tactical reports.
+agent_reach_czechia_koubek_press_conferences,czechia_koubek,Miroslav Koubek,Czechia,press_conferences,2,False,press_conferences,Miroslav Koubek Czechia press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Miroslav Koubek (Czechia) for the World Cup project.
+Channel: press_conferences. Query: Miroslav Koubek Czechia press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/czechia_koubek/.
+Each Markdown file must start with these metadata lines:
+manager_id: czechia_koubek
+manager_name: Miroslav Koubek
+team: Czechia
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/czechia_koubek/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_czechia_koubek_youtube_breakdowns,czechia_koubek,Miroslav Koubek,Czechia,youtube_breakdowns,3,False,external_views,Czechia Miroslav Koubek tactical breakdown video analysis,"Use Agent-Reach to research Miroslav Koubek (Czechia) for the World Cup project.
+Channel: youtube_breakdowns. Query: Czechia Miroslav Koubek tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/czechia_koubek/.
+Each Markdown file must start with these metadata lines:
+manager_id: czechia_koubek
+manager_name: Miroslav Koubek
+team: Czechia
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/czechia_koubek/,Use captions/transcripts when available; cite the video URL.
+agent_reach_czechia_koubek_github_and_open_data,czechia_koubek,Miroslav Koubek,Czechia,github_and_open_data,4,False,decision_records,Czechia football open data lineups formations substitutions Miroslav Koubek,"Use Agent-Reach to research Miroslav Koubek (Czechia) for the World Cup project.
+Channel: github_and_open_data. Query: Czechia football open data lineups formations substitutions Miroslav Koubek
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/czechia_koubek/.
+Each Markdown file must start with these metadata lines:
+manager_id: czechia_koubek
+manager_name: Miroslav Koubek
+team: Czechia
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/czechia_koubek/,Prefer structured public data and transparent match records.
+agent_reach_mexico_aguirre_web_tactical_reports,mexico_aguirre,Javier Aguirre,Mexico,web_tactical_reports,1,False,tactical_reports,Javier Aguirre Mexico tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Javier Aguirre (Mexico) for the World Cup project.
+Channel: web_tactical_reports. Query: Javier Aguirre Mexico tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/mexico_aguirre/.
+Each Markdown file must start with these metadata lines:
+manager_id: mexico_aguirre
+manager_name: Javier Aguirre
+team: Mexico
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/mexico_aguirre/,Core recurring tactical evidence from public tactical reports.
+agent_reach_mexico_aguirre_press_conferences,mexico_aguirre,Javier Aguirre,Mexico,press_conferences,2,False,press_conferences,Javier Aguirre Mexico press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Javier Aguirre (Mexico) for the World Cup project.
+Channel: press_conferences. Query: Javier Aguirre Mexico press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/mexico_aguirre/.
+Each Markdown file must start with these metadata lines:
+manager_id: mexico_aguirre
+manager_name: Javier Aguirre
+team: Mexico
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/mexico_aguirre/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_mexico_aguirre_youtube_breakdowns,mexico_aguirre,Javier Aguirre,Mexico,youtube_breakdowns,3,False,external_views,Mexico Javier Aguirre tactical breakdown video analysis,"Use Agent-Reach to research Javier Aguirre (Mexico) for the World Cup project.
+Channel: youtube_breakdowns. Query: Mexico Javier Aguirre tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/mexico_aguirre/.
+Each Markdown file must start with these metadata lines:
+manager_id: mexico_aguirre
+manager_name: Javier Aguirre
+team: Mexico
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/mexico_aguirre/,Use captions/transcripts when available; cite the video URL.
+agent_reach_mexico_aguirre_github_and_open_data,mexico_aguirre,Javier Aguirre,Mexico,github_and_open_data,4,False,decision_records,Mexico football open data lineups formations substitutions Javier Aguirre,"Use Agent-Reach to research Javier Aguirre (Mexico) for the World Cup project.
+Channel: github_and_open_data. Query: Mexico football open data lineups formations substitutions Javier Aguirre
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/mexico_aguirre/.
+Each Markdown file must start with these metadata lines:
+manager_id: mexico_aguirre
+manager_name: Javier Aguirre
+team: Mexico
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/mexico_aguirre/,Prefer structured public data and transparent match records.
+agent_reach_south_africa_broos_web_tactical_reports,south_africa_broos,Hugo Broos,South Africa,web_tactical_reports,1,False,tactical_reports,Hugo Broos South Africa tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Hugo Broos (South Africa) for the World Cup project.
+Channel: web_tactical_reports. Query: Hugo Broos South Africa tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/south_africa_broos/.
+Each Markdown file must start with these metadata lines:
+manager_id: south_africa_broos
+manager_name: Hugo Broos
+team: South Africa
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/south_africa_broos/,Core recurring tactical evidence from public tactical reports.
+agent_reach_south_africa_broos_press_conferences,south_africa_broos,Hugo Broos,South Africa,press_conferences,2,False,press_conferences,Hugo Broos South Africa press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Hugo Broos (South Africa) for the World Cup project.
+Channel: press_conferences. Query: Hugo Broos South Africa press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/south_africa_broos/.
+Each Markdown file must start with these metadata lines:
+manager_id: south_africa_broos
+manager_name: Hugo Broos
+team: South Africa
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/south_africa_broos/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_south_africa_broos_youtube_breakdowns,south_africa_broos,Hugo Broos,South Africa,youtube_breakdowns,3,False,external_views,South Africa Hugo Broos tactical breakdown video analysis,"Use Agent-Reach to research Hugo Broos (South Africa) for the World Cup project.
+Channel: youtube_breakdowns. Query: South Africa Hugo Broos tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/south_africa_broos/.
+Each Markdown file must start with these metadata lines:
+manager_id: south_africa_broos
+manager_name: Hugo Broos
+team: South Africa
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/south_africa_broos/,Use captions/transcripts when available; cite the video URL.
+agent_reach_south_africa_broos_github_and_open_data,south_africa_broos,Hugo Broos,South Africa,github_and_open_data,4,False,decision_records,South Africa football open data lineups formations substitutions Hugo Broos,"Use Agent-Reach to research Hugo Broos (South Africa) for the World Cup project.
+Channel: github_and_open_data. Query: South Africa football open data lineups formations substitutions Hugo Broos
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/south_africa_broos/.
+Each Markdown file must start with these metadata lines:
+manager_id: south_africa_broos
+manager_name: Hugo Broos
+team: South Africa
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/south_africa_broos/,Prefer structured public data and transparent match records.
+agent_reach_korea_republic_hong_web_tactical_reports,korea_republic_hong,Hong Myung-bo,Korea Republic,web_tactical_reports,1,False,tactical_reports,Hong Myung-bo Korea Republic tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Hong Myung-bo (Korea Republic) for the World Cup project.
+Channel: web_tactical_reports. Query: Hong Myung-bo Korea Republic tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/korea_republic_hong/.
+Each Markdown file must start with these metadata lines:
+manager_id: korea_republic_hong
+manager_name: Hong Myung-bo
+team: Korea Republic
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/korea_republic_hong/,Core recurring tactical evidence from public tactical reports.
+agent_reach_korea_republic_hong_press_conferences,korea_republic_hong,Hong Myung-bo,Korea Republic,press_conferences,2,False,press_conferences,Hong Myung-bo Korea Republic press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Hong Myung-bo (Korea Republic) for the World Cup project.
+Channel: press_conferences. Query: Hong Myung-bo Korea Republic press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/korea_republic_hong/.
+Each Markdown file must start with these metadata lines:
+manager_id: korea_republic_hong
+manager_name: Hong Myung-bo
+team: Korea Republic
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/korea_republic_hong/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_korea_republic_hong_youtube_breakdowns,korea_republic_hong,Hong Myung-bo,Korea Republic,youtube_breakdowns,3,False,external_views,Korea Republic Hong Myung-bo tactical breakdown video analysis,"Use Agent-Reach to research Hong Myung-bo (Korea Republic) for the World Cup project.
+Channel: youtube_breakdowns. Query: Korea Republic Hong Myung-bo tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/korea_republic_hong/.
+Each Markdown file must start with these metadata lines:
+manager_id: korea_republic_hong
+manager_name: Hong Myung-bo
+team: Korea Republic
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/korea_republic_hong/,Use captions/transcripts when available; cite the video URL.
+agent_reach_korea_republic_hong_github_and_open_data,korea_republic_hong,Hong Myung-bo,Korea Republic,github_and_open_data,4,False,decision_records,Korea Republic football open data lineups formations substitutions Hong Myung-bo,"Use Agent-Reach to research Hong Myung-bo (Korea Republic) for the World Cup project.
+Channel: github_and_open_data. Query: Korea Republic football open data lineups formations substitutions Hong Myung-bo
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/korea_republic_hong/.
+Each Markdown file must start with these metadata lines:
+manager_id: korea_republic_hong
+manager_name: Hong Myung-bo
+team: Korea Republic
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/korea_republic_hong/,Prefer structured public data and transparent match records.
+agent_reach_bosnia_barbarez_web_tactical_reports,bosnia_barbarez,Sergej Barbarez,Bosnia and Herzegovina,web_tactical_reports,1,False,tactical_reports,Sergej Barbarez Bosnia and Herzegovina tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Sergej Barbarez (Bosnia and Herzegovina) for the World Cup project.
+Channel: web_tactical_reports. Query: Sergej Barbarez Bosnia and Herzegovina tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/bosnia_barbarez/.
+Each Markdown file must start with these metadata lines:
+manager_id: bosnia_barbarez
+manager_name: Sergej Barbarez
+team: Bosnia and Herzegovina
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/bosnia_barbarez/,Core recurring tactical evidence from public tactical reports.
+agent_reach_bosnia_barbarez_press_conferences,bosnia_barbarez,Sergej Barbarez,Bosnia and Herzegovina,press_conferences,2,False,press_conferences,Sergej Barbarez Bosnia and Herzegovina press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Sergej Barbarez (Bosnia and Herzegovina) for the World Cup project.
+Channel: press_conferences. Query: Sergej Barbarez Bosnia and Herzegovina press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/bosnia_barbarez/.
+Each Markdown file must start with these metadata lines:
+manager_id: bosnia_barbarez
+manager_name: Sergej Barbarez
+team: Bosnia and Herzegovina
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/bosnia_barbarez/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_bosnia_barbarez_youtube_breakdowns,bosnia_barbarez,Sergej Barbarez,Bosnia and Herzegovina,youtube_breakdowns,3,False,external_views,Bosnia and Herzegovina Sergej Barbarez tactical breakdown video analysis,"Use Agent-Reach to research Sergej Barbarez (Bosnia and Herzegovina) for the World Cup project.
+Channel: youtube_breakdowns. Query: Bosnia and Herzegovina Sergej Barbarez tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/bosnia_barbarez/.
+Each Markdown file must start with these metadata lines:
+manager_id: bosnia_barbarez
+manager_name: Sergej Barbarez
+team: Bosnia and Herzegovina
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/bosnia_barbarez/,Use captions/transcripts when available; cite the video URL.
+agent_reach_bosnia_barbarez_github_and_open_data,bosnia_barbarez,Sergej Barbarez,Bosnia and Herzegovina,github_and_open_data,4,False,decision_records,Bosnia and Herzegovina football open data lineups formations substitutions Sergej Barbarez,"Use Agent-Reach to research Sergej Barbarez (Bosnia and Herzegovina) for the World Cup project.
+Channel: github_and_open_data. Query: Bosnia and Herzegovina football open data lineups formations substitutions Sergej Barbarez
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/bosnia_barbarez/.
+Each Markdown file must start with these metadata lines:
+manager_id: bosnia_barbarez
+manager_name: Sergej Barbarez
+team: Bosnia and Herzegovina
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/bosnia_barbarez/,Prefer structured public data and transparent match records.
+agent_reach_canada_marsch_web_tactical_reports,canada_marsch,Jesse Marsch,Canada,web_tactical_reports,1,False,tactical_reports,Jesse Marsch Canada tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Jesse Marsch (Canada) for the World Cup project.
+Channel: web_tactical_reports. Query: Jesse Marsch Canada tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/canada_marsch/.
+Each Markdown file must start with these metadata lines:
+manager_id: canada_marsch
+manager_name: Jesse Marsch
+team: Canada
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/canada_marsch/,Core recurring tactical evidence from public tactical reports.
+agent_reach_canada_marsch_press_conferences,canada_marsch,Jesse Marsch,Canada,press_conferences,2,False,press_conferences,Jesse Marsch Canada press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Jesse Marsch (Canada) for the World Cup project.
+Channel: press_conferences. Query: Jesse Marsch Canada press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/canada_marsch/.
+Each Markdown file must start with these metadata lines:
+manager_id: canada_marsch
+manager_name: Jesse Marsch
+team: Canada
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/canada_marsch/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_canada_marsch_youtube_breakdowns,canada_marsch,Jesse Marsch,Canada,youtube_breakdowns,3,False,external_views,Canada Jesse Marsch tactical breakdown video analysis,"Use Agent-Reach to research Jesse Marsch (Canada) for the World Cup project.
+Channel: youtube_breakdowns. Query: Canada Jesse Marsch tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/canada_marsch/.
+Each Markdown file must start with these metadata lines:
+manager_id: canada_marsch
+manager_name: Jesse Marsch
+team: Canada
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/canada_marsch/,Use captions/transcripts when available; cite the video URL.
+agent_reach_canada_marsch_github_and_open_data,canada_marsch,Jesse Marsch,Canada,github_and_open_data,4,False,decision_records,Canada football open data lineups formations substitutions Jesse Marsch,"Use Agent-Reach to research Jesse Marsch (Canada) for the World Cup project.
+Channel: github_and_open_data. Query: Canada football open data lineups formations substitutions Jesse Marsch
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/canada_marsch/.
+Each Markdown file must start with these metadata lines:
+manager_id: canada_marsch
+manager_name: Jesse Marsch
+team: Canada
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/canada_marsch/,Prefer structured public data and transparent match records.
+agent_reach_qatar_lopetegui_web_tactical_reports,qatar_lopetegui,Julen Lopetegui,Qatar,web_tactical_reports,1,False,tactical_reports,Julen Lopetegui Qatar tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Julen Lopetegui (Qatar) for the World Cup project.
+Channel: web_tactical_reports. Query: Julen Lopetegui Qatar tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/qatar_lopetegui/.
+Each Markdown file must start with these metadata lines:
+manager_id: qatar_lopetegui
+manager_name: Julen Lopetegui
+team: Qatar
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/qatar_lopetegui/,Core recurring tactical evidence from public tactical reports.
+agent_reach_qatar_lopetegui_press_conferences,qatar_lopetegui,Julen Lopetegui,Qatar,press_conferences,2,False,press_conferences,Julen Lopetegui Qatar press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Julen Lopetegui (Qatar) for the World Cup project.
+Channel: press_conferences. Query: Julen Lopetegui Qatar press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/qatar_lopetegui/.
+Each Markdown file must start with these metadata lines:
+manager_id: qatar_lopetegui
+manager_name: Julen Lopetegui
+team: Qatar
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/qatar_lopetegui/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_qatar_lopetegui_youtube_breakdowns,qatar_lopetegui,Julen Lopetegui,Qatar,youtube_breakdowns,3,False,external_views,Qatar Julen Lopetegui tactical breakdown video analysis,"Use Agent-Reach to research Julen Lopetegui (Qatar) for the World Cup project.
+Channel: youtube_breakdowns. Query: Qatar Julen Lopetegui tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/qatar_lopetegui/.
+Each Markdown file must start with these metadata lines:
+manager_id: qatar_lopetegui
+manager_name: Julen Lopetegui
+team: Qatar
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/qatar_lopetegui/,Use captions/transcripts when available; cite the video URL.
+agent_reach_qatar_lopetegui_github_and_open_data,qatar_lopetegui,Julen Lopetegui,Qatar,github_and_open_data,4,False,decision_records,Qatar football open data lineups formations substitutions Julen Lopetegui,"Use Agent-Reach to research Julen Lopetegui (Qatar) for the World Cup project.
+Channel: github_and_open_data. Query: Qatar football open data lineups formations substitutions Julen Lopetegui
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/qatar_lopetegui/.
+Each Markdown file must start with these metadata lines:
+manager_id: qatar_lopetegui
+manager_name: Julen Lopetegui
+team: Qatar
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/qatar_lopetegui/,Prefer structured public data and transparent match records.
+agent_reach_switzerland_yakin_web_tactical_reports,switzerland_yakin,Murat Yakin,Switzerland,web_tactical_reports,1,False,tactical_reports,Murat Yakin Switzerland tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Murat Yakin (Switzerland) for the World Cup project.
+Channel: web_tactical_reports. Query: Murat Yakin Switzerland tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/switzerland_yakin/.
+Each Markdown file must start with these metadata lines:
+manager_id: switzerland_yakin
+manager_name: Murat Yakin
+team: Switzerland
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/switzerland_yakin/,Core recurring tactical evidence from public tactical reports.
+agent_reach_switzerland_yakin_press_conferences,switzerland_yakin,Murat Yakin,Switzerland,press_conferences,2,False,press_conferences,Murat Yakin Switzerland press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Murat Yakin (Switzerland) for the World Cup project.
+Channel: press_conferences. Query: Murat Yakin Switzerland press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/switzerland_yakin/.
+Each Markdown file must start with these metadata lines:
+manager_id: switzerland_yakin
+manager_name: Murat Yakin
+team: Switzerland
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/switzerland_yakin/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_switzerland_yakin_youtube_breakdowns,switzerland_yakin,Murat Yakin,Switzerland,youtube_breakdowns,3,False,external_views,Switzerland Murat Yakin tactical breakdown video analysis,"Use Agent-Reach to research Murat Yakin (Switzerland) for the World Cup project.
+Channel: youtube_breakdowns. Query: Switzerland Murat Yakin tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/switzerland_yakin/.
+Each Markdown file must start with these metadata lines:
+manager_id: switzerland_yakin
+manager_name: Murat Yakin
+team: Switzerland
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/switzerland_yakin/,Use captions/transcripts when available; cite the video URL.
+agent_reach_switzerland_yakin_github_and_open_data,switzerland_yakin,Murat Yakin,Switzerland,github_and_open_data,4,False,decision_records,Switzerland football open data lineups formations substitutions Murat Yakin,"Use Agent-Reach to research Murat Yakin (Switzerland) for the World Cup project.
+Channel: github_and_open_data. Query: Switzerland football open data lineups formations substitutions Murat Yakin
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/switzerland_yakin/.
+Each Markdown file must start with these metadata lines:
+manager_id: switzerland_yakin
+manager_name: Murat Yakin
+team: Switzerland
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/switzerland_yakin/,Prefer structured public data and transparent match records.
+agent_reach_brazil_ancelotti_web_tactical_reports,brazil_ancelotti,Carlo Ancelotti,Brazil,web_tactical_reports,1,False,tactical_reports,Carlo Ancelotti Brazil tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Carlo Ancelotti (Brazil) for the World Cup project.
+Channel: web_tactical_reports. Query: Carlo Ancelotti Brazil tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/brazil_ancelotti/.
+Each Markdown file must start with these metadata lines:
+manager_id: brazil_ancelotti
+manager_name: Carlo Ancelotti
+team: Brazil
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/brazil_ancelotti/,Core recurring tactical evidence from public tactical reports.
+agent_reach_brazil_ancelotti_press_conferences,brazil_ancelotti,Carlo Ancelotti,Brazil,press_conferences,2,False,press_conferences,Carlo Ancelotti Brazil press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Carlo Ancelotti (Brazil) for the World Cup project.
+Channel: press_conferences. Query: Carlo Ancelotti Brazil press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/brazil_ancelotti/.
+Each Markdown file must start with these metadata lines:
+manager_id: brazil_ancelotti
+manager_name: Carlo Ancelotti
+team: Brazil
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/brazil_ancelotti/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_brazil_ancelotti_youtube_breakdowns,brazil_ancelotti,Carlo Ancelotti,Brazil,youtube_breakdowns,3,False,external_views,Brazil Carlo Ancelotti tactical breakdown video analysis,"Use Agent-Reach to research Carlo Ancelotti (Brazil) for the World Cup project.
+Channel: youtube_breakdowns. Query: Brazil Carlo Ancelotti tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/brazil_ancelotti/.
+Each Markdown file must start with these metadata lines:
+manager_id: brazil_ancelotti
+manager_name: Carlo Ancelotti
+team: Brazil
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/brazil_ancelotti/,Use captions/transcripts when available; cite the video URL.
+agent_reach_brazil_ancelotti_github_and_open_data,brazil_ancelotti,Carlo Ancelotti,Brazil,github_and_open_data,4,False,decision_records,Brazil football open data lineups formations substitutions Carlo Ancelotti,"Use Agent-Reach to research Carlo Ancelotti (Brazil) for the World Cup project.
+Channel: github_and_open_data. Query: Brazil football open data lineups formations substitutions Carlo Ancelotti
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/brazil_ancelotti/.
+Each Markdown file must start with these metadata lines:
+manager_id: brazil_ancelotti
+manager_name: Carlo Ancelotti
+team: Brazil
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/brazil_ancelotti/,Prefer structured public data and transparent match records.
+agent_reach_haiti_migne_web_tactical_reports,haiti_migne,Sebastien Migne,Haiti,web_tactical_reports,1,False,tactical_reports,Sebastien Migne Haiti tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Sebastien Migne (Haiti) for the World Cup project.
+Channel: web_tactical_reports. Query: Sebastien Migne Haiti tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/haiti_migne/.
+Each Markdown file must start with these metadata lines:
+manager_id: haiti_migne
+manager_name: Sebastien Migne
+team: Haiti
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/haiti_migne/,Core recurring tactical evidence from public tactical reports.
+agent_reach_haiti_migne_press_conferences,haiti_migne,Sebastien Migne,Haiti,press_conferences,2,False,press_conferences,Sebastien Migne Haiti press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Sebastien Migne (Haiti) for the World Cup project.
+Channel: press_conferences. Query: Sebastien Migne Haiti press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/haiti_migne/.
+Each Markdown file must start with these metadata lines:
+manager_id: haiti_migne
+manager_name: Sebastien Migne
+team: Haiti
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/haiti_migne/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_haiti_migne_youtube_breakdowns,haiti_migne,Sebastien Migne,Haiti,youtube_breakdowns,3,False,external_views,Haiti Sebastien Migne tactical breakdown video analysis,"Use Agent-Reach to research Sebastien Migne (Haiti) for the World Cup project.
+Channel: youtube_breakdowns. Query: Haiti Sebastien Migne tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/haiti_migne/.
+Each Markdown file must start with these metadata lines:
+manager_id: haiti_migne
+manager_name: Sebastien Migne
+team: Haiti
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/haiti_migne/,Use captions/transcripts when available; cite the video URL.
+agent_reach_haiti_migne_github_and_open_data,haiti_migne,Sebastien Migne,Haiti,github_and_open_data,4,False,decision_records,Haiti football open data lineups formations substitutions Sebastien Migne,"Use Agent-Reach to research Sebastien Migne (Haiti) for the World Cup project.
+Channel: github_and_open_data. Query: Haiti football open data lineups formations substitutions Sebastien Migne
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/haiti_migne/.
+Each Markdown file must start with these metadata lines:
+manager_id: haiti_migne
+manager_name: Sebastien Migne
+team: Haiti
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/haiti_migne/,Prefer structured public data and transparent match records.
+agent_reach_morocco_ouahbi_web_tactical_reports,morocco_ouahbi,Mohamed Ouahbi,Morocco,web_tactical_reports,1,False,tactical_reports,Mohamed Ouahbi Morocco tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Mohamed Ouahbi (Morocco) for the World Cup project.
+Channel: web_tactical_reports. Query: Mohamed Ouahbi Morocco tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/morocco_ouahbi/.
+Each Markdown file must start with these metadata lines:
+manager_id: morocco_ouahbi
+manager_name: Mohamed Ouahbi
+team: Morocco
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/morocco_ouahbi/,Core recurring tactical evidence from public tactical reports.
+agent_reach_morocco_ouahbi_press_conferences,morocco_ouahbi,Mohamed Ouahbi,Morocco,press_conferences,2,False,press_conferences,Mohamed Ouahbi Morocco press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Mohamed Ouahbi (Morocco) for the World Cup project.
+Channel: press_conferences. Query: Mohamed Ouahbi Morocco press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/morocco_ouahbi/.
+Each Markdown file must start with these metadata lines:
+manager_id: morocco_ouahbi
+manager_name: Mohamed Ouahbi
+team: Morocco
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/morocco_ouahbi/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_morocco_ouahbi_youtube_breakdowns,morocco_ouahbi,Mohamed Ouahbi,Morocco,youtube_breakdowns,3,False,external_views,Morocco Mohamed Ouahbi tactical breakdown video analysis,"Use Agent-Reach to research Mohamed Ouahbi (Morocco) for the World Cup project.
+Channel: youtube_breakdowns. Query: Morocco Mohamed Ouahbi tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/morocco_ouahbi/.
+Each Markdown file must start with these metadata lines:
+manager_id: morocco_ouahbi
+manager_name: Mohamed Ouahbi
+team: Morocco
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/morocco_ouahbi/,Use captions/transcripts when available; cite the video URL.
+agent_reach_morocco_ouahbi_github_and_open_data,morocco_ouahbi,Mohamed Ouahbi,Morocco,github_and_open_data,4,False,decision_records,Morocco football open data lineups formations substitutions Mohamed Ouahbi,"Use Agent-Reach to research Mohamed Ouahbi (Morocco) for the World Cup project.
+Channel: github_and_open_data. Query: Morocco football open data lineups formations substitutions Mohamed Ouahbi
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/morocco_ouahbi/.
+Each Markdown file must start with these metadata lines:
+manager_id: morocco_ouahbi
+manager_name: Mohamed Ouahbi
+team: Morocco
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/morocco_ouahbi/,Prefer structured public data and transparent match records.
+agent_reach_scotland_clarke_web_tactical_reports,scotland_clarke,Steve Clarke,Scotland,web_tactical_reports,1,False,tactical_reports,Steve Clarke Scotland tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Steve Clarke (Scotland) for the World Cup project.
+Channel: web_tactical_reports. Query: Steve Clarke Scotland tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/scotland_clarke/.
+Each Markdown file must start with these metadata lines:
+manager_id: scotland_clarke
+manager_name: Steve Clarke
+team: Scotland
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/scotland_clarke/,Core recurring tactical evidence from public tactical reports.
+agent_reach_scotland_clarke_press_conferences,scotland_clarke,Steve Clarke,Scotland,press_conferences,2,False,press_conferences,Steve Clarke Scotland press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Steve Clarke (Scotland) for the World Cup project.
+Channel: press_conferences. Query: Steve Clarke Scotland press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/scotland_clarke/.
+Each Markdown file must start with these metadata lines:
+manager_id: scotland_clarke
+manager_name: Steve Clarke
+team: Scotland
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/scotland_clarke/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_scotland_clarke_youtube_breakdowns,scotland_clarke,Steve Clarke,Scotland,youtube_breakdowns,3,False,external_views,Scotland Steve Clarke tactical breakdown video analysis,"Use Agent-Reach to research Steve Clarke (Scotland) for the World Cup project.
+Channel: youtube_breakdowns. Query: Scotland Steve Clarke tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/scotland_clarke/.
+Each Markdown file must start with these metadata lines:
+manager_id: scotland_clarke
+manager_name: Steve Clarke
+team: Scotland
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/scotland_clarke/,Use captions/transcripts when available; cite the video URL.
+agent_reach_scotland_clarke_github_and_open_data,scotland_clarke,Steve Clarke,Scotland,github_and_open_data,4,False,decision_records,Scotland football open data lineups formations substitutions Steve Clarke,"Use Agent-Reach to research Steve Clarke (Scotland) for the World Cup project.
+Channel: github_and_open_data. Query: Scotland football open data lineups formations substitutions Steve Clarke
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/scotland_clarke/.
+Each Markdown file must start with these metadata lines:
+manager_id: scotland_clarke
+manager_name: Steve Clarke
+team: Scotland
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/scotland_clarke/,Prefer structured public data and transparent match records.
+agent_reach_australia_popovic_web_tactical_reports,australia_popovic,Tony Popovic,Australia,web_tactical_reports,1,False,tactical_reports,Tony Popovic Australia tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Tony Popovic (Australia) for the World Cup project.
+Channel: web_tactical_reports. Query: Tony Popovic Australia tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/australia_popovic/.
+Each Markdown file must start with these metadata lines:
+manager_id: australia_popovic
+manager_name: Tony Popovic
+team: Australia
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/australia_popovic/,Core recurring tactical evidence from public tactical reports.
+agent_reach_australia_popovic_press_conferences,australia_popovic,Tony Popovic,Australia,press_conferences,2,False,press_conferences,Tony Popovic Australia press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Tony Popovic (Australia) for the World Cup project.
+Channel: press_conferences. Query: Tony Popovic Australia press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/australia_popovic/.
+Each Markdown file must start with these metadata lines:
+manager_id: australia_popovic
+manager_name: Tony Popovic
+team: Australia
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/australia_popovic/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_australia_popovic_youtube_breakdowns,australia_popovic,Tony Popovic,Australia,youtube_breakdowns,3,False,external_views,Australia Tony Popovic tactical breakdown video analysis,"Use Agent-Reach to research Tony Popovic (Australia) for the World Cup project.
+Channel: youtube_breakdowns. Query: Australia Tony Popovic tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/australia_popovic/.
+Each Markdown file must start with these metadata lines:
+manager_id: australia_popovic
+manager_name: Tony Popovic
+team: Australia
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/australia_popovic/,Use captions/transcripts when available; cite the video URL.
+agent_reach_australia_popovic_github_and_open_data,australia_popovic,Tony Popovic,Australia,github_and_open_data,4,False,decision_records,Australia football open data lineups formations substitutions Tony Popovic,"Use Agent-Reach to research Tony Popovic (Australia) for the World Cup project.
+Channel: github_and_open_data. Query: Australia football open data lineups formations substitutions Tony Popovic
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/australia_popovic/.
+Each Markdown file must start with these metadata lines:
+manager_id: australia_popovic
+manager_name: Tony Popovic
+team: Australia
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/australia_popovic/,Prefer structured public data and transparent match records.
+agent_reach_paraguay_alfaro_web_tactical_reports,paraguay_alfaro,Gustavo Alfaro,Paraguay,web_tactical_reports,1,False,tactical_reports,Gustavo Alfaro Paraguay tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Gustavo Alfaro (Paraguay) for the World Cup project.
+Channel: web_tactical_reports. Query: Gustavo Alfaro Paraguay tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/paraguay_alfaro/.
+Each Markdown file must start with these metadata lines:
+manager_id: paraguay_alfaro
+manager_name: Gustavo Alfaro
+team: Paraguay
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/paraguay_alfaro/,Core recurring tactical evidence from public tactical reports.
+agent_reach_paraguay_alfaro_press_conferences,paraguay_alfaro,Gustavo Alfaro,Paraguay,press_conferences,2,False,press_conferences,Gustavo Alfaro Paraguay press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Gustavo Alfaro (Paraguay) for the World Cup project.
+Channel: press_conferences. Query: Gustavo Alfaro Paraguay press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/paraguay_alfaro/.
+Each Markdown file must start with these metadata lines:
+manager_id: paraguay_alfaro
+manager_name: Gustavo Alfaro
+team: Paraguay
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/paraguay_alfaro/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_paraguay_alfaro_youtube_breakdowns,paraguay_alfaro,Gustavo Alfaro,Paraguay,youtube_breakdowns,3,False,external_views,Paraguay Gustavo Alfaro tactical breakdown video analysis,"Use Agent-Reach to research Gustavo Alfaro (Paraguay) for the World Cup project.
+Channel: youtube_breakdowns. Query: Paraguay Gustavo Alfaro tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/paraguay_alfaro/.
+Each Markdown file must start with these metadata lines:
+manager_id: paraguay_alfaro
+manager_name: Gustavo Alfaro
+team: Paraguay
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/paraguay_alfaro/,Use captions/transcripts when available; cite the video URL.
+agent_reach_paraguay_alfaro_github_and_open_data,paraguay_alfaro,Gustavo Alfaro,Paraguay,github_and_open_data,4,False,decision_records,Paraguay football open data lineups formations substitutions Gustavo Alfaro,"Use Agent-Reach to research Gustavo Alfaro (Paraguay) for the World Cup project.
+Channel: github_and_open_data. Query: Paraguay football open data lineups formations substitutions Gustavo Alfaro
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/paraguay_alfaro/.
+Each Markdown file must start with these metadata lines:
+manager_id: paraguay_alfaro
+manager_name: Gustavo Alfaro
+team: Paraguay
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/paraguay_alfaro/,Prefer structured public data and transparent match records.
+agent_reach_turkiye_montella_web_tactical_reports,turkiye_montella,Vincenzo Montella,Turkiye,web_tactical_reports,1,False,tactical_reports,Vincenzo Montella Turkiye tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Vincenzo Montella (Turkiye) for the World Cup project.
+Channel: web_tactical_reports. Query: Vincenzo Montella Turkiye tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/turkiye_montella/.
+Each Markdown file must start with these metadata lines:
+manager_id: turkiye_montella
+manager_name: Vincenzo Montella
+team: Turkiye
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/turkiye_montella/,Core recurring tactical evidence from public tactical reports.
+agent_reach_turkiye_montella_press_conferences,turkiye_montella,Vincenzo Montella,Turkiye,press_conferences,2,False,press_conferences,Vincenzo Montella Turkiye press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Vincenzo Montella (Turkiye) for the World Cup project.
+Channel: press_conferences. Query: Vincenzo Montella Turkiye press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/turkiye_montella/.
+Each Markdown file must start with these metadata lines:
+manager_id: turkiye_montella
+manager_name: Vincenzo Montella
+team: Turkiye
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/turkiye_montella/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_turkiye_montella_youtube_breakdowns,turkiye_montella,Vincenzo Montella,Turkiye,youtube_breakdowns,3,False,external_views,Turkiye Vincenzo Montella tactical breakdown video analysis,"Use Agent-Reach to research Vincenzo Montella (Turkiye) for the World Cup project.
+Channel: youtube_breakdowns. Query: Turkiye Vincenzo Montella tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/turkiye_montella/.
+Each Markdown file must start with these metadata lines:
+manager_id: turkiye_montella
+manager_name: Vincenzo Montella
+team: Turkiye
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/turkiye_montella/,Use captions/transcripts when available; cite the video URL.
+agent_reach_turkiye_montella_github_and_open_data,turkiye_montella,Vincenzo Montella,Turkiye,github_and_open_data,4,False,decision_records,Turkiye football open data lineups formations substitutions Vincenzo Montella,"Use Agent-Reach to research Vincenzo Montella (Turkiye) for the World Cup project.
+Channel: github_and_open_data. Query: Turkiye football open data lineups formations substitutions Vincenzo Montella
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/turkiye_montella/.
+Each Markdown file must start with these metadata lines:
+manager_id: turkiye_montella
+manager_name: Vincenzo Montella
+team: Turkiye
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/turkiye_montella/,Prefer structured public data and transparent match records.
+agent_reach_usa_pochettino_web_tactical_reports,usa_pochettino,Mauricio Pochettino,USA,web_tactical_reports,1,False,tactical_reports,Mauricio Pochettino USA tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Mauricio Pochettino (USA) for the World Cup project.
+Channel: web_tactical_reports. Query: Mauricio Pochettino USA tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/usa_pochettino/.
+Each Markdown file must start with these metadata lines:
+manager_id: usa_pochettino
+manager_name: Mauricio Pochettino
+team: USA
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/usa_pochettino/,Core recurring tactical evidence from public tactical reports.
+agent_reach_usa_pochettino_press_conferences,usa_pochettino,Mauricio Pochettino,USA,press_conferences,2,False,press_conferences,Mauricio Pochettino USA press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Mauricio Pochettino (USA) for the World Cup project.
+Channel: press_conferences. Query: Mauricio Pochettino USA press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/usa_pochettino/.
+Each Markdown file must start with these metadata lines:
+manager_id: usa_pochettino
+manager_name: Mauricio Pochettino
+team: USA
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/usa_pochettino/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_usa_pochettino_youtube_breakdowns,usa_pochettino,Mauricio Pochettino,USA,youtube_breakdowns,3,False,external_views,USA Mauricio Pochettino tactical breakdown video analysis,"Use Agent-Reach to research Mauricio Pochettino (USA) for the World Cup project.
+Channel: youtube_breakdowns. Query: USA Mauricio Pochettino tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/usa_pochettino/.
+Each Markdown file must start with these metadata lines:
+manager_id: usa_pochettino
+manager_name: Mauricio Pochettino
+team: USA
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/usa_pochettino/,Use captions/transcripts when available; cite the video URL.
+agent_reach_usa_pochettino_github_and_open_data,usa_pochettino,Mauricio Pochettino,USA,github_and_open_data,4,False,decision_records,USA football open data lineups formations substitutions Mauricio Pochettino,"Use Agent-Reach to research Mauricio Pochettino (USA) for the World Cup project.
+Channel: github_and_open_data. Query: USA football open data lineups formations substitutions Mauricio Pochettino
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/usa_pochettino/.
+Each Markdown file must start with these metadata lines:
+manager_id: usa_pochettino
+manager_name: Mauricio Pochettino
+team: USA
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/usa_pochettino/,Prefer structured public data and transparent match records.
+agent_reach_curacao_advocaat_web_tactical_reports,curacao_advocaat,Dick Advocaat,Curacao,web_tactical_reports,1,False,tactical_reports,Dick Advocaat Curacao tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Dick Advocaat (Curacao) for the World Cup project.
+Channel: web_tactical_reports. Query: Dick Advocaat Curacao tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/curacao_advocaat/.
+Each Markdown file must start with these metadata lines:
+manager_id: curacao_advocaat
+manager_name: Dick Advocaat
+team: Curacao
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/curacao_advocaat/,Core recurring tactical evidence from public tactical reports.
+agent_reach_curacao_advocaat_press_conferences,curacao_advocaat,Dick Advocaat,Curacao,press_conferences,2,False,press_conferences,Dick Advocaat Curacao press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Dick Advocaat (Curacao) for the World Cup project.
+Channel: press_conferences. Query: Dick Advocaat Curacao press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/curacao_advocaat/.
+Each Markdown file must start with these metadata lines:
+manager_id: curacao_advocaat
+manager_name: Dick Advocaat
+team: Curacao
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/curacao_advocaat/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_curacao_advocaat_youtube_breakdowns,curacao_advocaat,Dick Advocaat,Curacao,youtube_breakdowns,3,False,external_views,Curacao Dick Advocaat tactical breakdown video analysis,"Use Agent-Reach to research Dick Advocaat (Curacao) for the World Cup project.
+Channel: youtube_breakdowns. Query: Curacao Dick Advocaat tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/curacao_advocaat/.
+Each Markdown file must start with these metadata lines:
+manager_id: curacao_advocaat
+manager_name: Dick Advocaat
+team: Curacao
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/curacao_advocaat/,Use captions/transcripts when available; cite the video URL.
+agent_reach_curacao_advocaat_github_and_open_data,curacao_advocaat,Dick Advocaat,Curacao,github_and_open_data,4,False,decision_records,Curacao football open data lineups formations substitutions Dick Advocaat,"Use Agent-Reach to research Dick Advocaat (Curacao) for the World Cup project.
+Channel: github_and_open_data. Query: Curacao football open data lineups formations substitutions Dick Advocaat
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/curacao_advocaat/.
+Each Markdown file must start with these metadata lines:
+manager_id: curacao_advocaat
+manager_name: Dick Advocaat
+team: Curacao
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/curacao_advocaat/,Prefer structured public data and transparent match records.
+agent_reach_ecuador_beccacece_web_tactical_reports,ecuador_beccacece,Sebastian Beccacece,Ecuador,web_tactical_reports,1,False,tactical_reports,Sebastian Beccacece Ecuador tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Sebastian Beccacece (Ecuador) for the World Cup project.
+Channel: web_tactical_reports. Query: Sebastian Beccacece Ecuador tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/ecuador_beccacece/.
+Each Markdown file must start with these metadata lines:
+manager_id: ecuador_beccacece
+manager_name: Sebastian Beccacece
+team: Ecuador
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/ecuador_beccacece/,Core recurring tactical evidence from public tactical reports.
+agent_reach_ecuador_beccacece_press_conferences,ecuador_beccacece,Sebastian Beccacece,Ecuador,press_conferences,2,False,press_conferences,Sebastian Beccacece Ecuador press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Sebastian Beccacece (Ecuador) for the World Cup project.
+Channel: press_conferences. Query: Sebastian Beccacece Ecuador press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/ecuador_beccacece/.
+Each Markdown file must start with these metadata lines:
+manager_id: ecuador_beccacece
+manager_name: Sebastian Beccacece
+team: Ecuador
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/ecuador_beccacece/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_ecuador_beccacece_youtube_breakdowns,ecuador_beccacece,Sebastian Beccacece,Ecuador,youtube_breakdowns,3,False,external_views,Ecuador Sebastian Beccacece tactical breakdown video analysis,"Use Agent-Reach to research Sebastian Beccacece (Ecuador) for the World Cup project.
+Channel: youtube_breakdowns. Query: Ecuador Sebastian Beccacece tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/ecuador_beccacece/.
+Each Markdown file must start with these metadata lines:
+manager_id: ecuador_beccacece
+manager_name: Sebastian Beccacece
+team: Ecuador
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/ecuador_beccacece/,Use captions/transcripts when available; cite the video URL.
+agent_reach_ecuador_beccacece_github_and_open_data,ecuador_beccacece,Sebastian Beccacece,Ecuador,github_and_open_data,4,False,decision_records,Ecuador football open data lineups formations substitutions Sebastian Beccacece,"Use Agent-Reach to research Sebastian Beccacece (Ecuador) for the World Cup project.
+Channel: github_and_open_data. Query: Ecuador football open data lineups formations substitutions Sebastian Beccacece
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/ecuador_beccacece/.
+Each Markdown file must start with these metadata lines:
+manager_id: ecuador_beccacece
+manager_name: Sebastian Beccacece
+team: Ecuador
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/ecuador_beccacece/,Prefer structured public data and transparent match records.
+agent_reach_germany_nagelsmann_web_tactical_reports,germany_nagelsmann,Julian Nagelsmann,Germany,web_tactical_reports,1,False,tactical_reports,Julian Nagelsmann Germany tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Julian Nagelsmann (Germany) for the World Cup project.
+Channel: web_tactical_reports. Query: Julian Nagelsmann Germany tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/germany_nagelsmann/.
+Each Markdown file must start with these metadata lines:
+manager_id: germany_nagelsmann
+manager_name: Julian Nagelsmann
+team: Germany
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/germany_nagelsmann/,Core recurring tactical evidence from public tactical reports.
+agent_reach_germany_nagelsmann_press_conferences,germany_nagelsmann,Julian Nagelsmann,Germany,press_conferences,2,False,press_conferences,Julian Nagelsmann Germany press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Julian Nagelsmann (Germany) for the World Cup project.
+Channel: press_conferences. Query: Julian Nagelsmann Germany press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/germany_nagelsmann/.
+Each Markdown file must start with these metadata lines:
+manager_id: germany_nagelsmann
+manager_name: Julian Nagelsmann
+team: Germany
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/germany_nagelsmann/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_germany_nagelsmann_youtube_breakdowns,germany_nagelsmann,Julian Nagelsmann,Germany,youtube_breakdowns,3,False,external_views,Germany Julian Nagelsmann tactical breakdown video analysis,"Use Agent-Reach to research Julian Nagelsmann (Germany) for the World Cup project.
+Channel: youtube_breakdowns. Query: Germany Julian Nagelsmann tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/germany_nagelsmann/.
+Each Markdown file must start with these metadata lines:
+manager_id: germany_nagelsmann
+manager_name: Julian Nagelsmann
+team: Germany
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/germany_nagelsmann/,Use captions/transcripts when available; cite the video URL.
+agent_reach_germany_nagelsmann_github_and_open_data,germany_nagelsmann,Julian Nagelsmann,Germany,github_and_open_data,4,False,decision_records,Germany football open data lineups formations substitutions Julian Nagelsmann,"Use Agent-Reach to research Julian Nagelsmann (Germany) for the World Cup project.
+Channel: github_and_open_data. Query: Germany football open data lineups formations substitutions Julian Nagelsmann
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/germany_nagelsmann/.
+Each Markdown file must start with these metadata lines:
+manager_id: germany_nagelsmann
+manager_name: Julian Nagelsmann
+team: Germany
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/germany_nagelsmann/,Prefer structured public data and transparent match records.
+agent_reach_cote_divoire_fae_web_tactical_reports,cote_divoire_fae,Emerse Fae,Cote d'Ivoire,web_tactical_reports,1,False,tactical_reports,Emerse Fae Cote d'Ivoire tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Emerse Fae (Cote d'Ivoire) for the World Cup project.
+Channel: web_tactical_reports. Query: Emerse Fae Cote d'Ivoire tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/cote_divoire_fae/.
+Each Markdown file must start with these metadata lines:
+manager_id: cote_divoire_fae
+manager_name: Emerse Fae
+team: Cote d'Ivoire
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/cote_divoire_fae/,Core recurring tactical evidence from public tactical reports.
+agent_reach_cote_divoire_fae_press_conferences,cote_divoire_fae,Emerse Fae,Cote d'Ivoire,press_conferences,2,False,press_conferences,Emerse Fae Cote d'Ivoire press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Emerse Fae (Cote d'Ivoire) for the World Cup project.
+Channel: press_conferences. Query: Emerse Fae Cote d'Ivoire press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/cote_divoire_fae/.
+Each Markdown file must start with these metadata lines:
+manager_id: cote_divoire_fae
+manager_name: Emerse Fae
+team: Cote d'Ivoire
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/cote_divoire_fae/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_cote_divoire_fae_youtube_breakdowns,cote_divoire_fae,Emerse Fae,Cote d'Ivoire,youtube_breakdowns,3,False,external_views,Cote d'Ivoire Emerse Fae tactical breakdown video analysis,"Use Agent-Reach to research Emerse Fae (Cote d'Ivoire) for the World Cup project.
+Channel: youtube_breakdowns. Query: Cote d'Ivoire Emerse Fae tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/cote_divoire_fae/.
+Each Markdown file must start with these metadata lines:
+manager_id: cote_divoire_fae
+manager_name: Emerse Fae
+team: Cote d'Ivoire
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/cote_divoire_fae/,Use captions/transcripts when available; cite the video URL.
+agent_reach_cote_divoire_fae_github_and_open_data,cote_divoire_fae,Emerse Fae,Cote d'Ivoire,github_and_open_data,4,False,decision_records,Cote d'Ivoire football open data lineups formations substitutions Emerse Fae,"Use Agent-Reach to research Emerse Fae (Cote d'Ivoire) for the World Cup project.
+Channel: github_and_open_data. Query: Cote d'Ivoire football open data lineups formations substitutions Emerse Fae
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/cote_divoire_fae/.
+Each Markdown file must start with these metadata lines:
+manager_id: cote_divoire_fae
+manager_name: Emerse Fae
+team: Cote d'Ivoire
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/cote_divoire_fae/,Prefer structured public data and transparent match records.
+agent_reach_japan_moriyasu_web_tactical_reports,japan_moriyasu,Hajime Moriyasu,Japan,web_tactical_reports,1,False,tactical_reports,Hajime Moriyasu Japan tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Hajime Moriyasu (Japan) for the World Cup project.
+Channel: web_tactical_reports. Query: Hajime Moriyasu Japan tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/japan_moriyasu/.
+Each Markdown file must start with these metadata lines:
+manager_id: japan_moriyasu
+manager_name: Hajime Moriyasu
+team: Japan
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/japan_moriyasu/,Core recurring tactical evidence from public tactical reports.
+agent_reach_japan_moriyasu_press_conferences,japan_moriyasu,Hajime Moriyasu,Japan,press_conferences,2,False,press_conferences,Hajime Moriyasu Japan press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Hajime Moriyasu (Japan) for the World Cup project.
+Channel: press_conferences. Query: Hajime Moriyasu Japan press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/japan_moriyasu/.
+Each Markdown file must start with these metadata lines:
+manager_id: japan_moriyasu
+manager_name: Hajime Moriyasu
+team: Japan
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/japan_moriyasu/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_japan_moriyasu_youtube_breakdowns,japan_moriyasu,Hajime Moriyasu,Japan,youtube_breakdowns,3,False,external_views,Japan Hajime Moriyasu tactical breakdown video analysis,"Use Agent-Reach to research Hajime Moriyasu (Japan) for the World Cup project.
+Channel: youtube_breakdowns. Query: Japan Hajime Moriyasu tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/japan_moriyasu/.
+Each Markdown file must start with these metadata lines:
+manager_id: japan_moriyasu
+manager_name: Hajime Moriyasu
+team: Japan
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/japan_moriyasu/,Use captions/transcripts when available; cite the video URL.
+agent_reach_japan_moriyasu_github_and_open_data,japan_moriyasu,Hajime Moriyasu,Japan,github_and_open_data,4,False,decision_records,Japan football open data lineups formations substitutions Hajime Moriyasu,"Use Agent-Reach to research Hajime Moriyasu (Japan) for the World Cup project.
+Channel: github_and_open_data. Query: Japan football open data lineups formations substitutions Hajime Moriyasu
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/japan_moriyasu/.
+Each Markdown file must start with these metadata lines:
+manager_id: japan_moriyasu
+manager_name: Hajime Moriyasu
+team: Japan
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/japan_moriyasu/,Prefer structured public data and transparent match records.
+agent_reach_netherlands_koeman_web_tactical_reports,netherlands_koeman,Ronald Koeman,Netherlands,web_tactical_reports,1,False,tactical_reports,Ronald Koeman Netherlands tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Ronald Koeman (Netherlands) for the World Cup project.
+Channel: web_tactical_reports. Query: Ronald Koeman Netherlands tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/netherlands_koeman/.
+Each Markdown file must start with these metadata lines:
+manager_id: netherlands_koeman
+manager_name: Ronald Koeman
+team: Netherlands
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/netherlands_koeman/,Core recurring tactical evidence from public tactical reports.
+agent_reach_netherlands_koeman_press_conferences,netherlands_koeman,Ronald Koeman,Netherlands,press_conferences,2,False,press_conferences,Ronald Koeman Netherlands press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Ronald Koeman (Netherlands) for the World Cup project.
+Channel: press_conferences. Query: Ronald Koeman Netherlands press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/netherlands_koeman/.
+Each Markdown file must start with these metadata lines:
+manager_id: netherlands_koeman
+manager_name: Ronald Koeman
+team: Netherlands
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/netherlands_koeman/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_netherlands_koeman_youtube_breakdowns,netherlands_koeman,Ronald Koeman,Netherlands,youtube_breakdowns,3,False,external_views,Netherlands Ronald Koeman tactical breakdown video analysis,"Use Agent-Reach to research Ronald Koeman (Netherlands) for the World Cup project.
+Channel: youtube_breakdowns. Query: Netherlands Ronald Koeman tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/netherlands_koeman/.
+Each Markdown file must start with these metadata lines:
+manager_id: netherlands_koeman
+manager_name: Ronald Koeman
+team: Netherlands
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/netherlands_koeman/,Use captions/transcripts when available; cite the video URL.
+agent_reach_netherlands_koeman_github_and_open_data,netherlands_koeman,Ronald Koeman,Netherlands,github_and_open_data,4,False,decision_records,Netherlands football open data lineups formations substitutions Ronald Koeman,"Use Agent-Reach to research Ronald Koeman (Netherlands) for the World Cup project.
+Channel: github_and_open_data. Query: Netherlands football open data lineups formations substitutions Ronald Koeman
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/netherlands_koeman/.
+Each Markdown file must start with these metadata lines:
+manager_id: netherlands_koeman
+manager_name: Ronald Koeman
+team: Netherlands
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/netherlands_koeman/,Prefer structured public data and transparent match records.
+agent_reach_sweden_potter_web_tactical_reports,sweden_potter,Graham Potter,Sweden,web_tactical_reports,1,False,tactical_reports,Graham Potter Sweden tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Graham Potter (Sweden) for the World Cup project.
+Channel: web_tactical_reports. Query: Graham Potter Sweden tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/sweden_potter/.
+Each Markdown file must start with these metadata lines:
+manager_id: sweden_potter
+manager_name: Graham Potter
+team: Sweden
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/sweden_potter/,Core recurring tactical evidence from public tactical reports.
+agent_reach_sweden_potter_press_conferences,sweden_potter,Graham Potter,Sweden,press_conferences,2,False,press_conferences,Graham Potter Sweden press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Graham Potter (Sweden) for the World Cup project.
+Channel: press_conferences. Query: Graham Potter Sweden press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/sweden_potter/.
+Each Markdown file must start with these metadata lines:
+manager_id: sweden_potter
+manager_name: Graham Potter
+team: Sweden
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/sweden_potter/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_sweden_potter_youtube_breakdowns,sweden_potter,Graham Potter,Sweden,youtube_breakdowns,3,False,external_views,Sweden Graham Potter tactical breakdown video analysis,"Use Agent-Reach to research Graham Potter (Sweden) for the World Cup project.
+Channel: youtube_breakdowns. Query: Sweden Graham Potter tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/sweden_potter/.
+Each Markdown file must start with these metadata lines:
+manager_id: sweden_potter
+manager_name: Graham Potter
+team: Sweden
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/sweden_potter/,Use captions/transcripts when available; cite the video URL.
+agent_reach_sweden_potter_github_and_open_data,sweden_potter,Graham Potter,Sweden,github_and_open_data,4,False,decision_records,Sweden football open data lineups formations substitutions Graham Potter,"Use Agent-Reach to research Graham Potter (Sweden) for the World Cup project.
+Channel: github_and_open_data. Query: Sweden football open data lineups formations substitutions Graham Potter
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/sweden_potter/.
+Each Markdown file must start with these metadata lines:
+manager_id: sweden_potter
+manager_name: Graham Potter
+team: Sweden
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/sweden_potter/,Prefer structured public data and transparent match records.
+agent_reach_tunisia_lamouchi_web_tactical_reports,tunisia_lamouchi,Sabri Lamouchi,Tunisia,web_tactical_reports,1,False,tactical_reports,Sabri Lamouchi Tunisia tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Sabri Lamouchi (Tunisia) for the World Cup project.
+Channel: web_tactical_reports. Query: Sabri Lamouchi Tunisia tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/tunisia_lamouchi/.
+Each Markdown file must start with these metadata lines:
+manager_id: tunisia_lamouchi
+manager_name: Sabri Lamouchi
+team: Tunisia
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/tunisia_lamouchi/,Core recurring tactical evidence from public tactical reports.
+agent_reach_tunisia_lamouchi_press_conferences,tunisia_lamouchi,Sabri Lamouchi,Tunisia,press_conferences,2,False,press_conferences,Sabri Lamouchi Tunisia press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Sabri Lamouchi (Tunisia) for the World Cup project.
+Channel: press_conferences. Query: Sabri Lamouchi Tunisia press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/tunisia_lamouchi/.
+Each Markdown file must start with these metadata lines:
+manager_id: tunisia_lamouchi
+manager_name: Sabri Lamouchi
+team: Tunisia
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/tunisia_lamouchi/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_tunisia_lamouchi_youtube_breakdowns,tunisia_lamouchi,Sabri Lamouchi,Tunisia,youtube_breakdowns,3,False,external_views,Tunisia Sabri Lamouchi tactical breakdown video analysis,"Use Agent-Reach to research Sabri Lamouchi (Tunisia) for the World Cup project.
+Channel: youtube_breakdowns. Query: Tunisia Sabri Lamouchi tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/tunisia_lamouchi/.
+Each Markdown file must start with these metadata lines:
+manager_id: tunisia_lamouchi
+manager_name: Sabri Lamouchi
+team: Tunisia
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/tunisia_lamouchi/,Use captions/transcripts when available; cite the video URL.
+agent_reach_tunisia_lamouchi_github_and_open_data,tunisia_lamouchi,Sabri Lamouchi,Tunisia,github_and_open_data,4,False,decision_records,Tunisia football open data lineups formations substitutions Sabri Lamouchi,"Use Agent-Reach to research Sabri Lamouchi (Tunisia) for the World Cup project.
+Channel: github_and_open_data. Query: Tunisia football open data lineups formations substitutions Sabri Lamouchi
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/tunisia_lamouchi/.
+Each Markdown file must start with these metadata lines:
+manager_id: tunisia_lamouchi
+manager_name: Sabri Lamouchi
+team: Tunisia
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/tunisia_lamouchi/,Prefer structured public data and transparent match records.
+agent_reach_belgium_garcia_web_tactical_reports,belgium_garcia,Rudi Garcia,Belgium,web_tactical_reports,1,False,tactical_reports,Rudi Garcia Belgium tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Rudi Garcia (Belgium) for the World Cup project.
+Channel: web_tactical_reports. Query: Rudi Garcia Belgium tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/belgium_garcia/.
+Each Markdown file must start with these metadata lines:
+manager_id: belgium_garcia
+manager_name: Rudi Garcia
+team: Belgium
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/belgium_garcia/,Core recurring tactical evidence from public tactical reports.
+agent_reach_belgium_garcia_press_conferences,belgium_garcia,Rudi Garcia,Belgium,press_conferences,2,False,press_conferences,Rudi Garcia Belgium press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Rudi Garcia (Belgium) for the World Cup project.
+Channel: press_conferences. Query: Rudi Garcia Belgium press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/belgium_garcia/.
+Each Markdown file must start with these metadata lines:
+manager_id: belgium_garcia
+manager_name: Rudi Garcia
+team: Belgium
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/belgium_garcia/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_belgium_garcia_youtube_breakdowns,belgium_garcia,Rudi Garcia,Belgium,youtube_breakdowns,3,False,external_views,Belgium Rudi Garcia tactical breakdown video analysis,"Use Agent-Reach to research Rudi Garcia (Belgium) for the World Cup project.
+Channel: youtube_breakdowns. Query: Belgium Rudi Garcia tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/belgium_garcia/.
+Each Markdown file must start with these metadata lines:
+manager_id: belgium_garcia
+manager_name: Rudi Garcia
+team: Belgium
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/belgium_garcia/,Use captions/transcripts when available; cite the video URL.
+agent_reach_belgium_garcia_github_and_open_data,belgium_garcia,Rudi Garcia,Belgium,github_and_open_data,4,False,decision_records,Belgium football open data lineups formations substitutions Rudi Garcia,"Use Agent-Reach to research Rudi Garcia (Belgium) for the World Cup project.
+Channel: github_and_open_data. Query: Belgium football open data lineups formations substitutions Rudi Garcia
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/belgium_garcia/.
+Each Markdown file must start with these metadata lines:
+manager_id: belgium_garcia
+manager_name: Rudi Garcia
+team: Belgium
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/belgium_garcia/,Prefer structured public data and transparent match records.
+agent_reach_egypt_hassan_web_tactical_reports,egypt_hassan,Hossam Hassan,Egypt,web_tactical_reports,1,False,tactical_reports,Hossam Hassan Egypt tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Hossam Hassan (Egypt) for the World Cup project.
+Channel: web_tactical_reports. Query: Hossam Hassan Egypt tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/egypt_hassan/.
+Each Markdown file must start with these metadata lines:
+manager_id: egypt_hassan
+manager_name: Hossam Hassan
+team: Egypt
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/egypt_hassan/,Core recurring tactical evidence from public tactical reports.
+agent_reach_egypt_hassan_press_conferences,egypt_hassan,Hossam Hassan,Egypt,press_conferences,2,False,press_conferences,Hossam Hassan Egypt press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Hossam Hassan (Egypt) for the World Cup project.
+Channel: press_conferences. Query: Hossam Hassan Egypt press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/egypt_hassan/.
+Each Markdown file must start with these metadata lines:
+manager_id: egypt_hassan
+manager_name: Hossam Hassan
+team: Egypt
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/egypt_hassan/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_egypt_hassan_youtube_breakdowns,egypt_hassan,Hossam Hassan,Egypt,youtube_breakdowns,3,False,external_views,Egypt Hossam Hassan tactical breakdown video analysis,"Use Agent-Reach to research Hossam Hassan (Egypt) for the World Cup project.
+Channel: youtube_breakdowns. Query: Egypt Hossam Hassan tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/egypt_hassan/.
+Each Markdown file must start with these metadata lines:
+manager_id: egypt_hassan
+manager_name: Hossam Hassan
+team: Egypt
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/egypt_hassan/,Use captions/transcripts when available; cite the video URL.
+agent_reach_egypt_hassan_github_and_open_data,egypt_hassan,Hossam Hassan,Egypt,github_and_open_data,4,False,decision_records,Egypt football open data lineups formations substitutions Hossam Hassan,"Use Agent-Reach to research Hossam Hassan (Egypt) for the World Cup project.
+Channel: github_and_open_data. Query: Egypt football open data lineups formations substitutions Hossam Hassan
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/egypt_hassan/.
+Each Markdown file must start with these metadata lines:
+manager_id: egypt_hassan
+manager_name: Hossam Hassan
+team: Egypt
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/egypt_hassan/,Prefer structured public data and transparent match records.
+agent_reach_iran_ghalenoei_web_tactical_reports,iran_ghalenoei,Amir Ghalenoei,IR Iran,web_tactical_reports,1,False,tactical_reports,Amir Ghalenoei IR Iran tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Amir Ghalenoei (IR Iran) for the World Cup project.
+Channel: web_tactical_reports. Query: Amir Ghalenoei IR Iran tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/iran_ghalenoei/.
+Each Markdown file must start with these metadata lines:
+manager_id: iran_ghalenoei
+manager_name: Amir Ghalenoei
+team: IR Iran
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/iran_ghalenoei/,Core recurring tactical evidence from public tactical reports.
+agent_reach_iran_ghalenoei_press_conferences,iran_ghalenoei,Amir Ghalenoei,IR Iran,press_conferences,2,False,press_conferences,Amir Ghalenoei IR Iran press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Amir Ghalenoei (IR Iran) for the World Cup project.
+Channel: press_conferences. Query: Amir Ghalenoei IR Iran press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/iran_ghalenoei/.
+Each Markdown file must start with these metadata lines:
+manager_id: iran_ghalenoei
+manager_name: Amir Ghalenoei
+team: IR Iran
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/iran_ghalenoei/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_iran_ghalenoei_youtube_breakdowns,iran_ghalenoei,Amir Ghalenoei,IR Iran,youtube_breakdowns,3,False,external_views,IR Iran Amir Ghalenoei tactical breakdown video analysis,"Use Agent-Reach to research Amir Ghalenoei (IR Iran) for the World Cup project.
+Channel: youtube_breakdowns. Query: IR Iran Amir Ghalenoei tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/iran_ghalenoei/.
+Each Markdown file must start with these metadata lines:
+manager_id: iran_ghalenoei
+manager_name: Amir Ghalenoei
+team: IR Iran
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/iran_ghalenoei/,Use captions/transcripts when available; cite the video URL.
+agent_reach_iran_ghalenoei_github_and_open_data,iran_ghalenoei,Amir Ghalenoei,IR Iran,github_and_open_data,4,False,decision_records,IR Iran football open data lineups formations substitutions Amir Ghalenoei,"Use Agent-Reach to research Amir Ghalenoei (IR Iran) for the World Cup project.
+Channel: github_and_open_data. Query: IR Iran football open data lineups formations substitutions Amir Ghalenoei
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/iran_ghalenoei/.
+Each Markdown file must start with these metadata lines:
+manager_id: iran_ghalenoei
+manager_name: Amir Ghalenoei
+team: IR Iran
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/iran_ghalenoei/,Prefer structured public data and transparent match records.
+agent_reach_new_zealand_bazeley_web_tactical_reports,new_zealand_bazeley,Darren Bazeley,New Zealand,web_tactical_reports,1,False,tactical_reports,Darren Bazeley New Zealand tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Darren Bazeley (New Zealand) for the World Cup project.
+Channel: web_tactical_reports. Query: Darren Bazeley New Zealand tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/new_zealand_bazeley/.
+Each Markdown file must start with these metadata lines:
+manager_id: new_zealand_bazeley
+manager_name: Darren Bazeley
+team: New Zealand
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/new_zealand_bazeley/,Core recurring tactical evidence from public tactical reports.
+agent_reach_new_zealand_bazeley_press_conferences,new_zealand_bazeley,Darren Bazeley,New Zealand,press_conferences,2,False,press_conferences,Darren Bazeley New Zealand press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Darren Bazeley (New Zealand) for the World Cup project.
+Channel: press_conferences. Query: Darren Bazeley New Zealand press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/new_zealand_bazeley/.
+Each Markdown file must start with these metadata lines:
+manager_id: new_zealand_bazeley
+manager_name: Darren Bazeley
+team: New Zealand
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/new_zealand_bazeley/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_new_zealand_bazeley_youtube_breakdowns,new_zealand_bazeley,Darren Bazeley,New Zealand,youtube_breakdowns,3,False,external_views,New Zealand Darren Bazeley tactical breakdown video analysis,"Use Agent-Reach to research Darren Bazeley (New Zealand) for the World Cup project.
+Channel: youtube_breakdowns. Query: New Zealand Darren Bazeley tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/new_zealand_bazeley/.
+Each Markdown file must start with these metadata lines:
+manager_id: new_zealand_bazeley
+manager_name: Darren Bazeley
+team: New Zealand
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/new_zealand_bazeley/,Use captions/transcripts when available; cite the video URL.
+agent_reach_new_zealand_bazeley_github_and_open_data,new_zealand_bazeley,Darren Bazeley,New Zealand,github_and_open_data,4,False,decision_records,New Zealand football open data lineups formations substitutions Darren Bazeley,"Use Agent-Reach to research Darren Bazeley (New Zealand) for the World Cup project.
+Channel: github_and_open_data. Query: New Zealand football open data lineups formations substitutions Darren Bazeley
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/new_zealand_bazeley/.
+Each Markdown file must start with these metadata lines:
+manager_id: new_zealand_bazeley
+manager_name: Darren Bazeley
+team: New Zealand
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/new_zealand_bazeley/,Prefer structured public data and transparent match records.
+agent_reach_cabo_verde_bubista_web_tactical_reports,cabo_verde_bubista,Bubista,Cabo Verde,web_tactical_reports,1,False,tactical_reports,Bubista Cabo Verde tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Bubista (Cabo Verde) for the World Cup project.
+Channel: web_tactical_reports. Query: Bubista Cabo Verde tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/cabo_verde_bubista/.
+Each Markdown file must start with these metadata lines:
+manager_id: cabo_verde_bubista
+manager_name: Bubista
+team: Cabo Verde
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/cabo_verde_bubista/,Core recurring tactical evidence from public tactical reports.
+agent_reach_cabo_verde_bubista_press_conferences,cabo_verde_bubista,Bubista,Cabo Verde,press_conferences,2,False,press_conferences,Bubista Cabo Verde press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Bubista (Cabo Verde) for the World Cup project.
+Channel: press_conferences. Query: Bubista Cabo Verde press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/cabo_verde_bubista/.
+Each Markdown file must start with these metadata lines:
+manager_id: cabo_verde_bubista
+manager_name: Bubista
+team: Cabo Verde
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/cabo_verde_bubista/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_cabo_verde_bubista_youtube_breakdowns,cabo_verde_bubista,Bubista,Cabo Verde,youtube_breakdowns,3,False,external_views,Cabo Verde Bubista tactical breakdown video analysis,"Use Agent-Reach to research Bubista (Cabo Verde) for the World Cup project.
+Channel: youtube_breakdowns. Query: Cabo Verde Bubista tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/cabo_verde_bubista/.
+Each Markdown file must start with these metadata lines:
+manager_id: cabo_verde_bubista
+manager_name: Bubista
+team: Cabo Verde
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/cabo_verde_bubista/,Use captions/transcripts when available; cite the video URL.
+agent_reach_cabo_verde_bubista_github_and_open_data,cabo_verde_bubista,Bubista,Cabo Verde,github_and_open_data,4,False,decision_records,Cabo Verde football open data lineups formations substitutions Bubista,"Use Agent-Reach to research Bubista (Cabo Verde) for the World Cup project.
+Channel: github_and_open_data. Query: Cabo Verde football open data lineups formations substitutions Bubista
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/cabo_verde_bubista/.
+Each Markdown file must start with these metadata lines:
+manager_id: cabo_verde_bubista
+manager_name: Bubista
+team: Cabo Verde
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/cabo_verde_bubista/,Prefer structured public data and transparent match records.
+agent_reach_saudi_arabia_donis_web_tactical_reports,saudi_arabia_donis,Georgios Donis,Saudi Arabia,web_tactical_reports,1,False,tactical_reports,Georgios Donis Saudi Arabia tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Georgios Donis (Saudi Arabia) for the World Cup project.
+Channel: web_tactical_reports. Query: Georgios Donis Saudi Arabia tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/saudi_arabia_donis/.
+Each Markdown file must start with these metadata lines:
+manager_id: saudi_arabia_donis
+manager_name: Georgios Donis
+team: Saudi Arabia
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/saudi_arabia_donis/,Core recurring tactical evidence from public tactical reports.
+agent_reach_saudi_arabia_donis_press_conferences,saudi_arabia_donis,Georgios Donis,Saudi Arabia,press_conferences,2,False,press_conferences,Georgios Donis Saudi Arabia press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Georgios Donis (Saudi Arabia) for the World Cup project.
+Channel: press_conferences. Query: Georgios Donis Saudi Arabia press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/saudi_arabia_donis/.
+Each Markdown file must start with these metadata lines:
+manager_id: saudi_arabia_donis
+manager_name: Georgios Donis
+team: Saudi Arabia
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/saudi_arabia_donis/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_saudi_arabia_donis_youtube_breakdowns,saudi_arabia_donis,Georgios Donis,Saudi Arabia,youtube_breakdowns,3,False,external_views,Saudi Arabia Georgios Donis tactical breakdown video analysis,"Use Agent-Reach to research Georgios Donis (Saudi Arabia) for the World Cup project.
+Channel: youtube_breakdowns. Query: Saudi Arabia Georgios Donis tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/saudi_arabia_donis/.
+Each Markdown file must start with these metadata lines:
+manager_id: saudi_arabia_donis
+manager_name: Georgios Donis
+team: Saudi Arabia
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/saudi_arabia_donis/,Use captions/transcripts when available; cite the video URL.
+agent_reach_saudi_arabia_donis_github_and_open_data,saudi_arabia_donis,Georgios Donis,Saudi Arabia,github_and_open_data,4,False,decision_records,Saudi Arabia football open data lineups formations substitutions Georgios Donis,"Use Agent-Reach to research Georgios Donis (Saudi Arabia) for the World Cup project.
+Channel: github_and_open_data. Query: Saudi Arabia football open data lineups formations substitutions Georgios Donis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/saudi_arabia_donis/.
+Each Markdown file must start with these metadata lines:
+manager_id: saudi_arabia_donis
+manager_name: Georgios Donis
+team: Saudi Arabia
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/saudi_arabia_donis/,Prefer structured public data and transparent match records.
+agent_reach_spain_de_la_fuente_web_tactical_reports,spain_de_la_fuente,Luis de la Fuente,Spain,web_tactical_reports,1,False,tactical_reports,Luis de la Fuente Spain tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Luis de la Fuente (Spain) for the World Cup project.
+Channel: web_tactical_reports. Query: Luis de la Fuente Spain tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/spain_de_la_fuente/.
+Each Markdown file must start with these metadata lines:
+manager_id: spain_de_la_fuente
+manager_name: Luis de la Fuente
+team: Spain
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/spain_de_la_fuente/,Core recurring tactical evidence from public tactical reports.
+agent_reach_spain_de_la_fuente_press_conferences,spain_de_la_fuente,Luis de la Fuente,Spain,press_conferences,2,False,press_conferences,Luis de la Fuente Spain press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Luis de la Fuente (Spain) for the World Cup project.
+Channel: press_conferences. Query: Luis de la Fuente Spain press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/spain_de_la_fuente/.
+Each Markdown file must start with these metadata lines:
+manager_id: spain_de_la_fuente
+manager_name: Luis de la Fuente
+team: Spain
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/spain_de_la_fuente/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_spain_de_la_fuente_youtube_breakdowns,spain_de_la_fuente,Luis de la Fuente,Spain,youtube_breakdowns,3,False,external_views,Spain Luis de la Fuente tactical breakdown video analysis,"Use Agent-Reach to research Luis de la Fuente (Spain) for the World Cup project.
+Channel: youtube_breakdowns. Query: Spain Luis de la Fuente tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/spain_de_la_fuente/.
+Each Markdown file must start with these metadata lines:
+manager_id: spain_de_la_fuente
+manager_name: Luis de la Fuente
+team: Spain
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/spain_de_la_fuente/,Use captions/transcripts when available; cite the video URL.
+agent_reach_spain_de_la_fuente_github_and_open_data,spain_de_la_fuente,Luis de la Fuente,Spain,github_and_open_data,4,False,decision_records,Spain football open data lineups formations substitutions Luis de la Fuente,"Use Agent-Reach to research Luis de la Fuente (Spain) for the World Cup project.
+Channel: github_and_open_data. Query: Spain football open data lineups formations substitutions Luis de la Fuente
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/spain_de_la_fuente/.
+Each Markdown file must start with these metadata lines:
+manager_id: spain_de_la_fuente
+manager_name: Luis de la Fuente
+team: Spain
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/spain_de_la_fuente/,Prefer structured public data and transparent match records.
+agent_reach_uruguay_bielsa_web_tactical_reports,uruguay_bielsa,Marcelo Bielsa,Uruguay,web_tactical_reports,1,False,tactical_reports,Marcelo Bielsa Uruguay tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Marcelo Bielsa (Uruguay) for the World Cup project.
+Channel: web_tactical_reports. Query: Marcelo Bielsa Uruguay tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/uruguay_bielsa/.
+Each Markdown file must start with these metadata lines:
+manager_id: uruguay_bielsa
+manager_name: Marcelo Bielsa
+team: Uruguay
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/uruguay_bielsa/,Core recurring tactical evidence from public tactical reports.
+agent_reach_uruguay_bielsa_press_conferences,uruguay_bielsa,Marcelo Bielsa,Uruguay,press_conferences,2,False,press_conferences,Marcelo Bielsa Uruguay press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Marcelo Bielsa (Uruguay) for the World Cup project.
+Channel: press_conferences. Query: Marcelo Bielsa Uruguay press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/uruguay_bielsa/.
+Each Markdown file must start with these metadata lines:
+manager_id: uruguay_bielsa
+manager_name: Marcelo Bielsa
+team: Uruguay
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/uruguay_bielsa/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_uruguay_bielsa_youtube_breakdowns,uruguay_bielsa,Marcelo Bielsa,Uruguay,youtube_breakdowns,3,False,external_views,Uruguay Marcelo Bielsa tactical breakdown video analysis,"Use Agent-Reach to research Marcelo Bielsa (Uruguay) for the World Cup project.
+Channel: youtube_breakdowns. Query: Uruguay Marcelo Bielsa tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/uruguay_bielsa/.
+Each Markdown file must start with these metadata lines:
+manager_id: uruguay_bielsa
+manager_name: Marcelo Bielsa
+team: Uruguay
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/uruguay_bielsa/,Use captions/transcripts when available; cite the video URL.
+agent_reach_uruguay_bielsa_github_and_open_data,uruguay_bielsa,Marcelo Bielsa,Uruguay,github_and_open_data,4,False,decision_records,Uruguay football open data lineups formations substitutions Marcelo Bielsa,"Use Agent-Reach to research Marcelo Bielsa (Uruguay) for the World Cup project.
+Channel: github_and_open_data. Query: Uruguay football open data lineups formations substitutions Marcelo Bielsa
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/uruguay_bielsa/.
+Each Markdown file must start with these metadata lines:
+manager_id: uruguay_bielsa
+manager_name: Marcelo Bielsa
+team: Uruguay
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/uruguay_bielsa/,Prefer structured public data and transparent match records.
+agent_reach_france_deschamps_web_tactical_reports,france_deschamps,Didier Deschamps,France,web_tactical_reports,1,False,tactical_reports,Didier Deschamps France tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Didier Deschamps (France) for the World Cup project.
+Channel: web_tactical_reports. Query: Didier Deschamps France tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/france_deschamps/.
+Each Markdown file must start with these metadata lines:
+manager_id: france_deschamps
+manager_name: Didier Deschamps
+team: France
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/france_deschamps/,Core recurring tactical evidence from public tactical reports.
+agent_reach_france_deschamps_press_conferences,france_deschamps,Didier Deschamps,France,press_conferences,2,False,press_conferences,Didier Deschamps France press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Didier Deschamps (France) for the World Cup project.
+Channel: press_conferences. Query: Didier Deschamps France press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/france_deschamps/.
+Each Markdown file must start with these metadata lines:
+manager_id: france_deschamps
+manager_name: Didier Deschamps
+team: France
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/france_deschamps/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_france_deschamps_youtube_breakdowns,france_deschamps,Didier Deschamps,France,youtube_breakdowns,3,False,external_views,France Didier Deschamps tactical breakdown video analysis,"Use Agent-Reach to research Didier Deschamps (France) for the World Cup project.
+Channel: youtube_breakdowns. Query: France Didier Deschamps tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/france_deschamps/.
+Each Markdown file must start with these metadata lines:
+manager_id: france_deschamps
+manager_name: Didier Deschamps
+team: France
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/france_deschamps/,Use captions/transcripts when available; cite the video URL.
+agent_reach_france_deschamps_github_and_open_data,france_deschamps,Didier Deschamps,France,github_and_open_data,4,False,decision_records,France football open data lineups formations substitutions Didier Deschamps,"Use Agent-Reach to research Didier Deschamps (France) for the World Cup project.
+Channel: github_and_open_data. Query: France football open data lineups formations substitutions Didier Deschamps
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/france_deschamps/.
+Each Markdown file must start with these metadata lines:
+manager_id: france_deschamps
+manager_name: Didier Deschamps
+team: France
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/france_deschamps/,Prefer structured public data and transparent match records.
+agent_reach_iraq_arnold_web_tactical_reports,iraq_arnold,Graham Arnold,Iraq,web_tactical_reports,1,False,tactical_reports,Graham Arnold Iraq tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Graham Arnold (Iraq) for the World Cup project.
+Channel: web_tactical_reports. Query: Graham Arnold Iraq tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/iraq_arnold/.
+Each Markdown file must start with these metadata lines:
+manager_id: iraq_arnold
+manager_name: Graham Arnold
+team: Iraq
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/iraq_arnold/,Core recurring tactical evidence from public tactical reports.
+agent_reach_iraq_arnold_press_conferences,iraq_arnold,Graham Arnold,Iraq,press_conferences,2,False,press_conferences,Graham Arnold Iraq press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Graham Arnold (Iraq) for the World Cup project.
+Channel: press_conferences. Query: Graham Arnold Iraq press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/iraq_arnold/.
+Each Markdown file must start with these metadata lines:
+manager_id: iraq_arnold
+manager_name: Graham Arnold
+team: Iraq
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/iraq_arnold/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_iraq_arnold_youtube_breakdowns,iraq_arnold,Graham Arnold,Iraq,youtube_breakdowns,3,False,external_views,Iraq Graham Arnold tactical breakdown video analysis,"Use Agent-Reach to research Graham Arnold (Iraq) for the World Cup project.
+Channel: youtube_breakdowns. Query: Iraq Graham Arnold tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/iraq_arnold/.
+Each Markdown file must start with these metadata lines:
+manager_id: iraq_arnold
+manager_name: Graham Arnold
+team: Iraq
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/iraq_arnold/,Use captions/transcripts when available; cite the video URL.
+agent_reach_iraq_arnold_github_and_open_data,iraq_arnold,Graham Arnold,Iraq,github_and_open_data,4,False,decision_records,Iraq football open data lineups formations substitutions Graham Arnold,"Use Agent-Reach to research Graham Arnold (Iraq) for the World Cup project.
+Channel: github_and_open_data. Query: Iraq football open data lineups formations substitutions Graham Arnold
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/iraq_arnold/.
+Each Markdown file must start with these metadata lines:
+manager_id: iraq_arnold
+manager_name: Graham Arnold
+team: Iraq
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/iraq_arnold/,Prefer structured public data and transparent match records.
+agent_reach_norway_solbakken_web_tactical_reports,norway_solbakken,Stale Solbakken,Norway,web_tactical_reports,1,False,tactical_reports,Stale Solbakken Norway tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Stale Solbakken (Norway) for the World Cup project.
+Channel: web_tactical_reports. Query: Stale Solbakken Norway tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/norway_solbakken/.
+Each Markdown file must start with these metadata lines:
+manager_id: norway_solbakken
+manager_name: Stale Solbakken
+team: Norway
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/norway_solbakken/,Core recurring tactical evidence from public tactical reports.
+agent_reach_norway_solbakken_press_conferences,norway_solbakken,Stale Solbakken,Norway,press_conferences,2,False,press_conferences,Stale Solbakken Norway press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Stale Solbakken (Norway) for the World Cup project.
+Channel: press_conferences. Query: Stale Solbakken Norway press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/norway_solbakken/.
+Each Markdown file must start with these metadata lines:
+manager_id: norway_solbakken
+manager_name: Stale Solbakken
+team: Norway
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/norway_solbakken/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_norway_solbakken_youtube_breakdowns,norway_solbakken,Stale Solbakken,Norway,youtube_breakdowns,3,False,external_views,Norway Stale Solbakken tactical breakdown video analysis,"Use Agent-Reach to research Stale Solbakken (Norway) for the World Cup project.
+Channel: youtube_breakdowns. Query: Norway Stale Solbakken tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/norway_solbakken/.
+Each Markdown file must start with these metadata lines:
+manager_id: norway_solbakken
+manager_name: Stale Solbakken
+team: Norway
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/norway_solbakken/,Use captions/transcripts when available; cite the video URL.
+agent_reach_norway_solbakken_github_and_open_data,norway_solbakken,Stale Solbakken,Norway,github_and_open_data,4,False,decision_records,Norway football open data lineups formations substitutions Stale Solbakken,"Use Agent-Reach to research Stale Solbakken (Norway) for the World Cup project.
+Channel: github_and_open_data. Query: Norway football open data lineups formations substitutions Stale Solbakken
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/norway_solbakken/.
+Each Markdown file must start with these metadata lines:
+manager_id: norway_solbakken
+manager_name: Stale Solbakken
+team: Norway
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/norway_solbakken/,Prefer structured public data and transparent match records.
+agent_reach_senegal_thiaw_web_tactical_reports,senegal_thiaw,Pape Thiaw,Senegal,web_tactical_reports,1,False,tactical_reports,Pape Thiaw Senegal tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Pape Thiaw (Senegal) for the World Cup project.
+Channel: web_tactical_reports. Query: Pape Thiaw Senegal tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/senegal_thiaw/.
+Each Markdown file must start with these metadata lines:
+manager_id: senegal_thiaw
+manager_name: Pape Thiaw
+team: Senegal
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/senegal_thiaw/,Core recurring tactical evidence from public tactical reports.
+agent_reach_senegal_thiaw_press_conferences,senegal_thiaw,Pape Thiaw,Senegal,press_conferences,2,False,press_conferences,Pape Thiaw Senegal press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Pape Thiaw (Senegal) for the World Cup project.
+Channel: press_conferences. Query: Pape Thiaw Senegal press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/senegal_thiaw/.
+Each Markdown file must start with these metadata lines:
+manager_id: senegal_thiaw
+manager_name: Pape Thiaw
+team: Senegal
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/senegal_thiaw/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_senegal_thiaw_youtube_breakdowns,senegal_thiaw,Pape Thiaw,Senegal,youtube_breakdowns,3,False,external_views,Senegal Pape Thiaw tactical breakdown video analysis,"Use Agent-Reach to research Pape Thiaw (Senegal) for the World Cup project.
+Channel: youtube_breakdowns. Query: Senegal Pape Thiaw tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/senegal_thiaw/.
+Each Markdown file must start with these metadata lines:
+manager_id: senegal_thiaw
+manager_name: Pape Thiaw
+team: Senegal
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/senegal_thiaw/,Use captions/transcripts when available; cite the video URL.
+agent_reach_senegal_thiaw_github_and_open_data,senegal_thiaw,Pape Thiaw,Senegal,github_and_open_data,4,False,decision_records,Senegal football open data lineups formations substitutions Pape Thiaw,"Use Agent-Reach to research Pape Thiaw (Senegal) for the World Cup project.
+Channel: github_and_open_data. Query: Senegal football open data lineups formations substitutions Pape Thiaw
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/senegal_thiaw/.
+Each Markdown file must start with these metadata lines:
+manager_id: senegal_thiaw
+manager_name: Pape Thiaw
+team: Senegal
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/senegal_thiaw/,Prefer structured public data and transparent match records.
+agent_reach_algeria_petkovic_web_tactical_reports,algeria_petkovic,Vladimir Petkovic,Algeria,web_tactical_reports,1,False,tactical_reports,Vladimir Petkovic Algeria tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Vladimir Petkovic (Algeria) for the World Cup project.
+Channel: web_tactical_reports. Query: Vladimir Petkovic Algeria tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/algeria_petkovic/.
+Each Markdown file must start with these metadata lines:
+manager_id: algeria_petkovic
+manager_name: Vladimir Petkovic
+team: Algeria
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/algeria_petkovic/,Core recurring tactical evidence from public tactical reports.
+agent_reach_algeria_petkovic_press_conferences,algeria_petkovic,Vladimir Petkovic,Algeria,press_conferences,2,False,press_conferences,Vladimir Petkovic Algeria press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Vladimir Petkovic (Algeria) for the World Cup project.
+Channel: press_conferences. Query: Vladimir Petkovic Algeria press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/algeria_petkovic/.
+Each Markdown file must start with these metadata lines:
+manager_id: algeria_petkovic
+manager_name: Vladimir Petkovic
+team: Algeria
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/algeria_petkovic/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_algeria_petkovic_youtube_breakdowns,algeria_petkovic,Vladimir Petkovic,Algeria,youtube_breakdowns,3,False,external_views,Algeria Vladimir Petkovic tactical breakdown video analysis,"Use Agent-Reach to research Vladimir Petkovic (Algeria) for the World Cup project.
+Channel: youtube_breakdowns. Query: Algeria Vladimir Petkovic tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/algeria_petkovic/.
+Each Markdown file must start with these metadata lines:
+manager_id: algeria_petkovic
+manager_name: Vladimir Petkovic
+team: Algeria
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/algeria_petkovic/,Use captions/transcripts when available; cite the video URL.
+agent_reach_algeria_petkovic_github_and_open_data,algeria_petkovic,Vladimir Petkovic,Algeria,github_and_open_data,4,False,decision_records,Algeria football open data lineups formations substitutions Vladimir Petkovic,"Use Agent-Reach to research Vladimir Petkovic (Algeria) for the World Cup project.
+Channel: github_and_open_data. Query: Algeria football open data lineups formations substitutions Vladimir Petkovic
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/algeria_petkovic/.
+Each Markdown file must start with these metadata lines:
+manager_id: algeria_petkovic
+manager_name: Vladimir Petkovic
+team: Algeria
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/algeria_petkovic/,Prefer structured public data and transparent match records.
+agent_reach_argentina_scaloni_web_tactical_reports,argentina_scaloni,Lionel Scaloni,Argentina,web_tactical_reports,1,False,tactical_reports,Lionel Scaloni Argentina tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Lionel Scaloni (Argentina) for the World Cup project.
+Channel: web_tactical_reports. Query: Lionel Scaloni Argentina tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/argentina_scaloni/.
+Each Markdown file must start with these metadata lines:
+manager_id: argentina_scaloni
+manager_name: Lionel Scaloni
+team: Argentina
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/argentina_scaloni/,Core recurring tactical evidence from public tactical reports.
+agent_reach_argentina_scaloni_press_conferences,argentina_scaloni,Lionel Scaloni,Argentina,press_conferences,2,False,press_conferences,Lionel Scaloni Argentina press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Lionel Scaloni (Argentina) for the World Cup project.
+Channel: press_conferences. Query: Lionel Scaloni Argentina press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/argentina_scaloni/.
+Each Markdown file must start with these metadata lines:
+manager_id: argentina_scaloni
+manager_name: Lionel Scaloni
+team: Argentina
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/argentina_scaloni/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_argentina_scaloni_youtube_breakdowns,argentina_scaloni,Lionel Scaloni,Argentina,youtube_breakdowns,3,False,external_views,Argentina Lionel Scaloni tactical breakdown video analysis,"Use Agent-Reach to research Lionel Scaloni (Argentina) for the World Cup project.
+Channel: youtube_breakdowns. Query: Argentina Lionel Scaloni tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/argentina_scaloni/.
+Each Markdown file must start with these metadata lines:
+manager_id: argentina_scaloni
+manager_name: Lionel Scaloni
+team: Argentina
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/argentina_scaloni/,Use captions/transcripts when available; cite the video URL.
+agent_reach_argentina_scaloni_github_and_open_data,argentina_scaloni,Lionel Scaloni,Argentina,github_and_open_data,4,False,decision_records,Argentina football open data lineups formations substitutions Lionel Scaloni,"Use Agent-Reach to research Lionel Scaloni (Argentina) for the World Cup project.
+Channel: github_and_open_data. Query: Argentina football open data lineups formations substitutions Lionel Scaloni
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/argentina_scaloni/.
+Each Markdown file must start with these metadata lines:
+manager_id: argentina_scaloni
+manager_name: Lionel Scaloni
+team: Argentina
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/argentina_scaloni/,Prefer structured public data and transparent match records.
+agent_reach_austria_rangnick_web_tactical_reports,austria_rangnick,Ralf Rangnick,Austria,web_tactical_reports,1,False,tactical_reports,Ralf Rangnick Austria tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Ralf Rangnick (Austria) for the World Cup project.
+Channel: web_tactical_reports. Query: Ralf Rangnick Austria tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/austria_rangnick/.
+Each Markdown file must start with these metadata lines:
+manager_id: austria_rangnick
+manager_name: Ralf Rangnick
+team: Austria
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/austria_rangnick/,Core recurring tactical evidence from public tactical reports.
+agent_reach_austria_rangnick_press_conferences,austria_rangnick,Ralf Rangnick,Austria,press_conferences,2,False,press_conferences,Ralf Rangnick Austria press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Ralf Rangnick (Austria) for the World Cup project.
+Channel: press_conferences. Query: Ralf Rangnick Austria press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/austria_rangnick/.
+Each Markdown file must start with these metadata lines:
+manager_id: austria_rangnick
+manager_name: Ralf Rangnick
+team: Austria
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/austria_rangnick/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_austria_rangnick_youtube_breakdowns,austria_rangnick,Ralf Rangnick,Austria,youtube_breakdowns,3,False,external_views,Austria Ralf Rangnick tactical breakdown video analysis,"Use Agent-Reach to research Ralf Rangnick (Austria) for the World Cup project.
+Channel: youtube_breakdowns. Query: Austria Ralf Rangnick tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/austria_rangnick/.
+Each Markdown file must start with these metadata lines:
+manager_id: austria_rangnick
+manager_name: Ralf Rangnick
+team: Austria
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/austria_rangnick/,Use captions/transcripts when available; cite the video URL.
+agent_reach_austria_rangnick_github_and_open_data,austria_rangnick,Ralf Rangnick,Austria,github_and_open_data,4,False,decision_records,Austria football open data lineups formations substitutions Ralf Rangnick,"Use Agent-Reach to research Ralf Rangnick (Austria) for the World Cup project.
+Channel: github_and_open_data. Query: Austria football open data lineups formations substitutions Ralf Rangnick
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/austria_rangnick/.
+Each Markdown file must start with these metadata lines:
+manager_id: austria_rangnick
+manager_name: Ralf Rangnick
+team: Austria
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/austria_rangnick/,Prefer structured public data and transparent match records.
+agent_reach_jordan_sellami_web_tactical_reports,jordan_sellami,Jamal Sellami,Jordan,web_tactical_reports,1,False,tactical_reports,Jamal Sellami Jordan tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Jamal Sellami (Jordan) for the World Cup project.
+Channel: web_tactical_reports. Query: Jamal Sellami Jordan tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/jordan_sellami/.
+Each Markdown file must start with these metadata lines:
+manager_id: jordan_sellami
+manager_name: Jamal Sellami
+team: Jordan
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/jordan_sellami/,Core recurring tactical evidence from public tactical reports.
+agent_reach_jordan_sellami_press_conferences,jordan_sellami,Jamal Sellami,Jordan,press_conferences,2,False,press_conferences,Jamal Sellami Jordan press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Jamal Sellami (Jordan) for the World Cup project.
+Channel: press_conferences. Query: Jamal Sellami Jordan press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/jordan_sellami/.
+Each Markdown file must start with these metadata lines:
+manager_id: jordan_sellami
+manager_name: Jamal Sellami
+team: Jordan
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/jordan_sellami/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_jordan_sellami_youtube_breakdowns,jordan_sellami,Jamal Sellami,Jordan,youtube_breakdowns,3,False,external_views,Jordan Jamal Sellami tactical breakdown video analysis,"Use Agent-Reach to research Jamal Sellami (Jordan) for the World Cup project.
+Channel: youtube_breakdowns. Query: Jordan Jamal Sellami tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/jordan_sellami/.
+Each Markdown file must start with these metadata lines:
+manager_id: jordan_sellami
+manager_name: Jamal Sellami
+team: Jordan
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/jordan_sellami/,Use captions/transcripts when available; cite the video URL.
+agent_reach_jordan_sellami_github_and_open_data,jordan_sellami,Jamal Sellami,Jordan,github_and_open_data,4,False,decision_records,Jordan football open data lineups formations substitutions Jamal Sellami,"Use Agent-Reach to research Jamal Sellami (Jordan) for the World Cup project.
+Channel: github_and_open_data. Query: Jordan football open data lineups formations substitutions Jamal Sellami
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/jordan_sellami/.
+Each Markdown file must start with these metadata lines:
+manager_id: jordan_sellami
+manager_name: Jamal Sellami
+team: Jordan
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/jordan_sellami/,Prefer structured public data and transparent match records.
+agent_reach_colombia_lorenzo_web_tactical_reports,colombia_lorenzo,Nestor Lorenzo,Colombia,web_tactical_reports,1,False,tactical_reports,Nestor Lorenzo Colombia tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Nestor Lorenzo (Colombia) for the World Cup project.
+Channel: web_tactical_reports. Query: Nestor Lorenzo Colombia tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/colombia_lorenzo/.
+Each Markdown file must start with these metadata lines:
+manager_id: colombia_lorenzo
+manager_name: Nestor Lorenzo
+team: Colombia
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/colombia_lorenzo/,Core recurring tactical evidence from public tactical reports.
+agent_reach_colombia_lorenzo_press_conferences,colombia_lorenzo,Nestor Lorenzo,Colombia,press_conferences,2,False,press_conferences,Nestor Lorenzo Colombia press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Nestor Lorenzo (Colombia) for the World Cup project.
+Channel: press_conferences. Query: Nestor Lorenzo Colombia press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/colombia_lorenzo/.
+Each Markdown file must start with these metadata lines:
+manager_id: colombia_lorenzo
+manager_name: Nestor Lorenzo
+team: Colombia
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/colombia_lorenzo/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_colombia_lorenzo_youtube_breakdowns,colombia_lorenzo,Nestor Lorenzo,Colombia,youtube_breakdowns,3,False,external_views,Colombia Nestor Lorenzo tactical breakdown video analysis,"Use Agent-Reach to research Nestor Lorenzo (Colombia) for the World Cup project.
+Channel: youtube_breakdowns. Query: Colombia Nestor Lorenzo tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/colombia_lorenzo/.
+Each Markdown file must start with these metadata lines:
+manager_id: colombia_lorenzo
+manager_name: Nestor Lorenzo
+team: Colombia
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/colombia_lorenzo/,Use captions/transcripts when available; cite the video URL.
+agent_reach_colombia_lorenzo_github_and_open_data,colombia_lorenzo,Nestor Lorenzo,Colombia,github_and_open_data,4,False,decision_records,Colombia football open data lineups formations substitutions Nestor Lorenzo,"Use Agent-Reach to research Nestor Lorenzo (Colombia) for the World Cup project.
+Channel: github_and_open_data. Query: Colombia football open data lineups formations substitutions Nestor Lorenzo
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/colombia_lorenzo/.
+Each Markdown file must start with these metadata lines:
+manager_id: colombia_lorenzo
+manager_name: Nestor Lorenzo
+team: Colombia
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/colombia_lorenzo/,Prefer structured public data and transparent match records.
+agent_reach_congo_dr_desabre_web_tactical_reports,congo_dr_desabre,Sebastien Desabre,Congo DR,web_tactical_reports,1,False,tactical_reports,Sebastien Desabre Congo DR tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Sebastien Desabre (Congo DR) for the World Cup project.
+Channel: web_tactical_reports. Query: Sebastien Desabre Congo DR tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/congo_dr_desabre/.
+Each Markdown file must start with these metadata lines:
+manager_id: congo_dr_desabre
+manager_name: Sebastien Desabre
+team: Congo DR
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/congo_dr_desabre/,Core recurring tactical evidence from public tactical reports.
+agent_reach_congo_dr_desabre_press_conferences,congo_dr_desabre,Sebastien Desabre,Congo DR,press_conferences,2,False,press_conferences,Sebastien Desabre Congo DR press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Sebastien Desabre (Congo DR) for the World Cup project.
+Channel: press_conferences. Query: Sebastien Desabre Congo DR press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/congo_dr_desabre/.
+Each Markdown file must start with these metadata lines:
+manager_id: congo_dr_desabre
+manager_name: Sebastien Desabre
+team: Congo DR
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/congo_dr_desabre/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_congo_dr_desabre_youtube_breakdowns,congo_dr_desabre,Sebastien Desabre,Congo DR,youtube_breakdowns,3,False,external_views,Congo DR Sebastien Desabre tactical breakdown video analysis,"Use Agent-Reach to research Sebastien Desabre (Congo DR) for the World Cup project.
+Channel: youtube_breakdowns. Query: Congo DR Sebastien Desabre tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/congo_dr_desabre/.
+Each Markdown file must start with these metadata lines:
+manager_id: congo_dr_desabre
+manager_name: Sebastien Desabre
+team: Congo DR
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/congo_dr_desabre/,Use captions/transcripts when available; cite the video URL.
+agent_reach_congo_dr_desabre_github_and_open_data,congo_dr_desabre,Sebastien Desabre,Congo DR,github_and_open_data,4,False,decision_records,Congo DR football open data lineups formations substitutions Sebastien Desabre,"Use Agent-Reach to research Sebastien Desabre (Congo DR) for the World Cup project.
+Channel: github_and_open_data. Query: Congo DR football open data lineups formations substitutions Sebastien Desabre
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/congo_dr_desabre/.
+Each Markdown file must start with these metadata lines:
+manager_id: congo_dr_desabre
+manager_name: Sebastien Desabre
+team: Congo DR
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/congo_dr_desabre/,Prefer structured public data and transparent match records.
+agent_reach_portugal_martinez_web_tactical_reports,portugal_martinez,Roberto Martinez,Portugal,web_tactical_reports,1,False,tactical_reports,Roberto Martinez Portugal tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Roberto Martinez (Portugal) for the World Cup project.
+Channel: web_tactical_reports. Query: Roberto Martinez Portugal tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/portugal_martinez/.
+Each Markdown file must start with these metadata lines:
+manager_id: portugal_martinez
+manager_name: Roberto Martinez
+team: Portugal
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/portugal_martinez/,Core recurring tactical evidence from public tactical reports.
+agent_reach_portugal_martinez_press_conferences,portugal_martinez,Roberto Martinez,Portugal,press_conferences,2,False,press_conferences,Roberto Martinez Portugal press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Roberto Martinez (Portugal) for the World Cup project.
+Channel: press_conferences. Query: Roberto Martinez Portugal press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/portugal_martinez/.
+Each Markdown file must start with these metadata lines:
+manager_id: portugal_martinez
+manager_name: Roberto Martinez
+team: Portugal
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/portugal_martinez/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_portugal_martinez_youtube_breakdowns,portugal_martinez,Roberto Martinez,Portugal,youtube_breakdowns,3,False,external_views,Portugal Roberto Martinez tactical breakdown video analysis,"Use Agent-Reach to research Roberto Martinez (Portugal) for the World Cup project.
+Channel: youtube_breakdowns. Query: Portugal Roberto Martinez tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/portugal_martinez/.
+Each Markdown file must start with these metadata lines:
+manager_id: portugal_martinez
+manager_name: Roberto Martinez
+team: Portugal
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/portugal_martinez/,Use captions/transcripts when available; cite the video URL.
+agent_reach_portugal_martinez_github_and_open_data,portugal_martinez,Roberto Martinez,Portugal,github_and_open_data,4,False,decision_records,Portugal football open data lineups formations substitutions Roberto Martinez,"Use Agent-Reach to research Roberto Martinez (Portugal) for the World Cup project.
+Channel: github_and_open_data. Query: Portugal football open data lineups formations substitutions Roberto Martinez
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/portugal_martinez/.
+Each Markdown file must start with these metadata lines:
+manager_id: portugal_martinez
+manager_name: Roberto Martinez
+team: Portugal
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/portugal_martinez/,Prefer structured public data and transparent match records.
+agent_reach_uzbekistan_cannavaro_web_tactical_reports,uzbekistan_cannavaro,Fabio Cannavaro,Uzbekistan,web_tactical_reports,1,False,tactical_reports,Fabio Cannavaro Uzbekistan tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Fabio Cannavaro (Uzbekistan) for the World Cup project.
+Channel: web_tactical_reports. Query: Fabio Cannavaro Uzbekistan tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/uzbekistan_cannavaro/.
+Each Markdown file must start with these metadata lines:
+manager_id: uzbekistan_cannavaro
+manager_name: Fabio Cannavaro
+team: Uzbekistan
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/uzbekistan_cannavaro/,Core recurring tactical evidence from public tactical reports.
+agent_reach_uzbekistan_cannavaro_press_conferences,uzbekistan_cannavaro,Fabio Cannavaro,Uzbekistan,press_conferences,2,False,press_conferences,Fabio Cannavaro Uzbekistan press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Fabio Cannavaro (Uzbekistan) for the World Cup project.
+Channel: press_conferences. Query: Fabio Cannavaro Uzbekistan press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/uzbekistan_cannavaro/.
+Each Markdown file must start with these metadata lines:
+manager_id: uzbekistan_cannavaro
+manager_name: Fabio Cannavaro
+team: Uzbekistan
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/uzbekistan_cannavaro/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_uzbekistan_cannavaro_youtube_breakdowns,uzbekistan_cannavaro,Fabio Cannavaro,Uzbekistan,youtube_breakdowns,3,False,external_views,Uzbekistan Fabio Cannavaro tactical breakdown video analysis,"Use Agent-Reach to research Fabio Cannavaro (Uzbekistan) for the World Cup project.
+Channel: youtube_breakdowns. Query: Uzbekistan Fabio Cannavaro tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/uzbekistan_cannavaro/.
+Each Markdown file must start with these metadata lines:
+manager_id: uzbekistan_cannavaro
+manager_name: Fabio Cannavaro
+team: Uzbekistan
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/uzbekistan_cannavaro/,Use captions/transcripts when available; cite the video URL.
+agent_reach_uzbekistan_cannavaro_github_and_open_data,uzbekistan_cannavaro,Fabio Cannavaro,Uzbekistan,github_and_open_data,4,False,decision_records,Uzbekistan football open data lineups formations substitutions Fabio Cannavaro,"Use Agent-Reach to research Fabio Cannavaro (Uzbekistan) for the World Cup project.
+Channel: github_and_open_data. Query: Uzbekistan football open data lineups formations substitutions Fabio Cannavaro
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/uzbekistan_cannavaro/.
+Each Markdown file must start with these metadata lines:
+manager_id: uzbekistan_cannavaro
+manager_name: Fabio Cannavaro
+team: Uzbekistan
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/uzbekistan_cannavaro/,Prefer structured public data and transparent match records.
+agent_reach_croatia_dalic_web_tactical_reports,croatia_dalic,Zlatko Dalic,Croatia,web_tactical_reports,1,False,tactical_reports,Zlatko Dalic Croatia tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Zlatko Dalic (Croatia) for the World Cup project.
+Channel: web_tactical_reports. Query: Zlatko Dalic Croatia tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/croatia_dalic/.
+Each Markdown file must start with these metadata lines:
+manager_id: croatia_dalic
+manager_name: Zlatko Dalic
+team: Croatia
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/croatia_dalic/,Core recurring tactical evidence from public tactical reports.
+agent_reach_croatia_dalic_press_conferences,croatia_dalic,Zlatko Dalic,Croatia,press_conferences,2,False,press_conferences,Zlatko Dalic Croatia press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Zlatko Dalic (Croatia) for the World Cup project.
+Channel: press_conferences. Query: Zlatko Dalic Croatia press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/croatia_dalic/.
+Each Markdown file must start with these metadata lines:
+manager_id: croatia_dalic
+manager_name: Zlatko Dalic
+team: Croatia
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/croatia_dalic/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_croatia_dalic_youtube_breakdowns,croatia_dalic,Zlatko Dalic,Croatia,youtube_breakdowns,3,False,external_views,Croatia Zlatko Dalic tactical breakdown video analysis,"Use Agent-Reach to research Zlatko Dalic (Croatia) for the World Cup project.
+Channel: youtube_breakdowns. Query: Croatia Zlatko Dalic tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/croatia_dalic/.
+Each Markdown file must start with these metadata lines:
+manager_id: croatia_dalic
+manager_name: Zlatko Dalic
+team: Croatia
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/croatia_dalic/,Use captions/transcripts when available; cite the video URL.
+agent_reach_croatia_dalic_github_and_open_data,croatia_dalic,Zlatko Dalic,Croatia,github_and_open_data,4,False,decision_records,Croatia football open data lineups formations substitutions Zlatko Dalic,"Use Agent-Reach to research Zlatko Dalic (Croatia) for the World Cup project.
+Channel: github_and_open_data. Query: Croatia football open data lineups formations substitutions Zlatko Dalic
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/croatia_dalic/.
+Each Markdown file must start with these metadata lines:
+manager_id: croatia_dalic
+manager_name: Zlatko Dalic
+team: Croatia
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/croatia_dalic/,Prefer structured public data and transparent match records.
+agent_reach_england_tuchel_web_tactical_reports,england_tuchel,Thomas Tuchel,England,web_tactical_reports,1,False,tactical_reports,Thomas Tuchel England tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Thomas Tuchel (England) for the World Cup project.
+Channel: web_tactical_reports. Query: Thomas Tuchel England tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/england_tuchel/.
+Each Markdown file must start with these metadata lines:
+manager_id: england_tuchel
+manager_name: Thomas Tuchel
+team: England
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/england_tuchel/,Core recurring tactical evidence from public tactical reports.
+agent_reach_england_tuchel_press_conferences,england_tuchel,Thomas Tuchel,England,press_conferences,2,False,press_conferences,Thomas Tuchel England press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Thomas Tuchel (England) for the World Cup project.
+Channel: press_conferences. Query: Thomas Tuchel England press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/england_tuchel/.
+Each Markdown file must start with these metadata lines:
+manager_id: england_tuchel
+manager_name: Thomas Tuchel
+team: England
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/england_tuchel/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_england_tuchel_youtube_breakdowns,england_tuchel,Thomas Tuchel,England,youtube_breakdowns,3,False,external_views,England Thomas Tuchel tactical breakdown video analysis,"Use Agent-Reach to research Thomas Tuchel (England) for the World Cup project.
+Channel: youtube_breakdowns. Query: England Thomas Tuchel tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/england_tuchel/.
+Each Markdown file must start with these metadata lines:
+manager_id: england_tuchel
+manager_name: Thomas Tuchel
+team: England
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/england_tuchel/,Use captions/transcripts when available; cite the video URL.
+agent_reach_england_tuchel_github_and_open_data,england_tuchel,Thomas Tuchel,England,github_and_open_data,4,False,decision_records,England football open data lineups formations substitutions Thomas Tuchel,"Use Agent-Reach to research Thomas Tuchel (England) for the World Cup project.
+Channel: github_and_open_data. Query: England football open data lineups formations substitutions Thomas Tuchel
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/england_tuchel/.
+Each Markdown file must start with these metadata lines:
+manager_id: england_tuchel
+manager_name: Thomas Tuchel
+team: England
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/england_tuchel/,Prefer structured public data and transparent match records.
+agent_reach_ghana_queiroz_web_tactical_reports,ghana_queiroz,Carlos Queiroz,Ghana,web_tactical_reports,1,False,tactical_reports,Carlos Queiroz Ghana tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Carlos Queiroz (Ghana) for the World Cup project.
+Channel: web_tactical_reports. Query: Carlos Queiroz Ghana tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/ghana_queiroz/.
+Each Markdown file must start with these metadata lines:
+manager_id: ghana_queiroz
+manager_name: Carlos Queiroz
+team: Ghana
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/ghana_queiroz/,Core recurring tactical evidence from public tactical reports.
+agent_reach_ghana_queiroz_press_conferences,ghana_queiroz,Carlos Queiroz,Ghana,press_conferences,2,False,press_conferences,Carlos Queiroz Ghana press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Carlos Queiroz (Ghana) for the World Cup project.
+Channel: press_conferences. Query: Carlos Queiroz Ghana press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/ghana_queiroz/.
+Each Markdown file must start with these metadata lines:
+manager_id: ghana_queiroz
+manager_name: Carlos Queiroz
+team: Ghana
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/ghana_queiroz/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_ghana_queiroz_youtube_breakdowns,ghana_queiroz,Carlos Queiroz,Ghana,youtube_breakdowns,3,False,external_views,Ghana Carlos Queiroz tactical breakdown video analysis,"Use Agent-Reach to research Carlos Queiroz (Ghana) for the World Cup project.
+Channel: youtube_breakdowns. Query: Ghana Carlos Queiroz tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/ghana_queiroz/.
+Each Markdown file must start with these metadata lines:
+manager_id: ghana_queiroz
+manager_name: Carlos Queiroz
+team: Ghana
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/ghana_queiroz/,Use captions/transcripts when available; cite the video URL.
+agent_reach_ghana_queiroz_github_and_open_data,ghana_queiroz,Carlos Queiroz,Ghana,github_and_open_data,4,False,decision_records,Ghana football open data lineups formations substitutions Carlos Queiroz,"Use Agent-Reach to research Carlos Queiroz (Ghana) for the World Cup project.
+Channel: github_and_open_data. Query: Ghana football open data lineups formations substitutions Carlos Queiroz
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/ghana_queiroz/.
+Each Markdown file must start with these metadata lines:
+manager_id: ghana_queiroz
+manager_name: Carlos Queiroz
+team: Ghana
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/ghana_queiroz/,Prefer structured public data and transparent match records.
+agent_reach_panama_christiansen_web_tactical_reports,panama_christiansen,Thomas Christiansen,Panama,web_tactical_reports,1,False,tactical_reports,Thomas Christiansen Panama tactical analysis formation pressing transitions World Cup 2026,"Use Agent-Reach to research Thomas Christiansen (Panama) for the World Cup project.
+Channel: web_tactical_reports. Query: Thomas Christiansen Panama tactical analysis formation pressing transitions World Cup 2026
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/panama_christiansen/.
+Each Markdown file must start with these metadata lines:
+manager_id: panama_christiansen
+manager_name: Thomas Christiansen
+team: Panama
+category: tactical_reports
+source_url: <original URL>
+source_title: <source title>
+source_channel: web_tactical_reports
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/panama_christiansen/,Core recurring tactical evidence from public tactical reports.
+agent_reach_panama_christiansen_press_conferences,panama_christiansen,Thomas Christiansen,Panama,press_conferences,2,False,press_conferences,Thomas Christiansen Panama press conference tactics lineup substitutions World Cup,"Use Agent-Reach to research Thomas Christiansen (Panama) for the World Cup project.
+Channel: press_conferences. Query: Thomas Christiansen Panama press conference tactics lineup substitutions World Cup
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/panama_christiansen/.
+Each Markdown file must start with these metadata lines:
+manager_id: panama_christiansen
+manager_name: Thomas Christiansen
+team: Panama
+category: press_conferences
+source_url: <original URL>
+source_title: <source title>
+source_channel: press_conferences
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/panama_christiansen/,Direct manager quotes should be separated from journalist interpretation.
+agent_reach_panama_christiansen_youtube_breakdowns,panama_christiansen,Thomas Christiansen,Panama,youtube_breakdowns,3,False,external_views,Panama Thomas Christiansen tactical breakdown video analysis,"Use Agent-Reach to research Thomas Christiansen (Panama) for the World Cup project.
+Channel: youtube_breakdowns. Query: Panama Thomas Christiansen tactical breakdown video analysis
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/panama_christiansen/.
+Each Markdown file must start with these metadata lines:
+manager_id: panama_christiansen
+manager_name: Thomas Christiansen
+team: Panama
+category: external_views
+source_url: <original URL>
+source_title: <source title>
+source_channel: youtube_breakdowns
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/panama_christiansen/,Use captions/transcripts when available; cite the video URL.
+agent_reach_panama_christiansen_github_and_open_data,panama_christiansen,Thomas Christiansen,Panama,github_and_open_data,4,False,decision_records,Panama football open data lineups formations substitutions Thomas Christiansen,"Use Agent-Reach to research Thomas Christiansen (Panama) for the World Cup project.
+Channel: github_and_open_data. Query: Panama football open data lineups formations substitutions Thomas Christiansen
+Use public sources only.
+Save one Markdown file per useful source under data/raw/research_evidence/agent_reach_inbox/panama_christiansen/.
+Each Markdown file must start with these metadata lines:
+manager_id: panama_christiansen
+manager_name: Thomas Christiansen
+team: Panama
+category: decision_records
+source_url: <original URL>
+source_title: <source title>
+source_channel: github_and_open_data
+Then include source-grounded notes only. Do not invent tactical claims.",data/raw/research_evidence/agent_reach_inbox/panama_christiansen/,Prefer structured public data and transparent match records.

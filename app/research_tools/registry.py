@@ -131,6 +131,9 @@ def recommended_research_workflow() -> list[str]:
     return [
         "Install optional tools locally with: pip install -r requirements-research.txt",
         "Run: python scripts/research_tool_doctor.py",
+        "Generate a manager research queue with: python scripts/plan_agent_reach_research.py",
+        "Use Agent-Reach locally to collect Markdown into data/raw/research_evidence/agent_reach_inbox/.",
+        "Import collected Markdown with: python scripts/import_agent_reach_evidence.py",
         "Collect public web evidence with: python scripts/collect_research_evidence.py --url URL --title TITLE",
         "Review generated Markdown and source metadata before converting claims into tactical evidence CSV rows.",
         "Only human-reviewed, recurring, distinctive claims should refine manager skills or agent reasoning.",

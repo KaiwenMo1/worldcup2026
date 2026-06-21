@@ -340,6 +340,27 @@ python scripts/collect_research_evidence.py \
 
 Collected files are written under `data/raw/research_evidence/` and indexed in `research_evidence_index.csv`. They are intentionally marked `raw_unreviewed_public_evidence`; a human should review them before extracting claims into `data/raw/tactical_articles/` or manager-skill evidence. Keep cookie/login-based Agent-Reach channels local only, and never commit cookies, session tokens, or scraped private content.
 
+Agent-Reach gets a dedicated local workflow for manager research:
+
+```bash
+# Build the 48-manager public research queue.
+python scripts/plan_agent_reach_research.py
+
+# Or focus on one team.
+python scripts/plan_agent_reach_research.py --team France
+
+# Include weak/social channels only when you intentionally want login-local research.
+python scripts/plan_agent_reach_research.py --team France --include-social
+```
+
+The generated queue is `data/derived/agent_reach_manager_research_plan.csv`. Give individual `agent_prompt` cells to an Agent-Reach-enabled assistant, save the resulting Markdown under `data/raw/research_evidence/agent_reach_inbox/{manager_id}/`, then import the local collection:
+
+```bash
+python scripts/import_agent_reach_evidence.py
+```
+
+Imported files are copied into the research evidence index and queued in `data/derived/agent_reach_tactical_review_queue.csv`. The queue starts with blank `claim_text` and `reviewed_by_human=false` by design; Agent-Reach can gather source material, but it cannot directly rewrite manager skills or prediction features.
+
 ## Evaluate Completed Matches
 
 The post-match evaluator closes the feedback loop across model forecasts, manager-skill hypotheses, matchup edges, and immutable analyst logs.

@@ -5,12 +5,15 @@ import unittest
 from pathlib import Path
 
 from app.research_tools import (
+    build_agent_reach_research_tasks,
     build_manager_evidence_template_row,
     collect_public_evidence,
     detect_research_tools,
+    import_agent_reach_markdown,
     extract_markdown_from_html,
     research_tool_catalog,
     research_tool_summary,
+    write_agent_reach_plan,
     write_research_documents,
 )
 
@@ -82,6 +85,71 @@ class FootballResearchScoutTests(unittest.TestCase):
         self.assertEqual(row["manager_id"], "england_tuchel")
         self.assertEqual(row["reviewed_by_human"], "false")
         self.assertEqual(row["claim_text"], "")
+
+
+class AgentReachWorkflowTests(unittest.TestCase):
+    def test_manager_research_plan_is_specific_and_social_is_opt_in(self) -> None:
+        tasks = build_agent_reach_research_tasks(team="France")
+        social_tasks = build_agent_reach_research_tasks(team="France", include_social=True)
+
+        self.assertTrue(tasks)
+        self.assertTrue(all(task.team == "France" for task in tasks))
+        self.assertFalse(any(task.requires_login for task in tasks))
+        self.assertTrue(any(task.requires_login for task in social_tasks))
+        self.assertIn("manager_id:", tasks[0].agent_prompt)
+        self.assertIn("Do not invent tactical claims", tasks[0].agent_prompt)
+
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "plan.csv"
+            issues = write_agent_reach_plan(tasks[:2], path)
+
+            self.assertFalse(issues)
+            self.assertIn("agent_prompt", path.read_text(encoding="utf-8"))
+
+    def test_import_agent_reach_markdown_creates_review_queue(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            inbox = root / "inbox"
+            inbox.mkdir()
+            (inbox / "france_note.md").write_text(
+                "\n".join(
+                    [
+                        "manager_id: france_deschamps",
+                        "manager_name: Didier Deschamps",
+                        "team: France",
+                        "category: tactical_reports",
+                        "source_url: https://example.com/france",
+                        "source_title: France tactical analysis",
+                        "source_channel: web_tactical_reports",
+                        "",
+                        "# France tactical analysis",
+                        "France attacked transitions quickly after regains.",
+                    ]
+                ),
+                encoding="utf-8",
+            )
+
+            result = import_agent_reach_markdown(
+                inbox,
+                output_dir=root / "evidence",
+                index_path=root / "index.csv",
+                review_queue_path=root / "queue.csv",
+            )
+
+            self.assertTrue(result.ok)
+            self.assertEqual(len(result.documents), 1)
+            self.assertEqual(result.documents[0].source_tool, "agent_reach_web_tactical_reports")
+            self.assertEqual(result.review_rows[0]["reviewed_by_human"], "false")
+            self.assertEqual(result.review_rows[0]["claim_text"], "")
+            self.assertIn(result.documents[0].evidence_id, (root / "queue.csv").read_text(encoding="utf-8"))
+
+    def test_import_missing_agent_reach_inbox_is_warning_not_crash(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            result = import_agent_reach_markdown(Path(directory) / "missing")
+
+        self.assertEqual(result.documents, [])
+        self.assertTrue(result.issues)
+        self.assertEqual(result.issues[0].severity.value, "warning")
 
 
 if __name__ == "__main__":

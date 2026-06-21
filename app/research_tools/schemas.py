@@ -69,3 +69,18 @@ class ResearchEvidenceDocument(StrictModel):
         if value.tzinfo is None or value.utcoffset() is None:
             raise ValueError("collected_at must include a timezone")
         return value
+
+
+class AgentReachResearchTask(StrictModel):
+    task_id: str = Field(pattern=r"^[a-zA-Z0-9_-]+$")
+    manager_id: str = Field(pattern=r"^[a-z0-9_]+$")
+    manager_name: str = Field(min_length=1)
+    team: str = Field(min_length=1)
+    channel: str = Field(min_length=1)
+    priority: int = Field(ge=1, le=5)
+    requires_login: bool = False
+    target_category: str = Field(min_length=1)
+    query: str = Field(min_length=1)
+    agent_prompt: str = Field(min_length=1)
+    output_path_hint: str = Field(min_length=1)
+    evidence_policy: str = Field(min_length=1)
