@@ -11,4 +11,5 @@ shap>=0.45
 mlflow>=2.12
 penaltyblog>=1.11
 beautifulsoup4>=4.12
+lxml>=5.2
 kaggle>=1.6

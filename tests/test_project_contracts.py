@@ -119,5 +119,16 @@ class IntelligenceContractTests(unittest.TestCase):
         self.assertTrue(result.endswith("..."))
 
 
+class CiContractTests(unittest.TestCase):
+    def test_squad_refresh_installs_pandas_html_parser_dependency(self) -> None:
+        requirements = (ROOT / "requirements.txt").read_text(encoding="utf-8")
+        web_requirements = (ROOT / "requirements-web.txt").read_text(encoding="utf-8")
+        workflow = (ROOT / ".github" / "workflows" / "refresh-squads.yml").read_text(encoding="utf-8")
+
+        self.assertIn("lxml", requirements)
+        self.assertIn("lxml", web_requirements)
+        self.assertIn("lxml", workflow)
+
+
 if __name__ == "__main__":
     unittest.main()
