@@ -1,1 +1,6 @@
 agent_name,matches_predicted,total_points,winner_accuracy,exact_score_hits,qualification_accuracy,average_confidence,underdog_pick_rate,average_underdog_path_quality,target_confusion_count,missing_penalty_probability_count,warnings
+Final Forecast Agent,30,62,0.567,3,,0.57,0.0,,0,0,"[""too_conservative"", ""too_favorite_biased"", ""overconfident""]"
+Base Model,30,61,0.567,3,,0.633,0.0,,0,0,"[""too_conservative"", ""overconfident""]"
+Expert Agent,30,61,0.567,3,,0.605,0.0,,0,0,"[""too_conservative"", ""too_favorite_biased"", ""overconfident""]"
+Kevin Agent,30,61,0.567,3,,0.634,0.0,,0,0,"[""too_conservative"", ""too_favorite_biased"", ""overconfident""]"
+Upset Agent,30,35,0.133,3,,0.182,1.0,0.8,0,0,"[""too_upset_happy""]"

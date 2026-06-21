@@ -57,6 +57,7 @@ from app.future_data import (  # noqa: E402
     refresh_player_stats,
     refresh_tactical_evidence,
 )
+from app.agentic_update import DEFAULT_AGENT_REPORT_PATH, AgenticUpdateConfig, run_update_agent  # noqa: E402
 from app.tournament_autopilot import load_observed_matches, run_tournament_autopilot  # noqa: E402
 from app.prediction_arena.api_service import (  # noqa: E402
     get_arena_calibration,
@@ -348,9 +349,21 @@ class PredictionArenaSettleRequest(BaseModel):
 
 
 class TournamentAutopilotRequest(BaseModel):
+    refresh_official: bool = True
     refresh_provider: bool = True
     run_arena: bool = False
     settle_and_evaluate: bool = True
+    hours_ahead: int = Field(default=36, ge=1, le=168)
+
+
+class AgenticUpdateRequest(BaseModel):
+    apply: bool = False
+    refresh_official: bool = True
+    include_provider: bool = False
+    include_event_feed: bool = True
+    include_lineups: bool = True
+    run_arena: bool = False
+    verify: bool = False
     hours_ahead: int = Field(default=36, ge=1, le=168)
 
 
@@ -3406,11 +3419,37 @@ def api_model_evaluation() -> dict[str, Any]:
 @app.post("/api/tournament-autopilot/run")
 def api_tournament_autopilot(request: TournamentAutopilotRequest) -> dict[str, Any]:
     return run_tournament_autopilot(
+        refresh_official=request.refresh_official,
         refresh_provider=request.refresh_provider,
         run_arena=request.run_arena,
         settle_and_evaluate=request.settle_and_evaluate,
         hours_ahead=request.hours_ahead,
     ).as_dict()
+
+
+@app.post("/api/update-agent/run")
+def api_update_agent_run(request: AgenticUpdateRequest) -> dict[str, Any]:
+    report = run_update_agent(
+        AgenticUpdateConfig(
+            apply=request.apply,
+            refresh_official=request.refresh_official,
+            include_provider=request.include_provider,
+            include_event_feed=request.include_event_feed,
+            include_lineups=request.include_lineups,
+            run_arena=request.run_arena,
+            verify=request.verify,
+            allow_subprocess=False,
+            hours_ahead=request.hours_ahead,
+        )
+    )
+    return report.model_dump(mode="json")
+
+
+@app.get("/api/update-agent/latest")
+def api_update_agent_latest() -> dict[str, Any]:
+    if not DEFAULT_AGENT_REPORT_PATH.exists():
+        return {"report": None, "message": "No update-agent report has been written yet."}
+    return {"report": json.loads(DEFAULT_AGENT_REPORT_PATH.read_text(encoding="utf-8"))}
 
 
 @app.get("/api/observed-matches")

@@ -1,0 +1,144 @@
+{
+  "run_id": "00803fadb85a4034a3f6b7a164f7566e",
+  "mode": "dry_run",
+  "created_at": "2026-06-21T01:48:01.001259Z",
+  "observations_before": {
+    "live_state_exists": true,
+    "live_state_updated_at": "2026-06-21T01:41:57.125298+00:00",
+    "completed_matches": 34,
+    "current_matches": 104,
+    "live_matches": 1,
+    "official_snapshot_exists": true,
+    "official_snapshot_match_count": 104,
+    "provider_key_configured": false,
+    "event_feed_configured": false,
+    "sportmonks_configured": false,
+    "generated_at": "2026-06-21T01:48:01.001043Z"
+  },
+  "plan": [
+    {
+      "tool_id": "official_fifa_scores",
+      "description": "Fetch official FIFA calendar scores, persist final results, and refresh live-state outputs.",
+      "will_run": true,
+      "requires_network": true,
+      "requires_secret": false,
+      "reason": "Official score refresh is the safest primary source for completed World Cup matches.",
+      "command_preview": [
+        "python",
+        "scripts/run_tournament_autopilot.py",
+        "--refresh-official"
+      ]
+    },
+    {
+      "tool_id": "provider_scores",
+      "description": "Layer optional provider data on top of official results when an API key is configured.",
+      "will_run": false,
+      "requires_network": true,
+      "requires_secret": true,
+      "reason": "Skipped unless include_provider is enabled and BALLDONTLIE_API_KEY is configured.",
+      "command_preview": []
+    },
+    {
+      "tool_id": "live_event_feed",
+      "description": "Normalize provider-independent live event rows into match summary signals.",
+      "will_run": false,
+      "requires_network": true,
+      "requires_secret": false,
+      "reason": "Skipped unless a live event feed URL is configured.",
+      "command_preview": [
+        "python",
+        "scripts/sync_live_events.py",
+        "--optional"
+      ]
+    },
+    {
+      "tool_id": "lineups_and_squads",
+      "description": "Refresh observed lineups where possible and rebuild lineup delta signals.",
+      "will_run": true,
+      "requires_network": false,
+      "requires_secret": false,
+      "reason": "Keeps confirmed starters and squad-derived availability signals in sync.",
+      "command_preview": [
+        "python scripts/sync_lineups.py --optional --days 10 --max-fixtures 3",
+        "python scripts/sync_squads.py --from-existing",
+        "python scripts/ingest_lineups.py --from-confirmed-lineups"
+      ]
+    },
+    {
+      "tool_id": "verification",
+      "description": "Run compact project verification after update tools finish.",
+      "will_run": false,
+      "requires_network": false,
+      "requires_secret": false,
+      "reason": "Skipped unless --verify is passed.",
+      "command_preview": [
+        "python",
+        "-m",
+        "unittest",
+        "tests.test_tournament_autopilot",
+        "-v"
+      ]
+    }
+  ],
+  "results": [
+    {
+      "tool_id": "official_fifa_scores",
+      "status": "planned",
+      "started_at": "2026-06-21T01:48:01.001218Z",
+      "finished_at": "2026-06-21T01:48:01.001220Z",
+      "message": "Official score refresh is the safest primary source for completed World Cup matches.",
+      "metrics": {}
+    },
+    {
+      "tool_id": "provider_scores",
+      "status": "skipped",
+      "started_at": "2026-06-21T01:48:01.001218Z",
+      "finished_at": "2026-06-21T01:48:01.001235Z",
+      "message": "Skipped unless include_provider is enabled and BALLDONTLIE_API_KEY is configured.",
+      "metrics": {}
+    },
+    {
+      "tool_id": "live_event_feed",
+      "status": "skipped",
+      "started_at": "2026-06-21T01:48:01.001218Z",
+      "finished_at": "2026-06-21T01:48:01.001238Z",
+      "message": "Skipped unless a live event feed URL is configured.",
+      "metrics": {}
+    },
+    {
+      "tool_id": "lineups_and_squads",
+      "status": "planned",
+      "started_at": "2026-06-21T01:48:01.001218Z",
+      "finished_at": "2026-06-21T01:48:01.001240Z",
+      "message": "Keeps confirmed starters and squad-derived availability signals in sync.",
+      "metrics": {}
+    },
+    {
+      "tool_id": "verification",
+      "status": "skipped",
+      "started_at": "2026-06-21T01:48:01.001218Z",
+      "finished_at": "2026-06-21T01:48:01.001242Z",
+      "message": "Skipped unless --verify is passed.",
+      "metrics": {}
+    }
+  ],
+  "observations_after": {
+    "live_state_exists": true,
+    "live_state_updated_at": "2026-06-21T01:41:57.125298+00:00",
+    "completed_matches": 34,
+    "current_matches": 104,
+    "live_matches": 1,
+    "official_snapshot_exists": true,
+    "official_snapshot_match_count": 104,
+    "provider_key_configured": false,
+    "event_feed_configured": false,
+    "sportmonks_configured": false,
+    "generated_at": "2026-06-21T01:48:01.001043Z"
+  },
+  "warnings": [],
+  "next_actions": [
+    "Run the update agent again after the live match finishes so it can become a permanent final result.",
+    "Configure WORLD_CUP_EVENT_FEED_URL to let the agent ingest richer live match stats.",
+    "Configure SPORTMONKS_API_TOKEN or keep using confirmed-lineup CSV fallbacks."
+  ]
+}

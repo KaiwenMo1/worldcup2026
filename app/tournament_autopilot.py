@@ -6,6 +6,7 @@ import csv
 import json
 import os
 import re
+import unicodedata
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -39,9 +40,13 @@ LIVE_STATE_PATH = ROOT / "data" / "live_state.json"
 OBSERVED_MATCHES_PATH = ROOT / "data" / "observed_matches.csv"
 MANUAL_RESULTS_PATH = ROOT / "data" / "raw" / "live" / "manual_worldcup_results.csv"
 PROVIDER_SNAPSHOT_PATH = ROOT / "data" / "raw" / "live" / "provider_matches_latest.json"
+FIFA_SNAPSHOT_PATH = ROOT / "data" / "raw" / "live" / "fifa_matches_latest.json"
 AUTOPILOT_STATUS_PATH = ROOT / "data" / "tournament_autopilot_status.json"
 LIVE_TEAM_STATE_PATH = ROOT / "data" / "live_team_state.csv"
 DEFAULT_PROVIDER_URL = "https://api.balldontlie.io/fifa/worldcup/v1"
+DEFAULT_FIFA_API_URL = "https://api.fifa.com/api/v3/calendar/matches"
+FIFA_WORLD_CUP_COMPETITION_ID = "17"
+FIFA_WORLD_CUP_2026_SEASON_ID = "285023"
 TEAM_ALIASES = {
     "bosnia-herzegovina": "Bosnia and Herzegovina",
     "bosnia and herzegovina": "Bosnia and Herzegovina",
@@ -49,10 +54,14 @@ TEAM_ALIASES = {
     "united states": "USA",
     "united states of america": "USA",
     "ivory coast": "Cote d'Ivoire",
+    "côte d'ivoire": "Cote d'Ivoire",
     "cape verde": "Cabo Verde",
     "czech republic": "Czechia",
+    "curacao": "Curacao",
+    "curaçao": "Curacao",
     "dr congo": "Congo DR",
     "turkey": "Turkiye",
+    "türkiye": "Turkiye",
 }
 
 
@@ -118,12 +127,22 @@ def _json_default(value: Any) -> str:
     raise TypeError(f"Cannot serialize {type(value).__name__}")
 
 
+def _plain(value: str) -> str:
+    return "".join(
+        char
+        for char in unicodedata.normalize("NFKD", value)
+        if not unicodedata.combining(char)
+    )
+
+
 def _slug(value: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "", value.casefold())
+    return re.sub(r"[^a-z0-9]+", "", _plain(value).casefold())
 
 
 def _canonical_team(value: str) -> str:
-    return TEAM_ALIASES.get(value.casefold().strip(), value.strip())
+    stripped = value.strip()
+    key = stripped.casefold()
+    return TEAM_ALIASES.get(key) or TEAM_ALIASES.get(_plain(key)) or stripped
 
 
 def _fixture_rows(path: Path = FIXTURES_PATH) -> list[dict[str, str]]:
@@ -248,6 +267,103 @@ def provider_rows_to_observed(rows: list[dict[str, Any]]) -> list[ObservedMatch]
     return output
 
 
+def _localized_description(value: Any) -> str:
+    if isinstance(value, str):
+        return value
+    if not isinstance(value, list):
+        return ""
+    preferred = next(
+        (
+            item
+            for item in value
+            if isinstance(item, dict)
+            and str(item.get("Locale", "")).casefold() in {"en-gb", "en", "en-us"}
+        ),
+        None,
+    )
+    item = preferred or next((item for item in value if isinstance(item, dict)), None)
+    return str((item or {}).get("Description") or "")
+
+
+def _fifa_team_name(value: Any) -> str:
+    if not isinstance(value, dict):
+        return ""
+    return _canonical_team(_localized_description(value.get("TeamName")) or value.get("ShortClubName") or "")
+
+
+def _fifa_score(value: Any) -> int | None:
+    if isinstance(value, dict):
+        value = value.get("Score")
+    if value in (None, ""):
+        return None
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _is_fifa_final(row: dict[str, Any]) -> bool:
+    result_type = row.get("ResultType")
+    score_a = _fifa_score(row.get("Home"))
+    score_b = _fifa_score(row.get("Away"))
+    return score_a is not None and score_b is not None and str(result_type) not in {"", "0", "None", "none"}
+
+
+def fifa_row_to_current_match(row: dict[str, Any]) -> dict[str, Any]:
+    team_a = _fifa_team_name(row.get("Home"))
+    team_b = _fifa_team_name(row.get("Away"))
+    score_a = _fifa_score(row.get("Home"))
+    score_b = _fifa_score(row.get("Away"))
+    match_status = str(row.get("MatchStatus") if row.get("MatchStatus") is not None else "")
+    is_final = _is_fifa_final(row)
+    is_live = score_a is not None and score_b is not None and not is_final and match_status not in {"", "0"}
+    return {
+        "match_id": str(row.get("MatchNumber") or row.get("IdMatch") or ""),
+        "provider_match_id": str(row.get("IdMatch") or ""),
+        "stage": _localized_description(row.get("StageName")),
+        "group": _localized_description(row.get("GroupName")),
+        "kickoff_utc": row.get("Date") or None,
+        "team_a": team_a,
+        "team_b": team_b,
+        "team_a_score": score_a,
+        "team_b_score": score_b,
+        "status": "final" if is_final else "live" if is_live else "scheduled",
+        "is_final": is_final,
+        "is_live": is_live,
+        "match_time": row.get("MatchTime") or "",
+        "result_type": row.get("ResultType"),
+        "source": "fifa_official_calendar_api",
+        "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
+    }
+
+
+def fifa_rows_to_observed(rows: list[dict[str, Any]]) -> list[ObservedMatch]:
+    output = []
+    for row in rows:
+        current = fifa_row_to_current_match(row)
+        if not current["is_final"] or current["team_a_score"] is None or current["team_b_score"] is None:
+            continue
+        output.append(
+            ObservedMatch(
+                match_id=current["match_id"],
+                stage=current["stage"].replace("First Stage", "Group"),
+                group=current["group"].replace("Group ", ""),
+                kickoff_utc=_parse_datetime(current["kickoff_utc"]),
+                team_a=current["team_a"],
+                team_b=current["team_b"],
+                team_a_score=current["team_a_score"],
+                team_b_score=current["team_b_score"],
+                status="final",
+                provider_match_id=current["provider_match_id"],
+                source="fifa_official_calendar_api",
+                source_url=current["source_url"],
+                source_confidence=0.99,
+                updated_at=datetime.now(timezone.utc),
+            )
+        )
+    return output
+
+
 def fetch_provider_observed_matches(
     *,
     api_key: str | None = None,
@@ -274,7 +390,50 @@ def fetch_provider_observed_matches(
         return [], str(exc)
 
 
-def sync_live_state(records: list[ObservedMatch], path: Path = LIVE_STATE_PATH) -> dict[str, Any]:
+def fetch_fifa_official_matches(
+    *,
+    base_url: str | None = None,
+    from_date: str = "2026-06-11",
+    to_date: str = "2026-07-20",
+) -> tuple[list[ObservedMatch], list[dict[str, Any]], str | None]:
+    """Fetch official FIFA calendar scores and return final observed rows plus a live snapshot."""
+    url = base_url or os.getenv("FIFA_OFFICIAL_MATCHES_URL") or DEFAULT_FIFA_API_URL
+    params = {
+        "language": "en",
+        "count": 500,
+        "idCompetition": FIFA_WORLD_CUP_COMPETITION_ID,
+        "idSeason": FIFA_WORLD_CUP_2026_SEASON_ID,
+        "from": from_date,
+        "to": to_date,
+    }
+    try:
+        response = requests.get(
+            url,
+            params=params,
+            headers={
+                "User-Agent": "Mozilla/5.0",
+                "Origin": "https://www.fifa.com",
+                "Referer": "https://www.fifa.com/",
+            },
+            timeout=30,
+        )
+        response.raise_for_status()
+        payload = response.json()
+        rows = payload.get("Results", []) if isinstance(payload, dict) else []
+        rows = [row for row in rows if isinstance(row, dict)]
+        FIFA_SNAPSHOT_PATH.parent.mkdir(parents=True, exist_ok=True)
+        FIFA_SNAPSHOT_PATH.write_text(json.dumps(payload, indent=2, default=_json_default) + "\n", encoding="utf-8")
+        current_matches = [fifa_row_to_current_match(row) for row in rows]
+        return fifa_rows_to_observed(rows), current_matches, None
+    except (requests.RequestException, ValueError, OSError) as exc:
+        return [], [], str(exc)
+
+
+def sync_live_state(
+    records: list[ObservedMatch],
+    path: Path = LIVE_STATE_PATH,
+    current_matches: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
     """Publish the durable observed ledger into the app's existing live-state contract."""
     previous: dict[str, Any] = {}
     if path.exists():
@@ -305,6 +464,9 @@ def sync_live_state(records: list[ObservedMatch], path: Path = LIVE_STATE_PATH) 
             for row in records
         ],
     }
+    if current_matches is not None:
+        state["current_matches"] = current_matches
+        state["current_matches_source"] = "fifa_official_calendar_api"
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
     sync_live_team_state(records)
@@ -442,6 +604,7 @@ def _run_upcoming_predictions(report: AutopilotReport, now: datetime, hours_ahea
 
 def run_tournament_autopilot(
     *,
+    refresh_official: bool = False,
     refresh_provider: bool = False,
     run_arena: bool = False,
     settle_and_evaluate: bool = True,
@@ -453,13 +616,20 @@ def run_tournament_autopilot(
     report = AutopilotReport()
     before = {row.match_id for row in load_observed_matches()}
     incoming = load_manual_results()
+    current_matches = None
+    if refresh_official:
+        official, official_current, error = fetch_fifa_official_matches()
+        incoming.extend(official)
+        current_matches = official_current or None
+        if error:
+            report.warnings.append(f"FIFA official refresh skipped: {error}")
     if refresh_provider:
         provider, error = fetch_provider_observed_matches()
         incoming.extend(provider)
         if error:
             report.warnings.append(f"Provider refresh skipped: {error}")
     observed, new_ids = upsert_observed_matches(incoming)
-    sync_live_state(observed)
+    sync_live_state(observed, current_matches=current_matches)
     report.observed_matches = len(observed)
     report.newly_observed_match_ids = [match_id for match_id in new_ids if match_id not in before]
     _run_lineup_refresh(report)
@@ -480,10 +650,13 @@ def run_tournament_autopilot(
 
 __all__ = [
     "AUTOPILOT_STATUS_PATH",
+    "FIFA_SNAPSHOT_PATH",
     "MANUAL_RESULTS_PATH",
     "OBSERVED_MATCHES_PATH",
     "ObservedMatch",
+    "fetch_fifa_official_matches",
     "fetch_provider_observed_matches",
+    "fifa_rows_to_observed",
     "load_observed_matches",
     "provider_rows_to_observed",
     "run_tournament_autopilot",
