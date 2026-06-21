@@ -154,3 +154,8 @@ ff8b7c2ddf1148b685896c7afff36972,33-upset-agent-v15,33,Upset Agent,Cote d'Ivoire
 79ced14c569e4a32b2dc42ba8b2b0255,34-final-forecast-agent-v17,34,Final Forecast Agent,Ecuador,Draw,,,1-0,0-0,0,0,0,0,-1,-1,0.658,2026-06-21T05:24:45.163478Z
 a6afbbf1f4724d25b46c59b9d0064941,34-kevin-agent-v17,34,Kevin Agent,Ecuador,Draw,,,1-0,0-0,0,0,0,0,-1,-1,0.68,2026-06-21T05:24:45.165932Z
 8d6506dc972a40f3854eae892b693af0,34-upset-agent-v17,34,Upset Agent,Curacao,Draw,,,0-1,0-0,0,0,0,0,0,0,0.15,2026-06-21T05:24:45.168484Z
+88a47f4c6fb5466b927718ec036d61aa,36-base-model-v17,36,Base Model,Japan,Japan,,,0-1,0-4,3,0,0,0,0,3,0.5920000000000001,2026-06-21T09:29:39.234676Z
+cdf778491e004b659b837e1d0a862573,36-expert-agent-v17,36,Expert Agent,Japan,Japan,,,0-1,0-4,3,0,0,0,0,3,0.592,2026-06-21T09:29:39.346326Z
+a359a1bde9c343cdbb1abaff17924f86,36-final-forecast-agent-v17,36,Final Forecast Agent,Japan,Japan,,,0-1,0-4,3,0,0,0,0,3,0.542,2026-06-21T09:29:39.348910Z
+0a03311eeea440b38a864c6f62215a29,36-kevin-agent-v17,36,Kevin Agent,Japan,Japan,,,0-1,0-4,3,0,0,0,0,3,0.642,2026-06-21T09:29:39.392963Z
+1faf042b1a4744b78891e2a71b15dbd4,36-upset-agent-v17,36,Upset Agent,Tunisia,Japan,,,1-0,0-4,0,0,0,0,0,0,0.152,2026-06-21T09:29:39.395480Z

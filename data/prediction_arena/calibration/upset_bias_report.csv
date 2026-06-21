@@ -1,6 +1,6 @@
 agent_name,evaluated_predictions,underdog_picks,underdog_pick_rate,actual_upsets,correct_upset_calls,upset_call_accuracy,average_underdog_path_quality,never_picks_underdogs,overpicks_underdogs,warnings
-Base Model,31,0,0.0,14,0,,,False,False,[]
-Expert Agent,31,0,0.0,14,0,,,True,False,"[""never_picks_underdogs""]"
-Final Forecast Agent,31,0,0.0,14,0,,,True,False,"[""never_picks_underdogs""]"
-Kevin Agent,31,0,0.0,14,0,,,True,False,"[""never_picks_underdogs""]"
-Upset Agent,31,31,1.0,14,4,0.129,0.8,False,True,"[""overpicks_underdogs""]"
+Base Model,32,0,0.0,14,0,,,False,False,[]
+Expert Agent,32,0,0.0,14,0,,,True,False,"[""never_picks_underdogs""]"
+Final Forecast Agent,32,0,0.0,14,0,,,True,False,"[""never_picks_underdogs""]"
+Kevin Agent,32,0,0.0,14,0,,,True,False,"[""never_picks_underdogs""]"
+Upset Agent,32,32,1.0,14,4,0.125,0.8,False,True,"[""overpicks_underdogs""]"
