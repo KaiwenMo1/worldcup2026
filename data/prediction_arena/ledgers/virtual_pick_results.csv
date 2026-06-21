@@ -159,3 +159,8 @@ cdf778491e004b659b837e1d0a862573,36-expert-agent-v17,36,Expert Agent,Japan,Japan
 a359a1bde9c343cdbb1abaff17924f86,36-final-forecast-agent-v17,36,Final Forecast Agent,Japan,Japan,,,0-1,0-4,3,0,0,0,0,3,0.542,2026-06-21T09:29:39.348910Z
 0a03311eeea440b38a864c6f62215a29,36-kevin-agent-v17,36,Kevin Agent,Japan,Japan,,,0-1,0-4,3,0,0,0,0,3,0.642,2026-06-21T09:29:39.392963Z
 1faf042b1a4744b78891e2a71b15dbd4,36-upset-agent-v17,36,Upset Agent,Tunisia,Japan,,,1-0,0-4,0,0,0,0,0,0,0.152,2026-06-21T09:29:39.395480Z
+f361af3396754c1693362259e83e0a76,38-base-model-v14,38,Base Model,Spain,Spain,,,2-0,4-0,3,0,0,0,0,3,0.8498498498498498,2026-06-21T18:01:56.434781Z
+2e9ee7d8568d448384b0d7d802dd8661,38-expert-agent-v14,38,Expert Agent,Spain,Spain,,,2-0,4-0,3,0,0,0,0,3,0.68,2026-06-21T18:01:56.437528Z
+fba0acae3b4644aeb81a2657afda0347,38-final-forecast-agent-v14,38,Final Forecast Agent,Spain,Spain,,,2-0,4-0,3,0,0,0,0,3,0.74,2026-06-21T18:01:56.440154Z
+a0fb029d2e854813bdaa8297bb1e4252,38-kevin-agent-v14,38,Kevin Agent,Spain,Spain,,,2-0,4-0,3,0,0,0,0,3,0.68,2026-06-21T18:01:56.442754Z
+30a23d6e1e104ea2a0463b7b465314d2,38-upset-agent-v14,38,Upset Agent,Saudi Arabia,Spain,,,0-1,4-0,0,0,0,0,0,0,0.15,2026-06-21T18:01:56.445335Z
