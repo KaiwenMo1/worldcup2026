@@ -1,4 +1,5 @@
 const el = (id) => document.getElementById(id);
+let arenaLiveBoard = null;
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -32,6 +33,87 @@ function setButtonBusy(button, busy, label, busyLabel, icon) {
 function percent(value) {
   const number = Number(value);
   return Number.isFinite(number) ? `${Math.round(number * 100)}%` : "-";
+}
+
+function dateLabel(value) {
+  if (!value) return "time TBD";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return String(value);
+  return date.toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+}
+
+function matchScore(row) {
+  const scoreA = row.team_a_score;
+  const scoreB = row.team_b_score;
+  if (scoreA === null || scoreA === undefined || scoreB === null || scoreB === undefined) return dateLabel(row.kickoff_utc);
+  return `${scoreA}-${scoreB}`;
+}
+
+function liveStatusLabel(row) {
+  if (row.status === "completed" || row.status === "final" || row.is_final) return "Final";
+  if (row.status === "live" || row.is_live) return row.match_time ? `Live ${row.match_time}'` : "Live";
+  if (row.status === "awaiting_result") return "Awaiting final";
+  return "Scheduled";
+}
+
+function liveBoardRows(board) {
+  const current = (board?.current || []).filter((row) => row.status === "live" || row.is_live).slice(0, 3);
+  const completed = (board?.recent_completed || []).slice(0, 9);
+  return [...current, ...completed].slice(0, 10);
+}
+
+function renderLiveScoreBoard(board) {
+  const target = el("arenaLatestResults");
+  if (!target) return;
+  arenaLiveBoard = board || null;
+  const updated = board?.updated_at ? `Updated ${dateLabel(board.updated_at)}` : "Not synced";
+  el("arenaLiveUpdated").textContent = `${updated} · ${board?.completed_count || 0} final`;
+  const rows = liveBoardRows(board);
+  target.innerHTML = rows.length ? rows.map((row) => `
+    <button class="latest-result-card ${row.status === "live" ? "live" : ""}" type="button" data-live-match="${escapeHtml(row.match_id || row.provider_match_id || "")}">
+      <span>${escapeHtml(liveStatusLabel(row))}</span>
+      <strong>${escapeHtml(row.team_a)} <b>${escapeHtml(matchScore(row))}</b> ${escapeHtml(row.team_b)}</strong>
+      <small>${escapeHtml(row.group ? `Group ${row.group}` : row.stage || row.source || "World Cup")}</small>
+    </button>
+  `).join("") : `<div class="latest-results-empty">No completed official scores are synced yet.</div>`;
+  refreshIcons();
+}
+
+async function loadLiveScoreBoard() {
+  try {
+    const board = await api("/api/ai/live-board");
+    renderLiveScoreBoard(board);
+    return board;
+  } catch (error) {
+    el("arenaLatestResults").innerHTML = `<div class="latest-results-empty error">${escapeHtml(error.message)}</div>`;
+    return null;
+  }
+}
+
+function applyLiveBoardMatch(matchId) {
+  if (!matchId || !arenaLiveBoard) return;
+  const rows = [
+    ...(arenaLiveBoard.current || []),
+    ...(arenaLiveBoard.recent_completed || []),
+    ...(arenaLiveBoard.upcoming || []),
+  ];
+  const match = rows.find((row) => String(row.match_id || row.provider_match_id || "") === String(matchId));
+  if (!match) return;
+  el("arenaTeamA").value = match.team_a;
+  el("arenaTeamB").value = match.team_b;
+  el("arenaStage").value = String(match.stage || "").toLowerCase().includes("knockout") ? "knockout" : "group";
+  el("arenaMatchId").value = String(match.match_id || `${match.team_a}-${match.team_b}`).trim();
+  resultOptions();
+  if (match.team_a_score !== null && match.team_a_score !== undefined) el("arenaScoreA").value = match.team_a_score;
+  if (match.team_b_score !== null && match.team_b_score !== undefined) el("arenaScoreB").value = match.team_b_score;
+  if (match.team_a_score !== null && match.team_a_score !== undefined && match.team_b_score !== null && match.team_b_score !== undefined) {
+    const result = Number(match.team_a_score) === Number(match.team_b_score)
+      ? "Draw"
+      : Number(match.team_a_score) > Number(match.team_b_score) ? match.team_a : match.team_b;
+    el("arenaResult").value = result;
+    el("arenaStatus").textContent = `Observed ${liveStatusLabel(match)}: ${match.team_a} ${match.team_a_score}-${match.team_b_score} ${match.team_b}`;
+  }
+  loadMatch().catch((error) => { el("arenaStatus").textContent = error.message; });
 }
 
 function resultOptions() {
@@ -293,8 +375,12 @@ async function init() {
   el("arenaPublishBtn").addEventListener("click", () => matchAction("arenaPublishBtn", "/api/prediction-arena/publish-card", "Publish", "Publishing", "send"));
   el("arenaSettleBtn").addEventListener("click", settleArena);
   el("arenaRefreshBoardBtn").addEventListener("click", () => Promise.allSettled([loadLeaderboard(), loadCalibration()]));
+  el("arenaLatestResults").addEventListener("click", (event) => {
+    const card = event.target.closest("[data-live-match]");
+    if (card) applyLiveBoardMatch(card.dataset.liveMatch);
+  });
   refreshIcons();
-  await Promise.allSettled([loadMatch(), loadLeaderboard(), loadCalibration()]);
+  await Promise.allSettled([loadLiveScoreBoard(), loadMatch(), loadLeaderboard(), loadCalibration()]);
 }
 
 init().catch((error) => {

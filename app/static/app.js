@@ -301,6 +301,61 @@ function dateLabel(value) {
   return date.toLocaleDateString(undefined, { month: "short", day: "numeric" });
 }
 
+function dateTimeLabel(value) {
+  if (!value) return "not synced";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return String(value);
+  return date.toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+}
+
+function liveBoardMatchScore(row) {
+  if (row.team_a_score === null || row.team_a_score === undefined || row.team_b_score === null || row.team_b_score === undefined) {
+    return dateTimeLabel(row.kickoff_utc);
+  }
+  return `${row.team_a_score}-${row.team_b_score}`;
+}
+
+function liveBoardStatus(row) {
+  if (row.status === "completed" || row.status === "final" || row.is_final) return "Final";
+  if (row.status === "live" || row.is_live) return row.match_time ? `Live ${row.match_time}'` : "Live";
+  if (row.status === "awaiting_result") return "Awaiting final";
+  return "Scheduled";
+}
+
+function renderLatestResultsBoard(board) {
+  const target = el("latestResultsBoard");
+  if (!target) return;
+  const updatedTarget = el("latestResultsUpdated");
+  const current = (board?.current || []).filter((row) => row.status === "live" || row.is_live).slice(0, 3);
+  const completed = (board?.recent_completed || []).slice(0, 9);
+  const rows = [...current, ...completed].slice(0, 10);
+  updatedTarget.textContent = board?.updated_at
+    ? `Updated ${dateTimeLabel(board.updated_at)} · ${board.completed_count || 0} final`
+    : "Not synced";
+  target.innerHTML = rows.length ? rows.map((row) => `
+    <div class="latest-result-card ${row.status === "live" ? "live" : ""}">
+      <span>${escapeHtml(liveBoardStatus(row))}</span>
+      <strong>${escapeHtml(row.team_a)} <b>${escapeHtml(liveBoardMatchScore(row))}</b> ${escapeHtml(row.team_b)}</strong>
+      <small>${escapeHtml(row.group ? `Group ${row.group}` : row.stage || row.source || "World Cup")}</small>
+    </div>
+  `).join("") : `<div class="latest-results-empty">No completed official scores are synced yet.</div>`;
+}
+
+async function loadLatestResultsBoard() {
+  const target = el("latestResultsBoard");
+  if (!target) return null;
+  try {
+    const board = await api("/api/ai/live-board");
+    renderLatestResultsBoard(board);
+    if (el("signalLive")) el("signalLive").textContent = board.source || "manual";
+    if (el("liveMetric")) el("liveMetric").textContent = `${board.completed_count || 0} final`;
+    return board;
+  } catch (error) {
+    target.innerHTML = `<div class="latest-results-empty error">${escapeHtml(error.message)}</div>`;
+    return null;
+  }
+}
+
 function num(value, digits = 1) {
   const parsed = Number(value);
   return Number.isFinite(parsed) ? parsed.toFixed(digits) : "-";
@@ -643,10 +698,17 @@ async function refreshLiveData() {
   const button = el("refreshBtn");
   setButtonBusy(button, true, "Refresh Live Data", "Refreshing", "refresh-cw");
   try {
-    const data = await api("/api/refresh-live-data", { method: "POST", body: "{}" });
-    el("liveMetric").textContent = data.live_state.source;
-    el("signalLive").textContent = data.live_state.source;
-    alert(data.message);
+    const data = await api("/api/tournament-autopilot/run", {
+      method: "POST",
+      body: JSON.stringify({
+        refresh_official: true,
+        refresh_provider: false,
+        run_arena: false,
+        settle_and_evaluate: true,
+      }),
+    });
+    await loadLatestResultsBoard();
+    alert(`Official FIFA score sync complete. Completed matches: ${data.observed_matches}. New final rows: ${data.newly_observed_match_ids.length}.`);
   } finally {
     setButtonBusy(button, false, "Refresh Live Data", "Refreshing", "refresh-cw");
   }
@@ -663,6 +725,7 @@ async function lockLiveScore() {
     }),
   });
   el("liveMetric").textContent = data.live_state.source;
+  await loadLatestResultsBoard();
   await runSimulation();
 }
 
@@ -675,6 +738,7 @@ async function setEliminated(eliminated) {
     }),
   });
   el("liveMetric").textContent = `${data.live_state.eliminated_teams.length} eliminated`;
+  await loadLatestResultsBoard();
   await runSimulation();
 }
 
@@ -1881,7 +1945,7 @@ async function init() {
   el("intelligenceStatus").textContent = `${status.intelligence.retriever} · ${status.intelligence.documents} chunks`;
   el("liveMetric").textContent = status.live_state.source || "manual";
   populateTeams();
-  await Promise.allSettled([initializeFutureCenters(), initializePredictionArena()]);
+  await Promise.allSettled([initializeFutureCenters(), initializePredictionArena(), loadLatestResultsBoard()]);
   populateVenues(state.venues);
   renderGroups(groups.groups);
   renderModelReport(modelReport);

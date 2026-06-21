@@ -41,6 +41,18 @@
 
       <section id="predictionArena" class="prediction-arena-section">
         <p class="arena-context-bar" id="arenaStatus">Ready for a matchup</p>
+        <div class="latest-results-panel arena-latest-results" aria-live="polite">
+          <div class="latest-results-head">
+            <div>
+              <span>Official match state</span>
+              <strong>Latest scores in this analysis</strong>
+            </div>
+            <small id="arenaLiveUpdated">Syncing</small>
+          </div>
+          <div id="arenaLatestResults" class="latest-results-list">
+            <div class="latest-results-empty">Loading latest scores</div>
+          </div>
+        </div>
         <div class="arena-command">
           <label>
             Team A

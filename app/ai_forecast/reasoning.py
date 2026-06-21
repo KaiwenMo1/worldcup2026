@@ -30,6 +30,11 @@ def _completed_key(row: dict[str, Any]) -> frozenset[str]:
 def live_match_board(live_state: dict[str, Any], limit: int = 12) -> dict[str, Any]:
     completed = live_state.get("completed_matches", [])
     completed_by_pair = {_completed_key(row): row for row in completed}
+    current_rows = [
+        row
+        for row in live_state.get("current_matches", [])
+        if isinstance(row, dict) and row.get("team_a") and row.get("team_b")
+    ]
     rows = []
     now = datetime.now(timezone.utc)
     for fixture in _fixtures():
@@ -57,12 +62,21 @@ def live_match_board(live_state: dict[str, Any], limit: int = 12) -> dict[str, A
         key=lambda row: row.get("kickoff_utc", ""),
         reverse=True,
     )
+    active_current = sorted(
+        [row for row in current_rows if row.get("status") in {"live", "scheduled"}],
+        key=lambda row: (
+            0 if row.get("status") == "live" else 1,
+            row.get("kickoff_utc") or "",
+        ),
+    )
     upcoming = [row for row in ordered if row["status"] != "completed"][:limit]
     return {
         "source": live_state.get("source", "manual"),
         "updated_at": live_state.get("updated_at"),
+        "current_matches_source": live_state.get("current_matches_source"),
         "completed_count": len(completed),
         "awaiting_result_count": sum(row["status"] == "awaiting_result" for row in rows),
+        "current": active_current[:limit],
         "recent_completed": recent_completed[:limit],
         "upcoming": upcoming,
         "freshness_note": "Live results use the configured provider when available and otherwise retain the local manual state.",
