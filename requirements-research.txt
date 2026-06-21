@@ -1,0 +1,11 @@
+# Optional local research-agent tooling.
+# Do not install this file in the hosted Render build unless the server is meant
+# to run crawlers/browser/document ingestion jobs.
+-r requirements.txt
+
+agent-reach
+crawl4ai>=0.7
+markitdown>=0.1
+docling>=2.30
+pydantic-ai>=1.0
+fastmcp>=2.0

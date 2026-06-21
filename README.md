@@ -193,14 +193,17 @@ Derived summaries in `data/derived/match_summary_signals.csv` include xG, shots,
 
 ## Live Tournament Autopilot
 
-Completed results are stored permanently in `data/observed_matches.csv`. The autopilot merges verified manual results with an optional provider refresh, republishes `data/live_state.json`, rebuilds `data/live_team_state.csv`, ingests confirmed lineups, settles saved Arena predictions, evaluates completed matches, and refreshes calibration.
+Completed results are stored permanently in `data/observed_matches.csv`. The autopilot merges verified manual results with the official FIFA calendar score feed and optional provider refreshes, republishes `data/live_state.json`, rebuilds `data/live_team_state.csv`, ingests confirmed lineups, settles saved Arena predictions, evaluates completed matches, and refreshes calibration.
 
 ```bash
 # Run safely from the verified local result ledger.
 python scripts/run_tournament_autopilot.py
 
-# Also fetch completed scores and publish nearby Arena forecasts.
-python scripts/run_tournament_autopilot.py --refresh-provider --run-arena
+# Fetch official FIFA scores and publish nearby Arena forecasts.
+python scripts/run_tournament_autopilot.py --refresh-official --run-arena
+
+# Optionally combine official FIFA scores with configured provider APIs.
+python scripts/run_tournament_autopilot.py --refresh-official --refresh-provider --run-arena
 
 # Import confirmed starters and calculate tactical lineup deltas.
 python scripts/ingest_lineups.py --from-confirmed-lineups
@@ -209,9 +212,34 @@ python scripts/ingest_lineups.py --from-confirmed-lineups
 python scripts/sync_live_events.py --optional
 ```
 
-The scheduled workflow `.github/workflows/tournament-autopilot.yml` runs the same idempotent cycle during the tournament. Configure repository secrets `BALLDONTLIE_API_KEY`, `SPORTMONKS_API_TOKEN`, and optionally `WORLD_CUP_EVENT_FEED_API_KEY`; configure `WORLD_CUP_EVENT_FEED_URL` as a repository variable. Scores remain durable even when a later provider request fails. Formation and event statistics are only treated as observed when a provider or verified import supplies them.
+The scheduled workflow `.github/workflows/tournament-autopilot.yml` runs the same idempotent cycle during the tournament. The official FIFA calendar refresh does not need a secret. Configure repository secrets `BALLDONTLIE_API_KEY`, `SPORTMONKS_API_TOKEN`, and optionally `WORLD_CUP_EVENT_FEED_API_KEY`; configure `WORLD_CUP_EVENT_FEED_URL` as a repository variable. Scores remain durable even when a later provider request fails. Formation and event statistics are only treated as observed when a provider or verified import supplies them.
 
-The four completed opening matches currently recorded are Mexico 2-0 South Africa, Korea Republic 2-1 Czechia, Canada 1-1 Bosnia and Herzegovina, and USA 2-0 Paraguay. These results already feed the simulator through live-state locking and live team-form features.
+The official FIFA refresh stores final matches in `completed_matches` and keeps in-progress or scheduled rows in `live_state.current_matches`, so a live score is visible to the website without being treated as a permanent final result. These results feed the simulator through live-state locking and live team-form features.
+
+## Agentic Update Agent
+
+The project now includes a lightweight update agent inspired by current agentic workflow tools: it observes the tournament state, plans allowed tools, runs only explicit update actions, verifies what changed, and writes an audit report. It does not let an LLM execute arbitrary commands.
+
+```bash
+# See what the agent would do.
+python scripts/run_update_agent.py --dry-run
+
+# Update official scores, optional provider data, lineups, event feed, Arena cards, and audit logs.
+python scripts/run_update_agent.py --apply --include-provider --run-arena
+
+# Add compact verification after the update.
+python scripts/run_update_agent.py --apply --include-provider --run-arena --verify
+```
+
+Reports are written to `data/agentic_update/latest_report.json` and appended to `data/agentic_update/update_runs.csv`. The web API exposes the same loop:
+
+```bash
+curl -X POST http://127.0.0.1:8000/api/update-agent/run \
+  -H "Content-Type: application/json" \
+  -d '{"apply":false}'
+
+curl http://127.0.0.1:8000/api/update-agent/latest
+```
 
 ## Data Provider Setup
 
@@ -281,6 +309,36 @@ python scripts/run_prediction_arena.py \
 ```
 
 The Arena runs configured external models independently alongside the deterministic football agents. Add more provider objects to `WORLD_CUP_ARENA_MODELS_JSON` to compare more models during the same run.
+
+## Optional Research Scout Tools
+
+The hosted predictor does not require crawler, browser, document, MCP, or agent-framework packages. For local research work, install the optional stack:
+
+```bash
+python -m pip install -r requirements-research.txt
+python scripts/research_tool_doctor.py
+```
+
+The optional stack is designed for these roles:
+
+- Agent-Reach: local capability router for web, GitHub, RSS, video, and social research.
+- Crawl4AI: repeatable public-page crawling into LLM-ready Markdown.
+- MarkItDown or Docling: convert PDFs and documents into reviewable Markdown evidence.
+- PydanticAI: future typed orchestration path for evidence-grounded football agents.
+- FastMCP: expose forecast, tactical brief, player profile, and evaluation tools to coding agents.
+
+Collect one public research page into reviewable evidence:
+
+```bash
+python scripts/collect_research_evidence.py \
+  --url "https://example.com/france-tactical-report" \
+  --title "France tactical report" \
+  --manager-id france_deschamps \
+  --team France \
+  --category tactical_reports
+```
+
+Collected files are written under `data/raw/research_evidence/` and indexed in `research_evidence_index.csv`. They are intentionally marked `raw_unreviewed_public_evidence`; a human should review them before extracting claims into `data/raw/tactical_articles/` or manager-skill evidence. Keep cookie/login-based Agent-Reach channels local only, and never commit cookies, session tokens, or scraped private content.
 
 ## Evaluate Completed Matches
 

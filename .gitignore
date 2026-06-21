@@ -19,6 +19,9 @@ data/raw/tactical_articles/*
 !data/raw/event_data/
 data/raw/event_data/*
 !data/raw/event_data/manual_match_events_sample.csv
+!data/raw/research_evidence/
+data/raw/research_evidence/*
+!data/raw/research_evidence/research_sources_sample.csv
 models/*.joblib
 node_modules/
 output/
