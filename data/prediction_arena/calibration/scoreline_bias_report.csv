@@ -1,6 +1,6 @@
 agent_name,settled_predictions,exact_score_hits,exact_score_hit_rate,average_confidence,exact_score_confidence_gap,predicted_three_plus_rate,actual_three_plus_rate,overpredicted_scorelines,underpredicts_three_plus,exact_score_confidence_too_high,warnings
-Base Model,40,3,0.075,0.643,0.568,0.0,0.55,"[""1-0""]",True,True,"[""overpredicts_1_0"", ""underpredicts_three_plus_goal_games"", ""exact_score_confidence_too_high""]"
-Expert Agent,40,3,0.075,0.61,0.535,0.0,0.55,"[""1-0""]",True,True,"[""overpredicts_1_0"", ""underpredicts_three_plus_goal_games"", ""exact_score_confidence_too_high""]"
-Final Forecast Agent,40,3,0.075,0.569,0.494,0.0,0.55,"[""1-0""]",True,True,"[""overpredicts_1_0"", ""underpredicts_three_plus_goal_games"", ""exact_score_confidence_too_high""]"
-Kevin Agent,40,3,0.075,0.638,0.563,0.0,0.55,"[""1-0""]",True,True,"[""overpredicts_1_0"", ""underpredicts_three_plus_goal_games"", ""exact_score_confidence_too_high""]"
-Upset Agent,40,3,0.075,0.179,0.104,0.0,0.55,"[""1-0""]",True,False,"[""overpredicts_1_0"", ""underpredicts_three_plus_goal_games""]"
+Base Model,41,3,0.073,0.647,0.574,0.0,0.561,"[""1-0""]",True,True,"[""overpredicts_1_0"", ""underpredicts_three_plus_goal_games"", ""exact_score_confidence_too_high""]"
+Expert Agent,41,3,0.073,0.611,0.538,0.0,0.561,"[""1-0""]",True,True,"[""overpredicts_1_0"", ""underpredicts_three_plus_goal_games"", ""exact_score_confidence_too_high""]"
+Final Forecast Agent,41,3,0.073,0.572,0.499,0.0,0.561,"[""1-0""]",True,True,"[""overpredicts_1_0"", ""underpredicts_three_plus_goal_games"", ""exact_score_confidence_too_high""]"
+Kevin Agent,41,3,0.073,0.639,0.566,0.0,0.561,"[""1-0""]",True,True,"[""overpredicts_1_0"", ""underpredicts_three_plus_goal_games"", ""exact_score_confidence_too_high""]"
+Upset Agent,41,3,0.073,0.178,0.105,0.0,0.561,"[""1-0""]",True,False,"[""overpredicts_1_0"", ""underpredicts_three_plus_goal_games""]"

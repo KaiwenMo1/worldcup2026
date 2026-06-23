@@ -199,3 +199,8 @@ ad11f2aa8c544cee8bafeaaf42c89899,44-base-model-v13,44,Base Model,Algeria,Algeria
 e2e1a2454ba04004adecd5ad8ef73814,44-final-forecast-agent-v13,44,Final Forecast Agent,Algeria,Algeria,,,0-1,1-2,3,0,0,0,0,3,0.499,2026-06-23T06:05:18.799690Z
 7854d8bba1274207bb8ca451d26e1810,44-kevin-agent-v13,44,Kevin Agent,Algeria,Algeria,,,0-1,1-2,3,0,0,0,0,3,0.659,2026-06-23T06:05:18.802933Z
 1161f354250c47c5b614c3e67eaf015b,44-upset-agent-v13,44,Upset Agent,Jordan,Algeria,,,1-0,1-2,0,0,0,0,0,0,0.15,2026-06-23T06:05:18.806066Z
+02bd3f03630a4060abdf70f99114ba84,47-base-model-v11,47,Base Model,Portugal,Portugal,,,2-0,5-0,3,0,0,0,0,3,0.8170000000000001,2026-06-23T19:46:10.356331Z
+7fe59401af8448508d0e9e304a8ccd9f,47-expert-agent-v11,47,Expert Agent,Portugal,Portugal,,,2-0,5-0,3,0,0,0,0,3,0.68,2026-06-23T19:46:10.359542Z
+1b1bb49d6d744375a6c08cb0e7cca7bb,47-final-forecast-agent-v11,47,Final Forecast Agent,Portugal,Portugal,,,2-0,5-0,3,0,0,0,0,3,0.707,2026-06-23T19:46:10.362300Z
+7662a8c1366242d1a0b97be19e3aa019,47-kevin-agent-v11,47,Kevin Agent,Portugal,Portugal,,,2-0,5-0,3,0,0,0,0,3,0.68,2026-06-23T19:46:10.365053Z
+6fb22ffeef9c4f5d8de8a6bf427d9190,47-upset-agent-v11,47,Upset Agent,Uzbekistan,Portugal,,,0-1,5-0,0,0,0,0,0,0,0.15,2026-06-23T19:46:10.367812Z
