@@ -184,3 +184,8 @@ e04d2bb5792c44e3a8ee68fb5a20df64,40-final-forecast-agent-v17,40,Final Forecast A
 19c5f2ee26f049a0afc33aa0c3644b06,43-final-forecast-agent-v12,43,Final Forecast Agent,Argentina,Argentina,,,1-0,2-0,3,0,0,0,0,3,0.499,2026-06-22T19:52:52.340671Z
 9731fe81f8b44b649a733a1f9f55184f,43-kevin-agent-v12,43,Kevin Agent,Argentina,Argentina,,,1-0,2-0,3,0,0,0,0,3,0.679,2026-06-22T19:52:52.343589Z
 67c96d1a56ba42c5891ecdf5e28f366f,43-upset-agent-v12,43,Upset Agent,Austria,Argentina,,,0-1,2-0,0,0,0,0,0,0,0.172,2026-06-22T19:52:52.346429Z
+42998be2b7df41f1894f707048a1de28,42-base-model-v12,42,Base Model,France,France,,,2-0,3-0,3,0,0,0,0,3,0.855,2026-06-23T01:52:53.100080Z
+99063d56879f4b25891bb63c43cf580a,42-expert-agent-v12,42,Expert Agent,France,France,,,2-0,3-0,3,0,0,0,0,3,0.68,2026-06-23T01:52:53.103266Z
+a32a797a2eaf4d94ae2d0583e4791d13,42-final-forecast-agent-v12,42,Final Forecast Agent,France,France,,,2-0,3-0,3,0,0,0,0,3,0.745,2026-06-23T01:52:53.106160Z
+7e60e1f832a84fcc8a453542a6910761,42-kevin-agent-v12,42,Kevin Agent,France,France,,,2-0,3-0,3,0,0,0,0,3,0.68,2026-06-23T01:52:53.108985Z
+dc5ab6b0f2e94523b206cb9424f8fff4,42-upset-agent-v12,42,Upset Agent,Iraq,France,,,0-1,3-0,0,0,0,0,0,0,0.15,2026-06-23T01:52:53.111932Z
