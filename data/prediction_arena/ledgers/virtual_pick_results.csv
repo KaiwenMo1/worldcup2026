@@ -189,3 +189,13 @@ e04d2bb5792c44e3a8ee68fb5a20df64,40-final-forecast-agent-v17,40,Final Forecast A
 a32a797a2eaf4d94ae2d0583e4791d13,42-final-forecast-agent-v12,42,Final Forecast Agent,France,France,,,2-0,3-0,3,0,0,0,0,3,0.745,2026-06-23T01:52:53.106160Z
 7e60e1f832a84fcc8a453542a6910761,42-kevin-agent-v12,42,Kevin Agent,France,France,,,2-0,3-0,3,0,0,0,0,3,0.68,2026-06-23T01:52:53.108985Z
 dc5ab6b0f2e94523b206cb9424f8fff4,42-upset-agent-v12,42,Upset Agent,Iraq,France,,,0-1,3-0,0,0,0,0,0,0,0.15,2026-06-23T01:52:53.111932Z
+a915c79bf6fa40d6993d76ccdf64daa2,41-base-model-v13,41,Base Model,Senegal,Norway,,,0-1,3-2,0,0,0,0,0,0,0.41700000000000004,2026-06-23T06:05:18.409189Z
+bf74e57b00c940b68433a07c733fa5a7,41-expert-agent-v13,41,Expert Agent,Senegal,Norway,,,0-1,3-2,0,0,0,0,0,0,0.417,2026-06-23T06:05:18.412428Z
+ccb3572df98b467483bfa0cf8cc1886e,41-final-forecast-agent-v13,41,Final Forecast Agent,Senegal,Norway,,,0-1,3-2,0,0,0,0,0,0,0.287,2026-06-23T06:05:18.415501Z
+6f8ddaeeab734de49cc8a07a48f73cea,41-kevin-agent-v13,41,Kevin Agent,Senegal,Norway,,,0-1,3-2,0,0,0,0,0,0,0.467,2026-06-23T06:05:18.418534Z
+35ccc2fc91cc464c86233a831dbfd194,41-upset-agent-v13,41,Upset Agent,Norway,Norway,,,1-0,3-2,3,0,0,2,0,5,0.327,2026-06-23T06:05:18.421594Z
+ad11f2aa8c544cee8bafeaaf42c89899,44-base-model-v13,44,Base Model,Algeria,Algeria,,,0-1,1-2,3,0,0,0,0,3,0.609,2026-06-23T06:05:18.793094Z
+5e06dc4901344212a4c0b2d2d7987f82,44-expert-agent-v13,44,Expert Agent,Algeria,Algeria,,,0-1,1-2,3,0,0,0,0,3,0.609,2026-06-23T06:05:18.796444Z
+e2e1a2454ba04004adecd5ad8ef73814,44-final-forecast-agent-v13,44,Final Forecast Agent,Algeria,Algeria,,,0-1,1-2,3,0,0,0,0,3,0.499,2026-06-23T06:05:18.799690Z
+7854d8bba1274207bb8ca451d26e1810,44-kevin-agent-v13,44,Kevin Agent,Algeria,Algeria,,,0-1,1-2,3,0,0,0,0,3,0.659,2026-06-23T06:05:18.802933Z
+1161f354250c47c5b614c3e67eaf015b,44-upset-agent-v13,44,Upset Agent,Jordan,Algeria,,,1-0,1-2,0,0,0,0,0,0,0.15,2026-06-23T06:05:18.806066Z
