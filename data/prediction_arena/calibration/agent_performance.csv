@@ -1,6 +1,6 @@
 agent_name,matches_predicted,total_points,winner_accuracy,exact_score_hits,qualification_accuracy,average_confidence,underdog_pick_rate,average_underdog_path_quality,target_confusion_count,missing_penalty_probability_count,warnings
-Final Forecast Agent,41,81,0.585,3,,0.572,0.0,,0,0,"[""too_conservative"", ""too_favorite_biased"", ""overconfident""]"
-Base Model,41,80,0.585,3,,0.647,0.0,,0,0,"[""too_conservative"", ""overconfident""]"
-Expert Agent,41,80,0.585,3,,0.611,0.0,,0,0,"[""too_conservative"", ""too_favorite_biased"", ""overconfident""]"
-Kevin Agent,41,80,0.585,3,,0.639,0.0,,0,0,"[""too_conservative"", ""too_favorite_biased"", ""overconfident""]"
-Upset Agent,41,40,0.122,3,,0.178,1.0,0.8,0,0,"[""too_conservative"", ""too_upset_happy""]"
+Final Forecast Agent,42,80,0.571,3,,0.576,0.0,,0,0,"[""too_conservative"", ""too_favorite_biased"", ""overconfident""]"
+Base Model,42,79,0.571,3,,0.652,0.0,,0,0,"[""too_conservative"", ""overconfident""]"
+Expert Agent,42,79,0.571,3,,0.613,0.0,,0,0,"[""too_conservative"", ""too_favorite_biased"", ""overconfident""]"
+Kevin Agent,42,79,0.571,3,,0.64,0.0,,0,0,"[""too_conservative"", ""too_favorite_biased"", ""overconfident""]"
+Upset Agent,42,40,0.119,3,,0.178,1.0,0.8,0,0,"[""too_conservative"", ""too_upset_happy""]"

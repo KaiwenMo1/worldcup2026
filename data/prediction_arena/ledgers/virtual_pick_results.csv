@@ -204,3 +204,8 @@ e2e1a2454ba04004adecd5ad8ef73814,44-final-forecast-agent-v13,44,Final Forecast A
 1b1bb49d6d744375a6c08cb0e7cca7bb,47-final-forecast-agent-v11,47,Final Forecast Agent,Portugal,Portugal,,,2-0,5-0,3,0,0,0,0,3,0.707,2026-06-23T19:46:10.362300Z
 7662a8c1366242d1a0b97be19e3aa019,47-kevin-agent-v11,47,Kevin Agent,Portugal,Portugal,,,2-0,5-0,3,0,0,0,0,3,0.68,2026-06-23T19:46:10.365053Z
 6fb22ffeef9c4f5d8de8a6bf427d9190,47-upset-agent-v11,47,Upset Agent,Uzbekistan,Portugal,,,0-1,5-0,0,0,0,0,0,0,0.15,2026-06-23T19:46:10.367812Z
+f11aaec9e3be429388eb71dd4bacbed5,45-base-model-v12,45,Base Model,England,Draw,,,2-0,0-0,0,0,0,0,-1,-1,0.8458458458458458,2026-06-23T22:46:23.316009Z
+41d99226c5f44e9e8bd3eb101cd3a8b4,45-expert-agent-v12,45,Expert Agent,England,Draw,,,2-0,0-0,0,0,0,0,-1,-1,0.68,2026-06-23T22:46:23.319069Z
+5e0f3b54b0bb4cf493280980563fb3d9,45-final-forecast-agent-v12,45,Final Forecast Agent,England,Draw,,,2-0,0-0,0,0,0,0,-1,-1,0.736,2026-06-23T22:46:23.321851Z
+5fcc6aa3794b40f3883f895aef6c95da,45-kevin-agent-v12,45,Kevin Agent,England,Draw,,,2-0,0-0,0,0,0,0,-1,-1,0.68,2026-06-23T22:46:23.324631Z
+f22e8d3ab1e042b5a998f1e6a3a03f20,45-upset-agent-v12,45,Upset Agent,Ghana,Draw,,,0-1,0-0,0,0,0,0,0,0,0.15,2026-06-23T22:46:23.327416Z
