@@ -258,18 +258,54 @@ Provider pricing and coverage can change. These were checked on June 13, 2026.
 
 ## Publish From GitHub
 
-GitHub Pages only hosts static HTML, CSS, and JavaScript, so it cannot run this project's FastAPI forecasts, simulations, live refreshes, or reasoning endpoints. The repository includes `render.yaml` to deploy the complete app from GitHub on Render.
+The project now supports a public GitHub Pages frontend backed by a hosted FastAPI API. GitHub Pages hosts the HTML, CSS, and JavaScript; Render or another Python host runs the API for forecasts, simulations, live refreshes, and reasoning.
 
-1. Commit and push the repository to GitHub.
-2. Open `https://dashboard.render.com/blueprint/new?repo=https://github.com/KaiwenMo1/worldcup2026`.
-3. Apply the Blueprint.
-4. Add optional provider keys in the Render dashboard when available.
+1. Deploy the FastAPI backend first. The repository includes `render.yaml` for Render:
 
-The deployed root route is the public Match Deductions page. Prediction Arena is at `/arena`, and the machine-learning workspace is at `/model-lab`.
+```text
+https://dashboard.render.com/blueprint/new?repo=https://github.com/KaiwenMo1/worldcup2026
+```
+
+2. In GitHub, open repository **Settings → Secrets and variables → Actions → Variables** and add:
+
+```text
+WC_API_BASE_URL=https://your-worldcup-api.onrender.com
+```
+
+3. Open **Settings → Pages** and set the source to **GitHub Actions**.
+4. Run the **Deploy GitHub Pages** workflow, or push a change under `app/static/`.
+
+The public site will be available at:
+
+```text
+https://kaiwenmo1.github.io/worldcup2026/
+```
+
+The static build creates:
+
+- `/` for the public AI Matchroom
+- `/arena/` for Match Analysis
+- `/model-lab/` for the machine-learning workspace
+- `/dashboard/` as a compatibility alias for the model lab
+
+For local testing of the static artifact:
+
+```bash
+python scripts/build_github_pages.py --api-base-url http://127.0.0.1:8000
+python -m http.server 8080 --directory site
+```
+
+Then open `http://127.0.0.1:8080/`.
+
+The FastAPI backend allows browser calls from `https://kaiwenmo1.github.io` by default. Override or extend this in deployment with:
+
+```text
+CORS_ALLOW_ORIGINS=https://kaiwenmo1.github.io,http://127.0.0.1:8000
+```
 
 The Render build installs the smaller `requirements-web.txt` dependency set and trains the real ensemble from committed historical matches. The large generated model artifact remains outside Git.
 
-Render's filesystem is ephemeral. Durable tournament updates should continue through `.github/workflows/tournament-autopilot.yml`, which commits verified data updates back to GitHub and triggers a fresh deployment.
+Render's filesystem is ephemeral. Durable tournament updates should continue through `.github/workflows/tournament-autopilot.yml`, which commits verified data updates back to GitHub and triggers a fresh API redeployment when your hosting service is connected to GitHub.
 
 Recommended public commit contents:
 
