@@ -1,10 +1,10 @@
 {
-  "run_id": "17298b06e0304cb596cfb66ece48ca95",
+  "run_id": "42cb3994346d4a3d94696670415318d5",
   "mode": "apply",
-  "created_at": "2026-06-24T09:50:53.203816Z",
+  "created_at": "2026-06-24T12:15:39.209627Z",
   "observations_before": {
     "live_state_exists": true,
-    "live_state_updated_at": "2026-06-24T06:00:50.819371+00:00",
+    "live_state_updated_at": "2026-06-24T09:50:23.471010+00:00",
     "completed_matches": 48,
     "current_matches": 104,
     "live_matches": 0,
@@ -13,7 +13,7 @@
     "provider_key_configured": false,
     "event_feed_configured": false,
     "sportmonks_configured": false,
-    "generated_at": "2026-06-24T09:50:23.286590Z"
+    "generated_at": "2026-06-24T12:15:08.982934Z"
   },
   "plan": [
     {
@@ -85,8 +85,8 @@
     {
       "tool_id": "official_fifa_scores",
       "status": "success",
-      "started_at": "2026-06-24T09:50:23.286745Z",
-      "finished_at": "2026-06-24T09:50:51.637145Z",
+      "started_at": "2026-06-24T12:15:08.983035Z",
+      "finished_at": "2026-06-24T12:15:37.703923Z",
       "message": "Tournament autopilot completed.",
       "metrics": {
         "observed_matches": 48,
@@ -101,7 +101,9 @@
           "53",
           "54",
           "55",
-          "56"
+          "56",
+          "57",
+          "58"
         ],
         "arena_settlements": [
           "8",
@@ -211,39 +213,39 @@
     {
       "tool_id": "provider_scores",
       "status": "skipped",
-      "started_at": "2026-06-24T09:50:51.637173Z",
-      "finished_at": "2026-06-24T09:50:51.637175Z",
+      "started_at": "2026-06-24T12:15:37.703947Z",
+      "finished_at": "2026-06-24T12:15:37.703949Z",
       "message": "Skipped unless include_provider is enabled and BALLDONTLIE_API_KEY is configured.",
       "metrics": {}
     },
     {
       "tool_id": "live_event_feed",
       "status": "skipped",
-      "started_at": "2026-06-24T09:50:51.637189Z",
-      "finished_at": "2026-06-24T09:50:51.637190Z",
+      "started_at": "2026-06-24T12:15:37.703975Z",
+      "finished_at": "2026-06-24T12:15:37.703976Z",
       "message": "Skipped unless a live event feed URL is configured.",
       "metrics": {}
     },
     {
       "tool_id": "lineups_and_squads",
       "status": "success",
-      "started_at": "2026-06-24T09:50:51.637197Z",
-      "finished_at": "2026-06-24T09:50:53.199928Z",
+      "started_at": "2026-06-24T12:15:37.703988Z",
+      "finished_at": "2026-06-24T12:15:39.205958Z",
       "message": "Skipped: Set SPORTMONKS_API_TOKEN in .env to sync observed lineups and availability.\nOfficial squad players: 1248\nTeams: 48\nMarket-value matches: 1156/1248\nSaved /home/runner/work/worldcup2026/worldcup2026/data/worldcup_squads.csv\nSaved /home/runner/work/worldcup2026/worldcup2026/data/squad_features.csv\nSaved /home/runner/work/worldcup2026/worldcup2026/data/player_match_stats.csv\nSaved /home/runner/work/worldcup2026/worldcup2026/data/player_match_team_features.csv\nUpdated /home/runner/work/worldcup2026/worldcup2026/data/player_candidates.csv\nNormalized actual lineup starters: 0\nDerived lineup delta signals: 0\nData-quality issues: 1",
       "metrics": {}
     },
     {
       "tool_id": "verification",
       "status": "skipped",
-      "started_at": "2026-06-24T09:50:53.199984Z",
-      "finished_at": "2026-06-24T09:50:53.199988Z",
+      "started_at": "2026-06-24T12:15:39.206003Z",
+      "finished_at": "2026-06-24T12:15:39.206006Z",
       "message": "Skipped unless --verify is passed.",
       "metrics": {}
     }
   ],
   "observations_after": {
     "live_state_exists": true,
-    "live_state_updated_at": "2026-06-24T09:50:23.471010+00:00",
+    "live_state_updated_at": "2026-06-24T12:15:09.375941+00:00",
     "completed_matches": 48,
     "current_matches": 104,
     "live_matches": 0,
@@ -252,7 +254,7 @@
     "provider_key_configured": false,
     "event_feed_configured": false,
     "sportmonks_configured": false,
-    "generated_at": "2026-06-24T09:50:53.203504Z"
+    "generated_at": "2026-06-24T12:15:39.209355Z"
   },
   "warnings": [
     "No confirmed starters were present in the lineup input",
