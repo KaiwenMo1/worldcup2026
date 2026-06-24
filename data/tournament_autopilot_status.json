@@ -1,13 +1,12 @@
 {
-  "updated_at": "2026-06-24T01:50:34.610084+00:00",
-  "observed_matches": 47,
+  "updated_at": "2026-06-24T06:00:50.523242+00:00",
+  "observed_matches": 48,
   "newly_observed_match_ids": [
-    "46"
+    "48"
   ],
   "lineup_rows": 0,
   "lineup_delta_signals": 0,
   "arena_runs": [
-    "48",
     "49",
     "50",
     "51",
@@ -58,7 +57,8 @@
     "44",
     "47",
     "45",
-    "46"
+    "46",
+    "48"
   ],
   "evaluations": [
     "1",
@@ -107,7 +107,8 @@
     "44",
     "47",
     "45",
-    "46"
+    "46",
+    "48"
   ],
   "warnings": [
     "No confirmed starters were present in the lineup input",

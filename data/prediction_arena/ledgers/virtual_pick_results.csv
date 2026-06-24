@@ -214,3 +214,8 @@ dd27a6f10b82495aa3945a4d548ca280,46-expert-agent-v14,46,Expert Agent,Croatia,Cro
 99d8bffca5eb4f229e381c32e44b9769,46-final-forecast-agent-v14,46,Final Forecast Agent,Croatia,Croatia,,,0-1,0-1,3,5,0,0,0,8,0.53,2026-06-24T01:50:51.339272Z
 2f54a4a3658d4701917645e8c534b58c,46-kevin-agent-v14,46,Kevin Agent,Croatia,Croatia,,,0-1,0-1,3,5,0,0,0,8,0.68,2026-06-24T01:50:51.342382Z
 47e67de1631b4c3883a2ec647bf71454,46-upset-agent-v14,46,Upset Agent,Panama,Croatia,,,1-0,0-1,0,0,0,0,0,0,0.15,2026-06-24T01:50:51.345481Z
+85184db765d941d8ab53e70f203fd00f,48-base-model-v15,48,Base Model,Colombia,Colombia,,,1-0,1-0,3,5,0,0,0,8,0.693,2026-06-24T06:01:08.945621Z
+9731330a58db4c95950c2e5d6c18663c,48-expert-agent-v15,48,Expert Agent,Colombia,Colombia,,,1-0,1-0,3,5,0,0,0,8,0.68,2026-06-24T06:01:08.949065Z
+66107f38eb504b09a43428d562b728a8,48-final-forecast-agent-v15,48,Final Forecast Agent,Colombia,Colombia,,,1-0,1-0,3,5,0,0,0,8,0.583,2026-06-24T06:01:08.952359Z
+39f0dfda4d2a44cb9ba00cfba9291070,48-kevin-agent-v15,48,Kevin Agent,Colombia,Colombia,,,1-0,1-0,3,5,0,0,0,8,0.68,2026-06-24T06:01:08.955740Z
+deb707bb0a1146deb94b8303cb311910,48-upset-agent-v15,48,Upset Agent,Congo DR,Colombia,,,0-1,1-0,0,0,0,0,0,0,0.15,2026-06-24T06:01:08.958937Z
