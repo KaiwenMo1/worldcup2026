@@ -1,9 +1,7 @@
 {
-  "updated_at": "2026-06-24T06:00:50.523242+00:00",
+  "updated_at": "2026-06-24T09:50:23.286748+00:00",
   "observed_matches": 48,
-  "newly_observed_match_ids": [
-    "48"
-  ],
+  "newly_observed_match_ids": [],
   "lineup_rows": 0,
   "lineup_delta_signals": 0,
   "arena_runs": [
@@ -12,7 +10,9 @@
     "51",
     "52",
     "53",
-    "54"
+    "54",
+    "55",
+    "56"
   ],
   "arena_settlements": [
     "8",
