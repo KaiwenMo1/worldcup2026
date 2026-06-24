@@ -7,6 +7,7 @@ import argparse
 import csv
 import math
 import re
+import time
 import unicodedata
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
@@ -77,10 +78,34 @@ POSITION_SUFFIXES = [
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; WorldCupForecastResearch/1.0)"}
 
 
-def fetch(url: str) -> str:
-    response = requests.get(url, headers=HEADERS, timeout=45)
-    response.raise_for_status()
-    return response.text
+def fetch(url: str, *, optional: bool = False, retries: int = 2) -> str:
+    last_error: requests.RequestException | None = None
+    for attempt in range(retries + 1):
+        try:
+            response = requests.get(url, headers=HEADERS, timeout=45)
+            response.raise_for_status()
+            return response.text
+        except requests.RequestException as exc:
+            last_error = exc
+            if attempt < retries:
+                time.sleep(1.5 * (attempt + 1))
+
+    if optional:
+        print(f"Warning: skipped optional squad enrichment URL after {retries + 1} attempts: {url} ({last_error})")
+        return ""
+    assert last_error is not None
+    raise last_error
+
+
+def optional_html_tables(url: str) -> list[pd.DataFrame]:
+    html = fetch(url, optional=True)
+    if not html:
+        return []
+    try:
+        return pd.read_html(StringIO(html))
+    except ValueError as exc:
+        print(f"Warning: skipped optional squad enrichment table: {url} ({exc})")
+        return []
 
 
 def normalize_name(value: str) -> str:
@@ -150,7 +175,7 @@ def official_squads() -> list[dict[str, Any]]:
 def market_values(pages: int, include_team_pages: bool = True) -> dict[str, dict[str, Any]]:
     values: dict[str, dict[str, Any]] = {}
     for page in range(1, pages + 1):
-        tables = pd.read_html(StringIO(fetch(MARKET_VALUES_URL.format(page=page))))
+        tables = optional_html_tables(MARKET_VALUES_URL.format(page=page))
         frame = next(
             (
                 table
@@ -169,7 +194,10 @@ def market_values(pages: int, include_team_pages: bool = True) -> dict[str, dict
                 "detailed_position": detailed_position,
             }
     if include_team_pages:
-        soup = BeautifulSoup(fetch(PARTICIPANTS_URL), "html.parser")
+        participants_html = fetch(PARTICIPANTS_URL, optional=True)
+        if not participants_html:
+            return values
+        soup = BeautifulSoup(participants_html, "html.parser")
         team_links = {}
         for link in soup.select("a[href*='/startseite/verein/']"):
             team = TEAM_ALIASES.get(link.get_text(" ", strip=True), link.get_text(" ", strip=True))
@@ -178,7 +206,7 @@ def market_values(pages: int, include_team_pages: bool = True) -> dict[str, dict
             href = link["href"].replace("/startseite/verein/", "/kader/verein/")
             team_links[team] = f"https://www.transfermarkt.com{href}/saison_id/2026"
         for url in team_links.values():
-            tables = pd.read_html(StringIO(fetch(url)))
+            tables = optional_html_tables(url)
             frame = next(
                 (
                     table
@@ -475,6 +503,19 @@ def load_existing_squads() -> list[dict[str, Any]]:
     return rows
 
 
+def existing_market_values() -> dict[str, dict[str, Any]]:
+    if not SQUADS_PATH.exists():
+        return {}
+    output = {}
+    for player in load_existing_squads():
+        output[normalize_name(player["player"])] = {
+            "market_value_eur": player["market_value_eur"],
+            "market_value_updated": player["market_value_updated"],
+            "detailed_position": player["detailed_position"],
+        }
+    return output
+
+
 def player_candidates(players: list[dict[str, Any]]) -> list[dict[str, Any]]:
     output = []
     penalty_takers = {}
@@ -521,9 +562,10 @@ def main() -> None:
     else:
         players = official_squads()
         values = {} if args.no_market_values else market_values(args.market_pages, not args.skip_team_pages)
+        fallback_values = existing_market_values()
         matched = 0
         for player in players:
-            value = values.get(normalize_name(player["player"]), {})
+            value = values.get(normalize_name(player["player"])) or fallback_values.get(normalize_name(player["player"]), {})
             player.update(
                 {
                     "detailed_position": value.get("detailed_position", ""),
