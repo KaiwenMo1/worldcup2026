@@ -1,10 +1,10 @@
 {
-  "run_id": "e62850cc46cd4c6d9f6cbb72a8d26083",
+  "run_id": "6d077dd6e9d64c20bd175c4b15cd85a5",
   "mode": "apply",
-  "created_at": "2026-06-25T13:15:31.908389Z",
+  "created_at": "2026-06-25T15:58:54.786170Z",
   "observations_before": {
     "live_state_exists": true,
-    "live_state_updated_at": "2026-06-25T10:52:42.533600+00:00",
+    "live_state_updated_at": "2026-06-25T13:14:58.290981+00:00",
     "completed_matches": 54,
     "current_matches": 104,
     "live_matches": 0,
@@ -13,7 +13,7 @@
     "provider_key_configured": false,
     "event_feed_configured": false,
     "sportmonks_configured": false,
-    "generated_at": "2026-06-25T13:14:58.030058Z"
+    "generated_at": "2026-06-25T15:58:16.188030Z"
   },
   "plan": [
     {
@@ -85,8 +85,8 @@
     {
       "tool_id": "official_fifa_scores",
       "status": "success",
-      "started_at": "2026-06-25T13:14:58.030166Z",
-      "finished_at": "2026-06-25T13:15:30.487535Z",
+      "started_at": "2026-06-25T15:58:16.188147Z",
+      "finished_at": "2026-06-25T15:58:53.220493Z",
       "message": "Tournament autopilot completed.",
       "metrics": {
         "observed_matches": 54,
@@ -102,6 +102,8 @@
           "60",
           "61",
           "62",
+          "63",
+          "64",
           "65",
           "66"
         ],
@@ -225,39 +227,39 @@
     {
       "tool_id": "provider_scores",
       "status": "skipped",
-      "started_at": "2026-06-25T13:15:30.487584Z",
-      "finished_at": "2026-06-25T13:15:30.487586Z",
+      "started_at": "2026-06-25T15:58:53.220516Z",
+      "finished_at": "2026-06-25T15:58:53.220517Z",
       "message": "Skipped unless include_provider is enabled and BALLDONTLIE_API_KEY is configured.",
       "metrics": {}
     },
     {
       "tool_id": "live_event_feed",
       "status": "skipped",
-      "started_at": "2026-06-25T13:15:30.487602Z",
-      "finished_at": "2026-06-25T13:15:30.487603Z",
+      "started_at": "2026-06-25T15:58:53.220531Z",
+      "finished_at": "2026-06-25T15:58:53.220532Z",
       "message": "Skipped unless a live event feed URL is configured.",
       "metrics": {}
     },
     {
       "tool_id": "lineups_and_squads",
       "status": "success",
-      "started_at": "2026-06-25T13:15:30.487610Z",
-      "finished_at": "2026-06-25T13:15:31.904718Z",
+      "started_at": "2026-06-25T15:58:53.220539Z",
+      "finished_at": "2026-06-25T15:58:54.782485Z",
       "message": "Skipped: Set SPORTMONKS_API_TOKEN in .env to sync observed lineups and availability.\nOfficial squad players: 1248\nTeams: 48\nMarket-value matches: 1159/1248\nSaved /home/runner/work/worldcup2026/worldcup2026/data/worldcup_squads.csv\nSaved /home/runner/work/worldcup2026/worldcup2026/data/squad_features.csv\nSaved /home/runner/work/worldcup2026/worldcup2026/data/player_match_stats.csv\nSaved /home/runner/work/worldcup2026/worldcup2026/data/player_match_team_features.csv\nUpdated /home/runner/work/worldcup2026/worldcup2026/data/player_candidates.csv\nNormalized actual lineup starters: 0\nDerived lineup delta signals: 0\nData-quality issues: 1",
       "metrics": {}
     },
     {
       "tool_id": "verification",
       "status": "skipped",
-      "started_at": "2026-06-25T13:15:31.904767Z",
-      "finished_at": "2026-06-25T13:15:31.904769Z",
+      "started_at": "2026-06-25T15:58:54.782539Z",
+      "finished_at": "2026-06-25T15:58:54.782541Z",
       "message": "Skipped unless --verify is passed.",
       "metrics": {}
     }
   ],
   "observations_after": {
     "live_state_exists": true,
-    "live_state_updated_at": "2026-06-25T13:14:58.290981+00:00",
+    "live_state_updated_at": "2026-06-25T15:58:16.397831+00:00",
     "completed_matches": 54,
     "current_matches": 104,
     "live_matches": 0,
@@ -266,7 +268,7 @@
     "provider_key_configured": false,
     "event_feed_configured": false,
     "sportmonks_configured": false,
-    "generated_at": "2026-06-25T13:15:31.908082Z"
+    "generated_at": "2026-06-25T15:58:54.785885Z"
   },
   "warnings": [
     "No confirmed starters were present in the lineup input",
