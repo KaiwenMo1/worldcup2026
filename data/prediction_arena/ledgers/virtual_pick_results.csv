@@ -229,3 +229,23 @@ a2cfa129a856414f992170c8d0c452a1,52-expert-agent-v14,52,Expert Agent,Qatar,Bosni
 abb86b86c1c44e69a5664a0cc52ab223,52-final-forecast-agent-v14,52,Final Forecast Agent,Qatar,Bosnia and Herzegovina,,,0-1,3-1,0,0,0,0,0,0,0.216,2026-06-24T21:04:01.873964Z
 e6631b5673704583b879c843a28aa2cd,52-kevin-agent-v14,52,Kevin Agent,Qatar,Bosnia and Herzegovina,,,0-1,3-1,0,0,0,0,0,0,0.396,2026-06-24T21:04:01.877416Z
 7622718b4a6946c1b8ad5e12c5164800,52-upset-agent-v14,52,Upset Agent,Bosnia and Herzegovina,Bosnia and Herzegovina,,,1-0,3-1,3,0,0,2,0,5,0.374,2026-06-24T21:04:01.880818Z
+0f9a3b4698804b0aba9659875e38e09d,49-base-model-v16,49,Base Model,Brazil,Brazil,,,0-1,0-3,3,0,0,0,0,3,0.718,2026-06-25T04:22:00.706431Z
+a541dbf9bec545d8a38154f30a24aa0e,49-expert-agent-v16,49,Expert Agent,Brazil,Brazil,,,0-1,0-3,3,0,0,0,0,3,0.68,2026-06-25T04:22:00.710345Z
+677b36a05b1b45739f3dc7108b5c5b9f,49-final-forecast-agent-v16,49,Final Forecast Agent,Brazil,Brazil,,,0-1,0-3,3,0,0,0,0,3,0.608,2026-06-25T04:22:00.713909Z
+ba5b1729837a4e5ca0af947ee5524143,49-kevin-agent-v16,49,Kevin Agent,Brazil,Brazil,,,0-1,0-3,3,0,0,0,0,3,0.68,2026-06-25T04:22:00.717689Z
+ace1404e5a2243898fffc817d4c49af4,49-upset-agent-v16,49,Upset Agent,Scotland,Brazil,,,1-0,0-3,0,0,0,0,0,0,0.15,2026-06-25T04:22:00.721549Z
+6a5e4ddcc19b4c93823efcdc954464d4,50-base-model-v16,50,Base Model,Morocco,Morocco,,,2-0,4-2,3,0,0,0,0,3,0.851,2026-06-25T04:22:01.096114Z
+af507b8b7a254824a685baeb36614830,50-expert-agent-v16,50,Expert Agent,Morocco,Morocco,,,2-0,4-2,3,0,0,0,0,3,0.68,2026-06-25T04:22:01.100278Z
+d5ef6fe76c8e4e6fbcf5781661038cfe,50-final-forecast-agent-v16,50,Final Forecast Agent,Morocco,Morocco,,,2-0,4-2,3,0,0,0,0,3,0.741,2026-06-25T04:22:01.104125Z
+9bb43a6978fb4f42bda632349bf5e966,50-kevin-agent-v16,50,Kevin Agent,Morocco,Morocco,,,2-0,4-2,3,0,0,0,0,3,0.68,2026-06-25T04:22:01.108181Z
+1e311445f32d4c3e9ead1d3b330f7dd9,50-upset-agent-v16,50,Upset Agent,Haiti,Morocco,,,0-1,4-2,0,0,0,0,0,0,0.15,2026-06-25T04:22:01.111941Z
+acdca2972d7a4f5eac2c01ea6c9ffcb3,53-base-model-v16,53,Base Model,Mexico,Mexico,,,0-1,0-3,3,0,0,0,0,3,0.6183816183816184,2026-06-25T04:22:01.481207Z
+f5aa218d16a641829e9e019e5ebbb4c1,53-expert-agent-v16,53,Expert Agent,Mexico,Mexico,,,0-1,0-3,3,0,0,0,0,3,0.618,2026-06-25T04:22:01.485139Z
+19e800f5bce74a05806802aa7757d5f8,53-final-forecast-agent-v16,53,Final Forecast Agent,Mexico,Mexico,,,0-1,0-3,3,0,0,0,0,3,0.488,2026-06-25T04:22:01.488878Z
+0a86647745db422895e3a2ff36529993,53-kevin-agent-v16,53,Kevin Agent,Mexico,Mexico,,,0-1,0-3,3,0,0,0,0,3,0.668,2026-06-25T04:22:01.492619Z
+c9b650d672a34dbf93bc8a6c8fa6fcb0,53-upset-agent-v16,53,Upset Agent,Czechia,Mexico,,,1-0,0-3,0,0,0,0,0,0,0.171,2026-06-25T04:22:01.496557Z
+7850f0d54e484718827a60f767f66c8c,54-base-model-v16,54,Base Model,Korea Republic,South Africa,,,0-1,1-0,0,0,0,0,0,0,0.511,2026-06-25T04:22:01.888751Z
+ce075785be8347db8accc3abd1eca3f7,54-expert-agent-v16,54,Expert Agent,Korea Republic,South Africa,,,0-1,1-0,0,0,0,0,0,0,0.511,2026-06-25T04:22:01.892814Z
+284777736ebb4334ba5bec5eb5f33faa,54-final-forecast-agent-v16,54,Final Forecast Agent,Korea Republic,South Africa,,,0-1,1-0,0,0,0,0,0,0,0.381,2026-06-25T04:22:01.896689Z
+cec79b41ee23495489589981369ca2de,54-kevin-agent-v16,54,Kevin Agent,Korea Republic,South Africa,,,0-1,1-0,0,0,0,0,0,0,0.561,2026-06-25T04:22:01.900429Z
+8b1f0418cab34412979ac19bbc32d501,54-upset-agent-v16,54,Upset Agent,South Africa,South Africa,,,1-0,1-0,3,5,0,2,0,10,0.231,2026-06-25T04:22:01.904150Z
