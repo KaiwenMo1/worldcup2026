@@ -269,3 +269,13 @@ a60283bd468a4febb95c245b24330be3,57-expert-agent-v15,57,Expert Agent,Japan,Draw,
 1b0155d3068845bd9f1b27745ae649c0,58-final-forecast-agent-v15,58,Final Forecast Agent,Netherlands,Netherlands,,,0-1,1-3,3,0,0,0,0,3,0.686,2026-06-26T02:07:41.915486Z
 0662df4b93334223a55432696ef28d07,58-kevin-agent-v15,58,Kevin Agent,Netherlands,Netherlands,,,0-1,1-3,3,0,0,0,0,3,0.68,2026-06-26T02:07:41.919294Z
 dbcfa7f4a99948e89cc5ec310a58bb22,58-upset-agent-v15,58,Upset Agent,Tunisia,Netherlands,,,1-0,1-3,0,0,0,0,0,0,0.15,2026-06-26T02:07:41.923128Z
+b72224ca26ed4eeb87b7ce14c8d07e4b,59-base-model-v15,59,Base Model,USA,Turkiye,,,0-1,3-2,0,0,0,0,0,0,0.5125125125125125,2026-06-26T06:21:37.138553Z
+17e399e618614d82a36c94474d4e3ce0,59-expert-agent-v15,59,Expert Agent,USA,Turkiye,,,0-1,3-2,0,0,0,0,0,0,0.513,2026-06-26T06:21:37.142720Z
+3866216fc78749f9bf87c10ef290237f,59-final-forecast-agent-v15,59,Final Forecast Agent,USA,Turkiye,,,0-1,3-2,0,0,0,0,0,0,0.383,2026-06-26T06:21:37.146761Z
+3183818ec5424d48be3be7291b3d6ab0,59-kevin-agent-v15,59,Kevin Agent,USA,Turkiye,,,0-1,3-2,0,0,0,0,0,0,0.563,2026-06-26T06:21:37.150825Z
+32fc24df92174d3491967349e5129931,59-upset-agent-v15,59,Upset Agent,Turkiye,Turkiye,,,1-0,3-2,3,0,0,2,0,5,0.253,2026-06-26T06:21:37.154781Z
+94fb1c939fa24336a1b246bca1a74e28,60-base-model-v15,60,Base Model,Australia,Draw,,,0-1,0-0,0,0,0,0,0,0,0.3786213786213787,2026-06-26T06:21:37.578296Z
+04f92f6b9c0a45bcafa343735a0d6ce6,60-expert-agent-v15,60,Expert Agent,Australia,Draw,,,0-1,0-0,0,0,0,0,0,0,0.379,2026-06-26T06:21:37.582533Z
+609fa0e95ba044d89ae8095007c2a659,60-final-forecast-agent-v15,60,Final Forecast Agent,Australia,Draw,,,0-1,0-0,0,0,0,0,0,0,0.249,2026-06-26T06:21:37.586538Z
+fa59c472b8704e15a3b909766c5b86f1,60-kevin-agent-v15,60,Kevin Agent,Australia,Draw,,,0-1,0-0,0,0,0,0,0,0,0.429,2026-06-26T06:21:37.590524Z
+d61fe4b262024e0bbcda947eaa446513,60-upset-agent-v15,60,Upset Agent,Paraguay,Draw,,,1-0,0-0,0,0,0,0,0,0,0.349,2026-06-26T06:21:37.594516Z
