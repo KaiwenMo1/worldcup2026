@@ -279,3 +279,8 @@ b72224ca26ed4eeb87b7ce14c8d07e4b,59-base-model-v15,59,Base Model,USA,Turkiye,,,0
 609fa0e95ba044d89ae8095007c2a659,60-final-forecast-agent-v15,60,Final Forecast Agent,Australia,Draw,,,0-1,0-0,0,0,0,0,0,0,0.249,2026-06-26T06:21:37.586538Z
 fa59c472b8704e15a3b909766c5b86f1,60-kevin-agent-v15,60,Kevin Agent,Australia,Draw,,,0-1,0-0,0,0,0,0,0,0,0.429,2026-06-26T06:21:37.590524Z
 d61fe4b262024e0bbcda947eaa446513,60-upset-agent-v15,60,Upset Agent,Paraguay,Draw,,,1-0,0-0,0,0,0,0,0,0,0.349,2026-06-26T06:21:37.594516Z
+a54e1e644a074d298e5076a5f44877b0,61-base-model-v14,61,Base Model,France,France,,,0-1,1-4,3,0,0,0,0,3,0.632,2026-06-26T21:01:42.990957Z
+6c564420af8e41b0a581c355ff35cc93,61-expert-agent-v14,61,Expert Agent,France,France,,,0-1,1-4,3,0,0,0,0,3,0.632,2026-06-26T21:01:42.995189Z
+3d4f1e68fc76401293927616463e7bc7,61-final-forecast-agent-v14,61,Final Forecast Agent,France,France,,,0-1,1-4,3,0,0,0,0,3,0.522,2026-06-26T21:01:42.999165Z
+03b7493f9fa741c591fd4ec36c231e7c,61-kevin-agent-v14,61,Kevin Agent,France,France,,,0-1,1-4,3,0,0,0,0,3,0.68,2026-06-26T21:01:43.003194Z
+cd671f9f3fbf4c69867782a1a48d039b,61-upset-agent-v14,61,Upset Agent,Norway,France,,,1-0,1-4,0,0,0,0,0,0,0.15,2026-06-26T21:01:43.007433Z
