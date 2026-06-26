@@ -284,3 +284,8 @@ a54e1e644a074d298e5076a5f44877b0,61-base-model-v14,61,Base Model,France,France,,
 3d4f1e68fc76401293927616463e7bc7,61-final-forecast-agent-v14,61,Final Forecast Agent,France,France,,,0-1,1-4,3,0,0,0,0,3,0.522,2026-06-26T21:01:42.999165Z
 03b7493f9fa741c591fd4ec36c231e7c,61-kevin-agent-v14,61,Kevin Agent,France,France,,,0-1,1-4,3,0,0,0,0,3,0.68,2026-06-26T21:01:43.003194Z
 cd671f9f3fbf4c69867782a1a48d039b,61-upset-agent-v14,61,Upset Agent,Norway,France,,,1-0,1-4,0,0,0,0,0,0,0.15,2026-06-26T21:01:43.007433Z
+27fe8a2c44554a2e9c256aaa193e288b,62-base-model-v14,62,Base Model,Senegal,Senegal,,,1-0,5-0,3,0,0,0,0,3,0.7222777222777224,2026-06-26T22:23:29.767712Z
+e8aab00d12124bee985244b315090cb9,62-expert-agent-v14,62,Expert Agent,Senegal,Senegal,,,1-0,5-0,3,0,0,0,0,3,0.68,2026-06-26T22:23:29.772043Z
+769aa111b69f4a0ca3c75059b6a6fe2d,62-final-forecast-agent-v14,62,Final Forecast Agent,Senegal,Senegal,,,1-0,5-0,3,0,0,0,0,3,0.612,2026-06-26T22:23:29.776217Z
+2a54efb4716b45c28587ee918db6f684,62-kevin-agent-v14,62,Kevin Agent,Senegal,Senegal,,,1-0,5-0,3,0,0,0,0,3,0.68,2026-06-26T22:23:29.780347Z
+3f4c5fa8c678489386586195a7a50261,62-upset-agent-v14,62,Upset Agent,Iraq,Senegal,,,0-1,5-0,0,0,0,0,0,0,0.15,2026-06-26T22:23:29.785793Z
