@@ -289,3 +289,23 @@ e8aab00d12124bee985244b315090cb9,62-expert-agent-v14,62,Expert Agent,Senegal,Sen
 769aa111b69f4a0ca3c75059b6a6fe2d,62-final-forecast-agent-v14,62,Final Forecast Agent,Senegal,Senegal,,,1-0,5-0,3,0,0,0,0,3,0.612,2026-06-26T22:23:29.776217Z
 2a54efb4716b45c28587ee918db6f684,62-kevin-agent-v14,62,Kevin Agent,Senegal,Senegal,,,1-0,5-0,3,0,0,0,0,3,0.68,2026-06-26T22:23:29.780347Z
 3f4c5fa8c678489386586195a7a50261,62-upset-agent-v14,62,Upset Agent,Iraq,Senegal,,,0-1,5-0,0,0,0,0,0,0,0.15,2026-06-26T22:23:29.785793Z
+e829fd94adee405e9f434cd28bfc937b,65-base-model-v16,65,Base Model,Saudi Arabia,Draw,,,0-1,0-0,0,0,0,0,0,0,0.359,2026-06-27T05:45:40.401444Z
+1aff53eae59440649617878e839932c8,65-expert-agent-v16,65,Expert Agent,Saudi Arabia,Draw,,,0-1,0-0,0,0,0,0,0,0,0.359,2026-06-27T05:45:40.405886Z
+82b86382f1cb426787e4ddad73612fdc,65-final-forecast-agent-v16,65,Final Forecast Agent,Saudi Arabia,Draw,,,0-1,0-0,0,0,0,0,0,0,0.229,2026-06-27T05:45:40.409999Z
+ae58e0e826c3428db4dd5fa86a23a83c,65-kevin-agent-v16,65,Kevin Agent,Saudi Arabia,Draw,,,0-1,0-0,0,0,0,0,0,0,0.409,2026-06-27T05:45:40.414244Z
+60e6083b71a54f4c84dc630f8e69e15f,65-upset-agent-v16,65,Upset Agent,Cabo Verde,Draw,,,1-0,0-0,0,0,0,0,0,0,0.371,2026-06-27T05:45:40.418395Z
+ecbc2a4aa371407b8dd40f622cec37ad,66-base-model-v16,66,Base Model,Spain,Spain,,,0-1,0-1,3,5,0,0,0,8,0.518,2026-06-27T05:45:40.854983Z
+a3ec08b53d284579be4f929145180e11,66-expert-agent-v16,66,Expert Agent,Spain,Spain,,,0-1,0-1,3,5,0,0,0,8,0.518,2026-06-27T05:45:40.859486Z
+59f956a91aba4dbbbc76824fd26a119f,66-final-forecast-agent-v16,66,Final Forecast Agent,Spain,Spain,,,0-1,0-1,3,5,0,0,0,8,0.388,2026-06-27T05:45:40.863706Z
+15ae6c18091a4029bbbca39bff5cf6c0,66-kevin-agent-v16,66,Kevin Agent,Spain,Spain,,,0-1,0-1,3,5,0,0,0,8,0.568,2026-06-27T05:45:40.867889Z
+5548ae07fbe0403b8447f419d9d023ae,66-upset-agent-v16,66,Upset Agent,Uruguay,Spain,,,1-0,0-1,0,0,0,0,0,0,0.241,2026-06-27T05:45:40.872145Z
+a241b4a30dbb453784bb55562694ecd4,63-base-model-v16,63,Base Model,Egypt,Draw,,,1-0,1-1,0,0,0,0,0,0,0.3653653653653654,2026-06-27T05:45:41.291115Z
+40cabfd5fcd8418a9b3a94e77816e6b1,63-expert-agent-v16,63,Expert Agent,Egypt,Draw,,,1-0,1-1,0,0,0,0,0,0,0.365,2026-06-27T05:45:41.295786Z
+f0507908f788474abe64c79b8dd76dc8,63-final-forecast-agent-v16,63,Final Forecast Agent,Egypt,Draw,,,1-0,1-1,0,0,0,0,0,0,0.235,2026-06-27T05:45:41.300009Z
+4982689c26674e2ab4b608e6cc25194f,63-kevin-agent-v16,63,Kevin Agent,Egypt,Draw,,,1-0,1-1,0,0,0,0,0,0,0.415,2026-06-27T05:45:41.304233Z
+a27529235e9145c89c20902ff94d99f7,63-upset-agent-v16,63,Upset Agent,IR Iran,Draw,,,0-1,1-1,0,0,0,0,0,0,0.379,2026-06-27T05:45:41.308496Z
+538317fa532c454685d7dd53d44b54f2,64-base-model-v16,64,Base Model,Belgium,Belgium,,,0-2,1-5,3,0,0,0,0,3,0.858,2026-06-27T05:45:41.743818Z
+a93cf052a5b14b6088b8b50baf8928f1,64-expert-agent-v16,64,Expert Agent,Belgium,Belgium,,,0-2,1-5,3,0,0,0,0,3,0.68,2026-06-27T05:45:41.748387Z
+361b504344ce47eab32285dec2e0ceea,64-final-forecast-agent-v16,64,Final Forecast Agent,Belgium,Belgium,,,0-2,1-5,3,0,0,0,0,3,0.748,2026-06-27T05:45:41.752781Z
+42199c9674b9433d997dbc66f034a2d4,64-kevin-agent-v16,64,Kevin Agent,Belgium,Belgium,,,0-2,1-5,3,0,0,0,0,3,0.68,2026-06-27T05:45:41.757103Z
+ce17affa92a84391a4f24d8bd0650b43,64-upset-agent-v16,64,Upset Agent,New Zealand,Belgium,,,1-0,1-5,0,0,0,0,0,0,0.15,2026-06-27T05:45:41.761377Z
