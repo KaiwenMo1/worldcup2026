@@ -41,6 +41,30 @@ class AiForecastTests(unittest.TestCase):
         self.assertTrue(board["upcoming"])
         self.assertIn("source", board)
 
+    def test_live_board_uses_official_scheduled_knockout_assignments(self) -> None:
+        state = load_live_state()
+        scheduled = next(
+            (
+                row
+                for row in state.get("current_matches", [])
+                if row.get("status") == "scheduled"
+                and row.get("stage") == "Round of 32"
+                and row.get("team_a")
+                and row.get("team_b")
+            ),
+            None,
+        )
+        if scheduled is None:
+            self.skipTest("Official feed has not published a ready Round of 32 assignment yet.")
+
+        board = live_match_board(state, limit=104)
+        board_row = next(row for row in board["upcoming"] if row["match_id"] == scheduled["match_id"])
+
+        self.assertEqual(board_row["team_a"], scheduled["team_a"])
+        self.assertEqual(board_row["team_b"], scheduled["team_b"])
+        self.assertEqual(board_row["stage"], "Round of 32")
+        self.assertEqual(board_row["official_status"], "scheduled")
+
     def test_reasoned_match_wraps_existing_forecast_without_changing_it(self) -> None:
         result = api_ai_match(AiMatchRequest(team_a="France", team_b="Brazil", use_model=False))
         forecast = result["forecast"]

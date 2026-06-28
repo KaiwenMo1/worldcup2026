@@ -319,3 +319,13 @@ b7c26adbb66e44338d537d20534c49e5,67-upset-agent-v19,67,Upset Agent,Panama,Englan
 33e56e9c566949b4a99da3c5a83af04f,68-final-forecast-agent-v19,68,Final Forecast Agent,Croatia,Croatia,,,1-0,2-1,3,0,0,0,0,3,0.647,2026-06-28T00:14:24.097413Z
 8b715b69f2cc49cbae8e024f38a7bd7a,68-kevin-agent-v19,68,Kevin Agent,Croatia,Croatia,,,1-0,2-1,3,0,0,0,0,3,0.68,2026-06-28T00:14:24.101907Z
 2f5139f163594406a3904f1b0ceb1363,68-upset-agent-v19,68,Upset Agent,Ghana,Croatia,,,0-1,2-1,0,0,0,0,0,0,0.15,2026-06-28T00:14:24.106483Z
+41885ee2db2c4b7989cff31f03def47d,71-base-model-v20,71,Base Model,Portugal,Draw,,,0-1,0-0,0,0,0,0,0,0,0.485,2026-06-28T01:44:20.048594Z
+11d3cec609694767b43692212db6224e,71-expert-agent-v20,71,Expert Agent,Portugal,Draw,,,0-1,0-0,0,0,0,0,0,0,0.485,2026-06-28T01:44:20.058164Z
+a1e88f8a2a604257821d5428c8e7576b,71-final-forecast-agent-v20,71,Final Forecast Agent,Portugal,Draw,,,0-1,0-0,0,0,0,0,0,0,0.355,2026-06-28T01:44:20.068170Z
+68e28facc65c401b8e8fccfe6714ade9,71-kevin-agent-v20,71,Kevin Agent,Portugal,Draw,,,0-1,0-0,0,0,0,0,0,0,0.535,2026-06-28T01:44:20.079965Z
+2dcab48bfef140cdb07c876b446e292e,71-upset-agent-v20,71,Upset Agent,Colombia,Draw,,,1-0,0-0,0,0,0,0,0,0,0.278,2026-06-28T01:44:20.089090Z
+4b15aa82245a4493901215cde30475f2,72-base-model-v20,72,Base Model,Congo DR,Congo DR,,,1-0,3-1,3,0,0,0,0,3,0.373,2026-06-28T01:44:20.586961Z
+3c1b46a7398c4888948ae449d0627094,72-expert-agent-v20,72,Expert Agent,Congo DR,Congo DR,,,1-0,3-1,3,0,0,0,0,3,0.373,2026-06-28T01:44:20.596905Z
+f472f84ea151496db3dfb0936ab777c7,72-final-forecast-agent-v20,72,Final Forecast Agent,Congo DR,Congo DR,,,1-0,3-1,3,0,0,0,0,3,0.243,2026-06-28T01:44:20.606417Z
+9cf69054da9242e59c9fbb518ee6769c,72-kevin-agent-v20,72,Kevin Agent,Congo DR,Congo DR,,,1-0,3-1,3,0,0,0,0,3,0.423,2026-06-28T01:44:20.615717Z
+de11df95e1154accbbe798f838bb170e,72-upset-agent-v20,72,Upset Agent,Uzbekistan,Congo DR,,,0-1,3-1,0,0,0,0,0,0,0.361,2026-06-28T01:44:20.624865Z

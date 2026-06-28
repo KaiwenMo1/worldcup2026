@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-06-28T00:13:53.946600+00:00",
-  "observed_matches": 68,
+  "updated_at": "2026-06-28T01:43:46.476900+00:00",
+  "observed_matches": 70,
   "newly_observed_match_ids": [
-    "67",
-    "68"
+    "72",
+    "71"
   ],
   "lineup_rows": 0,
   "lineup_delta_signals": 0,
@@ -75,7 +75,9 @@
     "63",
     "64",
     "67",
-    "68"
+    "68",
+    "71",
+    "72"
   ],
   "evaluations": [
     "1",
@@ -145,7 +147,9 @@
     "63",
     "64",
     "67",
-    "68"
+    "68",
+    "71",
+    "72"
   ],
   "warnings": [
     "No confirmed starters were present in the lineup input",

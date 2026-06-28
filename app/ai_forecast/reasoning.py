@@ -33,22 +33,39 @@ def live_match_board(live_state: dict[str, Any], limit: int = 12) -> dict[str, A
     current_rows = [
         row
         for row in live_state.get("current_matches", [])
-        if isinstance(row, dict) and row.get("team_a") and row.get("team_b")
+        if isinstance(row, dict) and (row.get("team_a") or row.get("team_b"))
     ]
+    current_by_id = {str(row.get("match_id")): row for row in current_rows if row.get("match_id")}
     rows = []
     now = datetime.now(timezone.utc)
     for fixture in _fixtures():
-        result = completed_by_pair.get(_completed_key(fixture))
+        current = current_by_id.get(str(fixture.get("match_id") or ""))
+        row = {**fixture}
+        if current:
+            row.update(
+                {
+                    "team_a": current.get("team_a") or fixture.get("team_a", ""),
+                    "team_b": current.get("team_b") or fixture.get("team_b", ""),
+                    "stage": current.get("stage") or fixture.get("stage", ""),
+                    "group": current.get("group") or fixture.get("group", ""),
+                    "kickoff_utc": current.get("kickoff_utc") or fixture.get("kickoff_utc", ""),
+                    "official_status": current.get("status"),
+                    "provider_match_id": current.get("provider_match_id"),
+                }
+            )
+        result = completed_by_pair.get(_completed_key(row))
         status = "completed" if result else "upcoming"
+        if current and not result and current.get("status") == "live":
+            status = "live"
         try:
-            kickoff = datetime.fromisoformat(fixture["kickoff_utc"])
+            kickoff = datetime.fromisoformat(row["kickoff_utc"])
             if not result and kickoff <= now:
                 status = "awaiting_result"
         except (TypeError, ValueError):
             pass
         rows.append(
             {
-                **fixture,
+                **row,
                 "status": status,
                 "team_a_score": result.get("team_a_score") if result else None,
                 "team_b_score": result.get("team_b_score") if result else None,
@@ -70,6 +87,12 @@ def live_match_board(live_state: dict[str, Any], limit: int = 12) -> dict[str, A
         ),
     )
     upcoming = [row for row in ordered if row["status"] != "completed"][:limit]
+    pending_bracket = [
+        row
+        for row in upcoming
+        if not str(row.get("team_a") or "").strip() or not str(row.get("team_b") or "").strip()
+    ]
+    upcoming_ready = [row for row in upcoming if row not in pending_bracket]
     return {
         "source": live_state.get("source", "manual"),
         "updated_at": live_state.get("updated_at"),
@@ -78,7 +101,8 @@ def live_match_board(live_state: dict[str, Any], limit: int = 12) -> dict[str, A
         "awaiting_result_count": sum(row["status"] == "awaiting_result" for row in rows),
         "current": active_current[:limit],
         "recent_completed": recent_completed[:limit],
-        "upcoming": upcoming,
+        "upcoming": upcoming_ready[:limit],
+        "pending_bracket": pending_bracket,
         "freshness_note": "Live results use the configured provider when available and otherwise retain the local manual state.",
     }
 
