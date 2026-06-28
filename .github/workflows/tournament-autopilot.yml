@@ -36,7 +36,23 @@ jobs:
         run: |
           git config user.name "worldcup-autopilot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/observed_matches.csv data/live_state.json data/live_team_state.csv data/normalized data/derived data/prediction_arena data/agentic_update data/tournament_autopilot_status.json
+          git add \
+            data/observed_matches.csv \
+            data/live_state.json \
+            data/live_team_state.csv \
+            data/confirmed_lineups.csv \
+            data/player_availability.csv \
+            data/player_candidates.csv \
+            data/player_match_stats.csv \
+            data/player_match_team_features.csv \
+            data/squad_features.csv \
+            data/worldcup_squads.csv \
+            data/normalized \
+            data/derived \
+            data/prediction_arena \
+            data/agentic_update \
+            data/tournament_autopilot_status.json
+          git add data/lineup_observations.csv data/lineup_sync_status.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "data: refresh observed tournament state"
           if git diff --quiet HEAD origin/main; then
             echo "No durable tournament updates to push."

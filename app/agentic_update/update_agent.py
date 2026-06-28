@@ -23,6 +23,8 @@ from app.agentic_update.schemas import (
     AgenticUpdateReport,
     UpdateObservation,
 )
+from app.ingestion.event_data_ingestion import MATCH_EVENTS_NORMALIZED_PATH, MATCH_SUMMARY_SIGNALS_PATH
+from app.ingestion.lineup_ingestion import ACTUAL_LINEUPS_PATH, LINEUP_DELTA_SIGNALS_PATH
 from app.tournament_autopilot import (
     FIFA_SNAPSHOT_PATH,
     LIVE_STATE_PATH,
@@ -65,6 +67,21 @@ def _read_json(path: Path) -> dict[str, Any]:
         return {}
 
 
+def _count_csv_records(path: Path) -> int:
+    if not path.exists():
+        return 0
+    try:
+        with path.open(newline="", encoding="utf-8") as handle:
+            return sum(1 for _ in csv.DictReader(handle))
+    except OSError:
+        return 0
+
+
+def _is_knockout_assignment(row: dict[str, Any]) -> bool:
+    stage = str(row.get("stage") or "").strip().casefold()
+    return bool(row.get("team_a") and row.get("team_b") and stage not in {"", "group", "first stage", "group stage"})
+
+
 def observe_tournament_state() -> UpdateObservation:
     live_state = _read_json(LIVE_STATE_PATH)
     completed = live_state.get("completed_matches") or []
@@ -77,6 +94,11 @@ def observe_tournament_state() -> UpdateObservation:
         completed_matches=len(completed),
         current_matches=len(current),
         live_matches=sum(1 for row in current if isinstance(row, dict) and row.get("status") == "live"),
+        official_knockout_assignments=sum(1 for row in current if isinstance(row, dict) and _is_knockout_assignment(row)),
+        event_rows=_count_csv_records(MATCH_EVENTS_NORMALIZED_PATH),
+        match_summary_signals=_count_csv_records(MATCH_SUMMARY_SIGNALS_PATH),
+        actual_lineup_rows=_count_csv_records(ACTUAL_LINEUPS_PATH),
+        lineup_delta_signals=_count_csv_records(LINEUP_DELTA_SIGNALS_PATH),
         official_snapshot_exists=FIFA_SNAPSHOT_PATH.exists(),
         official_snapshot_match_count=len(snapshot_rows),
         provider_key_configured=_env_present("BALLDONTLIE_API_KEY"),
@@ -237,8 +259,12 @@ def _next_actions(report: AgenticUpdateReport) -> list[str]:
         actions.append("Run the update agent again after the live match finishes so it can become a permanent final result.")
     if not after.event_feed_configured:
         actions.append("Configure WORLD_CUP_EVENT_FEED_URL to let the agent ingest richer live match stats.")
+    elif after.event_rows == 0:
+        actions.append("The event feed is configured but has not produced normalized match-event rows yet.")
     if not after.sportmonks_configured:
         actions.append("Configure SPORTMONKS_API_TOKEN or keep using confirmed-lineup CSV fallbacks.")
+    elif after.actual_lineup_rows == 0:
+        actions.append("The lineup provider is configured but no confirmed starter rows have been normalized yet.")
     if any(result.status == "failed" for result in report.results):
         actions.append("Review failed tool output before trusting the latest live-state report.")
     return actions

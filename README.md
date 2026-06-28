@@ -195,6 +195,8 @@ Derived summaries in `data/derived/match_summary_signals.csv` include xG, shots,
 
 Completed results are stored permanently in `data/observed_matches.csv`. The autopilot merges verified manual results with the official FIFA calendar score feed and optional provider refreshes, republishes `data/live_state.json`, rebuilds `data/live_team_state.csv`, ingests confirmed lineups, settles saved Arena predictions, evaluates completed matches, and refreshes calibration.
 
+The official FIFA feed is now also used as the bracket authority when match assignments are published. Scheduled knockout rows in `live_state.current_matches` override locally inferred bracket placeholders, and completed knockout matches lock by `match_id` so the displayed path, simulation path, AI stories, and static GitHub Pages build all move with the real tournament bracket.
+
 ```bash
 # Run safely from the verified local result ledger.
 python scripts/run_tournament_autopilot.py
@@ -212,9 +214,9 @@ python scripts/ingest_lineups.py --from-confirmed-lineups
 python scripts/sync_live_events.py --optional
 ```
 
-The scheduled workflow `.github/workflows/tournament-autopilot.yml` runs the same idempotent cycle during the tournament. The official FIFA calendar refresh does not need a secret. Configure repository secrets `BALLDONTLIE_API_KEY`, `SPORTMONKS_API_TOKEN`, and optionally `WORLD_CUP_EVENT_FEED_API_KEY`; configure `WORLD_CUP_EVENT_FEED_URL` as a repository variable. Scores remain durable even when a later provider request fails. Formation and event statistics are only treated as observed when a provider or verified import supplies them.
+The scheduled workflow `.github/workflows/tournament-autopilot.yml` runs the same idempotent cycle during the tournament. The official FIFA calendar refresh does not need a secret. Configure repository secrets `BALLDONTLIE_API_KEY`, `SPORTMONKS_API_TOKEN`, and optionally `WORLD_CUP_EVENT_FEED_API_KEY`; configure `WORLD_CUP_EVENT_FEED_URL` as a repository variable. Scores and official bracket assignments remain durable even when a later provider request fails. Formation, lineup, shot, pressure, xG, and event statistics are only treated as observed when a provider or verified import supplies them.
 
-The official FIFA refresh stores final matches in `completed_matches` and keeps in-progress or scheduled rows in `live_state.current_matches`, so a live score is visible to the website without being treated as a permanent final result. These results feed the simulator through live-state locking and live team-form features.
+The official FIFA refresh stores final matches in `completed_matches` and keeps in-progress or scheduled rows in `live_state.current_matches`, so a live score is visible to the website without being treated as a permanent final result. These results feed the simulator through match-id-aware live-state locking, official bracket assignment, and live team-form features. Rich post-match game data feeds `data/normalized/match_events_normalized.csv`, `data/derived/match_summary_signals.csv`, `data/normalized/actual_lineups_normalized.csv`, and `data/derived/lineup_delta_signals.csv` when those provider adapters are configured.
 
 ## Agentic Update Agent
 

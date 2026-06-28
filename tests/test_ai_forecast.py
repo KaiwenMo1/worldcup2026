@@ -11,6 +11,7 @@ from app.main import (
     api_ai_status,
     api_ai_tournament,
     load_live_state,
+    simulate_detail,
 )
 from app.tactics.manager_skills import list_manager_skills, load_team_manager_skill
 
@@ -64,6 +65,31 @@ class AiForecastTests(unittest.TestCase):
         self.assertEqual(board_row["team_b"], scheduled["team_b"])
         self.assertEqual(board_row["stage"], "Round of 32")
         self.assertEqual(board_row["official_status"], "scheduled")
+
+    def test_simulation_bracket_uses_official_knockout_assignments(self) -> None:
+        state = load_live_state()
+        scheduled = next(
+            (
+                row
+                for row in state.get("current_matches", [])
+                if row.get("status") == "scheduled"
+                and row.get("stage") == "Round of 32"
+                and row.get("team_a")
+                and row.get("team_b")
+            ),
+            None,
+        )
+        if scheduled is None:
+            self.skipTest("Official feed has not published a ready Round of 32 assignment yet.")
+
+        simulation = simulate_detail(seed=26, use_model=False)
+        round_of_32 = next(row for row in simulation["bracket"]["rounds"] if row["name"] == "Round of 32")
+        bracket_match = next(match for match in round_of_32["matches"] if str(match["id"]) == str(scheduled["match_id"]))
+
+        self.assertEqual(bracket_match["team_a"]["name"], scheduled["team_a"])
+        self.assertEqual(bracket_match["team_b"]["name"], scheduled["team_b"])
+        self.assertEqual(bracket_match["bracket_source"], "fifa_official_calendar_api")
+        self.assertEqual(bracket_match["fixture"]["official_status"], "scheduled")
 
     def test_reasoned_match_wraps_existing_forecast_without_changing_it(self) -> None:
         result = api_ai_match(AiMatchRequest(team_a="France", team_b="Brazil", use_model=False))

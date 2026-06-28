@@ -18,6 +18,11 @@ class UpdateObservation(StrictModel):
     completed_matches: int = 0
     current_matches: int = 0
     live_matches: int = 0
+    official_knockout_assignments: int = 0
+    event_rows: int = 0
+    match_summary_signals: int = 0
+    actual_lineup_rows: int = 0
+    lineup_delta_signals: int = 0
     official_snapshot_exists: bool = False
     official_snapshot_match_count: int = 0
     provider_key_configured: bool = False

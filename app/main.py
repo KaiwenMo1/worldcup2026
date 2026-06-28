@@ -662,6 +662,77 @@ def fixture_by_id(match_id: int) -> dict[str, Any] | None:
     return next((fixture for fixture in load_fixtures() if fixture["match_id"] == match_id), None)
 
 
+def _match_id(value: Any) -> int | None:
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _normalized_fixture_stage(value: Any) -> str:
+    stage = str(value or "").strip()
+    if stage.lower() in {"first stage", "group stage"}:
+        return "Group"
+    return stage
+
+
+def _normalized_fixture_group(value: Any) -> str:
+    group = str(value or "").strip()
+    return group.removeprefix("Group ").strip()
+
+
+def current_match_by_id(state: dict[str, Any] | None, match_id: int) -> dict[str, Any] | None:
+    if not state:
+        return None
+    for row in state.get("current_matches", []):
+        if isinstance(row, dict) and _match_id(row.get("match_id")) == match_id:
+            return row
+    return None
+
+
+def fixture_for_match(match_id: int, state: dict[str, Any] | None = None) -> dict[str, Any] | None:
+    """Return the local fixture enriched with official live-state assignment data."""
+    fixture = fixture_by_id(match_id)
+    current = current_match_by_id(state, match_id)
+    if not current:
+        return fixture
+
+    merged = dict(fixture or {"match_id": match_id})
+    merged["match_id"] = match_id
+    if current.get("team_a") or current.get("team_b"):
+        merged["team_a"] = current.get("team_a") or merged.get("team_a", "")
+        merged["team_b"] = current.get("team_b") or merged.get("team_b", "")
+    if current.get("stage"):
+        merged["stage"] = _normalized_fixture_stage(current.get("stage"))
+        merged["round"] = merged["stage"]
+    if current.get("group"):
+        merged["group"] = _normalized_fixture_group(current.get("group"))
+    if current.get("kickoff_utc"):
+        merged["kickoff_utc"] = current.get("kickoff_utc")
+    merged["official_status"] = current.get("status") or merged.get("official_status")
+    merged["provider_match_id"] = current.get("provider_match_id") or merged.get("provider_match_id")
+    merged["source"] = current.get("source") or merged.get("source")
+    merged["source_url"] = current.get("source_url") or merged.get("source_url")
+    return merged
+
+
+def official_assignment_for_match(
+    match_id: int,
+    state: dict[str, Any] | None,
+    team_by_name: dict[str, Team],
+) -> tuple[Team, Team, dict[str, Any]] | None:
+    fixture = fixture_for_match(match_id, state)
+    if not fixture:
+        return None
+    team_a_name = str(fixture.get("team_a") or "").strip()
+    team_b_name = str(fixture.get("team_b") or "").strip()
+    team_a = team_by_name.get(team_a_name)
+    team_b = team_by_name.get(team_b_name)
+    if not team_a or not team_b:
+        return None
+    return team_a, team_b, fixture
+
+
 def fixture_for_team_pair(team_a: str, team_b: str) -> dict[str, Any] | None:
     pair = {team_a, team_b}
     return next(
@@ -710,6 +781,8 @@ def fixture_label(fixture: dict[str, Any] | None) -> dict[str, Any] | None:
         "kickoff_local": fixture.get("kickoff_local") or None,
         "kickoff_utc": fixture.get("kickoff_utc") or None,
         "venue_source": fixture.get("venue_source") or "unknown",
+        "official_status": fixture.get("official_status") or None,
+        "provider_match_id": fixture.get("provider_match_id") or None,
     }
 
 
@@ -1329,6 +1402,25 @@ def completed_match_lookup(state: dict[str, Any]) -> dict[frozenset[str], dict[s
     return matches
 
 
+def completed_match_id_lookup(state: dict[str, Any]) -> dict[int, dict[str, Any]]:
+    matches = {}
+    for match in state.get("completed_matches", []):
+        match_id = _match_id(match.get("match_id"))
+        if match_id is not None:
+            matches[match_id] = match
+    return matches
+
+
+def _locked_score_for_teams(team_a: Team, team_b: Team, locked: dict[str, Any]) -> tuple[int, int, bool] | None:
+    if locked.get("team_a_score") is None or locked.get("team_b_score") is None:
+        return None
+    if locked.get("team_a") == team_a.name and locked.get("team_b") == team_b.name:
+        return int(locked["team_a_score"]), int(locked["team_b_score"]), True
+    if locked.get("team_a") == team_b.name and locked.get("team_b") == team_a.name:
+        return int(locked["team_b_score"]), int(locked["team_a_score"]), True
+    return None
+
+
 def resolve_match_score(
     team_a: Team,
     team_b: Team,
@@ -1336,12 +1428,22 @@ def resolve_match_score(
     bundle: Any,
     context: dict[str, Any],
     knockout: bool = False,
+    fixture: dict[str, Any] | None = None,
+    completed_by_id: dict[int, dict[str, Any]] | None = None,
 ) -> tuple[int, int, bool]:
+    match_id = _match_id((fixture or {}).get("match_id"))
+    if match_id is not None and completed_by_id:
+        locked_by_id = completed_by_id.get(match_id)
+        if locked_by_id:
+            locked_score = _locked_score_for_teams(team_a, team_b, locked_by_id)
+            if locked_score:
+                return locked_score
+
     locked = completed.get(frozenset((team_a.name, team_b.name)))
-    if locked:
-        if locked["team_a"] == team_a.name:
-            return int(locked["team_a_score"]), int(locked["team_b_score"]), True
-        return int(locked["team_b_score"]), int(locked["team_a_score"]), True
+    if locked and (not knockout or _normalized_fixture_stage(locked.get("stage")) != "Group"):
+        locked_score = _locked_score_for_teams(team_a, team_b, locked)
+        if locked_score:
+            return locked_score
     goals_a, goals_b = play_context_match(team_a, team_b, bundle, context, knockout)
     return goals_a, goals_b, False
 
@@ -2218,6 +2320,7 @@ def play_group_detail(
     teams: list[Team],
     eliminated: set[str],
     completed: dict[frozenset[str], dict[str, Any]],
+    completed_by_id: dict[int, dict[str, Any]],
     bundle: Any,
     context: dict[str, Any],
     route_state: dict[str, dict[str, Any]],
@@ -2240,7 +2343,15 @@ def play_group_detail(
 
     for fixture, team_a, team_b in fixture_pairs:
         fixture_context = automatic_fixture_context(context, fixture, team_a, team_b, route_state) if fixture else context
-        goals_a, goals_b, locked = resolve_match_score(team_a, team_b, completed, bundle, fixture_context)
+        goals_a, goals_b, locked = resolve_match_score(
+            team_a,
+            team_b,
+            completed,
+            bundle,
+            fixture_context,
+            fixture=fixture,
+            completed_by_id=completed_by_id,
+        )
         row_a = table[team_a.name]
         row_b = table[team_b.name]
         row_a.goals_for += goals_a
@@ -2326,13 +2437,24 @@ def play_knockout_match(
     fixture: dict[str, Any] | None = None,
     venue: str | None = None,
     route_state: dict[str, dict[str, Any]] | None = None,
+    completed: dict[frozenset[str], dict[str, Any]] | None = None,
+    completed_by_id: dict[int, dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     route_state = route_state if route_state is not None else {}
     fixture = fixture or fixture_by_id(match_id)
     if fixture and venue and not fixture.get("venue"):
         fixture = {**fixture, "venue": venue}
     fixture_context = automatic_fixture_context(context, fixture, team_a, team_b, route_state) if fixture else context_for_fixture(context, venue)
-    goals_a, goals_b = play_context_match(team_a, team_b, bundle, fixture_context, knockout=True)
+    goals_a, goals_b, locked = resolve_match_score(
+        team_a,
+        team_b,
+        completed or {},
+        bundle,
+        fixture_context,
+        knockout=True,
+        fixture=fixture,
+        completed_by_id=completed_by_id,
+    )
     if goals_a == goals_b:
         penalty_edge = ((team_a.penalty_strength + team_a.big_match_composure) - (team_b.penalty_strength + team_b.big_match_composure)) / 100
         probability_a = 1 / (1 + pow(2.718281828, -((team_a.strength - team_b.strength) * 1.8 + penalty_edge)))
@@ -2342,7 +2464,7 @@ def play_knockout_match(
         winner = team_a if goals_a > goals_b else team_b
         penalty_winner = None
     loser = team_b if winner == team_a else team_a
-    match = match_payload(team_a, team_b, goals_a, goals_b, False, fixture, fixture_context)
+    match = match_payload(team_a, team_b, goals_a, goals_b, locked, fixture, fixture_context)
     match["id"] = match_id
     match["winner"] = winner.name
     match["winner_team"] = team_payload(winner)
@@ -2401,9 +2523,13 @@ def play_official_knockout_detail(
     context: dict[str, Any],
     eliminated: set[str],
     route_state: dict[str, dict[str, Any]],
+    state: dict[str, Any] | None = None,
+    completed: dict[frozenset[str], dict[str, Any]] | None = None,
+    completed_by_id: dict[int, dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     third_available = dict(third_place_candidates(group_tables, eliminated))
     third_slots = [slot["b"][1] for slot in R32_SLOTS if slot["b"][0] == "third"]
+    team_by_name = {row.team.name: row.team for table in group_tables.values() for row in table}
     matches_by_id: dict[int, dict[str, Any]] = {}
     winners_by_id: dict[int, Team] = {}
     losers_by_id: dict[int, Team] = {}
@@ -2416,11 +2542,30 @@ def play_official_knockout_detail(
             remaining_after_this = third_slots[1:]
         else:
             remaining_after_this = third_slots
-        team_a = slot_team(slot["a"], group_tables, third_available, remaining_after_this)
-        team_b = slot_team(slot["b"], group_tables, third_available, remaining_after_this)
+        official_assignment = official_assignment_for_match(slot["id"], state, team_by_name)
+        if official_assignment:
+            team_a, team_b, fixture = official_assignment
+            bracket_source = "fifa_official_calendar_api"
+        else:
+            team_a = slot_team(slot["a"], group_tables, third_available, remaining_after_this)
+            team_b = slot_team(slot["b"], group_tables, third_available, remaining_after_this)
+            fixture = fixture_for_match(slot["id"], state)
+            bracket_source = "simulated_from_group_table"
         if slot["b"][0] == "third":
             third_slots = third_slots[1:]
-        match = play_knockout_match(slot["id"], team_a, team_b, bundle, context, fixture_by_id(slot["id"]), slot["venue"], route_state)
+        match = play_knockout_match(
+            slot["id"],
+            team_a,
+            team_b,
+            bundle,
+            context,
+            fixture,
+            slot["venue"],
+            route_state,
+            completed=completed,
+            completed_by_id=completed_by_id,
+        )
+        match["bracket_source"] = bracket_source
         matches_by_id[slot["id"]] = match
         winners_by_id[slot["id"]] = team_a if match["winner"] == team_a.name else team_b
         losers_by_id[slot["id"]] = team_b if match["winner"] == team_a.name else team_a
@@ -2430,9 +2575,27 @@ def play_official_knockout_detail(
     for round_name, match_specs in KNOCKOUT_PATH:
         round_matches = []
         for match_id, source_a, source_b in match_specs:
-            team_a = winners_by_id[source_a]
-            team_b = winners_by_id[source_b]
-            match = play_knockout_match(match_id, team_a, team_b, bundle, context, fixture_by_id(match_id), route_state=route_state)
+            official_assignment = official_assignment_for_match(match_id, state, team_by_name)
+            if official_assignment:
+                team_a, team_b, fixture = official_assignment
+                bracket_source = "fifa_official_calendar_api"
+            else:
+                team_a = winners_by_id[source_a]
+                team_b = winners_by_id[source_b]
+                fixture = fixture_for_match(match_id, state)
+                bracket_source = "simulated_from_prior_round"
+            match = play_knockout_match(
+                match_id,
+                team_a,
+                team_b,
+                bundle,
+                context,
+                fixture,
+                route_state=route_state,
+                completed=completed,
+                completed_by_id=completed_by_id,
+            )
+            match["bracket_source"] = bracket_source
             matches_by_id[match_id] = match
             winners_by_id[match_id] = team_a if match["winner"] == team_a.name else team_b
             losers_by_id[match_id] = team_b if match["winner"] == team_a.name else team_a
@@ -2440,28 +2603,52 @@ def play_official_knockout_detail(
         rounds.append({"name": round_name, "matches": round_matches})
 
     bronze_id, bronze_a_source, bronze_b_source = BRONZE_MATCH
+    bronze_assignment = official_assignment_for_match(bronze_id, state, team_by_name)
+    if bronze_assignment:
+        bronze_a, bronze_b, bronze_fixture = bronze_assignment
+        bronze_source = "fifa_official_calendar_api"
+    else:
+        bronze_a = losers_by_id[bronze_a_source]
+        bronze_b = losers_by_id[bronze_b_source]
+        bronze_fixture = fixture_for_match(bronze_id, state)
+        bronze_source = "simulated_from_prior_round"
     bronze = play_knockout_match(
         bronze_id,
-        losers_by_id[bronze_a_source],
-        losers_by_id[bronze_b_source],
+        bronze_a,
+        bronze_b,
         bundle,
         context,
-        fixture_by_id(bronze_id),
+        bronze_fixture,
         route_state=route_state,
+        completed=completed,
+        completed_by_id=completed_by_id,
     )
+    bronze["bracket_source"] = bronze_source
     matches_by_id[bronze_id] = bronze
     rounds.append({"name": "Bronze Final", "matches": [bronze]})
 
     final_id, final_a_source, final_b_source = FINAL_MATCH
+    final_assignment = official_assignment_for_match(final_id, state, team_by_name)
+    if final_assignment:
+        final_a, final_b, final_fixture = final_assignment
+        final_source = "fifa_official_calendar_api"
+    else:
+        final_a = winners_by_id[final_a_source]
+        final_b = winners_by_id[final_b_source]
+        final_fixture = fixture_for_match(final_id, state)
+        final_source = "simulated_from_prior_round"
     final = play_knockout_match(
         final_id,
-        winners_by_id[final_a_source],
-        winners_by_id[final_b_source],
+        final_a,
+        final_b,
         bundle,
         context,
-        fixture_by_id(final_id),
+        final_fixture,
         route_state=route_state,
+        completed=completed,
+        completed_by_id=completed_by_id,
     )
+    final["bracket_source"] = final_source
     matches_by_id[final_id] = final
     rounds.append({"name": "Final", "matches": [final]})
 
@@ -2479,18 +2666,28 @@ def simulate_detail_core(
     random.seed(seed)
     eliminated = set(state.get("eliminated_teams", []))
     completed = completed_match_lookup(state)
+    completed_by_id = completed_match_id_lookup(state)
     route_state: dict[str, dict[str, Any]] = {}
 
     group_tables = {}
     group_matches = {}
     for group, group_teams in groups.items():
-        table, matches = play_group_detail(group, group_teams, eliminated, completed, bundle, context, route_state)
+        table, matches = play_group_detail(group, group_teams, eliminated, completed, completed_by_id, bundle, context, route_state)
         group_tables[group] = table
         group_matches[group] = matches
 
     if sum(1 for table in group_tables.values() for row in table[:3] if row.team.name not in eliminated) < 32:
         raise HTTPException(status_code=409, detail="Not enough active teams remain to simulate.")
-    knockout = play_official_knockout_detail(group_tables, bundle, context, eliminated, route_state)
+    knockout = play_official_knockout_detail(
+        group_tables,
+        bundle,
+        context,
+        eliminated,
+        route_state,
+        state=state,
+        completed=completed,
+        completed_by_id=completed_by_id,
+    )
     return {
         "model": "RF + Dixon-Coles + Elo" if bundle else "Poisson baseline",
         "context": context,
