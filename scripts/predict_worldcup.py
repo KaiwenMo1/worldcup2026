@@ -25,6 +25,7 @@ FEATURES_PATH = ROOT / "data" / "team_features.csv"
 ADVANCED_FEATURES_PATH = ROOT / "data" / "team_advanced_features.csv"
 SQUAD_FEATURES_PATH = ROOT / "data" / "squad_features.csv"
 PLAYER_MATCH_TEAM_FEATURES_PATH = ROOT / "data" / "player_match_team_features.csv"
+LIVE_PLAYER_TEAM_FEATURES_PATH = ROOT / "data" / "derived" / "live_player_team_features.csv"
 XG_TEAM_ZONES_PATH = ROOT / "data" / "xg_team_zones.csv"
 MODEL_PATH = ROOT / "models" / "worldcup_random_forest.joblib"
 
@@ -261,7 +262,13 @@ class ModelBundle:
 
 def load_feature_rows() -> dict[str, dict[str, float]]:
     features: dict[str, dict[str, float]] = {}
-    for path in (FEATURES_PATH, ADVANCED_FEATURES_PATH, SQUAD_FEATURES_PATH, PLAYER_MATCH_TEAM_FEATURES_PATH):
+    for path in (
+        FEATURES_PATH,
+        ADVANCED_FEATURES_PATH,
+        SQUAD_FEATURES_PATH,
+        PLAYER_MATCH_TEAM_FEATURES_PATH,
+        LIVE_PLAYER_TEAM_FEATURES_PATH,
+    ):
         if not path.exists():
             continue
         with path.open(newline="", encoding="utf-8") as handle:

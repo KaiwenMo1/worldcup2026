@@ -23,6 +23,10 @@ class UpdateObservation(StrictModel):
     match_summary_signals: int = 0
     actual_lineup_rows: int = 0
     lineup_delta_signals: int = 0
+    player_postmatch_signals: int = 0
+    live_player_team_features: int = 0
+    manager_observation_rows: int = 0
+    formation_prediction_signals: int = 0
     official_snapshot_exists: bool = False
     official_snapshot_match_count: int = 0
     provider_key_configured: bool = False

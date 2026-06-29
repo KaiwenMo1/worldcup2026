@@ -343,6 +343,53 @@ def _score_read(forecast: dict[str, Any], pick: str) -> tuple[str, str]:
     return headline, why_score
 
 
+def _context_read(forecast: dict[str, Any], team_a: str, team_b: str) -> dict[str, str]:
+    context = ((forecast.get("forecast_stack") or {}).get("context") or {})
+    thermal = context.get("thermal_comfort") or {}
+    travel = context.get("team_travel_distance_km") or {}
+    rest = context.get("rest_days") or {}
+    weather = context.get("weather") or "normal"
+    pieces = []
+    temp_bits = []
+    for team in (team_a, team_b):
+        comfort = thermal.get(team) or {}
+        if comfort.get("temperature_c") is not None:
+            temp_bits.append(f"{team} comfort {float(comfort.get('comfort', 0.5)):.2f}")
+    if temp_bits:
+        pieces.append(f"{weather} venue read with " + ", ".join(temp_bits))
+    travel_bits = []
+    for team in (team_a, team_b):
+        km = travel.get(team)
+        days = rest.get(team)
+        if km is not None or days is not None:
+            travel_bits.append(f"{team}: {km or 0} km transfer, {days if days is not None else 'unknown'} rest days")
+    if travel_bits:
+        pieces.append("; ".join(travel_bits))
+    return {
+        "venue_travel_weather": ". ".join(pieces) if pieces else "Venue, travel, rest, and temperature are neutral or unavailable.",
+    }
+
+
+def _event_form_read(forecast: dict[str, Any], team_a: str, team_b: str) -> str:
+    advanced = forecast.get("advanced_signals") or {}
+    reads = []
+    for side, team in (("team_a", team_a), ("team_b", team_b)):
+        signal = next(
+            (
+                row
+                for row in ((advanced.get(side) or {}).get("signals") or [])
+                if row.get("label") == "Observed match events"
+            ),
+            {},
+        )
+        if signal and signal.get("quality") != "Needs event data":
+            reads.append(
+                f"{team}: {signal.get('xg_for')} xG, {signal.get('shots')} shots, "
+                f"{signal.get('field_tilt')} field tilt, pressing {signal.get('pressing_proxy')}"
+            )
+    return "; ".join(reads) if reads else "Detailed event data is not available for this matchup yet."
+
+
 def build_match_story(
     fixture: dict[str, Any],
     forecast: dict[str, Any],
@@ -376,6 +423,8 @@ def build_match_story(
     headline, why_score = _score_read(forecast, pick)
     match_script, manager_move = _manager_read(tactical, pick, team_a, team_b)
     player_watch, fragile_assumption = _player_read(players, pick, team_a, team_b)
+    context_read = _context_read(forecast, team_a, team_b)
+    event_form = _event_form_read(forecast, team_a, team_b)
     tactical_edges = tactical.get("top_matchup_edges") or []
     counter_edge = next((edge for edge in tactical_edges if edge.get("favored_team") != pick), None)
     upset_path = _edge_read(counter_edge) if counter_edge else fragile_assumption
@@ -425,6 +474,8 @@ def build_match_story(
             "decisive_clash": _edge_read(tactical_edges[0] if tactical_edges else None),
             "manager_move": manager_move,
             "player_watch": player_watch,
+            "venue_travel_weather": context_read["venue_travel_weather"],
+            "event_form": event_form,
             "what_changes_it": fragile_assumption,
             "opponent_path": upset_path,
         },
@@ -458,6 +509,8 @@ def build_match_story(
                 "kind": "context",
             },
         ],
+        "context_read": context_read,
+        "event_form": event_form,
         "data_quality": {
             "forecast": (forecast.get("advanced_signals") or {}).get("quality", {}),
             "tactical": tactical.get("data_quality", "unknown"),
@@ -489,12 +542,16 @@ def build_match_reasoning(
     )
     deductions = _deductions(forecast, tactical, players)
     score_reason = _score_reason(forecast, tactical, players)
+    context_read = _context_read(forecast, team_a, team_b)
+    event_form = _event_form_read(forecast, team_a, team_b)
     context = {
         "forecast": forecast,
         "tactical_brief": tactical,
         "player_intelligence": players,
         "deductions": deductions,
         "score_reason": score_reason,
+        "venue_travel_weather": context_read,
+        "event_form": event_form,
         "live_state": live_state,
         "evidence": evidence,
     }
@@ -517,6 +574,8 @@ def build_match_reasoning(
         "analysis": llm or tactical["tactical_summary"],
         "analysis_mode": "llm_assisted_rag" if llm else "deterministic_evidence_reasoning",
         "deductions": deductions,
+        "venue_travel_weather": context_read,
+        "event_form": event_form,
         "players": players,
         "manager_duel": {
             team_a: tactical["manager_plan_a"],

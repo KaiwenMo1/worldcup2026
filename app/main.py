@@ -144,6 +144,10 @@ REFEREE_PROFILES_PATH = ROOT / "data" / "referee_profiles.csv"
 WEATHER_EFFECTS_PATH = ROOT / "data" / "weather_effects.csv"
 LIVE_TEAM_STATE_PATH = ROOT / "data" / "live_team_state.csv"
 FREEZE_FRAME_SIGNALS_PATH = ROOT / "data" / "freeze_frame_signals.csv"
+MATCH_SUMMARY_SIGNALS_PATH = ROOT / "data" / "derived" / "match_summary_signals.csv"
+TEAM_WEATHER_PREFERENCES_PATH = ROOT / "data" / "team_weather_preferences.csv"
+MANAGER_MATCH_OBSERVATIONS_PATH = ROOT / "data" / "derived" / "manager_match_observations.csv"
+FORMATION_PREDICTION_SIGNALS_PATH = ROOT / "data" / "derived" / "formation_prediction_signals.csv"
 ODDS_API_HOST = "https://api.the-odds-api.com"
 BOOKMAKER_ODDS_FIELDNAMES = [
     "market",
@@ -230,6 +234,24 @@ VENUE_TIMEZONES = {
     "Seattle": "America/Los_Angeles",
     "Toronto": "America/Toronto",
     "Vancouver": "America/Vancouver",
+}
+VENUE_SUMMER_NORMALS_C = {
+    "Atlanta": 29.0,
+    "Boston": 24.0,
+    "Dallas": 32.0,
+    "Guadalajara": 27.0,
+    "Houston": 31.0,
+    "Kansas City": 29.0,
+    "Los Angeles": 24.0,
+    "Mexico City": 23.0,
+    "Miami": 31.0,
+    "Monterrey": 33.0,
+    "New York New Jersey": 26.0,
+    "Philadelphia": 27.0,
+    "San Francisco Bay Area": 21.0,
+    "Seattle": 22.0,
+    "Toronto": 24.0,
+    "Vancouver": 21.0,
 }
 CONFEDERATION_TRAVEL_LOAD = {
     "CONCACAF": 24.0,
@@ -321,6 +343,7 @@ class SimulationRequest(BaseModel):
 
 
 class MatchRequest(BaseModel):
+    match_id: str | None = None
     team_a: str
     team_b: str
     use_model: bool = True
@@ -809,11 +832,15 @@ def typical_weather_for_fixture(venue: dict[str, Any], kickoff_local: str | None
     hour = local.hour if local else 15
     month = local.month if local else 6
     venue_name = venue["venue"]
+    normal_temp = VENUE_SUMMER_NORMALS_C.get(venue_name, 25.0)
+    hour_adjustment = 2.0 if 12 <= hour <= 18 else -1.0 if hour >= 20 or hour <= 10 else 0.0
+    altitude_adjustment = -1.5 if venue["altitude_m"] >= 1400 else 0.0
+    temperature_c = round(normal_temp + hour_adjustment + altitude_adjustment, 1)
     hot_venues = {"Atlanta", "Dallas", "Houston", "Kansas City", "Miami", "Monterrey"}
     weather = "normal"
     if venue["altitude_m"] >= 1400:
         weather = "altitude"
-    elif month in {6, 7} and 12 <= hour <= 19 and venue_name in hot_venues:
+    elif month in {6, 7} and temperature_c >= 30 and venue_name in hot_venues:
         weather = "heat"
     elif venue_name in {"Seattle", "Vancouver"} and month in {6, 7}:
         weather = "normal"
@@ -822,7 +849,10 @@ def typical_weather_for_fixture(venue: dict[str, Any], kickoff_local: str | None
         "weather_source": "venue-climatology",
         "venue_weather": {
             "venue": venue,
-            "current": {},
+            "current": {
+                "temperature_2m": temperature_c,
+                "temperature_source": "venue_summer_normal",
+            },
             "fetched_at": datetime.now(timezone.utc).isoformat(),
             "note": "Forecast horizon unavailable; using kickoff month/hour and venue climate proxy.",
         },
@@ -1023,6 +1053,19 @@ def team_travel_load(team: Team, venue_name: str | None, route_state: dict[str, 
     return initial_travel_load(team, venue)
 
 
+def team_travel_detail(team: Team, venue_name: str | None, route_state: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    state = route_state.get(team.name, {})
+    previous_venue = state.get("last_venue")
+    distance = venue_distance_km(previous_venue, venue_name) if previous_venue else 0.0
+    return {
+        "previous_venue": previous_venue,
+        "current_venue": venue_name,
+        "distance_km": round(distance, 1),
+        "previous_match_id": state.get("last_match_id"),
+        "source": "previous fixture venue" if previous_venue else "initial tournament arrival proxy",
+    }
+
+
 def team_rest_days(team: Team, kickoff: datetime | None, route_state: dict[str, dict[str, Any]]) -> float | None:
     previous = parse_fixture_datetime(route_state.get(team.name, {}).get("last_kickoff"))
     if not previous or not kickoff:
@@ -1036,6 +1079,102 @@ def team_fatigue_load(team: Team, travel_load: float, rest_days: float | None) -
     lineup_uncertainty = max(0.0, 82.0 - lineup_confidence) * 0.10
     depth_relief = max(0.0, ((team.bench + team.injury_resilience) / 2) - 75.0) * 0.18
     return clamp(12.0 + (travel_load * 0.34) + rest_penalty + lineup_uncertainty - depth_relief, 0, 100)
+
+
+def fixture_temperature_c(context: dict[str, Any]) -> float | None:
+    current = ((context.get("venue_weather") or {}).get("current") or {})
+    value = current.get("temperature_2m")
+    return safe_float(value)
+
+
+def default_weather_preference(team: Team) -> dict[str, Any]:
+    cool_uefa = {"England", "Scotland", "Norway", "Sweden", "Germany", "Netherlands", "Belgium", "Czechia", "Austria", "Switzerland"}
+    hot_weather = {
+        "Algeria",
+        "Egypt",
+        "Ghana",
+        "Cote d'Ivoire",
+        "Senegal",
+        "Morocco",
+        "Tunisia",
+        "Qatar",
+        "Saudi Arabia",
+        "Iraq",
+        "Jordan",
+        "IR Iran",
+        "Mexico",
+        "Panama",
+        "Curacao",
+        "Haiti",
+    }
+    altitude = {"Mexico", "Ecuador", "Colombia", "Bolivia", "Paraguay"}
+    if team.name in cool_uefa:
+        preferred_min, preferred_max, heat_tolerance, cold_tolerance = 7.0, 22.0, 0.42, 0.86
+    elif team.name in hot_weather:
+        preferred_min, preferred_max, heat_tolerance, cold_tolerance = 18.0, 32.0, 0.82, 0.42
+    elif team.confederation in {"CAF", "AFC", "CONCACAF"}:
+        preferred_min, preferred_max, heat_tolerance, cold_tolerance = 16.0, 30.0, 0.72, 0.50
+    elif team.confederation == "CONMEBOL":
+        preferred_min, preferred_max, heat_tolerance, cold_tolerance = 14.0, 28.0, 0.68, 0.58
+    else:
+        preferred_min, preferred_max, heat_tolerance, cold_tolerance = 10.0, 25.0, 0.55, 0.70
+    return {
+        "team": team.name,
+        "preferred_min_c": preferred_min,
+        "preferred_max_c": preferred_max,
+        "heat_tolerance": heat_tolerance,
+        "cold_tolerance": cold_tolerance,
+        "altitude_tolerance": 0.82 if team.name in altitude or team.host else 0.55,
+        "source": "confederation_climate_prior",
+    }
+
+
+def team_weather_preference(team: Team) -> dict[str, Any]:
+    row = team_profile_row(TEAM_WEATHER_PREFERENCES_PATH, team.name)
+    if not row:
+        return default_weather_preference(team)
+    fallback = default_weather_preference(team)
+    return {
+        "team": team.name,
+        "preferred_min_c": csv_float(row, "preferred_min_c", fallback["preferred_min_c"]),
+        "preferred_max_c": csv_float(row, "preferred_max_c", fallback["preferred_max_c"]),
+        "heat_tolerance": csv_float(row, "heat_tolerance", fallback["heat_tolerance"]),
+        "cold_tolerance": csv_float(row, "cold_tolerance", fallback["cold_tolerance"]),
+        "altitude_tolerance": csv_float(row, "altitude_tolerance", fallback["altitude_tolerance"]),
+        "source": row.get("source") or "team_weather_preferences.csv",
+    }
+
+
+def thermal_comfort_index(team: Team, context: dict[str, Any]) -> dict[str, Any]:
+    preference = team_weather_preference(team)
+    temperature = fixture_temperature_c(context)
+    venue = ((context.get("venue_weather") or {}).get("venue") or {})
+    altitude_m = safe_float(venue.get("altitude_m")) or 0.0
+    if temperature is None:
+        return {
+            "comfort": 0.5,
+            "temperature_c": None,
+            "preferred_range_c": [preference["preferred_min_c"], preference["preferred_max_c"]],
+            "altitude_m": altitude_m,
+            "stress": 0.0,
+            "source": preference["source"],
+            "detail": "No temperature value is available; neutral comfort applied.",
+        }
+    heat_excess = max(0.0, temperature - preference["preferred_max_c"])
+    cold_excess = max(0.0, preference["preferred_min_c"] - temperature)
+    heat_stress = heat_excess * (1.0 - preference["heat_tolerance"])
+    cold_stress = cold_excess * (1.0 - preference["cold_tolerance"])
+    altitude_stress = max(0.0, altitude_m - 1200.0) / 900.0 * (1.0 - preference["altitude_tolerance"])
+    stress = clamp((heat_stress + cold_stress) / 10.0 + altitude_stress, 0.0, 1.0)
+    return {
+        "comfort": round(1.0 - stress, 3),
+        "temperature_c": round(temperature, 1),
+        "preferred_range_c": [preference["preferred_min_c"], preference["preferred_max_c"]],
+        "altitude_m": round(altitude_m, 1),
+        "stress": round(stress, 3),
+        "source": preference["source"],
+        "detail": f"{temperature:.1f}C vs preferred {preference['preferred_min_c']:.0f}-{preference['preferred_max_c']:.0f}C.",
+    }
 
 
 def automatic_fixture_context(
@@ -1064,12 +1203,16 @@ def automatic_fixture_context(
 
     travel_a = team_travel_load(team_a, venue_name, route_state)
     travel_b = team_travel_load(team_b, venue_name, route_state)
+    travel_detail_a = team_travel_detail(team_a, venue_name, route_state)
+    travel_detail_b = team_travel_detail(team_b, venue_name, route_state)
     rest_a = team_rest_days(team_a, kickoff, route_state)
     rest_b = team_rest_days(team_b, kickoff, route_state)
     fatigue_a = team_fatigue_load(team_a, travel_a, rest_a)
     fatigue_b = team_fatigue_load(team_b, travel_b, rest_b)
     support_a = team_support_score(team_a, venue)
     support_b = team_support_score(team_b, venue)
+    thermal_a = thermal_comfort_index(team_a, fixture_context)
+    thermal_b = thermal_comfort_index(team_b, fixture_context)
 
     fixture_context.update(
         {
@@ -1077,6 +1220,11 @@ def automatic_fixture_context(
             "match_id": (fixture or {}).get("match_id"),
             "fixture": fixture_label(fixture),
             "team_travel": {team_a.name: round(travel_a, 1), team_b.name: round(travel_b, 1)},
+            "team_travel_distance_km": {
+                team_a.name: travel_detail_a["distance_km"],
+                team_b.name: travel_detail_b["distance_km"],
+            },
+            "travel_details": {team_a.name: travel_detail_a, team_b.name: travel_detail_b},
             "team_fatigue": {team_a.name: round(fatigue_a, 1), team_b.name: round(fatigue_b, 1)},
             "rest_days": {
                 team_a.name: round(rest_a, 2) if rest_a is not None else None,
@@ -1087,6 +1235,7 @@ def automatic_fixture_context(
                 team_b.name: round(clamp(support_b - support_a, -1.8, 1.8), 2),
             },
             "support_scores": {team_a.name: round(support_a, 2), team_b.name: round(support_b, 2)},
+            "thermal_comfort": {team_a.name: thermal_a, team_b.name: thermal_b},
         }
     )
     return fixture_context
@@ -1107,6 +1256,21 @@ def update_route_state(route_state: dict[str, dict[str, Any]], fixture: dict[str
         }
 
 
+def route_state_from_live_state(state: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    route_state: dict[str, dict[str, Any]] = {}
+    completed_rows = sorted(
+        [row for row in state.get("completed_matches", []) if row.get("match_id")],
+        key=lambda row: row.get("kickoff_utc") or "",
+    )
+    team_lookup = load_teams()
+    for row in completed_rows:
+        fixture = fixture_for_match(_match_id(row.get("match_id")) or 0, state)
+        teams = [team_lookup[name] for name in (row.get("team_a"), row.get("team_b")) if name in team_lookup]
+        if teams:
+            update_route_state(route_state, fixture, *teams)
+    return route_state
+
+
 def compact_fixture_context(context: dict[str, Any], team_a: Team, team_b: Team) -> dict[str, Any]:
     return {
         "fixture": context.get("fixture"),
@@ -1120,6 +1284,10 @@ def compact_fixture_context(context: dict[str, Any], team_a: Team, team_b: Team)
             team_a.name: context.get("team_fatigue", {}).get(team_a.name),
             team_b.name: context.get("team_fatigue", {}).get(team_b.name),
         },
+        "team_travel_distance_km": {
+            team_a.name: context.get("team_travel_distance_km", {}).get(team_a.name),
+            team_b.name: context.get("team_travel_distance_km", {}).get(team_b.name),
+        },
         "rest_days": {
             team_a.name: context.get("rest_days", {}).get(team_a.name),
             team_b.name: context.get("rest_days", {}).get(team_b.name),
@@ -1128,14 +1296,28 @@ def compact_fixture_context(context: dict[str, Any], team_a: Team, team_b: Team)
             team_a.name: context.get("fan_edges", {}).get(team_a.name),
             team_b.name: context.get("fan_edges", {}).get(team_b.name),
         },
+        "thermal_comfort": {
+            team_a.name: context.get("thermal_comfort", {}).get(team_a.name),
+            team_b.name: context.get("thermal_comfort", {}).get(team_b.name),
+        },
     }
 
 
-def matchup_context(context: dict[str, Any], team_a: Team, team_b: Team) -> dict[str, Any]:
+def matchup_context(
+    context: dict[str, Any],
+    team_a: Team,
+    team_b: Team,
+    match_id: str | int | None = None,
+    state: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     fixture = None
-    if context.get("venue"):
+    live_state = state or load_live_state()
+    route_state = route_state_from_live_state(live_state)
+    if match_id not in {None, ""}:
+        fixture = fixture_for_match(_match_id(match_id) or 0, live_state)
+    if not fixture and context.get("venue"):
         fixture = {
-            "match_id": None,
+            "match_id": match_id,
             "stage": "Match Lab",
             "group": "",
             "venue": context.get("venue"),
@@ -1143,9 +1325,9 @@ def matchup_context(context: dict[str, Any], team_a: Team, team_b: Team) -> dict
             "kickoff_local": None,
             "kickoff_utc": None,
         }
-    else:
+    elif not fixture:
         fixture = fixture_for_team_pair(team_a.name, team_b.name)
-    return automatic_fixture_context(context, fixture, team_a, team_b, {}) if fixture else context
+    return automatic_fixture_context(context, fixture, team_a, team_b, route_state) if fixture else context
 
 
 def load_player_candidates() -> dict[str, list[dict[str, Any]]]:
@@ -1846,6 +2028,90 @@ def weather_effect_signal(team: Team, opponent: Team, context: dict[str, Any]) -
     }
 
 
+def thermal_comfort_signal(team: Team, opponent: Team, context: dict[str, Any]) -> dict[str, Any]:
+    team_comfort = (context.get("thermal_comfort") or {}).get(team.name) or thermal_comfort_index(team, context)
+    opponent_comfort = (context.get("thermal_comfort") or {}).get(opponent.name) or thermal_comfort_index(opponent, context)
+    comfort_edge = float(team_comfort.get("comfort", 0.5)) - float(opponent_comfort.get("comfort", 0.5))
+    heat_or_altitude_amplifier = 1.0
+    weather = context.get("weather", "normal")
+    if weather in {"heat", "altitude"}:
+        heat_or_altitude_amplifier = 1.25
+    delta = clamp(0.05 * comfort_edge * heat_or_altitude_amplifier, -0.045, 0.045)
+    temperature = team_comfort.get("temperature_c")
+    return {
+        "label": "Thermal comfort",
+        "xg_delta": round(delta, 4),
+        "quality": team_comfort.get("source") or "climate prior",
+        "temperature_c": temperature,
+        "team_comfort": team_comfort,
+        "opponent_comfort": opponent_comfort,
+        "detail": (
+            f"{team.name} comfort {float(team_comfort.get('comfort', 0.5)):.2f} vs "
+            f"{opponent.name} {float(opponent_comfort.get('comfort', 0.5)):.2f}"
+            + (f" at {temperature}C." if temperature is not None else ".")
+        ),
+    }
+
+
+def detailed_match_event_signal(team: Team, opponent: Team) -> dict[str, Any]:
+    rows = [row for row in load_csv_rows(MATCH_SUMMARY_SIGNALS_PATH) if row.get("team") == team.name]
+    if not rows:
+        return {
+            "label": "Observed match events",
+            "xg_delta": 0.0,
+            "quality": "Needs event data",
+            "detail": "No observed match-event summary rows for this team yet.",
+        }
+    recent = rows[-5:]
+    count = len(recent)
+
+    def avg(field: str, default: float = 0.0) -> float:
+        return sum(csv_float(row, field, default) for row in recent) / max(count, 1)
+
+    xg = avg("xg")
+    xg_faced = avg("xg_faced")
+    shots = avg("shots")
+    field_tilt = avg("field_tilt", 0.5)
+    box_entries = avg("box_entries")
+    set_piece_xg = avg("set_piece_xg")
+    counterattack_xg = avg("counterattack_xg")
+    pressing_proxy = avg("pressing_proxy", 50.0)
+    goalkeeper_impact = avg("goalkeeper_impact")
+    event_count = avg("event_count")
+    observed_quality = "Observed rich events" if event_count >= 45 else "Observed partial events"
+
+    attacking_form = (
+        ((xg - 1.20) * 0.045)
+        + ((shots - 10.0) * 0.004)
+        + ((box_entries - 10.0) * 0.003)
+        + ((field_tilt - 0.50) * 0.075)
+        + (set_piece_xg * 0.030)
+        + (counterattack_xg * 0.040)
+    )
+    defensive_form = ((1.15 - xg_faced) * 0.020) + (goalkeeper_impact * 0.012)
+    pressure_form = ((pressing_proxy - 50.0) / 100.0) * 0.020
+    delta = clamp(attacking_form + defensive_form + pressure_form, -0.075, 0.085)
+    return {
+        "label": "Observed match events",
+        "xg_delta": round(delta, 4),
+        "quality": observed_quality,
+        "matches": count,
+        "xg_for": round(xg, 3),
+        "xg_faced": round(xg_faced, 3),
+        "shots": round(shots, 1),
+        "field_tilt": round(field_tilt, 3),
+        "box_entries": round(box_entries, 1),
+        "set_piece_xg": round(set_piece_xg, 3),
+        "counterattack_xg": round(counterattack_xg, 3),
+        "pressing_proxy": round(pressing_proxy, 1),
+        "goalkeeper_impact": round(goalkeeper_impact, 3),
+        "detail": (
+            f"{team.name} recent event form: {xg:.2f} xG, {shots:.1f} shots, "
+            f"{field_tilt:.0%} field tilt, {pressing_proxy:.0f} pressing proxy."
+        ),
+    }
+
+
 def set_piece_signal(team: Team, opponent: Team, context: dict[str, Any]) -> dict[str, Any]:
     profile = team_profile_row(SET_PIECE_PROFILES_PATH, team.name)
     opponent_profile = team_profile_row(SET_PIECE_PROFILES_PATH, opponent.name)
@@ -1977,6 +2243,8 @@ def advanced_matchup_signals(team: Team, opponent: Team, context: dict[str, Any]
         market_signal(team, opponent),
         tactical_signal(team, opponent),
         weather_effect_signal(team, opponent, context),
+        thermal_comfort_signal(team, opponent, context),
+        detailed_match_event_signal(team, opponent),
         set_piece_signal(team, opponent, context),
         goalkeeper_signal(team, opponent),
         freeze_frame_signal(team, opponent),
@@ -1995,7 +2263,11 @@ def advanced_matchup_signals(team: Team, opponent: Team, context: dict[str, Any]
         )
 
     total_delta = clamp(sum(float(signal.get("xg_delta", 0.0)) for signal in signals), -0.28, 0.28)
-    active_sources = sum(1 for signal in signals if signal.get("quality") not in {"Needs odds", "Needs profile", "Needs event data", "No live rows"})
+    active_sources = sum(
+        1
+        for signal in signals
+        if signal.get("quality") not in {"Needs odds", "Needs profile", "Needs event data", "No live rows"}
+    )
     quality_score = 38 + active_sources * 5.2
     if any(signal.get("quality") in {"Provider", "Confirmed", "Market"} for signal in signals):
         quality_score += 10
@@ -2017,6 +2289,8 @@ def advanced_matchup_signals(team: Team, opponent: Team, context: dict[str, Any]
                 str(GOALKEEPER_PROFILES_PATH),
                 str(REFEREE_PROFILES_PATH),
                 str(WEATHER_EFFECTS_PATH),
+                str(TEAM_WEATHER_PREFERENCES_PATH),
+                str(MATCH_SUMMARY_SIGNALS_PATH),
                 str(LIVE_TEAM_STATE_PATH),
                 str(FREEZE_FRAME_SIGNALS_PATH),
             ],
@@ -2156,13 +2430,30 @@ def forecast_stack_payload(
     market_b = signal_for(advanced_b, "Market probability")
     live_a = signal_for(advanced_a, "Live Bayesian update")
     live_b = signal_for(advanced_b, "Live Bayesian update")
-    tactical_labels = {"Tactical matchup", "Set pieces", "Post-shot GK", "360 freeze-frame", "Referee tendencies", "Weather backtest"}
+    events_a = signal_for(advanced_a, "Observed match events")
+    events_b = signal_for(advanced_b, "Observed match events")
+    thermal_a = signal_for(advanced_a, "Thermal comfort")
+    thermal_b = signal_for(advanced_b, "Thermal comfort")
+    tactical_labels = {
+        "Tactical matchup",
+        "Set pieces",
+        "Post-shot GK",
+        "360 freeze-frame",
+        "Referee tendencies",
+        "Weather backtest",
+        "Thermal comfort",
+        "Observed match events",
+    }
     tactical_delta_a = sum(float(signal.get("xg_delta", 0.0)) for signal in advanced_a.get("signals", []) if signal.get("label") in tactical_labels)
     tactical_delta_b = sum(float(signal.get("xg_delta", 0.0)) for signal in advanced_b.get("signals", []) if signal.get("label") in tactical_labels)
     availability_delta_a = float(availability_a.get("xg_delta", 0.0)) + float(lineup_a.get("xg_delta", 0.0))
     availability_delta_b = float(availability_b.get("xg_delta", 0.0)) + float(lineup_b.get("xg_delta", 0.0))
     market_live_delta_a = float(market_a.get("xg_delta", 0.0)) + float(live_a.get("xg_delta", 0.0))
     market_live_delta_b = float(market_b.get("xg_delta", 0.0)) + float(live_b.get("xg_delta", 0.0))
+    detailed_event_delta_a = float(events_a.get("xg_delta", 0.0))
+    detailed_event_delta_b = float(events_b.get("xg_delta", 0.0))
+    thermal_delta_a = float(thermal_a.get("xg_delta", 0.0))
+    thermal_delta_b = float(thermal_b.get("xg_delta", 0.0))
     context_is_active = (
         context.get("weather", "normal") != "normal"
         or float(context.get("travel", 20)) != 20
@@ -2214,11 +2505,25 @@ def forecast_stack_payload(
                 "detail": f"Market/live xG: {team_a.name} {market_live_delta_a:+.2f}, {team_b.name} {market_live_delta_b:+.2f}.",
             },
             {
+                "label": "Observed event form",
+                "status": "Active" if events_a.get("quality") != "Needs event data" or events_b.get("quality") != "Needs event data" else "Waiting for event feed",
+                "impact": round(min(100.0, 20 + abs(detailed_event_delta_a - detailed_event_delta_b) * 700), 1),
+                "quality": f"{events_a.get('quality', 'Needs event data')} / {events_b.get('quality', 'Needs event data')}",
+                "detail": f"Event-form xG: {team_a.name} {detailed_event_delta_a:+.2f}, {team_b.name} {detailed_event_delta_b:+.2f}.",
+            },
+            {
                 "label": "Tactical game model",
                 "status": "Active",
                 "impact": round(min(100.0, 25 + abs(tactical_delta_a - tactical_delta_b) * 520), 1),
                 "quality": "Tactics, set pieces, GK, referee",
                 "detail": f"Tactical/context xG: {team_a.name} {tactical_delta_a:+.2f}, {team_b.name} {tactical_delta_b:+.2f}.",
+            },
+            {
+                "label": "Venue climate and travel",
+                "status": "Active" if context_is_active else "Neutral",
+                "impact": round(min(100.0, 20 + abs(thermal_delta_a - thermal_delta_b) * 900), 1),
+                "quality": f"{thermal_a.get('quality', 'climate prior')} / travel-rest context",
+                "detail": f"Thermal xG: {team_a.name} {thermal_delta_a:+.2f}, {team_b.name} {thermal_delta_b:+.2f}; venue context is {'active' if context_is_active else 'neutral'}.",
             },
             {
                 "label": "xG danger zones",
@@ -3876,7 +4181,7 @@ def api_match(request: MatchRequest) -> dict[str, Any]:
     bundle = load_cached_model() if request.use_model else None
     team_a = teams[request.team_a]
     team_b = teams[request.team_b]
-    context = matchup_context(request_context(request), team_a, team_b)
+    context = matchup_context(request_context(request), team_a, team_b, request.match_id, load_live_state())
     score_distribution = context_score_distribution(team_a, team_b, bundle, context, max_goals=10)
     probabilities = aggregate_scoreline_probabilities(score_distribution)
     scores = score_distribution[: request.top_scores]
@@ -3953,6 +4258,7 @@ def api_ai_match_stories(limit: int = 6, offset: int = 0, use_model: bool = True
         try:
             forecast = api_match(
                 MatchRequest(
+                    match_id=str(fixture.get("match_id") or ""),
                     team_a=fixture["team_a"],
                     team_b=fixture["team_b"],
                     use_model=use_model,
@@ -4590,6 +4896,34 @@ def scenario_driver_payload(team_a: Team, team_b: Team, context: dict[str, Any])
             favored = team_a if team_a.injury_resilience + team_a.bench >= team_b.injury_resilience + team_b.bench else team_b
             drivers.append({"label": "Fatigue depth", "favored_team": favored.name, "impact": round(min(100.0, fatigue), 1)})
 
+    travel_distance = context.get("team_travel_distance_km") or {}
+    if travel_distance:
+        distance_a = float(travel_distance.get(team_a.name, 0) or 0)
+        distance_b = float(travel_distance.get(team_b.name, 0) or 0)
+        if abs(distance_a - distance_b) >= 450:
+            favored = team_a if distance_a < distance_b else team_b
+            drivers.append(
+                {
+                    "label": "Shorter venue transfer",
+                    "favored_team": favored.name,
+                    "impact": round(min(100.0, 30 + abs(distance_a - distance_b) / 35), 1),
+                }
+            )
+
+    thermal = context.get("thermal_comfort") or {}
+    if thermal:
+        comfort_a = float((thermal.get(team_a.name) or {}).get("comfort", 0.5))
+        comfort_b = float((thermal.get(team_b.name) or {}).get("comfort", 0.5))
+        if abs(comfort_a - comfort_b) >= 0.08:
+            favored = team_a if comfort_a > comfort_b else team_b
+            drivers.append(
+                {
+                    "label": "Temperature comfort",
+                    "favored_team": favored.name,
+                    "impact": round(min(100.0, 35 + abs(comfort_a - comfort_b) * 120), 1),
+                }
+            )
+
     fan_edges = context.get("fan_edges") or {}
     if fan_edges and abs(float(fan_edges.get(team_a.name, 0)) - float(fan_edges.get(team_b.name, 0))) >= 0.4:
         favored = team_a if float(fan_edges.get(team_a.name, 0)) > float(fan_edges.get(team_b.name, 0)) else team_b
@@ -4607,6 +4941,9 @@ def scenario_driver_payload(team_a: Team, team_b: Team, context: dict[str, Any])
         "Confirmed XI",
         "Market probability",
         "Tactical matchup",
+        "Weather backtest",
+        "Thermal comfort",
+        "Observed match events",
         "Set pieces",
         "Post-shot GK",
         "360 freeze-frame",

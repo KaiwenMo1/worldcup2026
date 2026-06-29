@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import TypedDict
 
 from pydantic import ValidationError
+from app.ingestion.manager_observation_ingestion import load_formation_prediction_signals
 
 from app.tactics.schemas import (
     ConditionCode,
@@ -242,6 +243,20 @@ def _fallback_plan(team: str, opponent: str) -> ManagerPlan:
     )
 
 
+def _observed_formation_hint(team: str) -> dict[str, str] | None:
+    signal = load_formation_prediction_signals().get(team)
+    if not signal:
+        return None
+    try:
+        confidence = float(signal.get("formation_confidence") or 0)
+    except ValueError:
+        confidence = 0.0
+    formation = signal.get("last_confirmed_formation") or signal.get("most_common_formation")
+    if not formation or confidence < 0.35:
+        return None
+    return signal
+
+
 def generate_manager_plan(
     team: str,
     opponent: str,
@@ -261,6 +276,18 @@ def generate_manager_plan(
         contingent = evaluation["contingent"]
 
     identity = skill.tactical_identity
+    observed_signal = _observed_formation_hint(team)
+    expected_formation = identity.preferred_formations[0] if identity.preferred_formations else None
+    evidence_notes: list[str] = []
+    data_quality = skill.status
+    if observed_signal:
+        expected_formation = observed_signal.get("last_confirmed_formation") or observed_signal.get("most_common_formation") or expected_formation
+        data_quality = f"{skill.status}+observed_formation_trend"
+        evidence_notes.append(
+            "Latest tournament lineup observations point to "
+            f"{expected_formation} with confidence {observed_signal.get('formation_confidence')}; "
+            "this is an observation overlay, not a rewrite of the manager skill."
+        )
     relevant_substitutions = list(skill.substitution_patterns)
     if match_context is not None and match_context.match_state != "pre_match":
         relevant_substitutions = [
@@ -273,8 +300,8 @@ def generate_manager_plan(
         manager_id=skill.manager_id,
         manager_name=skill.manager_name,
         base_plan=identity.primary_style,
-        expected_formation=identity.preferred_formations[0] if identity.preferred_formations else None,
-        in_possession=identity.in_possession,
+        expected_formation=expected_formation,
+        in_possession=[*evidence_notes, *identity.in_possession],
         out_of_possession=identity.out_of_possession,
         transition=identity.transition_actions,
         set_pieces=identity.set_piece_actions,
@@ -283,7 +310,7 @@ def generate_manager_plan(
         substitution_patterns=relevant_substitutions,
         confidence=_plan_confidence(skill, applied),
         source_refs=skill.source_refs,
-        data_quality=skill.status,
+        data_quality=data_quality,
         fallback_used=False,
         fallback_note=None,
     )

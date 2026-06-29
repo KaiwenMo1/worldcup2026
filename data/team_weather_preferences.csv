@@ -1,0 +1,49 @@
+team,preferred_min_c,preferred_max_c,heat_tolerance,cold_tolerance,altitude_tolerance,source,notes
+France,9,25,0.58,0.72,0.55,manual_climate_prior,Temperate UEFA prior
+Spain,13,29,0.72,0.58,0.58,manual_climate_prior,Warm temperate prior
+Argentina,12,28,0.70,0.60,0.60,manual_climate_prior,Mixed CONMEBOL climate prior
+England,7,22,0.42,0.86,0.50,manual_climate_prior,Cool-weather UEFA prior
+Portugal,12,28,0.70,0.60,0.55,manual_climate_prior,Warm temperate prior
+Brazil,18,31,0.78,0.45,0.55,manual_climate_prior,Warm-weather CONMEBOL prior
+Netherlands,7,22,0.42,0.86,0.50,manual_climate_prior,Cool-weather UEFA prior
+Morocco,18,32,0.84,0.42,0.62,manual_climate_prior,Hot-weather CAF prior
+Belgium,7,22,0.42,0.84,0.50,manual_climate_prior,Cool-weather UEFA prior
+Germany,7,22,0.44,0.84,0.52,manual_climate_prior,Cool-weather UEFA prior
+Croatia,10,26,0.60,0.70,0.55,manual_climate_prior,Temperate UEFA prior
+Colombia,16,29,0.72,0.50,0.86,manual_climate_prior,Altitude-adjusted CONMEBOL prior
+Senegal,20,33,0.86,0.38,0.55,manual_climate_prior,Hot-weather CAF prior
+Mexico,17,30,0.78,0.48,0.88,manual_climate_prior,Host and altitude-adjusted prior
+USA,10,29,0.70,0.68,0.65,manual_climate_prior,Host mixed-climate prior
+Uruguay,11,27,0.64,0.64,0.55,manual_climate_prior,Temperate CONMEBOL prior
+Japan,11,29,0.70,0.62,0.55,manual_climate_prior,Humid-summer AFC prior
+Switzerland,6,21,0.38,0.88,0.78,manual_climate_prior,Cool-altitude UEFA prior
+IR Iran,16,31,0.78,0.50,0.70,manual_climate_prior,Warm/altitude AFC prior
+Turkiye,11,28,0.68,0.62,0.60,manual_climate_prior,Mixed warm temperate prior
+Ecuador,14,27,0.66,0.58,0.90,manual_climate_prior,Altitude-adjusted CONMEBOL prior
+Austria,6,21,0.38,0.88,0.72,manual_climate_prior,Cool-altitude UEFA prior
+Korea Republic,8,28,0.64,0.72,0.55,manual_climate_prior,Four-season AFC prior
+Australia,13,30,0.76,0.55,0.55,manual_climate_prior,Warm mixed-climate prior
+Algeria,18,33,0.86,0.40,0.62,manual_climate_prior,Hot-weather CAF prior
+Egypt,19,34,0.88,0.35,0.55,manual_climate_prior,Hot-weather CAF prior
+Canada,5,21,0.36,0.90,0.55,manual_climate_prior,Host cool-weather prior
+Norway,5,20,0.32,0.92,0.55,manual_climate_prior,Cool-weather UEFA prior
+Panama,21,33,0.88,0.34,0.55,manual_climate_prior,Hot-humid CONCACAF prior
+Cote d'Ivoire,21,33,0.88,0.34,0.55,manual_climate_prior,Hot-humid CAF prior
+Sweden,5,20,0.32,0.92,0.55,manual_climate_prior,Cool-weather UEFA prior
+Paraguay,17,32,0.82,0.44,0.62,manual_climate_prior,Hot CONMEBOL prior
+Czechia,6,22,0.42,0.86,0.55,manual_climate_prior,Cool-weather UEFA prior
+Scotland,5,20,0.32,0.92,0.50,manual_climate_prior,Cool-weather UEFA prior
+Tunisia,18,32,0.84,0.42,0.58,manual_climate_prior,Hot-weather CAF prior
+Congo DR,21,32,0.86,0.36,0.55,manual_climate_prior,Hot-humid CAF prior
+Uzbekistan,13,31,0.78,0.58,0.62,manual_climate_prior,Continental AFC prior
+Qatar,21,35,0.90,0.30,0.55,manual_climate_prior,Hot-weather AFC prior
+Iraq,19,35,0.90,0.34,0.55,manual_climate_prior,Hot-weather AFC prior
+South Africa,10,27,0.64,0.64,0.70,manual_climate_prior,Mild/altitude CAF prior
+Saudi Arabia,21,35,0.92,0.30,0.55,manual_climate_prior,Hot-weather AFC prior
+Jordan,17,32,0.84,0.42,0.60,manual_climate_prior,Warm AFC prior
+Bosnia and Herzegovina,7,23,0.46,0.82,0.62,manual_climate_prior,Cool-temperate UEFA prior
+Cabo Verde,20,31,0.82,0.42,0.55,manual_climate_prior,Island warm-weather CAF prior
+Ghana,21,33,0.88,0.34,0.55,manual_climate_prior,Hot-humid CAF prior
+Curacao,22,33,0.88,0.34,0.55,manual_climate_prior,Hot-humid CONCACAF prior
+Haiti,21,33,0.88,0.34,0.55,manual_climate_prior,Hot-humid CONCACAF prior
+New Zealand,8,23,0.48,0.80,0.55,manual_climate_prior,Cool-temperate OFC prior

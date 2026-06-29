@@ -25,6 +25,14 @@ from app.agentic_update.schemas import (
 )
 from app.ingestion.event_data_ingestion import MATCH_EVENTS_NORMALIZED_PATH, MATCH_SUMMARY_SIGNALS_PATH
 from app.ingestion.lineup_ingestion import ACTUAL_LINEUPS_PATH, LINEUP_DELTA_SIGNALS_PATH
+from app.ingestion.manager_observation_ingestion import (
+    FORMATION_PREDICTION_SIGNALS_PATH,
+    MANAGER_MATCH_OBSERVATIONS_PATH,
+)
+from app.ingestion.postmatch_player_ingestion import (
+    LIVE_PLAYER_TEAM_FEATURES_PATH,
+    PLAYER_POSTMATCH_SIGNALS_PATH,
+)
 from app.tournament_autopilot import (
     FIFA_SNAPSHOT_PATH,
     LIVE_STATE_PATH,
@@ -99,6 +107,10 @@ def observe_tournament_state() -> UpdateObservation:
         match_summary_signals=_count_csv_records(MATCH_SUMMARY_SIGNALS_PATH),
         actual_lineup_rows=_count_csv_records(ACTUAL_LINEUPS_PATH),
         lineup_delta_signals=_count_csv_records(LINEUP_DELTA_SIGNALS_PATH),
+        player_postmatch_signals=_count_csv_records(PLAYER_POSTMATCH_SIGNALS_PATH),
+        live_player_team_features=_count_csv_records(LIVE_PLAYER_TEAM_FEATURES_PATH),
+        manager_observation_rows=_count_csv_records(MANAGER_MATCH_OBSERVATIONS_PATH),
+        formation_prediction_signals=_count_csv_records(FORMATION_PREDICTION_SIGNALS_PATH),
         official_snapshot_exists=FIFA_SNAPSHOT_PATH.exists(),
         official_snapshot_match_count=len(snapshot_rows),
         provider_key_configured=_env_present("BALLDONTLIE_API_KEY"),
@@ -166,6 +178,28 @@ def build_update_plan(config: AgenticUpdateConfig, observation: UpdateObservatio
             ],
         ),
         AgentToolPlan(
+            tool_id="postmatch_player_data",
+            description="Rebuild player match stats, player ratings, recent form, role vectors, and live team feature overlays.",
+            will_run=config.allow_subprocess,
+            reason=(
+                "Turns observed player events and lineups into model-ready player form features."
+                if config.allow_subprocess
+                else "Skipped because subprocess tools are disabled."
+            ),
+            command_preview=["python", "scripts/rebuild_postmatch_player_data.py"],
+        ),
+        AgentToolPlan(
+            tool_id="manager_observations",
+            description="Rebuild manager-match observations and formation trend signals from latest scores, events, and lineups.",
+            will_run=config.allow_subprocess,
+            reason=(
+                "Refreshes tactical distillation inputs after score, event, and lineup updates."
+                if config.allow_subprocess
+                else "Skipped because subprocess tools are disabled."
+            ),
+            command_preview=["python", "scripts/rebuild_manager_observations.py"],
+        ),
+        AgentToolPlan(
             tool_id="verification",
             description="Run compact project verification after update tools finish.",
             will_run=verify_will_run,
@@ -215,6 +249,22 @@ def _execute_lineups(command_runner: CommandRunner | None = None) -> AgentToolRe
     return _result("lineups_and_squads", "success", started, "\n".join(messages)[-1200:] or "Lineup tools completed.")
 
 
+def _execute_manager_observations(command_runner: CommandRunner | None = None) -> AgentToolResult:
+    started = _now()
+    completed = _run_command([sys.executable, "scripts/rebuild_manager_observations.py"], command_runner)
+    status = "success" if completed.returncode == 0 else "failed"
+    message = (completed.stdout or completed.stderr or "").strip() or f"Exited with code {completed.returncode}"
+    return _result("manager_observations", status, started, message[:1200])
+
+
+def _execute_postmatch_player_data(command_runner: CommandRunner | None = None) -> AgentToolResult:
+    started = _now()
+    completed = _run_command([sys.executable, "scripts/rebuild_postmatch_player_data.py"], command_runner)
+    status = "success" if completed.returncode == 0 else "failed"
+    message = (completed.stdout or completed.stderr or "").strip() or f"Exited with code {completed.returncode}"
+    return _result("postmatch_player_data", status, started, message[:1200])
+
+
 def _execute_verification(command_runner: CommandRunner | None = None) -> AgentToolResult:
     started = _now()
     completed = _run_command([sys.executable, "-m", "unittest", "tests.test_tournament_autopilot", "-v"], command_runner)
@@ -261,6 +311,8 @@ def _next_actions(report: AgenticUpdateReport) -> list[str]:
         actions.append("Configure WORLD_CUP_EVENT_FEED_URL to let the agent ingest richer live match stats.")
     elif after.event_rows == 0:
         actions.append("The event feed is configured but has not produced normalized match-event rows yet.")
+    elif after.player_postmatch_signals == 0:
+        actions.append("Event rows exist, but no player post-match ratings were built; check player names and event-player fields.")
     if not after.sportmonks_configured:
         actions.append("Configure SPORTMONKS_API_TOKEN or keep using confirmed-lineup CSV fallbacks.")
     elif after.actual_lineup_rows == 0:
@@ -322,6 +374,16 @@ def run_update_agent(
         else:
             lineup_plan = next(item for item in plan if item.tool_id == "lineups_and_squads")
             results.append(_result("lineups_and_squads", "skipped", _now(), lineup_plan.reason))
+        if next(item for item in plan if item.tool_id == "postmatch_player_data").will_run:
+            results.append(_execute_postmatch_player_data(command_runner))
+        else:
+            player_plan = next(item for item in plan if item.tool_id == "postmatch_player_data")
+            results.append(_result("postmatch_player_data", "skipped", _now(), player_plan.reason))
+        if next(item for item in plan if item.tool_id == "manager_observations").will_run:
+            results.append(_execute_manager_observations(command_runner))
+        else:
+            manager_plan = next(item for item in plan if item.tool_id == "manager_observations")
+            results.append(_result("manager_observations", "skipped", _now(), manager_plan.reason))
         if next(item for item in plan if item.tool_id == "verification").will_run:
             results.append(_execute_verification(command_runner))
         else:

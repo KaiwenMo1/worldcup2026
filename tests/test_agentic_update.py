@@ -16,6 +16,8 @@ class AgenticUpdateTests(unittest.TestCase):
         plan = build_update_plan(AgenticUpdateConfig(), observation)
 
         self.assertIn("official_fifa_scores", {item.tool_id for item in plan})
+        self.assertIn("postmatch_player_data", {item.tool_id for item in plan})
+        self.assertIn("manager_observations", {item.tool_id for item in plan})
         self.assertTrue(next(item for item in plan if item.tool_id == "official_fifa_scores").will_run)
 
         report = run_update_agent(AgenticUpdateConfig(), write_report=False)
@@ -50,6 +52,11 @@ class AgenticUpdateTests(unittest.TestCase):
             self.assertEqual(report.mode, "apply")
             self.assertTrue(any("sync_live_events.py" in " ".join(command) for command in calls))
             self.assertTrue(any("sync_lineups.py" in " ".join(command) for command in calls))
+            self.assertTrue(any("rebuild_postmatch_player_data.py" in " ".join(command) for command in calls))
+            self.assertTrue(any("rebuild_manager_observations.py" in " ".join(command) for command in calls))
+            player_index = next(index for index, command in enumerate(calls) if "rebuild_postmatch_player_data.py" in " ".join(command))
+            manager_index = next(index for index, command in enumerate(calls) if "rebuild_manager_observations.py" in " ".join(command))
+            self.assertLess(player_index, manager_index)
             self.assertTrue(report_path.exists())
             self.assertTrue(runs_path.exists())
             persisted = json.loads(report_path.read_text(encoding="utf-8"))

@@ -189,11 +189,45 @@ python scripts/test_event_data_ingestion.py
 
 Use `data/raw/event_data/manual_match_events_sample.csv` as the manual input example. The normalized contract supports shots, goals, passes, carries, defensive actions, substitutions, set pieces, penalties, and saves. Coordinates use a `120 x 80` attacking-direction pitch; future provider adapters should map their native coordinates before validation.
 
-Derived summaries in `data/derived/match_summary_signals.csv` include xG, shots, field tilt, box entries, set-piece and counterattack xG, pressing proxies, and goalkeeper impact. Missing optional event details are retained as informational data-quality notices instead of causing the run to fail. These post-match signals are analysis and evaluation inputs only; they do not alter current predictions.
+Derived summaries in `data/derived/match_summary_signals.csv` include xG, shots, field tilt, box entries, set-piece and counterattack xG, pressing proxies, and goalkeeper impact. Missing optional event details are retained as informational data-quality notices instead of causing the run to fail. When observed rows exist, these summaries now feed the advanced forecast stack through the `Observed match events` signal; missing rows degrade to a visible `Needs event data` status rather than fabricated metrics.
+
+## Manager Observation And Formation Trend Loop
+
+Completed matches, confirmed lineups, substitutions, and event summaries are converted into reviewable manager-observation rows. These do not overwrite curated manager-skill JSON files; they act as a tournament-specific evidence overlay for reasoning and formation prediction.
+
+```bash
+python scripts/rebuild_manager_observations.py
+python scripts/test_manager_observations.py
+```
+
+Outputs:
+
+- `data/derived/manager_match_observations.csv`: one row per manager/team/match with actual formation, xG, field tilt, pressing proxy, set-piece xG, counterattack xG, substitutions, and data-quality label.
+- `data/derived/formation_prediction_signals.csv`: one row per team with observed formation trend, confidence, and average tactical event indicators.
+
+Manager plans read `formation_prediction_signals.csv` as an observation overlay when confirmed lineup evidence exists. Rows with only final scores remain marked `score_only`, so the system can learn from real lineups and event data when available without pretending that score-only matches reveal tactical structure.
+
+## Post-Match Player Data Loop
+
+After event and lineup ingestion, the project rebuilds player-level match stats, player ratings, recent form, role vectors, and a live team-feature overlay used by prediction. This is the bridge from "match data exists" to "the model and AI reasoning can react to how players actually played."
+
+```bash
+python scripts/rebuild_postmatch_player_data.py
+```
+
+Outputs:
+
+- `data/normalized/player_match_stats_normalized.csv`: provider-independent player match rows derived from observed events and confirmed lineups when available.
+- `data/derived/player_postmatch_signals.csv`: transparent player ratings, attacking/creative/defensive/goalkeeper impact, stamina load, and discipline risk.
+- `data/derived/player_form_signals.csv`: recent player form signals rebuilt from observed match rows plus season baselines.
+- `data/derived/player_role_vectors.csv`: role/archetype vectors refreshed after the latest player form update.
+- `data/derived/live_player_team_features.csv`: conservative team-level overlay that lets observed player performance gently update prediction features.
+
+If detailed provider data is missing, the loop degrades honestly: score-only matches still update live team form, event-only matches estimate player minutes, and confirmed-lineup matches produce stronger data-quality labels. Provider ratings can be added later as an adapter, but the current rating is a transparent formula from goals, xG, assists, shots, progression, defensive actions, saves, cards, and minutes.
 
 ## Live Tournament Autopilot
 
-Completed results are stored permanently in `data/observed_matches.csv`. The autopilot merges verified manual results with the official FIFA calendar score feed and optional provider refreshes, republishes `data/live_state.json`, rebuilds `data/live_team_state.csv`, ingests confirmed lineups, settles saved Arena predictions, evaluates completed matches, and refreshes calibration.
+Completed results are stored permanently in `data/observed_matches.csv`. The autopilot merges verified manual results with the official FIFA calendar score feed and optional provider refreshes, republishes `data/live_state.json`, rebuilds `data/live_team_state.csv`, ingests confirmed lineups, refreshes post-match player ratings/form/team overlays, refreshes manager observations and formation trends, settles saved Arena predictions, evaluates completed matches, and refreshes calibration.
 
 The official FIFA feed is now also used as the bracket authority when match assignments are published. Scheduled knockout rows in `live_state.current_matches` override locally inferred bracket placeholders, and completed knockout matches lock by `match_id` so the displayed path, simulation path, AI stories, and static GitHub Pages build all move with the real tournament bracket.
 
@@ -216,7 +250,9 @@ python scripts/sync_live_events.py --optional
 
 The scheduled workflow `.github/workflows/tournament-autopilot.yml` runs the same idempotent cycle during the tournament. The official FIFA calendar refresh does not need a secret. Configure repository secrets `BALLDONTLIE_API_KEY`, `SPORTMONKS_API_TOKEN`, and optionally `WORLD_CUP_EVENT_FEED_API_KEY`; configure `WORLD_CUP_EVENT_FEED_URL` as a repository variable. Scores and official bracket assignments remain durable even when a later provider request fails. Formation, lineup, shot, pressure, xG, and event statistics are only treated as observed when a provider or verified import supplies them.
 
-The official FIFA refresh stores final matches in `completed_matches` and keeps in-progress or scheduled rows in `live_state.current_matches`, so a live score is visible to the website without being treated as a permanent final result. These results feed the simulator through match-id-aware live-state locking, official bracket assignment, and live team-form features. Rich post-match game data feeds `data/normalized/match_events_normalized.csv`, `data/derived/match_summary_signals.csv`, `data/normalized/actual_lineups_normalized.csv`, and `data/derived/lineup_delta_signals.csv` when those provider adapters are configured.
+The official FIFA refresh stores final matches in `completed_matches` and keeps in-progress or scheduled rows in `live_state.current_matches`, so a live score is visible to the website without being treated as a permanent final result. These results feed the simulator through match-id-aware live-state locking, official bracket assignment, and live team-form features. Rich post-match game data feeds `data/normalized/match_events_normalized.csv`, `data/derived/match_summary_signals.csv`, `data/normalized/actual_lineups_normalized.csv`, and `data/derived/lineup_delta_signals.csv` when those provider adapters are configured. After each event/lineup refresh, the update agent rebuilds player ratings, recent form, role vectors, live team overlays, `data/derived/manager_match_observations.csv`, and `data/derived/formation_prediction_signals.csv`, so manager distillation, tactical briefs, AI match reasoning, and prediction features use the latest observed tactical evidence instead of stale assumptions.
+
+Venue and travel context is fixture-specific. The model tracks venue-to-venue travel kilometers, rest days, crowd support, host advantage, and team-specific temperature comfort using `data/venues.csv`, fixture kickoff times, Open-Meteo when available, and editable priors in `data/team_weather_preferences.csv`.
 
 ## Agentic Update Agent
 
@@ -587,10 +623,12 @@ Provider flags are optional. Projected local fallbacks remain in place when a pr
 | `scripts/sync_observed_player_stats.py` | Normalize provider seasonal stats and apply observed overrides |
 | `scripts/ingest_player_stats.py` | Validate manual season/match stats and write provider-independent normalized files |
 | `scripts/rebuild_player_role_vectors.py` | Derive transparent role-fit vectors and recent-form signals with curated fallbacks |
+| `scripts/rebuild_postmatch_player_data.py` | Convert observed events and lineups into player ratings, form, role vectors, and live team feature overlays |
 | `scripts/ingest_injury_news.py` | Normalize manual injury/news evidence and derive conflict-aware availability-risk signals |
 | `scripts/ingest_tactical_articles.py` | Normalize manually curated tactical articles and match-report evidence |
 | `scripts/refine_manager_skills.py` | Build a dry-run manager-skill review queue and explicitly apply eligible evidence-backed updates |
 | `scripts/ingest_event_data.py` | Map provider-style match events into a normalized stream and transparent post-match summaries |
+| `scripts/rebuild_manager_observations.py` | Convert completed matches, actual lineups, and event summaries into manager/formation observation signals |
 | `scripts/evaluate_completed_match.py` | Evaluate one completed match across model, manager, matchup, and analyst layers |
 | `scripts/evaluate_all_completed_matches.py` | Idempotently evaluate every completed match in the live-state feed |
 | `scripts/backtest_context_features.py` | Chronologically gate manager/player context before forecast integration |

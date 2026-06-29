@@ -65,6 +65,8 @@ from app.ingestion.player_stats_ingestion import (
     write_derived_outputs,
     write_normalized_stats,
 )
+from app.ingestion.manager_observation_ingestion import rebuild_manager_observation_outputs
+from app.ingestion.postmatch_player_ingestion import run_postmatch_player_update
 from app.ingestion.provenance import append_data_quality_issues, append_ingestion_run, create_ingestion_run
 from app.ingestion.schemas import DataQualityIssue, DataQualitySeverity, IngestionStatus
 from app.ingestion.tactical_article_ingestion import (
@@ -229,6 +231,9 @@ def refresh_event_data(request: RefreshRequest) -> dict[str, Any]:
     result = ingest_event_data(ManualCsvEventAdapter(MANUAL_MATCH_EVENTS_SAMPLE_PATH))
     summaries = build_match_summary_signals(result.events)
     issues = [*result.issues, *write_normalized_events(result.events), *write_match_summary_signals(summaries)]
+    postmatch = run_postmatch_player_update()
+    manager_observations, formation_signals = rebuild_manager_observation_outputs()
+    issues.extend(postmatch.issues)
     return {
         **_log_refresh(
             script="api.refresh_event_data",
@@ -239,6 +244,10 @@ def refresh_event_data(request: RefreshRequest) -> dict[str, Any]:
         "events": len(result.events),
         "match_summary_signals": len(summaries),
         "matches": len({event.match_id for event in result.events}),
+        "player_postmatch_signals": postmatch.player_postmatch_signals,
+        "live_player_team_features": postmatch.live_team_feature_rows,
+        "manager_observations": manager_observations,
+        "formation_prediction_signals": formation_signals,
     }
 
 
@@ -251,6 +260,9 @@ def refresh_actual_lineups(source: Path = CONFIRMED_LINEUPS_PATH) -> dict[str, A
         *write_actual_lineups(result.records),
         *write_lineup_delta_signals(signals),
     ]
+    postmatch = run_postmatch_player_update()
+    manager_observations, formation_signals = rebuild_manager_observation_outputs()
+    issues.extend(postmatch.issues)
     return {
         **_log_refresh(
             script="api.refresh_actual_lineups",
@@ -260,6 +272,10 @@ def refresh_actual_lineups(source: Path = CONFIRMED_LINEUPS_PATH) -> dict[str, A
         ),
         "actual_starters": len(result.records),
         "lineup_delta_signals": len(signals),
+        "player_postmatch_signals": postmatch.player_postmatch_signals,
+        "live_player_team_features": postmatch.live_team_feature_rows,
+        "manager_observations": manager_observations,
+        "formation_prediction_signals": formation_signals,
         "actual_lineups_path": str(ACTUAL_LINEUPS_PATH),
         "lineup_delta_path": str(LINEUP_DELTA_SIGNALS_PATH),
     }

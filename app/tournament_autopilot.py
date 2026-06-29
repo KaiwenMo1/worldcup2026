@@ -29,7 +29,9 @@ from app.ingestion.lineup_ingestion import (
     write_lineup_delta_signals,
 )
 from app.ingestion.event_data_ingestion import load_match_summary_signals
+from app.ingestion.manager_observation_ingestion import rebuild_manager_observation_outputs
 from app.ingestion.normalizers import safe_read_csv, safe_write_csv, validate_rows
+from app.ingestion.postmatch_player_ingestion import run_postmatch_player_update
 from app.prediction_arena.api_service import settle_arena_match
 from app.prediction_arena.prediction_runner import run_prediction_arena
 
@@ -103,6 +105,10 @@ class AutopilotReport:
     newly_observed_match_ids: list[str] = field(default_factory=list)
     lineup_rows: int = 0
     lineup_delta_signals: int = 0
+    player_postmatch_signals: int = 0
+    live_player_team_features: int = 0
+    manager_observations: int = 0
+    formation_prediction_signals: int = 0
     arena_runs: list[str] = field(default_factory=list)
     arena_settlements: list[str] = field(default_factory=list)
     evaluations: list[str] = field(default_factory=list)
@@ -114,6 +120,10 @@ class AutopilotReport:
             "newly_observed_match_ids": self.newly_observed_match_ids,
             "lineup_rows": self.lineup_rows,
             "lineup_delta_signals": self.lineup_delta_signals,
+            "player_postmatch_signals": self.player_postmatch_signals,
+            "live_player_team_features": self.live_player_team_features,
+            "manager_observations": self.manager_observations,
+            "formation_prediction_signals": self.formation_prediction_signals,
             "arena_runs": self.arena_runs,
             "arena_settlements": self.arena_settlements,
             "evaluations": self.evaluations,
@@ -552,6 +562,25 @@ def _run_lineup_refresh(report: AutopilotReport) -> None:
     report.warnings.extend(issue.problem for issue in [*result.issues, *issues] if issue.severity.value != "info")
 
 
+def _run_manager_observation_refresh(report: AutopilotReport) -> None:
+    try:
+        observations, formation_signals = rebuild_manager_observation_outputs()
+        report.manager_observations = observations
+        report.formation_prediction_signals = formation_signals
+    except (ValueError, OSError) as exc:
+        report.warnings.append(f"Manager observation refresh skipped: {exc}")
+
+
+def _run_postmatch_player_refresh(report: AutopilotReport) -> None:
+    try:
+        result = run_postmatch_player_update()
+        report.player_postmatch_signals = result.player_postmatch_signals
+        report.live_player_team_features = result.live_team_feature_rows
+        report.warnings.extend(issue.problem for issue in result.issues if issue.severity.value not in {"info", "warning"})
+    except (ValueError, OSError) as exc:
+        report.warnings.append(f"Post-match player refresh skipped: {exc}")
+
+
 def _run_completed_match_feedback(matches: list[ObservedMatch], report: AutopilotReport) -> None:
     for match in matches:
         try:
@@ -633,6 +662,8 @@ def run_tournament_autopilot(
     report.observed_matches = len(observed)
     report.newly_observed_match_ids = [match_id for match_id in new_ids if match_id not in before]
     _run_lineup_refresh(report)
+    _run_postmatch_player_refresh(report)
+    _run_manager_observation_refresh(report)
     if settle_and_evaluate:
         _run_completed_match_feedback(observed, report)
         try:
