@@ -1,9 +1,13 @@
 {
-  "updated_at": "2026-06-29T12:08:11.607511+00:00",
+  "updated_at": "2026-06-29T16:11:35.210738+00:00",
   "observed_matches": 73,
   "newly_observed_match_ids": [],
   "lineup_rows": 0,
   "lineup_delta_signals": 0,
+  "player_postmatch_signals": 16,
+  "live_player_team_features": 2,
+  "manager_observations": 146,
+  "formation_prediction_signals": 48,
   "arena_runs": [],
   "arena_settlements": [
     "8",
