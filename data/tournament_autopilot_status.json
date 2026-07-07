@@ -1,12 +1,14 @@
 {
-  "updated_at": "2026-07-07T22:00:12.047361+00:00",
-  "observed_matches": 95,
-  "newly_observed_match_ids": [],
+  "updated_at": "2026-07-07T23:13:47.813021+00:00",
+  "observed_matches": 96,
+  "newly_observed_match_ids": [
+    "96"
+  ],
   "lineup_rows": 0,
   "lineup_delta_signals": 0,
   "player_postmatch_signals": 16,
   "live_player_team_features": 2,
-  "manager_observations": 190,
+  "manager_observations": 192,
   "formation_prediction_signals": 48,
   "arena_runs": [],
   "arena_settlements": [
@@ -174,7 +176,8 @@
     "92",
     "93",
     "94",
-    "95"
+    "95",
+    "96"
   ],
   "warnings": [
     "No confirmed starters were present in the lineup input",
@@ -204,6 +207,7 @@
     "Arena settlement skipped for 92: No saved predictions exist for match '92'.",
     "Arena settlement skipped for 93: No saved predictions exist for match '93'.",
     "Arena settlement skipped for 94: No saved predictions exist for match '94'.",
-    "Arena settlement skipped for 95: No saved predictions exist for match '95'."
+    "Arena settlement skipped for 95: No saved predictions exist for match '95'.",
+    "Arena settlement skipped for 96: No saved predictions exist for match '96'."
   ]
 }
