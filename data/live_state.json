@@ -1,6 +1,6 @@
 {
   "source": "data/observed_matches.csv",
-  "updated_at": "2026-07-31T07:33:14.792955+00:00",
+  "updated_at": "2026-07-31T10:12:39.285668+00:00",
   "eliminated_teams": [],
   "completed_matches": [
     {
@@ -16,7 +16,7 @@
       "provider_match_id": "400021443",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783526+00:00"
+      "updated_at": "2026-07-31T10:12:39.271770+00:00"
     },
     {
       "match_id": "2",
@@ -31,7 +31,7 @@
       "provider_match_id": "400021441",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783582+00:00"
+      "updated_at": "2026-07-31T10:12:39.271830+00:00"
     },
     {
       "match_id": "3",
@@ -46,7 +46,7 @@
       "provider_match_id": "400021449",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783607+00:00"
+      "updated_at": "2026-07-31T10:12:39.271873+00:00"
     },
     {
       "match_id": "4",
@@ -61,7 +61,7 @@
       "provider_match_id": "400021458",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783628+00:00"
+      "updated_at": "2026-07-31T10:12:39.271896+00:00"
     },
     {
       "match_id": "8",
@@ -76,7 +76,7 @@
       "provider_match_id": "400021447",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783647+00:00"
+      "updated_at": "2026-07-31T10:12:39.271916+00:00"
     },
     {
       "match_id": "7",
@@ -91,7 +91,7 @@
       "provider_match_id": "400021456",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783665+00:00"
+      "updated_at": "2026-07-31T10:12:39.271935+00:00"
     },
     {
       "match_id": "5",
@@ -106,7 +106,7 @@
       "provider_match_id": "400021453",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783684+00:00"
+      "updated_at": "2026-07-31T10:12:39.271952+00:00"
     },
     {
       "match_id": "6",
@@ -121,7 +121,7 @@
       "provider_match_id": "400021463",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783701+00:00"
+      "updated_at": "2026-07-31T10:12:39.271969+00:00"
     },
     {
       "match_id": "10",
@@ -136,7 +136,7 @@
       "provider_match_id": "400021464",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783718+00:00"
+      "updated_at": "2026-07-31T10:12:39.271985+00:00"
     },
     {
       "match_id": "11",
@@ -151,7 +151,7 @@
       "provider_match_id": "400021470",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783736+00:00"
+      "updated_at": "2026-07-31T10:12:39.272003+00:00"
     },
     {
       "match_id": "9",
@@ -166,7 +166,7 @@
       "provider_match_id": "400021467",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783752+00:00"
+      "updated_at": "2026-07-31T10:12:39.272019+00:00"
     },
     {
       "match_id": "12",
@@ -181,7 +181,7 @@
       "provider_match_id": "400021474",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783770+00:00"
+      "updated_at": "2026-07-31T10:12:39.272036+00:00"
     },
     {
       "match_id": "14",
@@ -196,7 +196,7 @@
       "provider_match_id": "400021482",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783788+00:00"
+      "updated_at": "2026-07-31T10:12:39.272054+00:00"
     },
     {
       "match_id": "16",
@@ -211,7 +211,7 @@
       "provider_match_id": "400021478",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783805+00:00"
+      "updated_at": "2026-07-31T10:12:39.272071+00:00"
     },
     {
       "match_id": "13",
@@ -226,7 +226,7 @@
       "provider_match_id": "400021486",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783823+00:00"
+      "updated_at": "2026-07-31T10:12:39.272088+00:00"
     },
     {
       "match_id": "15",
@@ -241,7 +241,7 @@
       "provider_match_id": "400021476",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783840+00:00"
+      "updated_at": "2026-07-31T10:12:39.272105+00:00"
     },
     {
       "match_id": "17",
@@ -256,7 +256,7 @@
       "provider_match_id": "400021490",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783858+00:00"
+      "updated_at": "2026-07-31T10:12:39.272122+00:00"
     },
     {
       "match_id": "18",
@@ -271,7 +271,7 @@
       "provider_match_id": "400021488",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783875+00:00"
+      "updated_at": "2026-07-31T10:12:39.272140+00:00"
     },
     {
       "match_id": "19",
@@ -286,7 +286,7 @@
       "provider_match_id": "400021496",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783893+00:00"
+      "updated_at": "2026-07-31T10:12:39.272157+00:00"
     },
     {
       "match_id": "20",
@@ -301,7 +301,7 @@
       "provider_match_id": "400021498",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783911+00:00"
+      "updated_at": "2026-07-31T10:12:39.272174+00:00"
     },
     {
       "match_id": "23",
@@ -316,7 +316,7 @@
       "provider_match_id": "400021502",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783949+00:00"
+      "updated_at": "2026-07-31T10:12:39.272191+00:00"
     },
     {
       "match_id": "22",
@@ -331,7 +331,7 @@
       "provider_match_id": "400021507",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783969+00:00"
+      "updated_at": "2026-07-31T10:12:39.272208+00:00"
     },
     {
       "match_id": "21",
@@ -346,7 +346,7 @@
       "provider_match_id": "400021510",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.783986+00:00"
+      "updated_at": "2026-07-31T10:12:39.272226+00:00"
     },
     {
       "match_id": "24",
@@ -361,7 +361,7 @@
       "provider_match_id": "400021504",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784004+00:00"
+      "updated_at": "2026-07-31T10:12:39.272243+00:00"
     },
     {
       "match_id": "25",
@@ -376,7 +376,7 @@
       "provider_match_id": "400021440",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784022+00:00"
+      "updated_at": "2026-07-31T10:12:39.272260+00:00"
     },
     {
       "match_id": "26",
@@ -391,7 +391,7 @@
       "provider_match_id": "400021446",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784039+00:00"
+      "updated_at": "2026-07-31T10:12:39.272276+00:00"
     },
     {
       "match_id": "27",
@@ -406,7 +406,7 @@
       "provider_match_id": "400021450",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784060+00:00"
+      "updated_at": "2026-07-31T10:12:39.272293+00:00"
     },
     {
       "match_id": "28",
@@ -421,7 +421,7 @@
       "provider_match_id": "400021442",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784079+00:00"
+      "updated_at": "2026-07-31T10:12:39.272310+00:00"
     },
     {
       "match_id": "32",
@@ -436,7 +436,7 @@
       "provider_match_id": "400021462",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784097+00:00"
+      "updated_at": "2026-07-31T10:12:39.272327+00:00"
     },
     {
       "match_id": "30",
@@ -451,7 +451,7 @@
       "provider_match_id": "400021454",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784113+00:00"
+      "updated_at": "2026-07-31T10:12:39.272344+00:00"
     },
     {
       "match_id": "29",
@@ -466,7 +466,7 @@
       "provider_match_id": "400021457",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784131+00:00"
+      "updated_at": "2026-07-31T10:12:39.272360+00:00"
     },
     {
       "match_id": "31",
@@ -481,7 +481,7 @@
       "provider_match_id": "400021460",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784148+00:00"
+      "updated_at": "2026-07-31T10:12:39.272376+00:00"
     },
     {
       "match_id": "35",
@@ -496,7 +496,7 @@
       "provider_match_id": "400021472",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784165+00:00"
+      "updated_at": "2026-07-31T10:12:39.272393+00:00"
     },
     {
       "match_id": "33",
@@ -511,7 +511,7 @@
       "provider_match_id": "400021469",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784181+00:00"
+      "updated_at": "2026-07-31T10:12:39.272408+00:00"
     },
     {
       "match_id": "34",
@@ -526,7 +526,7 @@
       "provider_match_id": "400021465",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784198+00:00"
+      "updated_at": "2026-07-31T10:12:39.272424+00:00"
     },
     {
       "match_id": "36",
@@ -541,7 +541,7 @@
       "provider_match_id": "400021475",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784214+00:00"
+      "updated_at": "2026-07-31T10:12:39.272440+00:00"
     },
     {
       "match_id": "38",
@@ -556,7 +556,7 @@
       "provider_match_id": "400021483",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784232+00:00"
+      "updated_at": "2026-07-31T10:12:39.272457+00:00"
     },
     {
       "match_id": "39",
@@ -571,7 +571,7 @@
       "provider_match_id": "400021477",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784249+00:00"
+      "updated_at": "2026-07-31T10:12:39.272474+00:00"
     },
     {
       "match_id": "37",
@@ -586,7 +586,7 @@
       "provider_match_id": "400021487",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784265+00:00"
+      "updated_at": "2026-07-31T10:12:39.272491+00:00"
     },
     {
       "match_id": "40",
@@ -601,7 +601,7 @@
       "provider_match_id": "400021480",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784282+00:00"
+      "updated_at": "2026-07-31T10:12:39.272508+00:00"
     },
     {
       "match_id": "43",
@@ -616,7 +616,7 @@
       "provider_match_id": "400021494",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784299+00:00"
+      "updated_at": "2026-07-31T10:12:39.272525+00:00"
     },
     {
       "match_id": "42",
@@ -631,7 +631,7 @@
       "provider_match_id": "400021492",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784316+00:00"
+      "updated_at": "2026-07-31T10:12:39.272541+00:00"
     },
     {
       "match_id": "41",
@@ -646,7 +646,7 @@
       "provider_match_id": "400021491",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784333+00:00"
+      "updated_at": "2026-07-31T10:12:39.272558+00:00"
     },
     {
       "match_id": "44",
@@ -661,7 +661,7 @@
       "provider_match_id": "400021499",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784351+00:00"
+      "updated_at": "2026-07-31T10:12:39.272575+00:00"
     },
     {
       "match_id": "47",
@@ -676,7 +676,7 @@
       "provider_match_id": "400021503",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784369+00:00"
+      "updated_at": "2026-07-31T10:12:39.272591+00:00"
     },
     {
       "match_id": "45",
@@ -691,7 +691,7 @@
       "provider_match_id": "400021506",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784386+00:00"
+      "updated_at": "2026-07-31T10:12:39.272608+00:00"
     },
     {
       "match_id": "46",
@@ -706,7 +706,7 @@
       "provider_match_id": "400021511",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784402+00:00"
+      "updated_at": "2026-07-31T10:12:39.272624+00:00"
     },
     {
       "match_id": "48",
@@ -721,7 +721,7 @@
       "provider_match_id": "400021501",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784419+00:00"
+      "updated_at": "2026-07-31T10:12:39.272641+00:00"
     },
     {
       "match_id": "51",
@@ -736,7 +736,7 @@
       "provider_match_id": "400021451",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784452+00:00"
+      "updated_at": "2026-07-31T10:12:39.272673+00:00"
     },
     {
       "match_id": "52",
@@ -751,7 +751,7 @@
       "provider_match_id": "400021448",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784435+00:00"
+      "updated_at": "2026-07-31T10:12:39.272656+00:00"
     },
     {
       "match_id": "49",
@@ -766,7 +766,7 @@
       "provider_match_id": "400021455",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784486+00:00"
+      "updated_at": "2026-07-31T10:12:39.272706+00:00"
     },
     {
       "match_id": "50",
@@ -781,7 +781,7 @@
       "provider_match_id": "400021452",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784469+00:00"
+      "updated_at": "2026-07-31T10:12:39.272689+00:00"
     },
     {
       "match_id": "53",
@@ -796,7 +796,7 @@
       "provider_match_id": "400021444",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784521+00:00"
+      "updated_at": "2026-07-31T10:12:39.272740+00:00"
     },
     {
       "match_id": "54",
@@ -811,7 +811,7 @@
       "provider_match_id": "400021445",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784503+00:00"
+      "updated_at": "2026-07-31T10:12:39.272723+00:00"
     },
     {
       "match_id": "55",
@@ -826,7 +826,7 @@
       "provider_match_id": "400021468",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784536+00:00"
+      "updated_at": "2026-07-31T10:12:39.272755+00:00"
     },
     {
       "match_id": "56",
@@ -841,7 +841,7 @@
       "provider_match_id": "400021466",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784552+00:00"
+      "updated_at": "2026-07-31T10:12:39.272771+00:00"
     },
     {
       "match_id": "57",
@@ -856,7 +856,7 @@
       "provider_match_id": "400021471",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784587+00:00"
+      "updated_at": "2026-07-31T10:12:39.272804+00:00"
     },
     {
       "match_id": "58",
@@ -871,7 +871,7 @@
       "provider_match_id": "400021473",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784569+00:00"
+      "updated_at": "2026-07-31T10:12:39.272787+00:00"
     },
     {
       "match_id": "59",
@@ -886,7 +886,7 @@
       "provider_match_id": "400021459",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784620+00:00"
+      "updated_at": "2026-07-31T10:12:39.272836+00:00"
     },
     {
       "match_id": "60",
@@ -901,7 +901,7 @@
       "provider_match_id": "400021461",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784604+00:00"
+      "updated_at": "2026-07-31T10:12:39.272821+00:00"
     },
     {
       "match_id": "61",
@@ -916,7 +916,7 @@
       "provider_match_id": "400021489",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784652+00:00"
+      "updated_at": "2026-07-31T10:12:39.272918+00:00"
     },
     {
       "match_id": "62",
@@ -931,7 +931,7 @@
       "provider_match_id": "400021493",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784636+00:00"
+      "updated_at": "2026-07-31T10:12:39.272896+00:00"
     },
     {
       "match_id": "65",
@@ -946,7 +946,7 @@
       "provider_match_id": "400021485",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784687+00:00"
+      "updated_at": "2026-07-31T10:12:39.272955+00:00"
     },
     {
       "match_id": "66",
@@ -961,7 +961,7 @@
       "provider_match_id": "400021484",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784669+00:00"
+      "updated_at": "2026-07-31T10:12:39.272936+00:00"
     },
     {
       "match_id": "63",
@@ -976,7 +976,7 @@
       "provider_match_id": "400021479",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784721+00:00"
+      "updated_at": "2026-07-31T10:12:39.272991+00:00"
     },
     {
       "match_id": "64",
@@ -991,7 +991,7 @@
       "provider_match_id": "400021481",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784704+00:00"
+      "updated_at": "2026-07-31T10:12:39.272973+00:00"
     },
     {
       "match_id": "67",
@@ -1006,7 +1006,7 @@
       "provider_match_id": "400021508",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784738+00:00"
+      "updated_at": "2026-07-31T10:12:39.273008+00:00"
     },
     {
       "match_id": "68",
@@ -1021,7 +1021,7 @@
       "provider_match_id": "400021509",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784754+00:00"
+      "updated_at": "2026-07-31T10:12:39.273025+00:00"
     },
     {
       "match_id": "71",
@@ -1036,7 +1036,7 @@
       "provider_match_id": "400021505",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784788+00:00"
+      "updated_at": "2026-07-31T10:12:39.273059+00:00"
     },
     {
       "match_id": "72",
@@ -1051,7 +1051,7 @@
       "provider_match_id": "400021500",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784771+00:00"
+      "updated_at": "2026-07-31T10:12:39.273042+00:00"
     },
     {
       "match_id": "69",
@@ -1066,7 +1066,7 @@
       "provider_match_id": "400021497",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784805+00:00"
+      "updated_at": "2026-07-31T10:12:39.273076+00:00"
     },
     {
       "match_id": "70",
@@ -1081,7 +1081,7 @@
       "provider_match_id": "400021495",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784822+00:00"
+      "updated_at": "2026-07-31T10:12:39.273093+00:00"
     },
     {
       "match_id": "73",
@@ -1096,7 +1096,7 @@
       "provider_match_id": "400021518",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784840+00:00"
+      "updated_at": "2026-07-31T10:12:39.273111+00:00"
     },
     {
       "match_id": "76",
@@ -1111,7 +1111,7 @@
       "provider_match_id": "400021516",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784859+00:00"
+      "updated_at": "2026-07-31T10:12:39.273129+00:00"
     },
     {
       "match_id": "74",
@@ -1126,7 +1126,7 @@
       "provider_match_id": "400021513",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784877+00:00"
+      "updated_at": "2026-07-31T10:12:39.273147+00:00"
     },
     {
       "match_id": "75",
@@ -1141,7 +1141,7 @@
       "provider_match_id": "400021522",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784895+00:00"
+      "updated_at": "2026-07-31T10:12:39.273164+00:00"
     },
     {
       "match_id": "78",
@@ -1156,7 +1156,7 @@
       "provider_match_id": "400021514",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784911+00:00"
+      "updated_at": "2026-07-31T10:12:39.273180+00:00"
     },
     {
       "match_id": "77",
@@ -1171,7 +1171,7 @@
       "provider_match_id": "400021523",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784947+00:00"
+      "updated_at": "2026-07-31T10:12:39.273197+00:00"
     },
     {
       "match_id": "79",
@@ -1186,7 +1186,7 @@
       "provider_match_id": "400021520",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784965+00:00"
+      "updated_at": "2026-07-31T10:12:39.273213+00:00"
     },
     {
       "match_id": "80",
@@ -1201,7 +1201,7 @@
       "provider_match_id": "400021512",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784981+00:00"
+      "updated_at": "2026-07-31T10:12:39.273229+00:00"
     },
     {
       "match_id": "82",
@@ -1216,7 +1216,7 @@
       "provider_match_id": "400021525",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.784998+00:00"
+      "updated_at": "2026-07-31T10:12:39.273245+00:00"
     },
     {
       "match_id": "81",
@@ -1231,7 +1231,7 @@
       "provider_match_id": "400021524",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785013+00:00"
+      "updated_at": "2026-07-31T10:12:39.273259+00:00"
     },
     {
       "match_id": "84",
@@ -1246,7 +1246,7 @@
       "provider_match_id": "400021519",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785029+00:00"
+      "updated_at": "2026-07-31T10:12:39.273276+00:00"
     },
     {
       "match_id": "83",
@@ -1261,7 +1261,7 @@
       "provider_match_id": "400021526",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785046+00:00"
+      "updated_at": "2026-07-31T10:12:39.273292+00:00"
     },
     {
       "match_id": "85",
@@ -1276,7 +1276,7 @@
       "provider_match_id": "400021527",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785062+00:00"
+      "updated_at": "2026-07-31T10:12:39.273308+00:00"
     },
     {
       "match_id": "88",
@@ -1291,7 +1291,7 @@
       "provider_match_id": "400021515",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785079+00:00"
+      "updated_at": "2026-07-31T10:12:39.273323+00:00"
     },
     {
       "match_id": "86",
@@ -1306,7 +1306,7 @@
       "provider_match_id": "400021521",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785095+00:00"
+      "updated_at": "2026-07-31T10:12:39.273340+00:00"
     },
     {
       "match_id": "87",
@@ -1321,7 +1321,7 @@
       "provider_match_id": "400021517",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785112+00:00"
+      "updated_at": "2026-07-31T10:12:39.273356+00:00"
     },
     {
       "match_id": "90",
@@ -1336,7 +1336,7 @@
       "provider_match_id": "400021530",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785128+00:00"
+      "updated_at": "2026-07-31T10:12:39.273372+00:00"
     },
     {
       "match_id": "89",
@@ -1351,7 +1351,7 @@
       "provider_match_id": "400021533",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785144+00:00"
+      "updated_at": "2026-07-31T10:12:39.273388+00:00"
     },
     {
       "match_id": "91",
@@ -1366,7 +1366,7 @@
       "provider_match_id": "400021532",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785161+00:00"
+      "updated_at": "2026-07-31T10:12:39.273403+00:00"
     },
     {
       "match_id": "92",
@@ -1381,7 +1381,7 @@
       "provider_match_id": "400021531",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785177+00:00"
+      "updated_at": "2026-07-31T10:12:39.273419+00:00"
     },
     {
       "match_id": "93",
@@ -1396,7 +1396,7 @@
       "provider_match_id": "400021529",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785194+00:00"
+      "updated_at": "2026-07-31T10:12:39.273434+00:00"
     },
     {
       "match_id": "94",
@@ -1411,7 +1411,7 @@
       "provider_match_id": "400021534",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785210+00:00"
+      "updated_at": "2026-07-31T10:12:39.273450+00:00"
     },
     {
       "match_id": "95",
@@ -1426,7 +1426,7 @@
       "provider_match_id": "400021528",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785227+00:00"
+      "updated_at": "2026-07-31T10:12:39.273466+00:00"
     },
     {
       "match_id": "96",
@@ -1441,7 +1441,7 @@
       "provider_match_id": "400021535",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785244+00:00"
+      "updated_at": "2026-07-31T10:12:39.273482+00:00"
     },
     {
       "match_id": "97",
@@ -1456,7 +1456,7 @@
       "provider_match_id": "400021536",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785260+00:00"
+      "updated_at": "2026-07-31T10:12:39.273498+00:00"
     },
     {
       "match_id": "98",
@@ -1471,7 +1471,7 @@
       "provider_match_id": "400021538",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785277+00:00"
+      "updated_at": "2026-07-31T10:12:39.273514+00:00"
     },
     {
       "match_id": "99",
@@ -1486,7 +1486,7 @@
       "provider_match_id": "400021539",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785294+00:00"
+      "updated_at": "2026-07-31T10:12:39.273531+00:00"
     },
     {
       "match_id": "100",
@@ -1501,7 +1501,7 @@
       "provider_match_id": "400021537",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785310+00:00"
+      "updated_at": "2026-07-31T10:12:39.273548+00:00"
     },
     {
       "match_id": "101",
@@ -1516,7 +1516,7 @@
       "provider_match_id": "400021541",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785327+00:00"
+      "updated_at": "2026-07-31T10:12:39.273564+00:00"
     },
     {
       "match_id": "102",
@@ -1531,7 +1531,7 @@
       "provider_match_id": "400021540",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785343+00:00"
+      "updated_at": "2026-07-31T10:12:39.273580+00:00"
     },
     {
       "match_id": "103",
@@ -1546,7 +1546,7 @@
       "provider_match_id": "400021542",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785360+00:00"
+      "updated_at": "2026-07-31T10:12:39.273596+00:00"
     },
     {
       "match_id": "104",
@@ -1561,7 +1561,7 @@
       "provider_match_id": "400021543",
       "source": "fifa_official_calendar_api",
       "source_url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures",
-      "updated_at": "2026-07-31T07:33:14.785376+00:00"
+      "updated_at": "2026-07-31T10:12:39.273612+00:00"
     }
   ],
   "current_matches": [
