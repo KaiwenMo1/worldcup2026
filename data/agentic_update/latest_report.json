@@ -1,10 +1,10 @@
 {
-  "run_id": "6e0ee2c321a44318a46bf2ca00b5ee76",
+  "run_id": "fc85e9ec628243828682d7ed2f428418",
   "mode": "apply",
-  "created_at": "2026-08-09T23:45:00.125557Z",
+  "created_at": "2026-08-10T00:41:01.084036Z",
   "observations_before": {
     "live_state_exists": true,
-    "live_state_updated_at": "2026-08-09T22:55:58.322218+00:00",
+    "live_state_updated_at": "2026-08-09T23:44:13.208258+00:00",
     "completed_matches": 104,
     "current_matches": 104,
     "live_matches": 0,
@@ -22,7 +22,7 @@
     "provider_key_configured": false,
     "event_feed_configured": false,
     "sportmonks_configured": false,
-    "generated_at": "2026-08-09T23:44:13.003702Z"
+    "generated_at": "2026-08-10T00:40:21.311678Z"
   },
   "plan": [
     {
@@ -118,8 +118,8 @@
     {
       "tool_id": "official_fifa_scores",
       "status": "success",
-      "started_at": "2026-08-09T23:44:13.003822Z",
-      "finished_at": "2026-08-09T23:44:58.136124Z",
+      "started_at": "2026-08-10T00:40:21.311787Z",
+      "finished_at": "2026-08-10T00:40:59.085875Z",
       "message": "Tournament autopilot completed.",
       "metrics": {
         "observed_matches": 104,
@@ -351,55 +351,55 @@
     {
       "tool_id": "provider_scores",
       "status": "skipped",
-      "started_at": "2026-08-09T23:44:58.136149Z",
-      "finished_at": "2026-08-09T23:44:58.136151Z",
+      "started_at": "2026-08-10T00:40:59.085901Z",
+      "finished_at": "2026-08-10T00:40:59.085903Z",
       "message": "Skipped unless include_provider is enabled and BALLDONTLIE_API_KEY is configured.",
       "metrics": {}
     },
     {
       "tool_id": "live_event_feed",
       "status": "skipped",
-      "started_at": "2026-08-09T23:44:58.136165Z",
-      "finished_at": "2026-08-09T23:44:58.136166Z",
+      "started_at": "2026-08-10T00:40:59.085916Z",
+      "finished_at": "2026-08-10T00:40:59.085917Z",
       "message": "Skipped unless a live event feed URL is configured.",
       "metrics": {}
     },
     {
       "tool_id": "lineups_and_squads",
       "status": "success",
-      "started_at": "2026-08-09T23:44:58.136172Z",
-      "finished_at": "2026-08-09T23:44:59.551432Z",
+      "started_at": "2026-08-10T00:40:59.085924Z",
+      "finished_at": "2026-08-10T00:41:00.394369Z",
       "message": "Skipped: Set SPORTMONKS_API_TOKEN in .env to sync observed lineups and availability.\nOfficial squad players: 1248\nTeams: 48\nMarket-value matches: 1157/1248\nSaved /home/runner/work/worldcup2026/worldcup2026/data/worldcup_squads.csv\nSaved /home/runner/work/worldcup2026/worldcup2026/data/squad_features.csv\nSaved /home/runner/work/worldcup2026/worldcup2026/data/player_match_stats.csv\nSaved /home/runner/work/worldcup2026/worldcup2026/data/player_match_team_features.csv\nUpdated /home/runner/work/worldcup2026/worldcup2026/data/player_candidates.csv\nNormalized actual lineup starters: 0\nDerived lineup delta signals: 0\nData-quality issues: 1",
       "metrics": {}
     },
     {
       "tool_id": "postmatch_player_data",
       "status": "success",
-      "started_at": "2026-08-09T23:44:59.551481Z",
-      "finished_at": "2026-08-09T23:44:59.834770Z",
+      "started_at": "2026-08-10T00:41:00.394412Z",
+      "finished_at": "2026-08-10T00:41:00.828007Z",
       "message": "Post-match player data: 16 player match rows, 16 player ratings, 16 form signals, 36 role vectors, 2 live team overlays (0 issues).",
       "metrics": {}
     },
     {
       "tool_id": "manager_observations",
       "status": "success",
-      "started_at": "2026-08-09T23:44:59.834818Z",
-      "finished_at": "2026-08-09T23:45:00.116495Z",
+      "started_at": "2026-08-10T00:41:00.828052Z",
+      "finished_at": "2026-08-10T00:41:01.076537Z",
       "message": "Manager observations: 208\nFormation prediction signals: 48",
       "metrics": {}
     },
     {
       "tool_id": "verification",
       "status": "skipped",
-      "started_at": "2026-08-09T23:45:00.116544Z",
-      "finished_at": "2026-08-09T23:45:00.116545Z",
+      "started_at": "2026-08-10T00:41:01.076580Z",
+      "finished_at": "2026-08-10T00:41:01.076581Z",
       "message": "Skipped unless --verify is passed.",
       "metrics": {}
     }
   ],
   "observations_after": {
     "live_state_exists": true,
-    "live_state_updated_at": "2026-08-09T23:44:13.208258+00:00",
+    "live_state_updated_at": "2026-08-10T00:40:21.782184+00:00",
     "completed_matches": 104,
     "current_matches": 104,
     "live_matches": 0,
@@ -417,7 +417,7 @@
     "provider_key_configured": false,
     "event_feed_configured": false,
     "sportmonks_configured": false,
-    "generated_at": "2026-08-09T23:45:00.124738Z"
+    "generated_at": "2026-08-10T00:41:01.083484Z"
   },
   "warnings": [
     "No confirmed starters were present in the lineup input",
