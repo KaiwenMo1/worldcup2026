@@ -1,209 +1,209 @@
 match_id,team,opponent,manager_id,manager_name,stage,match_date,actual_formation,goals_for,goals_against,xg_for,xg_against,shots,field_tilt,box_entries,set_piece_xg,counterattack_xg,pressing_proxy,substitutions,data_quality,source,updated_at
-1,Mexico,South Africa,mexico_aguirre,Javier Aguirre,Group,2026-06-11,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-1,South Africa,Mexico,south_africa_broos,Hugo Broos,Group,2026-06-11,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-2,Korea Republic,Czechia,korea_republic_hong,Hong Myung-bo,Group,2026-06-12,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-2,Czechia,Korea Republic,czechia_koubek,Miroslav Koubek,Group,2026-06-12,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-3,Canada,Bosnia and Herzegovina,canada_marsch,Jesse Marsch,Group,2026-06-12,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-3,Bosnia and Herzegovina,Canada,bosnia_barbarez,Sergej Barbarez,Group,2026-06-12,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-4,USA,Paraguay,usa_pochettino,Mauricio Pochettino,Group,2026-06-13,,4,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-4,Paraguay,USA,paraguay_alfaro,Gustavo Alfaro,Group,2026-06-13,,1,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-8,Qatar,Switzerland,qatar_lopetegui,Julen Lopetegui,Group,2026-06-13,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-8,Switzerland,Qatar,switzerland_yakin,Murat Yakin,Group,2026-06-13,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-7,Brazil,Morocco,brazil_ancelotti,Carlo Ancelotti,Group,2026-06-13,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-7,Morocco,Brazil,morocco_ouahbi,Mohamed Ouahbi,Group,2026-06-13,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-5,Haiti,Scotland,haiti_migne,Sebastien Migne,Group,2026-06-14,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-5,Scotland,Haiti,scotland_clarke,Steve Clarke,Group,2026-06-14,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-6,Australia,Turkiye,australia_popovic,Tony Popovic,Group,2026-06-14,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-6,Turkiye,Australia,turkiye_montella,Vincenzo Montella,Group,2026-06-14,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-10,Germany,Curacao,germany_nagelsmann,Julian Nagelsmann,Group,2026-06-14,,7,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-10,Curacao,Germany,curacao_advocaat,Dick Advocaat,Group,2026-06-14,,1,7,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-11,Netherlands,Japan,netherlands_koeman,Ronald Koeman,Group,2026-06-14,,2,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-11,Japan,Netherlands,japan_moriyasu,Hajime Moriyasu,Group,2026-06-14,,2,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-9,Cote d'Ivoire,Ecuador,cote_divoire_fae,Emerse Fae,Group,2026-06-14,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-9,Ecuador,Cote d'Ivoire,ecuador_beccacece,Sebastian Beccacece,Group,2026-06-14,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-12,Sweden,Tunisia,sweden_potter,Graham Potter,Group,2026-06-15,,5,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-12,Tunisia,Sweden,tunisia_lamouchi,Sabri Lamouchi,Group,2026-06-15,,1,5,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-14,Spain,Cabo Verde,spain_de_la_fuente,Luis de la Fuente,Group,2026-06-15,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-14,Cabo Verde,Spain,cabo_verde_bubista,Bubista,Group,2026-06-15,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-16,Belgium,Egypt,belgium_garcia,Rudi Garcia,Group,2026-06-15,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-16,Egypt,Belgium,egypt_hassan,Hossam Hassan,Group,2026-06-15,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-13,Saudi Arabia,Uruguay,saudi_arabia_donis,Georgios Donis,Group,2026-06-15,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-13,Uruguay,Saudi Arabia,uruguay_bielsa,Marcelo Bielsa,Group,2026-06-15,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-15,IR Iran,New Zealand,iran_ghalenoei,Amir Ghalenoei,Group,2026-06-16,,2,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-15,New Zealand,IR Iran,new_zealand_bazeley,Darren Bazeley,Group,2026-06-16,,2,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-17,France,Senegal,france_deschamps,Didier Deschamps,Group,2026-06-16,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-17,Senegal,France,senegal_thiaw,Pape Thiaw,Group,2026-06-16,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-18,Iraq,Norway,iraq_arnold,Graham Arnold,Group,2026-06-16,,1,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-18,Norway,Iraq,norway_solbakken,Stale Solbakken,Group,2026-06-16,,4,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-19,Argentina,Algeria,argentina_scaloni,Lionel Scaloni,Group,2026-06-17,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-19,Algeria,Argentina,algeria_petkovic,Vladimir Petkovic,Group,2026-06-17,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-20,Austria,Jordan,austria_rangnick,Ralf Rangnick,Group,2026-06-17,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-20,Jordan,Austria,jordan_sellami,Jamal Sellami,Group,2026-06-17,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-23,Portugal,Congo DR,portugal_martinez,Roberto Martinez,Group,2026-06-17,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-23,Congo DR,Portugal,congo_dr_desabre,Sebastien Desabre,Group,2026-06-17,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-22,England,Croatia,england_tuchel,Thomas Tuchel,Group,2026-06-17,,4,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-22,Croatia,England,croatia_dalic,Zlatko Dalic,Group,2026-06-17,,2,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-21,Ghana,Panama,ghana_queiroz,Carlos Queiroz,Group,2026-06-17,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-21,Panama,Ghana,panama_christiansen,Thomas Christiansen,Group,2026-06-17,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-24,Uzbekistan,Colombia,uzbekistan_cannavaro,Fabio Cannavaro,Group,2026-06-18,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-24,Colombia,Uzbekistan,colombia_lorenzo,Nestor Lorenzo,Group,2026-06-18,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-25,Czechia,South Africa,czechia_koubek,Miroslav Koubek,Group,2026-06-18,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-25,South Africa,Czechia,south_africa_broos,Hugo Broos,Group,2026-06-18,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-26,Switzerland,Bosnia and Herzegovina,switzerland_yakin,Murat Yakin,Group,2026-06-18,,4,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-26,Bosnia and Herzegovina,Switzerland,bosnia_barbarez,Sergej Barbarez,Group,2026-06-18,,1,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-27,Canada,Qatar,canada_marsch,Jesse Marsch,Group,2026-06-18,,6,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-27,Qatar,Canada,qatar_lopetegui,Julen Lopetegui,Group,2026-06-18,,0,6,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-28,Mexico,Korea Republic,mexico_aguirre,Javier Aguirre,Group,2026-06-19,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-28,Korea Republic,Mexico,korea_republic_hong,Hong Myung-bo,Group,2026-06-19,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-32,USA,Australia,usa_pochettino,Mauricio Pochettino,Group,2026-06-19,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-32,Australia,USA,australia_popovic,Tony Popovic,Group,2026-06-19,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-30,Scotland,Morocco,scotland_clarke,Steve Clarke,Group,2026-06-19,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-30,Morocco,Scotland,morocco_ouahbi,Mohamed Ouahbi,Group,2026-06-19,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-29,Brazil,Haiti,brazil_ancelotti,Carlo Ancelotti,Group,2026-06-20,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-29,Haiti,Brazil,haiti_migne,Sebastien Migne,Group,2026-06-20,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-31,Turkiye,Paraguay,turkiye_montella,Vincenzo Montella,Group,2026-06-20,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-31,Paraguay,Turkiye,paraguay_alfaro,Gustavo Alfaro,Group,2026-06-20,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-35,Netherlands,Sweden,netherlands_koeman,Ronald Koeman,Group,2026-06-20,,5,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-35,Sweden,Netherlands,sweden_potter,Graham Potter,Group,2026-06-20,,1,5,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-33,Germany,Cote d'Ivoire,germany_nagelsmann,Julian Nagelsmann,Group,2026-06-20,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-33,Cote d'Ivoire,Germany,cote_divoire_fae,Emerse Fae,Group,2026-06-20,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-34,Ecuador,Curacao,ecuador_beccacece,Sebastian Beccacece,Group,2026-06-21,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-34,Curacao,Ecuador,curacao_advocaat,Dick Advocaat,Group,2026-06-21,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-36,Tunisia,Japan,tunisia_lamouchi,Sabri Lamouchi,Group,2026-06-21,,0,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-36,Japan,Tunisia,japan_moriyasu,Hajime Moriyasu,Group,2026-06-21,,4,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-38,Spain,Saudi Arabia,spain_de_la_fuente,Luis de la Fuente,Group,2026-06-21,,4,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-38,Saudi Arabia,Spain,saudi_arabia_donis,Georgios Donis,Group,2026-06-21,,0,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-39,Belgium,IR Iran,belgium_garcia,Rudi Garcia,Group,2026-06-21,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-39,IR Iran,Belgium,iran_ghalenoei,Amir Ghalenoei,Group,2026-06-21,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-37,Uruguay,Cabo Verde,uruguay_bielsa,Marcelo Bielsa,Group,2026-06-21,,2,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-37,Cabo Verde,Uruguay,cabo_verde_bubista,Bubista,Group,2026-06-21,,2,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-40,New Zealand,Egypt,new_zealand_bazeley,Darren Bazeley,Group,2026-06-22,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-40,Egypt,New Zealand,egypt_hassan,Hossam Hassan,Group,2026-06-22,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-43,Argentina,Austria,argentina_scaloni,Lionel Scaloni,Group,2026-06-22,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-43,Austria,Argentina,austria_rangnick,Ralf Rangnick,Group,2026-06-22,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-42,France,Iraq,france_deschamps,Didier Deschamps,Group,2026-06-22,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-42,Iraq,France,iraq_arnold,Graham Arnold,Group,2026-06-22,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-41,Norway,Senegal,norway_solbakken,Stale Solbakken,Group,2026-06-23,,3,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-41,Senegal,Norway,senegal_thiaw,Pape Thiaw,Group,2026-06-23,,2,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-44,Jordan,Algeria,jordan_sellami,Jamal Sellami,Group,2026-06-23,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-44,Algeria,Jordan,algeria_petkovic,Vladimir Petkovic,Group,2026-06-23,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-47,Portugal,Uzbekistan,portugal_martinez,Roberto Martinez,Group,2026-06-23,,5,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-47,Uzbekistan,Portugal,uzbekistan_cannavaro,Fabio Cannavaro,Group,2026-06-23,,0,5,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-45,England,Ghana,england_tuchel,Thomas Tuchel,Group,2026-06-23,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-45,Ghana,England,ghana_queiroz,Carlos Queiroz,Group,2026-06-23,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-46,Panama,Croatia,panama_christiansen,Thomas Christiansen,Group,2026-06-23,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-46,Croatia,Panama,croatia_dalic,Zlatko Dalic,Group,2026-06-23,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-48,Colombia,Congo DR,colombia_lorenzo,Nestor Lorenzo,Group,2026-06-24,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-48,Congo DR,Colombia,congo_dr_desabre,Sebastien Desabre,Group,2026-06-24,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-51,Switzerland,Canada,switzerland_yakin,Murat Yakin,Group,2026-06-24,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-51,Canada,Switzerland,canada_marsch,Jesse Marsch,Group,2026-06-24,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-52,Bosnia and Herzegovina,Qatar,bosnia_barbarez,Sergej Barbarez,Group,2026-06-24,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-52,Qatar,Bosnia and Herzegovina,qatar_lopetegui,Julen Lopetegui,Group,2026-06-24,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-49,Scotland,Brazil,scotland_clarke,Steve Clarke,Group,2026-06-24,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-49,Brazil,Scotland,brazil_ancelotti,Carlo Ancelotti,Group,2026-06-24,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-50,Morocco,Haiti,morocco_ouahbi,Mohamed Ouahbi,Group,2026-06-24,,4,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-50,Haiti,Morocco,haiti_migne,Sebastien Migne,Group,2026-06-24,,2,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-53,Czechia,Mexico,czechia_koubek,Miroslav Koubek,Group,2026-06-25,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-53,Mexico,Czechia,mexico_aguirre,Javier Aguirre,Group,2026-06-25,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-54,South Africa,Korea Republic,south_africa_broos,Hugo Broos,Group,2026-06-25,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-54,Korea Republic,South Africa,korea_republic_hong,Hong Myung-bo,Group,2026-06-25,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-55,Curacao,Cote d'Ivoire,curacao_advocaat,Dick Advocaat,Group,2026-06-25,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-55,Cote d'Ivoire,Curacao,cote_divoire_fae,Emerse Fae,Group,2026-06-25,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-56,Ecuador,Germany,ecuador_beccacece,Sebastian Beccacece,Group,2026-06-25,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-56,Germany,Ecuador,germany_nagelsmann,Julian Nagelsmann,Group,2026-06-25,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-57,Japan,Sweden,japan_moriyasu,Hajime Moriyasu,Group,2026-06-25,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-57,Sweden,Japan,sweden_potter,Graham Potter,Group,2026-06-25,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-58,Tunisia,Netherlands,tunisia_lamouchi,Sabri Lamouchi,Group,2026-06-25,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-58,Netherlands,Tunisia,netherlands_koeman,Ronald Koeman,Group,2026-06-25,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-59,Turkiye,USA,turkiye_montella,Vincenzo Montella,Group,2026-06-26,,3,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-59,USA,Turkiye,usa_pochettino,Mauricio Pochettino,Group,2026-06-26,,2,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-60,Paraguay,Australia,paraguay_alfaro,Gustavo Alfaro,Group,2026-06-26,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-60,Australia,Paraguay,australia_popovic,Tony Popovic,Group,2026-06-26,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-61,Norway,France,norway_solbakken,Stale Solbakken,Group,2026-06-26,,1,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-61,France,Norway,france_deschamps,Didier Deschamps,Group,2026-06-26,,4,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-62,Senegal,Iraq,senegal_thiaw,Pape Thiaw,Group,2026-06-26,,5,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-62,Iraq,Senegal,iraq_arnold,Graham Arnold,Group,2026-06-26,,0,5,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-65,Cabo Verde,Saudi Arabia,cabo_verde_bubista,Bubista,Group,2026-06-27,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-65,Saudi Arabia,Cabo Verde,saudi_arabia_donis,Georgios Donis,Group,2026-06-27,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-66,Uruguay,Spain,uruguay_bielsa,Marcelo Bielsa,Group,2026-06-27,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-66,Spain,Uruguay,spain_de_la_fuente,Luis de la Fuente,Group,2026-06-27,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-63,Egypt,IR Iran,egypt_hassan,Hossam Hassan,Group,2026-06-27,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-63,IR Iran,Egypt,iran_ghalenoei,Amir Ghalenoei,Group,2026-06-27,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-64,New Zealand,Belgium,new_zealand_bazeley,Darren Bazeley,Group,2026-06-27,,1,5,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-64,Belgium,New Zealand,belgium_garcia,Rudi Garcia,Group,2026-06-27,,5,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-67,Panama,England,panama_christiansen,Thomas Christiansen,Group,2026-06-27,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-67,England,Panama,england_tuchel,Thomas Tuchel,Group,2026-06-27,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-68,Croatia,Ghana,croatia_dalic,Zlatko Dalic,Group,2026-06-27,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-68,Ghana,Croatia,ghana_queiroz,Carlos Queiroz,Group,2026-06-27,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-71,Colombia,Portugal,colombia_lorenzo,Nestor Lorenzo,Group,2026-06-27,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-71,Portugal,Colombia,portugal_martinez,Roberto Martinez,Group,2026-06-27,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-72,Congo DR,Uzbekistan,congo_dr_desabre,Sebastien Desabre,Group,2026-06-27,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-72,Uzbekistan,Congo DR,uzbekistan_cannavaro,Fabio Cannavaro,Group,2026-06-27,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-69,Algeria,Austria,algeria_petkovic,Vladimir Petkovic,Group,2026-06-28,,3,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-69,Austria,Algeria,austria_rangnick,Ralf Rangnick,Group,2026-06-28,,3,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-70,Jordan,Argentina,jordan_sellami,Jamal Sellami,Group,2026-06-28,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-70,Argentina,Jordan,argentina_scaloni,Lionel Scaloni,Group,2026-06-28,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-73,South Africa,Canada,south_africa_broos,Hugo Broos,Round of 32,2026-06-28,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-73,Canada,South Africa,canada_marsch,Jesse Marsch,Round of 32,2026-06-28,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-76,Brazil,Japan,brazil_ancelotti,Carlo Ancelotti,Round of 32,2026-06-29,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-76,Japan,Brazil,japan_moriyasu,Hajime Moriyasu,Round of 32,2026-06-29,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-74,Germany,Paraguay,germany_nagelsmann,Julian Nagelsmann,Round of 32,2026-06-29,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-74,Paraguay,Germany,paraguay_alfaro,Gustavo Alfaro,Round of 32,2026-06-29,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-75,Netherlands,Morocco,netherlands_koeman,Ronald Koeman,Round of 32,2026-06-30,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-75,Morocco,Netherlands,morocco_ouahbi,Mohamed Ouahbi,Round of 32,2026-06-30,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-78,Cote d'Ivoire,Norway,cote_divoire_fae,Emerse Fae,Round of 32,2026-06-30,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-78,Norway,Cote d'Ivoire,norway_solbakken,Stale Solbakken,Round of 32,2026-06-30,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-77,France,Sweden,france_deschamps,Didier Deschamps,Round of 32,2026-06-30,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-77,Sweden,France,sweden_potter,Graham Potter,Round of 32,2026-06-30,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-79,Mexico,Ecuador,mexico_aguirre,Javier Aguirre,Round of 32,2026-07-01,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-79,Ecuador,Mexico,ecuador_beccacece,Sebastian Beccacece,Round of 32,2026-07-01,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-80,England,Congo DR,england_tuchel,Thomas Tuchel,Round of 32,2026-07-01,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-80,Congo DR,England,congo_dr_desabre,Sebastien Desabre,Round of 32,2026-07-01,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-82,Belgium,Senegal,belgium_garcia,Rudi Garcia,Round of 32,2026-07-01,,3,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-82,Senegal,Belgium,senegal_thiaw,Pape Thiaw,Round of 32,2026-07-01,,2,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-81,USA,Bosnia and Herzegovina,usa_pochettino,Mauricio Pochettino,Round of 32,2026-07-02,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-81,Bosnia and Herzegovina,USA,bosnia_barbarez,Sergej Barbarez,Round of 32,2026-07-02,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-84,Spain,Austria,spain_de_la_fuente,Luis de la Fuente,Round of 32,2026-07-02,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-84,Austria,Spain,austria_rangnick,Ralf Rangnick,Round of 32,2026-07-02,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-83,Portugal,Croatia,portugal_martinez,Roberto Martinez,Round of 32,2026-07-02,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-83,Croatia,Portugal,croatia_dalic,Zlatko Dalic,Round of 32,2026-07-02,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-85,Switzerland,Algeria,switzerland_yakin,Murat Yakin,Round of 32,2026-07-03,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-85,Algeria,Switzerland,algeria_petkovic,Vladimir Petkovic,Round of 32,2026-07-03,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-88,Australia,Egypt,australia_popovic,Tony Popovic,Round of 32,2026-07-03,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-88,Egypt,Australia,egypt_hassan,Hossam Hassan,Round of 32,2026-07-03,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-86,Argentina,Cabo Verde,argentina_scaloni,Lionel Scaloni,Round of 32,2026-07-03,,3,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-86,Cabo Verde,Argentina,cabo_verde_bubista,Bubista,Round of 32,2026-07-03,,2,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-87,Colombia,Ghana,colombia_lorenzo,Nestor Lorenzo,Round of 32,2026-07-04,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-87,Ghana,Colombia,ghana_queiroz,Carlos Queiroz,Round of 32,2026-07-04,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-90,Canada,Morocco,canada_marsch,Jesse Marsch,Round of 16,2026-07-04,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-90,Morocco,Canada,morocco_ouahbi,Mohamed Ouahbi,Round of 16,2026-07-04,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-89,Paraguay,France,paraguay_alfaro,Gustavo Alfaro,Round of 16,2026-07-04,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-89,France,Paraguay,france_deschamps,Didier Deschamps,Round of 16,2026-07-04,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-91,Brazil,Norway,brazil_ancelotti,Carlo Ancelotti,Round of 16,2026-07-05,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-91,Norway,Brazil,norway_solbakken,Stale Solbakken,Round of 16,2026-07-05,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-92,Mexico,England,mexico_aguirre,Javier Aguirre,Round of 16,2026-07-06,,2,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-92,England,Mexico,england_tuchel,Thomas Tuchel,Round of 16,2026-07-06,,3,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-93,Portugal,Spain,portugal_martinez,Roberto Martinez,Round of 16,2026-07-06,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-93,Spain,Portugal,spain_de_la_fuente,Luis de la Fuente,Round of 16,2026-07-06,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-94,USA,Belgium,usa_pochettino,Mauricio Pochettino,Round of 16,2026-07-07,,1,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-94,Belgium,USA,belgium_garcia,Rudi Garcia,Round of 16,2026-07-07,,4,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-95,Argentina,Egypt,argentina_scaloni,Lionel Scaloni,Round of 16,2026-07-07,,3,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-95,Egypt,Argentina,egypt_hassan,Hossam Hassan,Round of 16,2026-07-07,,2,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-96,Switzerland,Colombia,switzerland_yakin,Murat Yakin,Round of 16,2026-07-07,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-96,Colombia,Switzerland,colombia_lorenzo,Nestor Lorenzo,Round of 16,2026-07-07,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-97,France,Morocco,france_deschamps,Didier Deschamps,Quarter-final,2026-07-09,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-97,Morocco,France,morocco_ouahbi,Mohamed Ouahbi,Quarter-final,2026-07-09,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-98,Spain,Belgium,spain_de_la_fuente,Luis de la Fuente,Quarter-final,2026-07-10,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-98,Belgium,Spain,belgium_garcia,Rudi Garcia,Quarter-final,2026-07-10,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-99,Norway,England,norway_solbakken,Stale Solbakken,Quarter-final,2026-07-11,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-99,England,Norway,england_tuchel,Thomas Tuchel,Quarter-final,2026-07-11,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-100,Argentina,Switzerland,argentina_scaloni,Lionel Scaloni,Quarter-final,2026-07-12,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-100,Switzerland,Argentina,switzerland_yakin,Murat Yakin,Quarter-final,2026-07-12,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-101,France,Spain,france_deschamps,Didier Deschamps,Semi-final,2026-07-14,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-101,Spain,France,spain_de_la_fuente,Luis de la Fuente,Semi-final,2026-07-14,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-102,England,Argentina,england_tuchel,Thomas Tuchel,Semi-final,2026-07-15,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-102,Argentina,England,argentina_scaloni,Lionel Scaloni,Semi-final,2026-07-15,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-103,France,England,france_deschamps,Didier Deschamps,Bronze final,2026-07-18,,4,6,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-103,England,France,england_tuchel,Thomas Tuchel,Bronze final,2026-07-18,,6,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-104,Spain,Argentina,spain_de_la_fuente,Luis de la Fuente,Final,2026-07-19,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
-104,Argentina,Spain,argentina_scaloni,Lionel Scaloni,Final,2026-07-19,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T17:55:27.485879+00:00
+1,Mexico,South Africa,mexico_aguirre,Javier Aguirre,Group,2026-06-11,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+1,South Africa,Mexico,south_africa_broos,Hugo Broos,Group,2026-06-11,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+2,Korea Republic,Czechia,korea_republic_hong,Hong Myung-bo,Group,2026-06-12,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+2,Czechia,Korea Republic,czechia_koubek,Miroslav Koubek,Group,2026-06-12,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+3,Canada,Bosnia and Herzegovina,canada_marsch,Jesse Marsch,Group,2026-06-12,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+3,Bosnia and Herzegovina,Canada,bosnia_barbarez,Sergej Barbarez,Group,2026-06-12,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+4,USA,Paraguay,usa_pochettino,Mauricio Pochettino,Group,2026-06-13,,4,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+4,Paraguay,USA,paraguay_alfaro,Gustavo Alfaro,Group,2026-06-13,,1,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+8,Qatar,Switzerland,qatar_lopetegui,Julen Lopetegui,Group,2026-06-13,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+8,Switzerland,Qatar,switzerland_yakin,Murat Yakin,Group,2026-06-13,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+7,Brazil,Morocco,brazil_ancelotti,Carlo Ancelotti,Group,2026-06-13,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+7,Morocco,Brazil,morocco_ouahbi,Mohamed Ouahbi,Group,2026-06-13,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+5,Haiti,Scotland,haiti_migne,Sebastien Migne,Group,2026-06-14,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+5,Scotland,Haiti,scotland_clarke,Steve Clarke,Group,2026-06-14,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+6,Australia,Turkiye,australia_popovic,Tony Popovic,Group,2026-06-14,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+6,Turkiye,Australia,turkiye_montella,Vincenzo Montella,Group,2026-06-14,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+10,Germany,Curacao,germany_nagelsmann,Julian Nagelsmann,Group,2026-06-14,,7,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+10,Curacao,Germany,curacao_advocaat,Dick Advocaat,Group,2026-06-14,,1,7,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+11,Netherlands,Japan,netherlands_koeman,Ronald Koeman,Group,2026-06-14,,2,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+11,Japan,Netherlands,japan_moriyasu,Hajime Moriyasu,Group,2026-06-14,,2,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+9,Cote d'Ivoire,Ecuador,cote_divoire_fae,Emerse Fae,Group,2026-06-14,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+9,Ecuador,Cote d'Ivoire,ecuador_beccacece,Sebastian Beccacece,Group,2026-06-14,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+12,Sweden,Tunisia,sweden_potter,Graham Potter,Group,2026-06-15,,5,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+12,Tunisia,Sweden,tunisia_lamouchi,Sabri Lamouchi,Group,2026-06-15,,1,5,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+14,Spain,Cabo Verde,spain_de_la_fuente,Luis de la Fuente,Group,2026-06-15,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+14,Cabo Verde,Spain,cabo_verde_bubista,Bubista,Group,2026-06-15,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+16,Belgium,Egypt,belgium_garcia,Rudi Garcia,Group,2026-06-15,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+16,Egypt,Belgium,egypt_hassan,Hossam Hassan,Group,2026-06-15,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+13,Saudi Arabia,Uruguay,saudi_arabia_donis,Georgios Donis,Group,2026-06-15,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+13,Uruguay,Saudi Arabia,uruguay_bielsa,Marcelo Bielsa,Group,2026-06-15,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+15,IR Iran,New Zealand,iran_ghalenoei,Amir Ghalenoei,Group,2026-06-16,,2,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+15,New Zealand,IR Iran,new_zealand_bazeley,Darren Bazeley,Group,2026-06-16,,2,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+17,France,Senegal,france_deschamps,Didier Deschamps,Group,2026-06-16,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+17,Senegal,France,senegal_thiaw,Pape Thiaw,Group,2026-06-16,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+18,Iraq,Norway,iraq_arnold,Graham Arnold,Group,2026-06-16,,1,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+18,Norway,Iraq,norway_solbakken,Stale Solbakken,Group,2026-06-16,,4,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+19,Argentina,Algeria,argentina_scaloni,Lionel Scaloni,Group,2026-06-17,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+19,Algeria,Argentina,algeria_petkovic,Vladimir Petkovic,Group,2026-06-17,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+20,Austria,Jordan,austria_rangnick,Ralf Rangnick,Group,2026-06-17,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+20,Jordan,Austria,jordan_sellami,Jamal Sellami,Group,2026-06-17,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+23,Portugal,Congo DR,portugal_martinez,Roberto Martinez,Group,2026-06-17,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+23,Congo DR,Portugal,congo_dr_desabre,Sebastien Desabre,Group,2026-06-17,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+22,England,Croatia,england_tuchel,Thomas Tuchel,Group,2026-06-17,,4,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+22,Croatia,England,croatia_dalic,Zlatko Dalic,Group,2026-06-17,,2,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+21,Ghana,Panama,ghana_queiroz,Carlos Queiroz,Group,2026-06-17,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+21,Panama,Ghana,panama_christiansen,Thomas Christiansen,Group,2026-06-17,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+24,Uzbekistan,Colombia,uzbekistan_cannavaro,Fabio Cannavaro,Group,2026-06-18,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+24,Colombia,Uzbekistan,colombia_lorenzo,Nestor Lorenzo,Group,2026-06-18,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+25,Czechia,South Africa,czechia_koubek,Miroslav Koubek,Group,2026-06-18,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+25,South Africa,Czechia,south_africa_broos,Hugo Broos,Group,2026-06-18,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+26,Switzerland,Bosnia and Herzegovina,switzerland_yakin,Murat Yakin,Group,2026-06-18,,4,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+26,Bosnia and Herzegovina,Switzerland,bosnia_barbarez,Sergej Barbarez,Group,2026-06-18,,1,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+27,Canada,Qatar,canada_marsch,Jesse Marsch,Group,2026-06-18,,6,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+27,Qatar,Canada,qatar_lopetegui,Julen Lopetegui,Group,2026-06-18,,0,6,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+28,Mexico,Korea Republic,mexico_aguirre,Javier Aguirre,Group,2026-06-19,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+28,Korea Republic,Mexico,korea_republic_hong,Hong Myung-bo,Group,2026-06-19,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+32,USA,Australia,usa_pochettino,Mauricio Pochettino,Group,2026-06-19,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+32,Australia,USA,australia_popovic,Tony Popovic,Group,2026-06-19,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+30,Scotland,Morocco,scotland_clarke,Steve Clarke,Group,2026-06-19,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+30,Morocco,Scotland,morocco_ouahbi,Mohamed Ouahbi,Group,2026-06-19,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+29,Brazil,Haiti,brazil_ancelotti,Carlo Ancelotti,Group,2026-06-20,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+29,Haiti,Brazil,haiti_migne,Sebastien Migne,Group,2026-06-20,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+31,Turkiye,Paraguay,turkiye_montella,Vincenzo Montella,Group,2026-06-20,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+31,Paraguay,Turkiye,paraguay_alfaro,Gustavo Alfaro,Group,2026-06-20,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+35,Netherlands,Sweden,netherlands_koeman,Ronald Koeman,Group,2026-06-20,,5,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+35,Sweden,Netherlands,sweden_potter,Graham Potter,Group,2026-06-20,,1,5,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+33,Germany,Cote d'Ivoire,germany_nagelsmann,Julian Nagelsmann,Group,2026-06-20,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+33,Cote d'Ivoire,Germany,cote_divoire_fae,Emerse Fae,Group,2026-06-20,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+34,Ecuador,Curacao,ecuador_beccacece,Sebastian Beccacece,Group,2026-06-21,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+34,Curacao,Ecuador,curacao_advocaat,Dick Advocaat,Group,2026-06-21,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+36,Tunisia,Japan,tunisia_lamouchi,Sabri Lamouchi,Group,2026-06-21,,0,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+36,Japan,Tunisia,japan_moriyasu,Hajime Moriyasu,Group,2026-06-21,,4,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+38,Spain,Saudi Arabia,spain_de_la_fuente,Luis de la Fuente,Group,2026-06-21,,4,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+38,Saudi Arabia,Spain,saudi_arabia_donis,Georgios Donis,Group,2026-06-21,,0,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+39,Belgium,IR Iran,belgium_garcia,Rudi Garcia,Group,2026-06-21,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+39,IR Iran,Belgium,iran_ghalenoei,Amir Ghalenoei,Group,2026-06-21,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+37,Uruguay,Cabo Verde,uruguay_bielsa,Marcelo Bielsa,Group,2026-06-21,,2,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+37,Cabo Verde,Uruguay,cabo_verde_bubista,Bubista,Group,2026-06-21,,2,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+40,New Zealand,Egypt,new_zealand_bazeley,Darren Bazeley,Group,2026-06-22,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+40,Egypt,New Zealand,egypt_hassan,Hossam Hassan,Group,2026-06-22,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+43,Argentina,Austria,argentina_scaloni,Lionel Scaloni,Group,2026-06-22,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+43,Austria,Argentina,austria_rangnick,Ralf Rangnick,Group,2026-06-22,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+42,France,Iraq,france_deschamps,Didier Deschamps,Group,2026-06-22,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+42,Iraq,France,iraq_arnold,Graham Arnold,Group,2026-06-22,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+41,Norway,Senegal,norway_solbakken,Stale Solbakken,Group,2026-06-23,,3,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+41,Senegal,Norway,senegal_thiaw,Pape Thiaw,Group,2026-06-23,,2,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+44,Jordan,Algeria,jordan_sellami,Jamal Sellami,Group,2026-06-23,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+44,Algeria,Jordan,algeria_petkovic,Vladimir Petkovic,Group,2026-06-23,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+47,Portugal,Uzbekistan,portugal_martinez,Roberto Martinez,Group,2026-06-23,,5,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+47,Uzbekistan,Portugal,uzbekistan_cannavaro,Fabio Cannavaro,Group,2026-06-23,,0,5,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+45,England,Ghana,england_tuchel,Thomas Tuchel,Group,2026-06-23,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+45,Ghana,England,ghana_queiroz,Carlos Queiroz,Group,2026-06-23,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+46,Panama,Croatia,panama_christiansen,Thomas Christiansen,Group,2026-06-23,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+46,Croatia,Panama,croatia_dalic,Zlatko Dalic,Group,2026-06-23,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+48,Colombia,Congo DR,colombia_lorenzo,Nestor Lorenzo,Group,2026-06-24,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+48,Congo DR,Colombia,congo_dr_desabre,Sebastien Desabre,Group,2026-06-24,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+51,Switzerland,Canada,switzerland_yakin,Murat Yakin,Group,2026-06-24,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+51,Canada,Switzerland,canada_marsch,Jesse Marsch,Group,2026-06-24,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+52,Bosnia and Herzegovina,Qatar,bosnia_barbarez,Sergej Barbarez,Group,2026-06-24,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+52,Qatar,Bosnia and Herzegovina,qatar_lopetegui,Julen Lopetegui,Group,2026-06-24,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+49,Scotland,Brazil,scotland_clarke,Steve Clarke,Group,2026-06-24,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+49,Brazil,Scotland,brazil_ancelotti,Carlo Ancelotti,Group,2026-06-24,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+50,Morocco,Haiti,morocco_ouahbi,Mohamed Ouahbi,Group,2026-06-24,,4,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+50,Haiti,Morocco,haiti_migne,Sebastien Migne,Group,2026-06-24,,2,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+53,Czechia,Mexico,czechia_koubek,Miroslav Koubek,Group,2026-06-25,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+53,Mexico,Czechia,mexico_aguirre,Javier Aguirre,Group,2026-06-25,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+54,South Africa,Korea Republic,south_africa_broos,Hugo Broos,Group,2026-06-25,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+54,Korea Republic,South Africa,korea_republic_hong,Hong Myung-bo,Group,2026-06-25,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+55,Curacao,Cote d'Ivoire,curacao_advocaat,Dick Advocaat,Group,2026-06-25,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+55,Cote d'Ivoire,Curacao,cote_divoire_fae,Emerse Fae,Group,2026-06-25,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+56,Ecuador,Germany,ecuador_beccacece,Sebastian Beccacece,Group,2026-06-25,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+56,Germany,Ecuador,germany_nagelsmann,Julian Nagelsmann,Group,2026-06-25,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+57,Japan,Sweden,japan_moriyasu,Hajime Moriyasu,Group,2026-06-25,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+57,Sweden,Japan,sweden_potter,Graham Potter,Group,2026-06-25,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+58,Tunisia,Netherlands,tunisia_lamouchi,Sabri Lamouchi,Group,2026-06-25,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+58,Netherlands,Tunisia,netherlands_koeman,Ronald Koeman,Group,2026-06-25,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+59,Turkiye,USA,turkiye_montella,Vincenzo Montella,Group,2026-06-26,,3,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+59,USA,Turkiye,usa_pochettino,Mauricio Pochettino,Group,2026-06-26,,2,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+60,Paraguay,Australia,paraguay_alfaro,Gustavo Alfaro,Group,2026-06-26,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+60,Australia,Paraguay,australia_popovic,Tony Popovic,Group,2026-06-26,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+61,Norway,France,norway_solbakken,Stale Solbakken,Group,2026-06-26,,1,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+61,France,Norway,france_deschamps,Didier Deschamps,Group,2026-06-26,,4,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+62,Senegal,Iraq,senegal_thiaw,Pape Thiaw,Group,2026-06-26,,5,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+62,Iraq,Senegal,iraq_arnold,Graham Arnold,Group,2026-06-26,,0,5,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+65,Cabo Verde,Saudi Arabia,cabo_verde_bubista,Bubista,Group,2026-06-27,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+65,Saudi Arabia,Cabo Verde,saudi_arabia_donis,Georgios Donis,Group,2026-06-27,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+66,Uruguay,Spain,uruguay_bielsa,Marcelo Bielsa,Group,2026-06-27,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+66,Spain,Uruguay,spain_de_la_fuente,Luis de la Fuente,Group,2026-06-27,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+63,Egypt,IR Iran,egypt_hassan,Hossam Hassan,Group,2026-06-27,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+63,IR Iran,Egypt,iran_ghalenoei,Amir Ghalenoei,Group,2026-06-27,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+64,New Zealand,Belgium,new_zealand_bazeley,Darren Bazeley,Group,2026-06-27,,1,5,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+64,Belgium,New Zealand,belgium_garcia,Rudi Garcia,Group,2026-06-27,,5,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+67,Panama,England,panama_christiansen,Thomas Christiansen,Group,2026-06-27,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+67,England,Panama,england_tuchel,Thomas Tuchel,Group,2026-06-27,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+68,Croatia,Ghana,croatia_dalic,Zlatko Dalic,Group,2026-06-27,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+68,Ghana,Croatia,ghana_queiroz,Carlos Queiroz,Group,2026-06-27,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+71,Colombia,Portugal,colombia_lorenzo,Nestor Lorenzo,Group,2026-06-27,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+71,Portugal,Colombia,portugal_martinez,Roberto Martinez,Group,2026-06-27,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+72,Congo DR,Uzbekistan,congo_dr_desabre,Sebastien Desabre,Group,2026-06-27,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+72,Uzbekistan,Congo DR,uzbekistan_cannavaro,Fabio Cannavaro,Group,2026-06-27,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+69,Algeria,Austria,algeria_petkovic,Vladimir Petkovic,Group,2026-06-28,,3,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+69,Austria,Algeria,austria_rangnick,Ralf Rangnick,Group,2026-06-28,,3,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+70,Jordan,Argentina,jordan_sellami,Jamal Sellami,Group,2026-06-28,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+70,Argentina,Jordan,argentina_scaloni,Lionel Scaloni,Group,2026-06-28,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+73,South Africa,Canada,south_africa_broos,Hugo Broos,Round of 32,2026-06-28,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+73,Canada,South Africa,canada_marsch,Jesse Marsch,Round of 32,2026-06-28,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+76,Brazil,Japan,brazil_ancelotti,Carlo Ancelotti,Round of 32,2026-06-29,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+76,Japan,Brazil,japan_moriyasu,Hajime Moriyasu,Round of 32,2026-06-29,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+74,Germany,Paraguay,germany_nagelsmann,Julian Nagelsmann,Round of 32,2026-06-29,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+74,Paraguay,Germany,paraguay_alfaro,Gustavo Alfaro,Round of 32,2026-06-29,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+75,Netherlands,Morocco,netherlands_koeman,Ronald Koeman,Round of 32,2026-06-30,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+75,Morocco,Netherlands,morocco_ouahbi,Mohamed Ouahbi,Round of 32,2026-06-30,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+78,Cote d'Ivoire,Norway,cote_divoire_fae,Emerse Fae,Round of 32,2026-06-30,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+78,Norway,Cote d'Ivoire,norway_solbakken,Stale Solbakken,Round of 32,2026-06-30,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+77,France,Sweden,france_deschamps,Didier Deschamps,Round of 32,2026-06-30,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+77,Sweden,France,sweden_potter,Graham Potter,Round of 32,2026-06-30,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+79,Mexico,Ecuador,mexico_aguirre,Javier Aguirre,Round of 32,2026-07-01,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+79,Ecuador,Mexico,ecuador_beccacece,Sebastian Beccacece,Round of 32,2026-07-01,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+80,England,Congo DR,england_tuchel,Thomas Tuchel,Round of 32,2026-07-01,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+80,Congo DR,England,congo_dr_desabre,Sebastien Desabre,Round of 32,2026-07-01,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+82,Belgium,Senegal,belgium_garcia,Rudi Garcia,Round of 32,2026-07-01,,3,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+82,Senegal,Belgium,senegal_thiaw,Pape Thiaw,Round of 32,2026-07-01,,2,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+81,USA,Bosnia and Herzegovina,usa_pochettino,Mauricio Pochettino,Round of 32,2026-07-02,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+81,Bosnia and Herzegovina,USA,bosnia_barbarez,Sergej Barbarez,Round of 32,2026-07-02,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+84,Spain,Austria,spain_de_la_fuente,Luis de la Fuente,Round of 32,2026-07-02,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+84,Austria,Spain,austria_rangnick,Ralf Rangnick,Round of 32,2026-07-02,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+83,Portugal,Croatia,portugal_martinez,Roberto Martinez,Round of 32,2026-07-02,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+83,Croatia,Portugal,croatia_dalic,Zlatko Dalic,Round of 32,2026-07-02,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+85,Switzerland,Algeria,switzerland_yakin,Murat Yakin,Round of 32,2026-07-03,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+85,Algeria,Switzerland,algeria_petkovic,Vladimir Petkovic,Round of 32,2026-07-03,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+88,Australia,Egypt,australia_popovic,Tony Popovic,Round of 32,2026-07-03,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+88,Egypt,Australia,egypt_hassan,Hossam Hassan,Round of 32,2026-07-03,,1,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+86,Argentina,Cabo Verde,argentina_scaloni,Lionel Scaloni,Round of 32,2026-07-03,,3,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+86,Cabo Verde,Argentina,cabo_verde_bubista,Bubista,Round of 32,2026-07-03,,2,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+87,Colombia,Ghana,colombia_lorenzo,Nestor Lorenzo,Round of 32,2026-07-04,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+87,Ghana,Colombia,ghana_queiroz,Carlos Queiroz,Round of 32,2026-07-04,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+90,Canada,Morocco,canada_marsch,Jesse Marsch,Round of 16,2026-07-04,,0,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+90,Morocco,Canada,morocco_ouahbi,Mohamed Ouahbi,Round of 16,2026-07-04,,3,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+89,Paraguay,France,paraguay_alfaro,Gustavo Alfaro,Round of 16,2026-07-04,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+89,France,Paraguay,france_deschamps,Didier Deschamps,Round of 16,2026-07-04,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+91,Brazil,Norway,brazil_ancelotti,Carlo Ancelotti,Round of 16,2026-07-05,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+91,Norway,Brazil,norway_solbakken,Stale Solbakken,Round of 16,2026-07-05,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+92,Mexico,England,mexico_aguirre,Javier Aguirre,Round of 16,2026-07-06,,2,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+92,England,Mexico,england_tuchel,Thomas Tuchel,Round of 16,2026-07-06,,3,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+93,Portugal,Spain,portugal_martinez,Roberto Martinez,Round of 16,2026-07-06,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+93,Spain,Portugal,spain_de_la_fuente,Luis de la Fuente,Round of 16,2026-07-06,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+94,USA,Belgium,usa_pochettino,Mauricio Pochettino,Round of 16,2026-07-07,,1,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+94,Belgium,USA,belgium_garcia,Rudi Garcia,Round of 16,2026-07-07,,4,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+95,Argentina,Egypt,argentina_scaloni,Lionel Scaloni,Round of 16,2026-07-07,,3,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+95,Egypt,Argentina,egypt_hassan,Hossam Hassan,Round of 16,2026-07-07,,2,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+96,Switzerland,Colombia,switzerland_yakin,Murat Yakin,Round of 16,2026-07-07,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+96,Colombia,Switzerland,colombia_lorenzo,Nestor Lorenzo,Round of 16,2026-07-07,,0,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+97,France,Morocco,france_deschamps,Didier Deschamps,Quarter-final,2026-07-09,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+97,Morocco,France,morocco_ouahbi,Mohamed Ouahbi,Quarter-final,2026-07-09,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+98,Spain,Belgium,spain_de_la_fuente,Luis de la Fuente,Quarter-final,2026-07-10,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+98,Belgium,Spain,belgium_garcia,Rudi Garcia,Quarter-final,2026-07-10,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+99,Norway,England,norway_solbakken,Stale Solbakken,Quarter-final,2026-07-11,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+99,England,Norway,england_tuchel,Thomas Tuchel,Quarter-final,2026-07-11,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+100,Argentina,Switzerland,argentina_scaloni,Lionel Scaloni,Quarter-final,2026-07-12,,3,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+100,Switzerland,Argentina,switzerland_yakin,Murat Yakin,Quarter-final,2026-07-12,,1,3,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+101,France,Spain,france_deschamps,Didier Deschamps,Semi-final,2026-07-14,,0,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+101,Spain,France,spain_de_la_fuente,Luis de la Fuente,Semi-final,2026-07-14,,2,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+102,England,Argentina,england_tuchel,Thomas Tuchel,Semi-final,2026-07-15,,1,2,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+102,Argentina,England,argentina_scaloni,Lionel Scaloni,Semi-final,2026-07-15,,2,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+103,France,England,france_deschamps,Didier Deschamps,Bronze final,2026-07-18,,4,6,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+103,England,France,england_tuchel,Thomas Tuchel,Bronze final,2026-07-18,,6,4,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+104,Spain,Argentina,spain_de_la_fuente,Luis de la Fuente,Final,2026-07-19,,1,0,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
+104,Argentina,Spain,argentina_scaloni,Lionel Scaloni,Final,2026-07-19,,0,1,,,,,,,,,0,score_only,observed_matches + actual_lineups + match_summary_signals,2026-08-15T18:45:58.505478+00:00
