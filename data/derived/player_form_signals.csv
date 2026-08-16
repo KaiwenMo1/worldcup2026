@@ -1,17 +1,17 @@
 player_id,player,team,recent_matches,recent_minutes,goals_per90,assists_per90,xg_per90,xa_per90,form_score,confidence,source,data_quality,updated_at
-brazil_alisson,Alisson,Brazil,1,17.0,0.0,0.0,0.0,0.0,35.0,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
-brazil_bruno_guimaraes,Bruno Guimaraes,Brazil,1,90.0,0.0,0.0,0.0,0.0,35.7,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
-brazil_casemiro,Casemiro,Brazil,1,47.0,0.0,0.0,0.0,0.0,36.34,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
-brazil_marquinhos,Marquinhos,Brazil,1,89.0,0.0,0.0,0.121,0.0,37.53,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
-brazil_raphinha,Raphinha,Brazil,1,61.0,1.475,0.0,0.738,0.0,90.33,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
-brazil_vinicius_junior,Vinicius Junior,Brazil,1,77.0,0.0,0.0,0.292,0.0,39.38,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
-france_adrien_rabiot,Adrien Rabiot,France,1,62.0,0.0,0.0,0.0,0.0,35.0,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
-france_antoine_griezmann,Antoine Griezmann,France,1,36.0,0.0,0.0,0.0,0.0,35.0,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
-france_aurelien_tchouameni,Aurelien Tchouameni,France,1,90.0,0.0,0.0,0.0,0.0,35.7,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
-france_dayot_upamecano,Dayot Upamecano,France,1,54.0,0.0,0.0,0.0,0.0,35.0,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
-france_jules_kounde,Jules Kounde,France,1,74.0,0.0,0.0,0.0,0.0,35.0,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
-france_kylian_mbappe,Kylian Mbappe,France,1,90.0,2.0,0.0,1.41,0.0,100.0,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
-france_mike_maignan,Mike Maignan,France,1,29.0,0.0,0.0,0.0,0.0,35.0,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
-france_ngolo_kante,Ngolo Kante,France,1,64.0,0.0,0.0,0.0,0.0,35.98,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
-france_ousmane_dembele,Ousmane Dembele,France,1,90.0,0.0,0.0,0.0,0.0,35.7,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
-france_william_saliba,William Saliba,France,1,90.0,0.0,0.0,0.0,0.0,35.7,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:32:39.657690Z
+brazil_alisson,Alisson,Brazil,1,17.0,0.0,0.0,0.0,0.0,35.0,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
+brazil_bruno_guimaraes,Bruno Guimaraes,Brazil,1,90.0,0.0,0.0,0.0,0.0,35.7,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
+brazil_casemiro,Casemiro,Brazil,1,47.0,0.0,0.0,0.0,0.0,36.34,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
+brazil_marquinhos,Marquinhos,Brazil,1,89.0,0.0,0.0,0.121,0.0,37.53,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
+brazil_raphinha,Raphinha,Brazil,1,61.0,1.475,0.0,0.738,0.0,90.33,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
+brazil_vinicius_junior,Vinicius Junior,Brazil,1,77.0,0.0,0.0,0.292,0.0,39.38,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
+france_adrien_rabiot,Adrien Rabiot,France,1,62.0,0.0,0.0,0.0,0.0,35.0,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
+france_antoine_griezmann,Antoine Griezmann,France,1,36.0,0.0,0.0,0.0,0.0,35.0,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
+france_aurelien_tchouameni,Aurelien Tchouameni,France,1,90.0,0.0,0.0,0.0,0.0,35.7,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
+france_dayot_upamecano,Dayot Upamecano,France,1,54.0,0.0,0.0,0.0,0.0,35.0,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
+france_jules_kounde,Jules Kounde,France,1,74.0,0.0,0.0,0.0,0.0,35.0,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
+france_kylian_mbappe,Kylian Mbappe,France,1,90.0,2.0,0.0,1.41,0.0,100.0,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
+france_mike_maignan,Mike Maignan,France,1,29.0,0.0,0.0,0.0,0.0,35.0,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
+france_ngolo_kante,Ngolo Kante,France,1,64.0,0.0,0.0,0.0,0.0,35.98,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
+france_ousmane_dembele,Ousmane Dembele,France,1,90.0,0.0,0.0,0.0,0.0,35.7,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
+france_william_saliba,William Saliba,France,1,90.0,0.0,0.0,0.0,0.0,35.7,0.164,normalized_player_match_stats,observed_recent_matches,2026-08-16T23:54:16.308521Z
