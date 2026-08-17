@@ -1,49 +1,49 @@
 team,manager_id,manager_name,matches_observed,confirmed_lineup_matches,last_confirmed_formation,most_common_formation,formation_confidence,avg_pressing_proxy,avg_counterattack_xg,avg_set_piece_xg,avg_field_tilt,source,data_quality,updated_at
-Algeria,algeria_petkovic,Vladimir Petkovic,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Argentina,argentina_scaloni,Lionel Scaloni,8,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Australia,australia_popovic,Tony Popovic,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Austria,austria_rangnick,Ralf Rangnick,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Belgium,belgium_garcia,Rudi Garcia,6,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Bosnia and Herzegovina,bosnia_barbarez,Sergej Barbarez,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Brazil,brazil_ancelotti,Carlo Ancelotti,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Cabo Verde,cabo_verde_bubista,Bubista,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Canada,canada_marsch,Jesse Marsch,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Colombia,colombia_lorenzo,Nestor Lorenzo,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Congo DR,congo_dr_desabre,Sebastien Desabre,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Cote d'Ivoire,cote_divoire_fae,Emerse Fae,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Croatia,croatia_dalic,Zlatko Dalic,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Curacao,curacao_advocaat,Dick Advocaat,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Czechia,czechia_koubek,Miroslav Koubek,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Ecuador,ecuador_beccacece,Sebastian Beccacece,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Egypt,egypt_hassan,Hossam Hassan,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-England,england_tuchel,Thomas Tuchel,8,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-France,france_deschamps,Didier Deschamps,8,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Germany,germany_nagelsmann,Julian Nagelsmann,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Ghana,ghana_queiroz,Carlos Queiroz,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Haiti,haiti_migne,Sebastien Migne,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-IR Iran,iran_ghalenoei,Amir Ghalenoei,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Iraq,iraq_arnold,Graham Arnold,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Japan,japan_moriyasu,Hajime Moriyasu,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Jordan,jordan_sellami,Jamal Sellami,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Korea Republic,korea_republic_hong,Hong Myung-bo,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Mexico,mexico_aguirre,Javier Aguirre,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Morocco,morocco_ouahbi,Mohamed Ouahbi,6,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Netherlands,netherlands_koeman,Ronald Koeman,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-New Zealand,new_zealand_bazeley,Darren Bazeley,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Norway,norway_solbakken,Stale Solbakken,6,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Panama,panama_christiansen,Thomas Christiansen,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Paraguay,paraguay_alfaro,Gustavo Alfaro,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Portugal,portugal_martinez,Roberto Martinez,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Qatar,qatar_lopetegui,Julen Lopetegui,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Saudi Arabia,saudi_arabia_donis,Georgios Donis,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Scotland,scotland_clarke,Steve Clarke,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Senegal,senegal_thiaw,Pape Thiaw,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-South Africa,south_africa_broos,Hugo Broos,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Spain,spain_de_la_fuente,Luis de la Fuente,8,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Sweden,sweden_potter,Graham Potter,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Switzerland,switzerland_yakin,Murat Yakin,6,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Tunisia,tunisia_lamouchi,Sabri Lamouchi,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Turkiye,turkiye_montella,Vincenzo Montella,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-USA,usa_pochettino,Mauricio Pochettino,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Uruguay,uruguay_bielsa,Marcelo Bielsa,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
-Uzbekistan,uzbekistan_cannavaro,Fabio Cannavaro,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T14:41:30.020187+00:00
+Algeria,algeria_petkovic,Vladimir Petkovic,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Argentina,argentina_scaloni,Lionel Scaloni,8,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Australia,australia_popovic,Tony Popovic,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Austria,austria_rangnick,Ralf Rangnick,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Belgium,belgium_garcia,Rudi Garcia,6,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Bosnia and Herzegovina,bosnia_barbarez,Sergej Barbarez,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Brazil,brazil_ancelotti,Carlo Ancelotti,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Cabo Verde,cabo_verde_bubista,Bubista,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Canada,canada_marsch,Jesse Marsch,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Colombia,colombia_lorenzo,Nestor Lorenzo,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Congo DR,congo_dr_desabre,Sebastien Desabre,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Cote d'Ivoire,cote_divoire_fae,Emerse Fae,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Croatia,croatia_dalic,Zlatko Dalic,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Curacao,curacao_advocaat,Dick Advocaat,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Czechia,czechia_koubek,Miroslav Koubek,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Ecuador,ecuador_beccacece,Sebastian Beccacece,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Egypt,egypt_hassan,Hossam Hassan,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+England,england_tuchel,Thomas Tuchel,8,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+France,france_deschamps,Didier Deschamps,8,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Germany,germany_nagelsmann,Julian Nagelsmann,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Ghana,ghana_queiroz,Carlos Queiroz,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Haiti,haiti_migne,Sebastien Migne,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+IR Iran,iran_ghalenoei,Amir Ghalenoei,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Iraq,iraq_arnold,Graham Arnold,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Japan,japan_moriyasu,Hajime Moriyasu,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Jordan,jordan_sellami,Jamal Sellami,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Korea Republic,korea_republic_hong,Hong Myung-bo,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Mexico,mexico_aguirre,Javier Aguirre,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Morocco,morocco_ouahbi,Mohamed Ouahbi,6,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Netherlands,netherlands_koeman,Ronald Koeman,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+New Zealand,new_zealand_bazeley,Darren Bazeley,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Norway,norway_solbakken,Stale Solbakken,6,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Panama,panama_christiansen,Thomas Christiansen,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Paraguay,paraguay_alfaro,Gustavo Alfaro,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Portugal,portugal_martinez,Roberto Martinez,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Qatar,qatar_lopetegui,Julen Lopetegui,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Saudi Arabia,saudi_arabia_donis,Georgios Donis,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Scotland,scotland_clarke,Steve Clarke,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Senegal,senegal_thiaw,Pape Thiaw,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+South Africa,south_africa_broos,Hugo Broos,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Spain,spain_de_la_fuente,Luis de la Fuente,8,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Sweden,sweden_potter,Graham Potter,4,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Switzerland,switzerland_yakin,Murat Yakin,6,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Tunisia,tunisia_lamouchi,Sabri Lamouchi,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Turkiye,turkiye_montella,Vincenzo Montella,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+USA,usa_pochettino,Mauricio Pochettino,5,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Uruguay,uruguay_bielsa,Marcelo Bielsa,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
+Uzbekistan,uzbekistan_cannavaro,Fabio Cannavaro,3,0,,,0.0,0.0,0.0,0.0,0.0,manager_match_observations.csv,score_or_event_only,2026-08-17T15:14:09.429288+00:00
