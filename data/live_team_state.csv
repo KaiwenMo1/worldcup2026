@@ -1,49 +1,49 @@
 team,posterior_strength_delta,live_xg_for,live_xg_against,injury_load,momentum,matches_played,source,updated_at
-Algeria,-2.5,1.25,2.25,0.0,-1.0,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Argentina,3.438,2.375,1.0,0.0,1.375,8,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Australia,0.0,0.75,0.75,0.0,0.0,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Austria,-1.875,1.5,2.25,0.0,-0.75,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Belgium,2.917,2.333,1.167,0.0,1.167,6,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Bosnia and Herzegovina,-1.875,1.25,2.0,0.0,-0.75,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Brazil,3.0,2.0,0.8,0.0,1.2,5,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Cabo Verde,-0.625,1.0,1.25,0.0,-0.25,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Canada,1.5,1.8,1.2,0.0,0.6,5,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Colombia,2.0,1.0,0.2,0.0,0.8,5,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Congo DR,0.0,1.25,1.25,0.0,0.0,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Cote d'Ivoire,0.625,1.25,1.0,0.0,0.25,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Croatia,-0.625,1.5,1.75,0.0,-0.25,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Curacao,-6.667,0.333,3.0,0.0,-2.667,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Czechia,-3.333,0.667,2.0,0.0,-1.333,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Ecuador,-1.25,0.5,1.0,0.0,-0.5,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Egypt,0.5,1.6,1.4,0.0,0.2,5,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-England,2.5,2.5,1.5,0.0,1.0,8,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-France,3.125,2.5,1.25,0.0,1.25,8,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Germany,3.75,2.75,1.25,0.0,1.5,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Ghana,-0.625,0.5,0.75,0.0,-0.25,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Haiti,-5.0,0.667,2.667,0.0,-2.0,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-IR Iran,0.0,1.0,1.0,0.0,0.0,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Iraq,-9.167,0.333,4.0,0.0,-3.667,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Japan,1.875,2.0,1.25,0.0,0.75,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Jordan,-4.167,1.0,2.667,0.0,-1.667,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Korea Republic,-0.833,0.667,1.0,0.0,-0.333,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Mexico,3.5,2.0,0.6,0.0,1.4,5,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Morocco,1.667,1.667,1.0,0.0,0.667,6,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Netherlands,3.75,2.75,1.25,0.0,1.5,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-New Zealand,-5.0,1.333,3.333,0.0,-2.0,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Norway,0.833,2.167,1.833,0.0,0.333,6,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Panama,-3.333,0.0,1.333,0.0,-1.333,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Paraguay,-1.5,0.6,1.2,0.0,-0.6,5,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Portugal,2.5,1.6,0.6,0.0,1.0,5,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Qatar,-6.667,0.667,3.333,0.0,-2.667,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Saudi Arabia,-3.333,0.333,1.667,0.0,-1.333,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Scotland,-2.5,0.333,1.333,0.0,-1.0,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Senegal,0.625,2.5,2.25,0.0,0.25,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-South Africa,-1.25,0.5,1.0,0.0,-0.5,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Spain,4.062,1.75,0.125,0.0,1.625,8,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Sweden,-1.875,1.75,2.5,0.0,-0.75,4,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Switzerland,1.667,1.667,1.0,0.0,0.667,6,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Tunisia,-8.333,0.667,4.0,0.0,-3.333,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Turkiye,-1.667,1.0,1.667,0.0,-0.667,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-USA,1.5,2.2,1.6,0.0,0.6,5,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Uruguay,-0.833,1.0,1.333,0.0,-0.333,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
-Uzbekistan,-7.5,0.667,3.667,0.0,-3.0,3,observed_matches + match_summary_signals,2026-08-23T11:41:47.058259+00:00
+Algeria,-2.5,1.25,2.25,0.0,-1.0,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Argentina,3.438,2.375,1.0,0.0,1.375,8,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Australia,0.0,0.75,0.75,0.0,0.0,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Austria,-1.875,1.5,2.25,0.0,-0.75,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Belgium,2.917,2.333,1.167,0.0,1.167,6,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Bosnia and Herzegovina,-1.875,1.25,2.0,0.0,-0.75,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Brazil,3.0,2.0,0.8,0.0,1.2,5,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Cabo Verde,-0.625,1.0,1.25,0.0,-0.25,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Canada,1.5,1.8,1.2,0.0,0.6,5,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Colombia,2.0,1.0,0.2,0.0,0.8,5,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Congo DR,0.0,1.25,1.25,0.0,0.0,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Cote d'Ivoire,0.625,1.25,1.0,0.0,0.25,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Croatia,-0.625,1.5,1.75,0.0,-0.25,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Curacao,-6.667,0.333,3.0,0.0,-2.667,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Czechia,-3.333,0.667,2.0,0.0,-1.333,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Ecuador,-1.25,0.5,1.0,0.0,-0.5,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Egypt,0.5,1.6,1.4,0.0,0.2,5,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+England,2.5,2.5,1.5,0.0,1.0,8,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+France,3.125,2.5,1.25,0.0,1.25,8,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Germany,3.75,2.75,1.25,0.0,1.5,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Ghana,-0.625,0.5,0.75,0.0,-0.25,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Haiti,-5.0,0.667,2.667,0.0,-2.0,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+IR Iran,0.0,1.0,1.0,0.0,0.0,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Iraq,-9.167,0.333,4.0,0.0,-3.667,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Japan,1.875,2.0,1.25,0.0,0.75,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Jordan,-4.167,1.0,2.667,0.0,-1.667,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Korea Republic,-0.833,0.667,1.0,0.0,-0.333,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Mexico,3.5,2.0,0.6,0.0,1.4,5,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Morocco,1.667,1.667,1.0,0.0,0.667,6,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Netherlands,3.75,2.75,1.25,0.0,1.5,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+New Zealand,-5.0,1.333,3.333,0.0,-2.0,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Norway,0.833,2.167,1.833,0.0,0.333,6,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Panama,-3.333,0.0,1.333,0.0,-1.333,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Paraguay,-1.5,0.6,1.2,0.0,-0.6,5,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Portugal,2.5,1.6,0.6,0.0,1.0,5,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Qatar,-6.667,0.667,3.333,0.0,-2.667,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Saudi Arabia,-3.333,0.333,1.667,0.0,-1.333,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Scotland,-2.5,0.333,1.333,0.0,-1.0,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Senegal,0.625,2.5,2.25,0.0,0.25,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+South Africa,-1.25,0.5,1.0,0.0,-0.5,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Spain,4.062,1.75,0.125,0.0,1.625,8,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Sweden,-1.875,1.75,2.5,0.0,-0.75,4,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Switzerland,1.667,1.667,1.0,0.0,0.667,6,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Tunisia,-8.333,0.667,4.0,0.0,-3.333,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Turkiye,-1.667,1.0,1.667,0.0,-0.667,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+USA,1.5,2.2,1.6,0.0,0.6,5,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Uruguay,-0.833,1.0,1.333,0.0,-0.333,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
+Uzbekistan,-7.5,0.667,3.667,0.0,-3.0,3,observed_matches + match_summary_signals,2026-08-23T12:12:20.444041+00:00
